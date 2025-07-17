@@ -183,28 +183,27 @@
         }
 
         .topic-number {
-            color: black; /* Cambiado de rgba(255,255,255,0.7) a negro */
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-right: 1rem;
-            background: rgba(0,0,0,0.05); /* Ligeramente ajustado para mejor contraste */
-            padding: 0.3rem 0.8rem;
-            border-radius: 10px;
+            color: black;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-right: 1rem;
+            background: rgba(0,0,0,0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 10px;
         }
 
         .topic-text {
-            color: black; /* Cambiado de white a negro */
-            font-weight: 500;
-            font-size: 1rem;
-            line-height: 1.4;
-            flex: 1;
+            color: black;
+            font-weight: 500;
+            font-size: 1rem;
+            line-height: 1.4;
+            flex: 1;
         }
 
         .topic-expand-icon {
-            color: black; /* Cambiado de white a negro */
-            font-size: 1.2rem;
-            margin-left: 1rem;
-            transition: transform 0.3s ease;
+            color: black;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
         }
 
         .topic-item.expanded .topic-expand-icon {
@@ -231,13 +230,13 @@
         }
 
         .topic-content-inner h4 {
-            color: #feca57;
+            color: black;
             margin-bottom: 1rem;
             font-size: 1.2rem;
         }
 
         .topic-content-inner h5 {
-            color: #4ecdc4;
+            color: black;
             margin: 1.5rem 0 0.8rem 0;
             font-size: 1.1rem;
         }
@@ -269,6 +268,7 @@
             font-weight: 600;
             margin-bottom: 1rem;
             text-align: center;
+            font-size: 1.1rem;
         }
 
         .flow-diagram {
@@ -427,9 +427,10 @@
         }
 
         .instructions p {
-            color: rgba(255,255,255,0.9);
+            color: black;
             line-height: 1.6;
             margin-bottom: 0.5rem;
+            font-weight: 500;
         }
 
         .video-section {
@@ -462,6 +463,284 @@
             width: 100%;
             height: 100%;
             border-radius: 15px;
+        }
+
+        /* Trivia Game Styles */
+        .trivia-game {
+            background: #001100;
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trivia-game::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 0, 0.05), transparent);
+            pointer-events: none;
+        }
+
+        .trivia-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #00ff00;
+            padding-bottom: 1rem;
+        }
+
+        .trivia-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #00ff00;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00ff00; }
+            to { text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00; }
+        }
+
+        .trivia-setup {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .setup-group {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid #00ff00;
+            border-radius: 10px;
+            padding: 1rem;
+        }
+
+        .setup-label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .setup-select, .setup-input {
+            width: 100%;
+            background: #000000;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .setup-select:focus, .setup-input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .setup-select option {
+            background: #000000;
+            color: #00ff00;
+        }
+
+        .trivia-button {
+            background: #00ff00;
+            color: #000000;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .trivia-button:hover {
+            background: #000000;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .trivia-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .question-container {
+            background: rgba(0, 255, 0, 0.05);
+            border: 1px solid #00ff00;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 1rem;
+        }
+
+        .question-number {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .question-score {
+            font-size: 1.1rem;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .option-button {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .option-button:hover {
+            background: rgba(0, 255, 0, 0.2);
+            transform: translateX(5px);
+        }
+
+        .option-button.selected {
+            background: #00ff00;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .option-button.correct {
+            background: #00ff00;
+            color: #000000;
+            animation: pulse 0.5s ease-in-out;
+        }
+
+        .option-button.incorrect {
+            background: #ff3333;
+            color: white;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .progress-container {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid #00ff00;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .progress-bar-trivia {
+            background: #000000;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            height: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            background: #00ff00;
+            height: 100%;
+            transition: width 0.3s ease;
+            position: relative;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000000;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .final-score {
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            background: rgba(0, 255, 0, 0.1);
+        }
+
+        .final-score h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .score-details {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .score-percentage {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #00ff00;
+            text-shadow: 0 0 20px #00ff00;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #00ff00;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         @keyframes fadeInDown {
@@ -537,6 +816,14 @@
 
             .video-wrapper {
                 padding-bottom: 56.25%;
+            }
+
+            .trivia-setup {
+                grid-template-columns: 1fr;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -864,6 +1151,46 @@
                                 </ul>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Trivia Game Component -->
+                    <div id="trivia-week-1" class="trivia-game">
+                        <div class="trivia-header">
+                            <h3 class="trivia-title">🎮 Trivia: Modelos de Aplicación del Coaching</h3>
+                            <p style="text-align: center; margin-top: 0.5rem; opacity: 0.8;">Pon a prueba tus conocimientos sobre los fundamentos del coaching</p>
+                        </div>
+                        
+                        <div id="trivia-setup-1" class="trivia-setup">
+                            <div class="setup-group">
+                                <div class="setup-label">📚 Categorías</div>
+                                <select id="categories-1" class="setup-select" multiple>
+                                    <option value="self-coaching">Self Coaching</option>
+                                    <option value="coaching-individual">Coaching Individual</option>
+                                    <option value="team-building">Team Building</option>
+                                    <option value="team-coaching">Team Coaching</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">⚡ Dificultad</div>
+                                <select id="difficulty-1" class="setup-select">
+                                    <option value="facil">Fácil</option>
+                                    <option value="medio">Medio</option>
+                                    <option value="dificil">Difícil</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">🎯 Preguntas</div>
+                                <input type="number" id="questions-1" class="setup-input" min="3" max="15" value="5">
+                            </div>
+                            
+                            <div class="setup-group">
+                                <button id="start-trivia-1" class="trivia-button" onclick="startTrivia(1)">Iniciar Trivia</button>
+                            </div>
+                        </div>
+                        
+                        <div id="trivia-game-1" style="display: none;"></div>
                     </div>
                 </div>
 
@@ -1249,6 +1576,46 @@
                                 </ul>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Trivia Game Component -->
+                    <div id="trivia-week-3" class="trivia-game">
+                        <div class="trivia-header">
+                            <h3 class="trivia-title">🎮 Trivia: Inteligencia Emocional</h3>
+                            <p style="text-align: center; margin-top: 0.5rem; opacity: 0.8;">Evalúa tus conocimientos sobre inteligencia emocional en equipos</p>
+                        </div>
+                        
+                        <div id="trivia-setup-3" class="trivia-setup">
+                            <div class="setup-group">
+                                <div class="setup-label">📚 Categorías</div>
+                                <select id="categories-3" class="setup-select" multiple>
+                                    <option value="concepto-ie">Concepto de IE</option>
+                                    <option value="manejo-emociones">Manejo de Emociones</option>
+                                    <option value="impacto-emociones">Impacto de Emociones</option>
+                                    <option value="tecnicas-ie">Técnicas de IE</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">⚡ Dificultad</div>
+                                <select id="difficulty-3" class="setup-select">
+                                    <option value="facil">Fácil</option>
+                                    <option value="medio">Medio</option>
+                                    <option value="dificil">Difícil</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">🎯 Preguntas</div>
+                                <input type="number" id="questions-3" class="setup-input" min="3" max="15" value="5">
+                            </div>
+                            
+                            <div class="setup-group">
+                                <button id="start-trivia-3" class="trivia-button" onclick="startTrivia(3)">Iniciar Trivia</button>
+                            </div>
+                        </div>
+                        
+                        <div id="trivia-game-3" style="display: none;"></div>
                     </div>
                 </div>
 
@@ -2007,6 +2374,47 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Trivia Game Component -->
+                    <div id="trivia-week-4-5" class="trivia-game">
+                        <div class="trivia-header">
+                            <h3 class="trivia-title">🎮 Trivia: Desarrollo del Coaching en Grupos</h3>
+                            <p style="text-align: center; margin-top: 0.5rem; opacity: 0.8;">Demuestra tu comprensión sobre procesos grupales y desarrollo de equipos</p>
+                        </div>
+                        
+                        <div id="trivia-setup-4" class="trivia-setup">
+                            <div class="setup-group">
+                                <div class="setup-label">📚 Categorías</div>
+                                <select id="categories-4" class="setup-select" multiple>
+                                    <option value="procesos-creativos">Procesos Creativos</option>
+                                    <option value="cohesion-grupal">Cohesión Grupal</option>
+                                    <option value="atencion-proceso">Atención al Proceso</option>
+                                    <option value="confianza-grupal">Confianza Grupal</option>
+                                    <option value="roles-belbin">Roles de Belbin</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">⚡ Dificultad</div>
+                                <select id="difficulty-4" class="setup-select">
+                                    <option value="facil">Fácil</option>
+                                    <option value="medio">Medio</option>
+                                    <option value="dificil">Difícil</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">🎯 Preguntas</div>
+                                <input type="number" id="questions-4" class="setup-input" min="3" max="15" value="5">
+                            </div>
+                            
+                            <div class="setup-group">
+                                <button id="start-trivia-4" class="trivia-button" onclick="startTrivia(4)">Iniciar Trivia</button>
+                            </div>
+                        </div>
+                        
+                        <div id="trivia-game-4" style="display: none;"></div>
+                    </div>
                 </div>
 
                 <div class="references">
@@ -2590,6 +2998,45 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Trivia Game Component -->
+                    <div id="trivia-week-6" class="trivia-game">
+                        <div class="trivia-header">
+                            <h3 class="trivia-title">🎮 Trivia: Equipos de Alto Desempeño</h3>
+                            <p style="text-align: center; margin-top: 0.5rem; opacity: 0.8;">Evalúa tu conocimiento sobre estrategias para equipos de alto rendimiento</p>
+                        </div>
+                        
+                        <div id="trivia-setup-6" class="trivia-setup">
+                            <div class="setup-group">
+                                <div class="setup-label">📚 Categorías</div>
+                                <select id="categories-6" class="setup-select" multiple>
+                                    <option value="estrategia">Estrategia</option>
+                                    <option value="implementacion">Implementación</option>
+                                    <option value="seguimiento">Seguimiento</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">⚡ Dificultad</div>
+                                <select id="difficulty-6" class="setup-select">
+                                    <option value="facil">Fácil</option>
+                                    <option value="medio">Medio</option>
+                                    <option value="dificil">Difícil</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">🎯 Preguntas</div>
+                                <input type="number" id="questions-6" class="setup-input" min="3" max="15" value="5">
+                            </div>
+                            
+                            <div class="setup-group">
+                                <button id="start-trivia-6" class="trivia-button" onclick="startTrivia(6)">Iniciar Trivia</button>
+                            </div>
+                        </div>
+                        
+                        <div id="trivia-game-6" style="display: none;"></div>
+                    </div>
                 </div>
 
                 <div class="references">
@@ -3099,6 +3546,45 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Trivia Game Component -->
+                    <div id="trivia-week-7" class="trivia-game">
+                        <div class="trivia-header">
+                            <h3 class="trivia-title">🎮 Trivia: Prácticas de Coaching Empresarial</h3>
+                            <p style="text-align: center; margin-top: 0.5rem; opacity: 0.8;">Finaliza tu aprendizaje con aspectos prácticos del coaching empresarial</p>
+                        </div>
+                        
+                        <div id="trivia-setup-7" class="trivia-setup">
+                            <div class="setup-group">
+                                <div class="setup-label">📚 Categorías</div>
+                                <select id="categories-7" class="setup-select" multiple>
+                                    <option value="recursos-coaching">Recursos de Coaching</option>
+                                    <option value="aspectos-tecnicos">Aspectos Técnicos</option>
+                                    <option value="logistica">Logística</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">⚡ Dificultad</div>
+                                <select id="difficulty-7" class="setup-select">
+                                    <option value="facil">Fácil</option>
+                                    <option value="medio">Medio</option>
+                                    <option value="dificil">Difícil</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">🎯 Preguntas</div>
+                                <input type="number" id="questions-7" class="setup-input" min="3" max="15" value="5">
+                            </div>
+                            
+                            <div class="setup-group">
+                                <button id="start-trivia-7" class="trivia-button" onclick="startTrivia(7)">Iniciar Trivia</button>
+                            </div>
+                        </div>
+                        
+                        <div id="trivia-game-7" style="display: none;"></div>
+                    </div>
                 </div>
 
                 <div class="references">
@@ -3113,6 +3599,7 @@
                     </ul>
                 </div>
             </div>
+                                
 
         </div>
 
@@ -3140,12 +3627,23 @@
                         <div style="font-size: 2rem; color: #96ceb4;">30+</div>
                         <div style="color: black;">Referencias APA</div>
                     </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; color: #00ff00;">7</div>
+                        <div style="color: black;">Trivias Interactivas</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+        // Trivia Game Logic
+        let currentTrivia = null;
+        let currentQuestion = 0;
+        let score = 0;
+        let questions = [];
+        let userAnswers = [];
+
         // Progress bar animation
         window.addEventListener('scroll', () => {
             const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
@@ -3154,6 +3652,9 @@
 
         // Toggle week sections
         function toggleWeek(header) {
+            event.preventDefault();
+            event.stopPropagation();
+            
             const weekCard = header.closest('.week-card');
             const isExpanded = weekCard.classList.contains('expanded');
             
@@ -3166,6 +3667,9 @@
 
         // Toggle topic sections
         function toggleTopic(header) {
+            event.preventDefault();
+            event.stopPropagation();
+            
             const topicItem = header.closest('.topic-item');
             const isExpanded = topicItem.classList.contains('expanded');
             
@@ -3194,6 +3698,421 @@
             document.querySelectorAll('.topic-item').forEach(item => {
                 item.classList.remove('expanded');
             });
+        }
+
+        // Start Trivia Function
+        async function startTrivia(weekNumber) {
+            const categoriesElement = document.getElementById(`categories-${weekNumber === 4 ? '4' : weekNumber}`);
+            const difficultyElement = document.getElementById(`difficulty-${weekNumber === 4 ? '4' : weekNumber}`);
+            const questionsElement = document.getElementById(`questions-${weekNumber === 4 ? '4' : weekNumber}`);
+            
+            const categories = Array.from(categoriesElement.selectedOptions).map(option => option.value);
+            const difficulty = difficultyElement.value;
+            const numQuestions = parseInt(questionsElement.value);
+
+            if (categories.length === 0) {
+                alert('Por favor selecciona al menos una categoría');
+                return;
+            }
+
+            const button = document.getElementById(`start-trivia-${weekNumber === 4 ? '4' : weekNumber}`);
+            button.disabled = true;
+            button.innerHTML = '<span class="loading-spinner"></span> Generando preguntas...';
+
+            try {
+                currentTrivia = weekNumber === 4 ? 4 : weekNumber;
+                await generateQuestions(categories, difficulty, numQuestions, weekNumber);
+                startGame(weekNumber);
+            } catch (error) {
+                console.error('Error generating questions:', error);
+                alert('Error al generar las preguntas. Por favor intenta de nuevo.');
+                button.disabled = false;
+                button.innerHTML = 'Iniciar Trivia';
+            }
+        }
+
+        async function generateQuestions(categories, difficulty, numQuestions, weekNumber) {
+            const weekTopics = {
+                1: 'Modelos de aplicación del coaching: Self coaching, Coaching individual, Team building, Team coaching',
+                3: 'Inteligencia emocional: Concepto de IE, Manejo de emociones, Impacto de emociones, Técnicas de IE',
+                4: 'Desarrollo del coaching en grupos: Procesos creativos, Cohesión grupal, Atención al proceso, Confianza grupal, Roles de Belbin',
+                6: 'Equipos de alto desempeño: Estrategia, Implementación, Seguimiento',
+                7: 'Prácticas de coaching empresarial: Recursos de coaching, Aspectos técnicos, Logística'
+            };
+
+            const prompt = `
+            Eres un experto en coaching empresarial. Genera exactamente ${numQuestions} preguntas de trivia sobre la semana ${weekNumber} del programa de coaching grupal.
+            
+            Tema principal: ${weekTopics[weekNumber]}
+            Categorías: ${categories.join(', ')}
+            Dificultad: ${difficulty}
+            
+            Cada pregunta debe tener 4 opciones (A, B, C, D) con solo una correcta.
+            
+            Dificultad:
+            - Fácil: Conceptos básicos
+            - Medio: Aplicación práctica 
+            - Difícil: Análisis avanzado
+            
+            RESPONDE ÚNICAMENTE con este JSON válido (sin texto adicional):
+            {
+              "questions": [
+                {
+                  "question": "¿Cuál es la definición de coaching individual?",
+                  "options": {
+                    "A": "Proceso grupal de desarrollo",
+                    "B": "Acompañamiento reflexivo personalizado",
+                    "C": "Actividad recreativa",
+                    "D": "Evaluación de desempeño"
+                  },
+                  "correct": "B",
+                  "explanation": "El coaching individual es un acompañamiento reflexivo y creativo personalizado."
+                }
+              ]
+            }
+            `;
+
+            try {
+                const response = await window.claude.complete(prompt);
+                
+                // Limpiar la respuesta de posibles caracteres extra
+                let cleanResponse = response.trim();
+                if (cleanResponse.startsWith('```json')) {
+                    cleanResponse = cleanResponse.replace(/```json\n?/, '').replace(/```$/, '');
+                }
+                if (cleanResponse.startsWith('```')) {
+                    cleanResponse = cleanResponse.replace(/```\n?/, '').replace(/```$/, '');
+                }
+                
+                const data = JSON.parse(cleanResponse);
+                
+                if (!data.questions || !Array.isArray(data.questions)) {
+                    throw new Error('Formato de respuesta inválido');
+                }
+                
+                questions = data.questions;
+                currentQuestion = 0;
+                score = 0;
+                userAnswers = [];
+                
+            } catch (error) {
+                console.error('Error parsing response:', error);
+                // Fallback con preguntas predeterminadas
+                questions = generateFallbackQuestions(weekNumber, numQuestions);
+                currentQuestion = 0;
+                score = 0;
+                userAnswers = [];
+            }
+        }
+
+        function generateFallbackQuestions(weekNumber, numQuestions) {
+            const fallbackQuestions = {
+                1: [
+                    {
+                        question: "¿Qué significa GROW en el modelo de coaching?",
+                        options: {
+                            A: "Goal, Reality, Options, Will",
+                            B: "Great, Real, Optimal, Win",
+                            C: "Group, Resources, Objectives, Work",
+                            D: "Generate, Review, Organize, Write"
+                        },
+                        correct: "A",
+                        explanation: "GROW significa Goal (Meta), Reality (Realidad), Options (Opciones), Will (Voluntad)"
+                    },
+                    {
+                        question: "¿Cuál es la diferencia principal entre Team Building y Team Coaching?",
+                        options: {
+                            A: "No hay diferencia",
+                            B: "Team Building son eventos puntuales, Team Coaching es proceso continuo",
+                            C: "Team Building es más caro",
+                            D: "Team Coaching es solo para gerentes"
+                        },
+                        correct: "B",
+                        explanation: "Team Building son eventos puntuales para fortalecer relaciones, mientras Team Coaching es un proceso continuo de desarrollo integral"
+                    }
+                ],
+                3: [
+                    {
+                        question: "¿Cuántas áreas de la Inteligencia Emocional identificó Goleman?",
+                        options: {
+                            A: "3 áreas",
+                            B: "4 áreas", 
+                            C: "5 áreas",
+                            D: "6 áreas"
+                        },
+                        correct: "C",
+                        explanation: "Goleman identificó 5 áreas: Autoconocimiento, Autoregulación, Motivación, Empatía y Habilidades Sociales"
+                    },
+                    {
+                        question: "¿Qué porcentaje más productivos son los trabajadores felices según estudios?",
+                        options: {
+                            A: "5%",
+                            B: "8%",
+                            C: "12%",
+                            D: "15%"
+                        },
+                        correct: "C",
+                        explanation: "Estudios muestran que los trabajadores felices son 12% más productivos"
+                    }
+                ],
+                4: [
+                    {
+                        question: "¿Cuántos roles identificó Belbin en los equipos?",
+                        options: {
+                            A: "6 roles",
+                            B: "7 roles",
+                            C: "8 roles", 
+                            D: "9 roles"
+                        },
+                        correct: "D",
+                        explanation: "Belbin identificó 9 roles específicos distribuidos en 3 categorías: Acción, Mentales y Sociales"
+                    },
+                    {
+                        question: "¿Cuáles son las fases del modelo de Tuckman?",
+                        options: {
+                            A: "Forming, Storming, Norming, Performing",
+                            B: "Start, Work, End, Review",
+                            C: "Plan, Do, Check, Act",
+                            D: "Create, Build, Test, Launch"
+                        },
+                        correct: "A",
+                        explanation: "Tuckman propuso: Forming (Constitución), Storming (Conflicto), Norming (Normalización), Performing (Ejecución)"
+                    }
+                ],
+                6: [
+                    {
+                        question: "¿Qué significa SMART en objetivos?",
+                        options: {
+                            A: "Simple, Measurable, Achievable, Realistic, Timely",
+                            B: "Specific, Measurable, Attainable, Realistic, Timely",
+                            C: "Strategic, Modern, Adaptive, Relevant, Technical",
+                            D: "Strong, Motivated, Active, Responsible, Trustworthy"
+                        },
+                        correct: "B",
+                        explanation: "SMART significa Specific, Measurable, Attainable, Realistic, Timely"
+                    }
+                ],
+                7: [
+                    {
+                        question: "¿Cuáles son las categorías principales de recursos de coaching?",
+                        options: {
+                            A: "Solo herramientas físicas",
+                            B: "Herramientas, Metodologías, Tecnología, Materiales",
+                            C: "Únicamente software",
+                            D: "Solo libros y documentos"
+                        },
+                        correct: "B",
+                        explanation: "Los recursos de coaching se organizan en: Herramientas, Metodologías, Tecnología y Materiales"
+                    }
+                ]
+            };
+
+            const weekQuestions = fallbackQuestions[weekNumber] || fallbackQuestions[1];
+            
+            // Repetir preguntas si se necesitan más
+            const result = [];
+            for (let i = 0; i < numQuestions; i++) {
+                result.push(weekQuestions[i % weekQuestions.length]);
+            }
+            
+            return result;
+        }
+
+        function startGame(weekNumber) {
+            const setupElement = document.getElementById(`trivia-setup-${weekNumber === 4 ? '4' : weekNumber}`);
+            const gameElement = document.getElementById(`trivia-game-${weekNumber === 4 ? '4' : weekNumber}`);
+            
+            setupElement.style.display = 'none';
+            gameElement.style.display = 'block';
+            
+            showQuestion(weekNumber);
+        }
+
+        function showQuestion(weekNumber) {
+            if (currentQuestion >= questions.length) {
+                showResults(weekNumber);
+                return;
+            }
+
+            const question = questions[currentQuestion];
+            const gameElement = document.getElementById(`trivia-game-${weekNumber === 4 ? '4' : weekNumber}`);
+            
+            gameElement.innerHTML = `
+                <div class="question-container">
+                    <div class="question-header">
+                        <div class="question-number">Pregunta ${currentQuestion + 1} de ${questions.length}</div>
+                        <div class="question-score">Puntuación: ${score}/${questions.length}</div>
+                    </div>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar-trivia">
+                            <div class="progress-fill" style="width: ${((currentQuestion) / questions.length) * 100}%"></div>
+                            <div class="progress-text">${Math.round(((currentQuestion) / questions.length) * 100)}%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question-text">${question.question}</div>
+                    
+                    <div class="options-grid">
+                        ${Object.entries(question.options).map(([key, value]) => `
+                            <button class="option-button" onclick="selectAnswer('${key}', ${weekNumber})" data-option="${key}">
+                                <strong>${key}:</strong> ${value}
+                            </button>
+                        `).join('')}
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="trivia-button" onclick="nextQuestion(${weekNumber})" id="next-button-${weekNumber}" disabled>
+                            Siguiente Pregunta
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectAnswer(selectedOption, weekNumber) {
+            const buttons = document.querySelectorAll(`#trivia-game-${weekNumber === 4 ? '4' : weekNumber} .option-button`);
+            buttons.forEach(btn => {
+                btn.classList.remove('selected');
+                btn.disabled = false;
+            });
+            
+            const selectedButton = document.querySelector(`#trivia-game-${weekNumber === 4 ? '4' : weekNumber} .option-button[data-option="${selectedOption}"]`);
+            selectedButton.classList.add('selected');
+            
+            userAnswers[currentQuestion] = selectedOption;
+            document.getElementById(`next-button-${weekNumber === 4 ? '4' : weekNumber}`).disabled = false;
+        }
+
+        function nextQuestion(weekNumber) {
+            const question = questions[currentQuestion];
+            const userAnswer = userAnswers[currentQuestion];
+            const isCorrect = userAnswer === question.correct;
+            
+            if (isCorrect) {
+                score++;
+            }
+            
+            // Show correct answer
+            const buttons = document.querySelectorAll(`#trivia-game-${weekNumber === 4 ? '4' : weekNumber} .option-button`);
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                const option = btn.dataset.option;
+                if (option === question.correct) {
+                    btn.classList.add('correct');
+                } else if (option === userAnswer && !isCorrect) {
+                    btn.classList.add('incorrect');
+                }
+            });
+            
+            setTimeout(() => {
+                currentQuestion++;
+                showQuestion(weekNumber);
+            }, 2000);
+        }
+
+        function showResults(weekNumber) {
+            const percentage = Math.round((score / questions.length) * 100);
+            const gameElement = document.getElementById(`trivia-game-${weekNumber === 4 ? '4' : weekNumber}`);
+            
+            let performanceMessage = '';
+            let performanceColor = '#00ff00';
+            
+            if (percentage >= 90) {
+                performanceMessage = '¡EXCELENTE! Dominas el tema completamente';
+                performanceColor = '#00ff00';
+            } else if (percentage >= 70) {
+                performanceMessage = '¡Muy bien! Tienes un buen conocimiento';
+                performanceColor = '#90EE90';
+            } else if (percentage >= 50) {
+                performanceMessage = 'Regular. Puedes mejorar revisando el contenido';
+                performanceColor = '#FFD700';
+            } else {
+                performanceMessage = 'Te recomendamos revisar el material nuevamente';
+                performanceColor = '#FF6347';
+            }
+            
+            gameElement.innerHTML = `
+                <div class="final-score">
+                    <h3>🎯 ¡Trivia Completada!</h3>
+                    <div class="score-percentage" style="color: ${performanceColor};">${percentage}%</div>
+                    <div class="score-details">
+                        Respondiste correctamente ${score} de ${questions.length} preguntas
+                    </div>
+                    <div style="margin: 2rem 0; padding: 1rem; background: rgba(0, 255, 0, 0.1); border-radius: 10px;">
+                        <p style="color: ${performanceColor}; font-weight: bold;">${performanceMessage}</p>
+                    </div>
+                    <button class="trivia-button" onclick="restartTrivia(${weekNumber})">
+                        Jugar de Nuevo
+                    </button>
+                    <button class="trivia-button" onclick="reviewAnswers(${weekNumber})" style="margin-left: 1rem;">
+                        Revisar Respuestas
+                    </button>
+                </div>
+            `;
+        }
+
+        function restartTrivia(weekNumber) {
+            const setupElement = document.getElementById(`trivia-setup-${weekNumber === 4 ? '4' : weekNumber}`);
+            const gameElement = document.getElementById(`trivia-game-${weekNumber === 4 ? '4' : weekNumber}`);
+            const button = document.getElementById(`start-trivia-${weekNumber === 4 ? '4' : weekNumber}`);
+            
+            setupElement.style.display = 'grid';
+            gameElement.style.display = 'none';
+            button.disabled = false;
+            button.innerHTML = 'Iniciar Trivia';
+            
+            currentTrivia = null;
+            currentQuestion = 0;
+            score = 0;
+            questions = [];
+            userAnswers = [];
+        }
+
+        function reviewAnswers(weekNumber) {
+            const gameElement = document.getElementById(`trivia-game-${weekNumber === 4 ? '4' : weekNumber}`);
+            
+            let reviewHTML = `
+                <div class="final-score">
+                    <h3>📋 Revisión de Respuestas</h3>
+                    <div style="text-align: left; max-height: 400px; overflow-y: auto; margin: 2rem 0;">
+            `;
+            
+            questions.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === question.correct;
+                const statusIcon = isCorrect ? '✅' : '❌';
+                const statusColor = isCorrect ? '#00ff00' : '#ff3333';
+                
+                reviewHTML += `
+                    <div style="margin-bottom: 2rem; padding: 1rem; border: 1px solid #00ff00; border-radius: 10px;">
+                        <p style="font-weight: bold; color: ${statusColor};">
+                            ${statusIcon} Pregunta ${index + 1}: ${question.question}
+                        </p>
+                        <p style="margin: 0.5rem 0;">
+                            <strong>Tu respuesta:</strong> ${userAnswer} - ${question.options[userAnswer]}
+                        </p>
+                        ${!isCorrect ? `
+                            <p style="margin: 0.5rem 0; color: #00ff00;">
+                                <strong>Respuesta correcta:</strong> ${question.correct} - ${question.options[question.correct]}
+                            </p>
+                        ` : ''}
+                        <p style="margin: 0.5rem 0; font-size: 0.9rem; opacity: 0.8;">
+                            <strong>Explicación:</strong> ${question.explanation}
+                        </p>
+                    </div>
+                `;
+            });
+            
+            reviewHTML += `
+                    </div>
+                    <button class="trivia-button" onclick="restartTrivia(${weekNumber})">
+                        Volver a Empezar
+                    </button>
+                </div>
+            `;
+            
+            gameElement.innerHTML = reviewHTML;
         }
 
         // Card entrance animation
@@ -3245,13 +4164,6 @@
             window.print();
         }
 
-        // Add dynamic background gradient
-        let gradientAngle = 135;
-        setInterval(() => {
-            gradientAngle += 0.5;
-            document.body.style.background = `linear-gradient(${gradientAngle}deg, #667eea 0%, #764ba2 100%)`;
-        }, 100);
-
         // Add keyboard shortcuts
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey || e.metaKey) {
@@ -3266,6 +4178,29 @@
                         break;
                 }
             }
+        });
+
+        // Initialize page after DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, initializing...');
+            
+            // Add click event listeners to all week headers
+            document.querySelectorAll('.week-header').forEach(header => {
+                header.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleWeek(this);
+                });
+            });
+            
+            // Add click event listeners to all topic headers
+            document.querySelectorAll('.topic-header').forEach(header => {
+                header.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleTopic(this);
+                });
+            });
         });
     </script>
 </body>
