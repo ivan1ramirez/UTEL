@@ -1,4 +1,21 @@
-<!DOCTYPE html>
+.organizer-visual h6 {
+            color: inherit;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .organizer-visual p {
+            color: black;
+            margin: 0.5rem 0;
+        }
+
+        .organizer-visual ul {
+            color: black;
+        }
+
+        .organizer-visual li {
+            color: black;
+        }<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -3652,9 +3669,6 @@
 
         // Toggle week sections
         function toggleWeek(header) {
-            event.preventDefault();
-            event.stopPropagation();
-            
             const weekCard = header.closest('.week-card');
             const isExpanded = weekCard.classList.contains('expanded');
             
@@ -3665,11 +3679,8 @@
             }
         }
 
-        // Toggle topic sections
+        // Toggle topic sections  
         function toggleTopic(header) {
-            event.preventDefault();
-            event.stopPropagation();
-            
             const topicItem = header.closest('.topic-item');
             const isExpanded = topicItem.classList.contains('expanded');
             
@@ -3700,12 +3711,18 @@
             });
         }
 
-        // Start Trivia Function
         async function startTrivia(weekNumber) {
-            const categoriesElement = document.getElementById(`categories-${weekNumber === 4 ? '4' : weekNumber}`);
-            const difficultyElement = document.getElementById(`difficulty-${weekNumber === 4 ? '4' : weekNumber}`);
-            const questionsElement = document.getElementById(`questions-${weekNumber === 4 ? '4' : weekNumber}`);
+            const actualWeekNumber = weekNumber === 4 ? 4 : weekNumber;
+            const categoriesElement = document.getElementById(`categories-${actualWeekNumber}`);
+            const difficultyElement = document.getElementById(`difficulty-${actualWeekNumber}`);
+            const questionsElement = document.getElementById(`questions-${actualWeekNumber}`);
             
+            if (!categoriesElement || !difficultyElement || !questionsElement) {
+                console.error(`Elements not found for week ${actualWeekNumber}`);
+                alert('Error: No se encontraron los elementos de configuración');
+                return;
+            }
+
             const categories = Array.from(categoriesElement.selectedOptions).map(option => option.value);
             const difficulty = difficultyElement.value;
             const numQuestions = parseInt(questionsElement.value);
@@ -3715,19 +3732,25 @@
                 return;
             }
 
-            const button = document.getElementById(`start-trivia-${weekNumber === 4 ? '4' : weekNumber}`);
+            const button = document.getElementById(`start-trivia-${actualWeekNumber}`);
             button.disabled = true;
             button.innerHTML = '<span class="loading-spinner"></span> Generando preguntas...';
 
             try {
-                currentTrivia = weekNumber === 4 ? 4 : weekNumber;
-                await generateQuestions(categories, difficulty, numQuestions, weekNumber);
-                startGame(weekNumber);
+                currentTrivia = actualWeekNumber;
+                await generateQuestions(categories, difficulty, numQuestions, actualWeekNumber);
+                startGame(actualWeekNumber);
             } catch (error) {
                 console.error('Error generating questions:', error);
-                alert('Error al generar las preguntas. Por favor intenta de nuevo.');
-                button.disabled = false;
-                button.innerHTML = 'Iniciar Trivia';
+                alert('Error al generar las preguntas. Usando preguntas predeterminadas.');
+                
+                // Usar preguntas de fallback
+                questions = generateFallbackQuestions(actualWeekNumber, numQuestions);
+                currentQuestion = 0;
+                score = 0;
+                userAnswers = [];
+                
+                startGame(actualWeekNumber);
             }
         }
 
@@ -3919,23 +3942,36 @@
         }
 
         function startGame(weekNumber) {
-            const setupElement = document.getElementById(`trivia-setup-${weekNumber === 4 ? '4' : weekNumber}`);
-            const gameElement = document.getElementById(`trivia-game-${weekNumber === 4 ? '4' : weekNumber}`);
+            const actualWeekNumber = weekNumber === 4 ? 4 : weekNumber;
+            const setupElement = document.getElementById(`trivia-setup-${actualWeekNumber}`);
+            const gameElement = document.getElementById(`trivia-game-${actualWeekNumber}`);
+            
+            if (!setupElement || !gameElement) {
+                console.error(`Game elements not found for week ${actualWeekNumber}`);
+                return;
+            }
             
             setupElement.style.display = 'none';
             gameElement.style.display = 'block';
             
-            showQuestion(weekNumber);
+            showQuestion(actualWeekNumber);
         }
 
         function showQuestion(weekNumber) {
+            const actualWeekNumber = weekNumber === 4 ? 4 : weekNumber;
+            
             if (currentQuestion >= questions.length) {
-                showResults(weekNumber);
+                showResults(actualWeekNumber);
                 return;
             }
 
             const question = questions[currentQuestion];
-            const gameElement = document.getElementById(`trivia-game-${weekNumber === 4 ? '4' : weekNumber}`);
+            const gameElement = document.getElementById(`trivia-game-${actualWeekNumber}`);
+            
+            if (!gameElement) {
+                console.error(`Game element not found for week ${actualWeekNumber}`);
+                return;
+            }
             
             gameElement.innerHTML = `
                 <div class="question-container">
@@ -3955,14 +3991,14 @@
                     
                     <div class="options-grid">
                         ${Object.entries(question.options).map(([key, value]) => `
-                            <button class="option-button" onclick="selectAnswer('${key}', ${weekNumber})" data-option="${key}">
+                            <button class="option-button" onclick="selectAnswer('${key}', ${actualWeekNumber})" data-option="${key}">
                                 <strong>${key}:</strong> ${value}
                             </button>
                         `).join('')}
                     </div>
                     
                     <div style="text-align: center; margin-top: 2rem;">
-                        <button class="trivia-button" onclick="nextQuestion(${weekNumber})" id="next-button-${weekNumber}" disabled>
+                        <button class="trivia-button" onclick="nextQuestion(${actualWeekNumber})" id="next-button-${actualWeekNumber}" disabled>
                             Siguiente Pregunta
                         </button>
                     </div>
@@ -3971,20 +4007,27 @@
         }
 
         function selectAnswer(selectedOption, weekNumber) {
-            const buttons = document.querySelectorAll(`#trivia-game-${weekNumber === 4 ? '4' : weekNumber} .option-button`);
+            const actualWeekNumber = weekNumber === 4 ? 4 : weekNumber;
+            const buttons = document.querySelectorAll(`#trivia-game-${actualWeekNumber} .option-button`);
             buttons.forEach(btn => {
                 btn.classList.remove('selected');
                 btn.disabled = false;
             });
             
-            const selectedButton = document.querySelector(`#trivia-game-${weekNumber === 4 ? '4' : weekNumber} .option-button[data-option="${selectedOption}"]`);
-            selectedButton.classList.add('selected');
+            const selectedButton = document.querySelector(`#trivia-game-${actualWeekNumber} .option-button[data-option="${selectedOption}"]`);
+            if (selectedButton) {
+                selectedButton.classList.add('selected');
+            }
             
             userAnswers[currentQuestion] = selectedOption;
-            document.getElementById(`next-button-${weekNumber === 4 ? '4' : weekNumber}`).disabled = false;
+            const nextButton = document.getElementById(`next-button-${actualWeekNumber}`);
+            if (nextButton) {
+                nextButton.disabled = false;
+            }
         }
 
         function nextQuestion(weekNumber) {
+            const actualWeekNumber = weekNumber === 4 ? 4 : weekNumber;
             const question = questions[currentQuestion];
             const userAnswer = userAnswers[currentQuestion];
             const isCorrect = userAnswer === question.correct;
@@ -3994,7 +4037,7 @@
             }
             
             // Show correct answer
-            const buttons = document.querySelectorAll(`#trivia-game-${weekNumber === 4 ? '4' : weekNumber} .option-button`);
+            const buttons = document.querySelectorAll(`#trivia-game-${actualWeekNumber} .option-button`);
             buttons.forEach(btn => {
                 btn.disabled = true;
                 const option = btn.dataset.option;
@@ -4007,13 +4050,14 @@
             
             setTimeout(() => {
                 currentQuestion++;
-                showQuestion(weekNumber);
+                showQuestion(actualWeekNumber);
             }, 2000);
         }
 
         function showResults(weekNumber) {
+            const actualWeekNumber = weekNumber === 4 ? 4 : weekNumber;
             const percentage = Math.round((score / questions.length) * 100);
-            const gameElement = document.getElementById(`trivia-game-${weekNumber === 4 ? '4' : weekNumber}`);
+            const gameElement = document.getElementById(`trivia-game-${actualWeekNumber}`);
             
             let performanceMessage = '';
             let performanceColor = '#00ff00';
@@ -4042,10 +4086,10 @@
                     <div style="margin: 2rem 0; padding: 1rem; background: rgba(0, 255, 0, 0.1); border-radius: 10px;">
                         <p style="color: ${performanceColor}; font-weight: bold;">${performanceMessage}</p>
                     </div>
-                    <button class="trivia-button" onclick="restartTrivia(${weekNumber})">
+                    <button class="trivia-button" onclick="restartTrivia(${actualWeekNumber})">
                         Jugar de Nuevo
                     </button>
-                    <button class="trivia-button" onclick="reviewAnswers(${weekNumber})" style="margin-left: 1rem;">
+                    <button class="trivia-button" onclick="reviewAnswers(${actualWeekNumber})" style="margin-left: 1rem;">
                         Revisar Respuestas
                     </button>
                 </div>
@@ -4053,14 +4097,17 @@
         }
 
         function restartTrivia(weekNumber) {
-            const setupElement = document.getElementById(`trivia-setup-${weekNumber === 4 ? '4' : weekNumber}`);
-            const gameElement = document.getElementById(`trivia-game-${weekNumber === 4 ? '4' : weekNumber}`);
-            const button = document.getElementById(`start-trivia-${weekNumber === 4 ? '4' : weekNumber}`);
+            const actualWeekNumber = weekNumber === 4 ? 4 : weekNumber;
+            const setupElement = document.getElementById(`trivia-setup-${actualWeekNumber}`);
+            const gameElement = document.getElementById(`trivia-game-${actualWeekNumber}`);
+            const button = document.getElementById(`start-trivia-${actualWeekNumber}`);
             
-            setupElement.style.display = 'grid';
-            gameElement.style.display = 'none';
-            button.disabled = false;
-            button.innerHTML = 'Iniciar Trivia';
+            if (setupElement && gameElement && button) {
+                setupElement.style.display = 'grid';
+                gameElement.style.display = 'none';
+                button.disabled = false;
+                button.innerHTML = 'Iniciar Trivia';
+            }
             
             currentTrivia = null;
             currentQuestion = 0;
@@ -4070,7 +4117,8 @@
         }
 
         function reviewAnswers(weekNumber) {
-            const gameElement = document.getElementById(`trivia-game-${weekNumber === 4 ? '4' : weekNumber}`);
+            const actualWeekNumber = weekNumber === 4 ? 4 : weekNumber;
+            const gameElement = document.getElementById(`trivia-game-${actualWeekNumber}`);
             
             let reviewHTML = `
                 <div class="final-score">
@@ -4106,7 +4154,7 @@
             
             reviewHTML += `
                     </div>
-                    <button class="trivia-button" onclick="restartTrivia(${weekNumber})">
+                    <button class="trivia-button" onclick="restartTrivia(${actualWeekNumber})">
                         Volver a Empezar
                     </button>
                 </div>
@@ -4183,24 +4231,6 @@
         // Initialize page after DOM loads
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Page loaded, initializing...');
-            
-            // Add click event listeners to all week headers
-            document.querySelectorAll('.week-header').forEach(header => {
-                header.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleWeek(this);
-                });
-            });
-            
-            // Add click event listeners to all topic headers
-            document.querySelectorAll('.topic-header').forEach(header => {
-                header.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleTopic(this);
-                });
-            });
         });
     </script>
 </body>
