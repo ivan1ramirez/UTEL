@@ -1,0 +1,1171 @@
+
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2025-01-17",
+    "totalQuestions": 105,
+    "author": "Sistema de Coaching Grupal"
+  },
+  "weeks": {
+    "1": {
+      "title": "Modelos de aplicación del coaching",
+      "categories": ["self-coaching", "coaching-individual", "team-building", "team-coaching"],
+      "questions": [...]
+    },
+    "3": {
+      "title": "La inteligencia emocional", 
+      "categories": ["concepto-ie", "manejo-emociones", "impacto-emociones", "tecnicas-ie"],
+      "questions": [...]
+    },
+    "4": {
+      "title": "Desarrollo del coaching en grupos de trabajo",
+      "categories": ["procesos-creativos", "cohesion-grupal", "atencion-proceso", "confianza-grupal", "roles-belbin"],
+      "questions": [...]
+    },
+    "6": {
+      "title": "Aplicaciones de coaching para equipos de alto desempeño",
+      "categories": ["estrategia", "implementacion", "seguimiento"],
+      "questions": [...]
+    },
+    "7": {
+      "title": "Prácticas de coaching en la empresa",
+      "categories": ["recursos-coaching", "aspectos-tecnicos", "logistica"],
+      "questions": [...]
+    }
+  }
+}
+
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2025-01-17",
+    "totalQuestions": 105,
+    "author": "Sistema de Coaching Grupal"
+  },
+  "weeks": {
+    "1": {
+      "title": "Modelos de aplicación del coaching",
+      "categories": ["self-coaching", "coaching-individual", "team-building", "team-coaching"],
+      "questions": [
+        {
+          "id": "w1_q001",
+          "category": "self-coaching",
+          "difficulty": "facil",
+          "question": "¿Qué significa GROW en el modelo de coaching?",
+          "options": {
+            "A": "Goal, Reality, Options, Will",
+            "B": "Great, Real, Optimal, Win",
+            "C": "Group, Resources, Objectives, Work",
+            "D": "Generate, Review, Organize, Write"
+          },
+          "correct": "A",
+          "explanation": "GROW significa Goal (Meta), Reality (Realidad), Options (Opciones), Will (Voluntad). Es uno de los modelos más utilizados en coaching."
+        },
+        {
+          "id": "w1_q002",
+          "category": "self-coaching",
+          "difficulty": "medio",
+          "question": "Según César Piqueras, ¿cuál es el requisito indispensable para mostrar liderazgo?",
+          "options": {
+            "A": "Tener un cargo directivo",
+            "B": "El liderazgo personal",
+            "C": "Experiencia en la empresa",
+            "D": "Formación académica"
+          },
+          "correct": "B",
+          "explanation": "César Piqueras establece que 'el liderazgo personal es el requisito indispensable para poder mostrar liderazgo y ser legitimado por los demás como líder'."
+        },
+        {
+          "id": "w1_q003",
+          "category": "self-coaching",
+          "difficulty": "dificil",
+          "question": "¿Cuáles son los cuatro componentes clave del self coaching según el contenido?",
+          "options": {
+            "A": "Autoconocimiento, Autoregulación, Automotivación, Autodisciplina",
+            "B": "Análisis, Reflexión, Acción, Evaluación",
+            "C": "Metas, Planes, Ejecución, Seguimiento",
+            "D": "Pensar, Sentir, Actuar, Reflexionar"
+          },
+          "correct": "A",
+          "explanation": "Los cuatro componentes clave del self coaching son: Autoconocimiento, Autoregulación, Automotivación y Autodisciplina."
+        },
+        {
+          "id": "w1_q004",
+          "category": "coaching-individual",
+          "difficulty": "facil",
+          "question": "¿Qué es el coaching individual según la ICF?",
+          "options": {
+            "A": "Una evaluación de desempeño",
+            "B": "Un acompañamiento reflexivo y creativo personalizado",
+            "C": "Una terapia psicológica",
+            "D": "Un programa de capacitación grupal"
+          },
+          "correct": "B",
+          "explanation": "La ICF define el coaching individual como un acompañamiento reflexivo y creativo que inspira a maximizar el potencial personal y profesional."
+        },
+        {
+          "id": "w1_q005",
+          "category": "coaching-individual",
+          "difficulty": "medio",
+          "question": "¿Cuál es el proceso típico del coaching individual?",
+          "options": {
+            "A": "Evaluación, Objetivos, Plan, Seguimiento, Resultados",
+            "B": "Diagnóstico, Tratamiento, Cura",
+            "C": "Análisis, Síntesis, Implementación",
+            "D": "Observación, Hipótesis, Experimentación"
+          },
+          "correct": "A",
+          "explanation": "El proceso incluye: Evaluación Inicial, Definición de Objetivos, Plan de Acción, Seguimiento y Evaluación de Resultados."
+        },
+        {
+          "id": "w1_q006",
+          "category": "team-building",
+          "difficulty": "facil",
+          "question": "¿Cuál es la diferencia principal entre Team Building y Team Coaching?",
+          "options": {
+            "A": "No hay diferencia",
+            "B": "Team Building son eventos puntuales, Team Coaching es proceso continuo",
+            "C": "Team Building es más caro",
+            "D": "Team Coaching es solo para gerentes"
+          },
+          "correct": "B",
+          "explanation": "Team Building son eventos puntuales para fortalecer relaciones, mientras Team Coaching es un proceso continuo de desarrollo integral."
+        },
+        {
+          "id": "w1_q007",
+          "category": "team-building",
+          "difficulty": "medio",
+          "question": "¿Qué factores influyen en la efectividad del Team Building?",
+          "options": {
+            "A": "Solo la diversión de las actividades",
+            "B": "Interacción repetida, persistencia de integrantes, similitud de valores",
+            "C": "El presupuesto disponible únicamente",
+            "D": "La duración de las actividades"
+          },
+          "correct": "B",
+          "explanation": "Los factores clave son: interacción repetida, persistencia de integrantes, similitud de valores, éxito compartido y tamaño del grupo."
+        },
+        {
+          "id": "w1_q008",
+          "category": "team-building",
+          "difficulty": "dificil",
+          "question": "¿Cuáles son los cuatro componentes del Team Building según el contenido?",
+          "options": {
+            "A": "Actividades Recreativas, Talleres Educativos, Dinámicas de Confianza, Resolución de Problemas",
+            "B": "Juegos, Competencias, Premios, Celebraciones",
+            "C": "Planificación, Ejecución, Evaluación, Mejora",
+            "D": "Diversión, Aprendizaje, Integración, Resultados"
+          },
+          "correct": "A",
+          "explanation": "Los componentes del Team Building incluyen: Actividades Recreativas, Talleres Educativos, Dinámicas de Confianza y Resolución de Problemas."
+        },
+        {
+          "id": "w1_q009",
+          "category": "team-coaching",
+          "difficulty": "facil",
+          "question": "¿Cuántas competencias del líder coach identificó César Piqueras?",
+          "options": {
+            "A": "6 competencias",
+            "B": "7 competencias",
+            "C": "8 competencias",
+            "D": "10 competencias"
+          },
+          "correct": "C",
+          "explanation": "César Piqueras identificó 8 competencias clave del líder coach, incluyendo escucha empática, uso de preguntas y herramientas."
+        },
+        {
+          "id": "w1_q010",
+          "category": "team-coaching",
+          "difficulty": "medio",
+          "question": "¿Cuáles son las fases del modelo de Tuckman?",
+          "options": {
+            "A": "Forming, Storming, Norming, Performing, Adjourning",
+            "B": "Start, Work, End, Review",
+            "C": "Plan, Do, Check, Act",
+            "D": "Create, Build, Test, Launch"
+          },
+          "correct": "A",
+          "explanation": "Tuckman propuso: Forming (Constitución), Storming (Conflicto), Norming (Normalización), Performing (Ejecución), Adjourning (Terminación)."
+        },
+        {
+          "id": "w1_q011",
+          "category": "team-coaching",
+          "difficulty": "dificil",
+          "question": "¿Qué diferencia al Team Coaching en términos de duración y profundidad?",
+          "options": {
+            "A": "Es más corto pero más intenso",
+            "B": "Proceso extenso que puede durar varios meses con desarrollo sostenible",
+            "C": "Solo se enfoca en actividades recreativas",
+            "D": "Es idéntico al Team Building"
+          },
+          "correct": "B",
+          "explanation": "El Team Coaching es un proceso más extenso que puede durar varios meses con sesiones regulares, enfocado en desarrollo sostenible."
+        },
+        {
+          "id": "w1_q012",
+          "category": "self-coaching",
+          "difficulty": "medio",
+          "question": "¿Cuál es una técnica práctica del self coaching relacionada con la inteligencia emocional?",
+          "options": {
+            "A": "Análisis financiero",
+            "B": "Inventario emocional regular",
+            "C": "Estudios de mercado",
+            "D": "Programación de software"
+          },
+          "correct": "B",
+          "explanation": "El inventario emocional regular es una técnica práctica que se aplica en el self coaching para desarrollar inteligencia emocional."
+        },
+        {
+          "id": "w1_q013",
+          "category": "coaching-individual",
+          "difficulty": "dificil",
+          "question": "¿Cuál es el modelo OUTCOMES y para qué se utiliza?",
+          "options": {
+            "A": "Un modelo financiero para empresas",
+            "B": "Objectives, Understand reasons, Take stock, Clarify gap, Options, Motivate, Enthusiasm, Support",
+            "C": "Un sistema de evaluación de empleados",
+            "D": "Una metodología de ventas"
+          },
+          "correct": "B",
+          "explanation": "OUTCOMES es un modelo de coaching que incluye: Objectives, Understand reasons, Take stock, Clarify gap, Options, Motivate, Enthusiasm, Support."
+        },
+        {
+          "id": "w1_q014",
+          "category": "team-building",
+          "difficulty": "facil",
+          "question": "¿Con qué frecuencia se recomienda realizar actividades de Team Building?",
+          "options": {
+            "A": "Diariamente",
+            "B": "Una o dos veces al año",
+            "C": "Cada semana",
+            "D": "Solo cuando hay problemas"
+          },
+          "correct": "B",
+          "explanation": "Las actividades de Team Building se caracterizan por ser eventos programados una o dos veces al año."
+        },
+        {
+          "id": "w1_q015",
+          "category": "team-coaching",
+          "difficulty": "medio",
+          "question": "¿Qué significa 'Equilibrio Aceptación/Reto' en las competencias del líder coach?",
+          "options": {
+            "A": "Balancear el presupuesto del equipo",
+            "B": "Saber cuándo ser empático y cuándo desafiar",
+            "C": "Manejar horarios de trabajo",
+            "D": "Distribuir tareas equitativamente"
+          },
+          "correct": "B",
+          "explanation": "Equilibrio Aceptación/Reto significa saber cuándo ser empático y cuándo desafiar al equipo para su crecimiento."
+        }
+      ]
+    },
+    "3": {
+      "title": "La inteligencia emocional",
+      "categories": ["concepto-ie", "manejo-emociones", "impacto-emociones", "tecnicas-ie"],
+      "questions": [
+        {
+          "id": "w3_q001",
+          "category": "concepto-ie",
+          "difficulty": "facil",
+          "question": "¿Cuántas áreas de la Inteligencia Emocional identificó Goleman?",
+          "options": {
+            "A": "3 áreas",
+            "B": "4 áreas",
+            "C": "5 áreas", 
+            "D": "6 áreas"
+          },
+          "correct": "C",
+          "explanation": "Goleman identificó 5 áreas: Autoconocimiento, Autoregulación, Motivación, Empatía y Habilidades Sociales."
+        },
+        {
+          "id": "w3_q002",
+          "category": "concepto-ie",
+          "difficulty": "medio",
+          "question": "¿Qué trasciende la inteligencia emocional según Goleman?",
+          "options": {
+            "A": "La experiencia laboral",
+            "B": "El coeficiente intelectual tradicional",
+            "C": "Los títulos académicos",
+            "D": "La antigüedad en la empresa"
+          },
+          "correct": "B",
+          "explanation": "La inteligencia emocional trasciende el coeficiente intelectual tradicional como predictor del éxito personal y profesional."
+        },
+        {
+          "id": "w3_q003",
+          "category": "concepto-ie",
+          "difficulty": "dificil",
+          "question": "¿Cómo contribuyen los líderes con alta inteligencia emocional a las organizaciones?",
+          "options": {
+            "A": "Solo aumentando las ventas",
+            "B": "Creando culturas organizacionales positivas donde se valora el bienestar",
+            "C": "Reduciendo únicamente los costos",
+            "D": "Implementando solo tecnología"
+          },
+          "correct": "B",
+          "explanation": "Los líderes con alta IE contribuyen a crear culturas organizacionales positivas, donde se valora el bienestar y desarrollo personal."
+        },
+        {
+          "id": "w3_q004",
+          "category": "manejo-emociones",
+          "difficulty": "facil",
+          "question": "¿Qué porcentaje más productivos son los trabajadores felices según estudios?",
+          "options": {
+            "A": "5%",
+            "B": "8%",
+            "C": "12%",
+            "D": "15%"
+          },
+          "correct": "C",
+          "explanation": "Un estudio de la Universidad de California demostró que los trabajadores felices son 12% más productivos."
+        },
+        {
+          "id": "w3_q005",
+          "category": "manejo-emociones",
+          "difficulty": "medio",
+          "question": "Según Brené Brown, ¿qué es el punto de partida para la comunicación abierta en equipos?",
+          "options": {
+            "A": "La autoridad",
+            "B": "La vulnerabilidad",
+            "C": "La experiencia",
+            "D": "El conocimiento técnico"
+          },
+          "correct": "B",
+          "explanation": "Brené Brown establece que la vulnerabilidad es el punto de partida para una comunicación abierta y honesta en el trabajo en equipo."
+        },
+        {
+          "id": "w3_q006",
+          "category": "manejo-emociones",
+          "difficulty": "dificil",
+          "question": "¿Cuáles son los seis objetivos principales del manejo emocional en equipos?",
+          "options": {
+            "A": "Solo mejorar productividad",
+            "B": "Mejorar Clima, Aumentar Productividad, Fortalecer Relaciones, Retener Talento, Fomentar Innovación, Reducir Estrés",
+            "C": "Únicamente reducir costos",
+            "D": "Solo manejar conflictos"
+          },
+          "correct": "B",
+          "explanation": "Los seis objetivos son: Mejorar el Clima Laboral, Aumentar la Productividad, Fortalecer Relaciones, Retener Talento, Fomentar Innovación y Reducir Estrés."
+        },
+        {
+          "id": "w3_q007",
+          "category": "impacto-emociones",
+          "difficulty": "facil",
+          "question": "¿Qué es el clima emocional de un equipo?",
+          "options": {
+            "A": "La temperatura del oficina",
+            "B": "El conjunto de sentimientos, emociones y estados de ánimo en un momento dado",
+            "C": "Las políticas de la empresa",
+            "D": "Los resultados financieros"
+          },
+          "correct": "B",
+          "explanation": "El clima emocional es el conjunto de sentimientos, emociones y estados de ánimo de un equipo en un momento dado."
+        },
+        {
+          "id": "w3_q008",
+          "category": "impacto-emociones",
+          "difficulty": "medio",
+          "question": "¿Qué factor es el principal responsable del clima emocional según el contenido?",
+          "options": {
+            "A": "El salario de los empleados",
+            "B": "El liderazgo del equipo",
+            "C": "El tamaño de la oficina",
+            "D": "La tecnología disponible"
+          },
+          "correct": "B",
+          "explanation": "El líder es el principal responsable del clima emocional del equipo y crea una impronta en la forma de estar y sentirse."
+        },
+        {
+          "id": "w3_q009",
+          "category": "impacto-emociones",
+          "difficulty": "dificil",
+          "question": "¿Cuál es el ejemplo extremo que usa el contenido para ilustrar el impacto del clima emocional?",
+          "options": {
+            "A": "Diferencias en ventas del 10%",
+            "B": "Equipos que tardan 3 horas vs 15 minutos en resolver problemas",
+            "C": "Variaciones mínimas en productividad",
+            "D": "Pequeñas diferencias en satisfacción"
+          },
+          "correct": "B",
+          "explanation": "El contenido menciona que algunas empresas tardan 3 horas en resolver problemas que otros equipos resuelven en 15 minutos debido al clima emocional."
+        },
+        {
+          "id": "w3_q010",
+          "category": "tecnicas-ie",
+          "difficulty": "facil",
+          "question": "¿Cuál es una técnica básica para desarrollar autoconocimiento emocional?",
+          "options": {
+            "A": "Análisis financiero",
+            "B": "Inventario emocional",
+            "C": "Estudios de mercado",
+            "D": "Programación"
+          },
+          "correct": "B",
+          "explanation": "El inventario emocional es una técnica fundamental para preguntarse cómo te sientes en momentos de alta presión."
+        },
+        {
+          "id": "w3_q011",
+          "category": "tecnicas-ie",
+          "difficulty": "medio",
+          "question": "¿Qué incluyen las técnicas de comunicación emocional para equipos?",
+          "options": {
+            "A": "Solo emails formales",
+            "B": "Check-ins emocionales, comunicación asertiva, feedback constructivo",
+            "C": "Únicamente reuniones de trabajo",
+            "D": "Solo reportes escritos"
+          },
+          "correct": "B",
+          "explanation": "Las técnicas incluyen: Check-ins emocionales, comunicación asertiva, feedback constructivo y resolución de conflictos."
+        },
+        {
+          "id": "w3_q012",
+          "category": "tecnicas-ie",
+          "difficulty": "dificil",
+          "question": "¿Cuáles son las cinco fases de implementación gradual de técnicas de IE?",
+          "options": {
+            "A": "Solo capacitación básica",
+            "B": "Sensibilización, Práctica individual, Aplicación grupal, Integración cultural, Evaluación continua",
+            "C": "Únicamente evaluación final",
+            "D": "Solo teoría sin práctica"
+          },
+          "correct": "B",
+          "explanation": "Las fases son: Sensibilización y formación básica, Práctica individual, Aplicación grupal, Integración cultural, y Evaluación continua."
+        },
+        {
+          "id": "w3_q013",
+          "category": "concepto-ie",
+          "difficulty": "medio",
+          "question": "¿Qué significa 'autoregulación emocional' en el contexto del liderazgo?",
+          "options": {
+            "A": "Ignorar todas las emociones",
+            "B": "La capacidad de regular las propias emociones en momentos difíciles",
+            "C": "Solo expresar emociones positivas",
+            "D": "Evitar cualquier situación emocional"
+          },
+          "correct": "B",
+          "explanation": "La autoregulación emocional es la capacidad de regular las propias emociones en momentos difíciles para generar estabilidad en el equipo."
+        },
+        {
+          "id": "w3_q014",
+          "category": "manejo-emociones",
+          "difficulty": "facil",
+          "question": "¿Qué papel tienen los líderes en el fomento del desarrollo emocional según James Routledge?",
+          "options": {
+            "A": "No tienen ningún papel",
+            "B": "Un papel importante para crear entornos laborales más sanos",
+            "C": "Solo supervisar resultados",
+            "D": "Únicamente tomar decisiones financieras"
+          },
+          "correct": "B",
+          "explanation": "Según James Routledge, los líderes empresariales tienen un papel importante en el fomento del desarrollo emocional para crear entornos más sanos."
+        },
+        {
+          "id": "w3_q015",
+          "category": "impacto-emociones",
+          "difficulty": "medio",
+          "question": "¿Cómo se propagan las emociones en los equipos según el contenido?",
+          "options": {
+            "A": "No se propagan",
+            "B": "De manera similar a como se extiende un virus",
+            "C": "Solo de arriba hacia abajo",
+            "D": "Únicamente en reuniones formales"
+          },
+          "correct": "B",
+          "explanation": "Las emociones se propagan dentro de los equipos de manera similar a como se extiende un virus, tanto las negativas como las positivas."
+        }
+      ]
+    },
+    "4": {
+      "title": "Desarrollo del coaching en grupos de trabajo",
+      "categories": ["procesos-creativos", "cohesion-grupal", "atencion-proceso", "confianza-grupal", "roles-belbin"],
+      "questions": [
+        {
+          "id": "w4_q001",
+          "category": "roles-belbin",
+          "difficulty": "facil",
+          "question": "¿Cuántos roles identificó Belbin en los equipos?",
+          "options": {
+            "A": "6 roles",
+            "B": "7 roles",
+            "C": "8 roles",
+            "D": "9 roles"
+          },
+          "correct": "D",
+          "explanation": "Belbin identificó 9 roles específicos distribuidos en 3 categorías: Acción, Mentales y Sociales."
+        },
+        {
+          "id": "w4_q002",
+          "category": "roles-belbin",
+          "difficulty": "medio",
+          "question": "¿Cuáles son las tres categorías de roles de Belbin?",
+          "options": {
+            "A": "Individuales, Grupales, Organizacionales",
+            "B": "Roles de Acción, Roles Mentales, Roles Sociales",
+            "C": "Primarios, Secundarios, Terciarios",
+            "D": "Creativos, Ejecutivos, Evaluadores"
+          },
+          "correct": "B",
+          "explanation": "Las tres categorías son: Roles de Acción (pasar a la acción), Roles Mentales (aportan expertise), y Roles Sociales (cohesión y coordinación)."
+        },
+        {
+          "id": "w4_q003",
+          "category": "roles-belbin",
+          "difficulty": "dificil",
+          "question": "¿Qué caracteriza al rol de 'Impulsor' (Shaper) según Belbin?",
+          "options": {
+            "A": "Son introvertidos y detallistas",
+            "B": "Son miembros que hacen que el grupo avance, líderes naturales con iniciativa",
+            "C": "Se enfocan solo en la creatividad",
+            "D": "Trabajan únicamente de forma individual"
+          },
+          "correct": "B",
+          "explanation": "Los Impulsores son miembros que hacen que el grupo avance, personas de acción que se motivan solos y motivan a otros, líderes naturales que encuentran soluciones en crisis."
+        },
+        {
+          "id": "w4_q004",
+          "category": "procesos-creativos",
+          "difficulty": "facil",
+          "question": "¿Cuáles son los cuatro elementos principales de los procesos creativos grupales?",
+          "options": {
+            "A": "Divergencia, Convergencia, Iteración, Sinergia",
+            "B": "Planificación, Ejecución, Control, Cierre",
+            "C": "Análisis, Síntesis, Evaluación, Aplicación",
+            "D": "Observación, Hipótesis, Experimentación, Conclusión"
+          },
+          "correct": "A",
+          "explanation": "Los elementos son: Divergencia (generar múltiples ideas), Convergencia (seleccionar las mejores), Iteración (mejora continua), y Sinergia (combinar ideas)."
+        },
+        {
+          "id": "w4_q005",
+          "category": "procesos-creativos",
+          "difficulty": "medio",
+          "question": "¿Qué metodología de Design Thinking se aplica para equipos?",
+          "options": {
+            "A": "Solo lluvia de ideas",
+            "B": "Empatizar, Definir, Idear, Prototipar, Testear",
+            "C": "Únicamente análisis de datos",
+            "D": "Solo implementación directa"
+          },
+          "correct": "B",
+          "explanation": "El proceso de Design Thinking incluye: Empatizar (comprender), Definir (enmarcar), Idear (generar soluciones), Prototipar (crear versiones), Testear (validar)."
+        },
+        {
+          "id": "w4_q006",
+          "category": "procesos-creativos",
+          "difficulty": "dificil",
+          "question": "¿Cuáles son los cinco criterios para medir el éxito creativo?",
+          "options": {
+            "A": "Solo cantidad de ideas",
+            "B": "Fluidez, Flexibilidad, Originalidad, Elaboración, Implementabilidad",
+            "C": "Únicamente viabilidad económica",
+            "D": "Solo aceptación del equipo"
+          },
+          "correct": "B",
+          "explanation": "Los criterios son: Fluidez (cantidad), Flexibilidad (variedad), Originalidad (novedad), Elaboración (detalle), e Implementabilidad (viabilidad práctica)."
+        },
+        {
+          "id": "w4_q007",
+          "category": "cohesion-grupal",
+          "difficulty": "facil",
+          "question": "¿Qué es la cohesión grupal?",
+          "options": {
+            "A": "El tamaño del equipo",
+            "B": "La capacidad de mantenerse unido y trabajar hacia un objetivo común",
+            "C": "La ubicación física del equipo",
+            "D": "Los horarios de trabajo"
+          },
+          "correct": "B",
+          "explanation": "La cohesión grupal es la capacidad de un equipo para mantenerse unido y trabajar de manera colaborativa hacia un objetivo común."
+        },
+        {
+          "id": "w4_q008",
+          "category": "cohesion-grupal",
+          "difficulty": "medio",
+          "question": "¿Cuáles son los cuatro componentes principales de la cohesión grupal?",
+          "options": {
+            "A": "Solidez Social, Integración, Interés Colectivo, Colaboración",
+            "B": "Comunicación, Coordinación, Control, Cooperación",
+            "C": "Liderazgo, Seguimiento, Evaluación, Mejora",
+            "D": "Planificación, Organización, Dirección, Control"
+          },
+          "correct": "A",
+          "explanation": "Los componentes son: Solidez Social (deseo de permanecer), Integración (pertenencia), Interés Colectivo (entusiasmo grupal), y Colaboración (trabajar juntos)."
+        },
+        {
+          "id": "w4_q009",
+          "category": "cohesion-grupal",
+          "difficulty": "dificil",
+          "question": "¿Qué factores influyen en el desarrollo de la cohesión según el contenido?",
+          "options": {
+            "A": "Solo el tamaño del grupo",
+            "B": "Interacción repetida, Persistencia de integrantes, Similitud de valores, Éxito compartido",
+            "C": "Únicamente la antigüedad",
+            "D": "Solo los recursos disponibles"
+          },
+          "correct": "B",
+          "explanation": "Los factores clave son: frecuencia de interacción, permanencia de miembros, similitud de valores y antecedentes, y logros conjuntos."
+        },
+        {
+          "id": "w4_q010",
+          "category": "atencion-proceso",
+          "difficulty": "facil",
+          "question": "¿Qué observa la 'atención al proceso' en los grupos?",
+          "options": {
+            "A": "Solo el contenido de las conversaciones",
+            "B": "No solo el qué, sino el cómo suceden las dinámicas grupales",
+            "C": "Únicamente los resultados finales",
+            "D": "Solo las decisiones tomadas"
+          },
+          "correct": "B",
+          "explanation": "La atención al proceso observa no solo el contenido (qué), sino cómo suceden las dinámicas relacionales y patrones de comunicación."
+        },
+        {
+          "id": "w4_q011",
+          "category": "atencion-proceso",
+          "difficulty": "medio",
+          "question": "¿Cuáles son los tres niveles de observación del proceso grupal?",
+          "options": {
+            "A": "Superficial, Medio, Profundo",
+            "B": "Contenido (QUÉ), Proceso (CÓMO), Metacognición (POR QUÉ)",
+            "C": "Individual, Grupal, Organizacional",
+            "D": "Pasado, Presente, Futuro"
+          },
+          "correct": "B",
+          "explanation": "Los niveles son: Contenido (qué se dice), Proceso (cómo se dice), y Metacognición (por qué sucede, motivaciones ocultas)."
+        },
+        {
+          "id": "w4_q012",
+          "category": "atencion-proceso",
+          "difficulty": "dificil",
+          "question": "¿Cuál es el objetivo final del desarrollo de la capacidad grupal de autorregulación?",
+          "options": {
+            "A": "Depender más del coach externo",
+            "B": "Que el grupo desarrolle capacidad de observar sus procesos y autorregularse",
+            "C": "Eliminar todos los conflictos",
+            "D": "Mantener solo procesos formales"
+          },
+          "correct": "B",
+          "explanation": "El objetivo es que el grupo desarrolle su propia capacidad de observar procesos, identificar problemas, generar intervenciones y mantener un clima productivo."
+        },
+        {
+          "id": "w4_q013",
+          "category": "confianza-grupal",
+          "difficulty": "facil",
+          "question": "¿Cuáles son los cuatro pilares de la confianza grupal?",
+          "options": {
+            "A": "Competencia, Benevolencia, Integridad, Predictibilidad",
+            "B": "Comunicación, Colaboración, Compromiso, Consistencia",
+            "C": "Respeto, Responsabilidad, Reciprocidad, Resultados",
+            "D": "Apertura, Honestidad, Transparencia, Autenticidad"
+          },
+          "correct": "A",
+          "explanation": "Los pilares son: Competencia (capacidad técnica), Benevolencia (intención de apoyar), Integridad (coherencia), y Predictibilidad (consistencia)."
+        },
+        {
+          "id": "w4_q014",
+          "category": "confianza-grupal",
+          "difficulty": "medio",
+          "question": "¿Cuáles son los elementos de vulnerabilidad constructiva según el contenido?",
+          "options": {
+            "A": "Solo mostrar fortalezas",
+            "B": "Admitir errores, pedir ayuda, compartir dudas, expresar emociones auténticas",
+            "C": "Ocultar todas las debilidades",
+            "D": "Solo dar órdenes"
+          },
+          "correct": "B",
+          "explanation": "Los elementos incluyen: admitir errores y limitaciones, pedir ayuda cuando es necesario, compartir dudas e incertidumbres, y expresar emociones auténticamente."
+        },
+        {
+          "id": "w4_q015",
+          "category": "confianza-grupal",
+          "difficulty": "dificil",
+          "question": "¿Cuál es el proceso de restauración de confianza cuando se ve comprometida?",
+          "options": {
+            "A": "Solo ignorar el problema",
+            "B": "Reconocimiento, Responsabilidad, Reparación, Renovación",
+            "C": "Únicamente cambiar de equipo",
+            "D": "Solo esperar que pase el tiempo"
+          },
+          "correct": "B",
+          "explanation": "El proceso incluye: Reconocimiento (admitir el problema), Responsabilidad (asumirla), Reparación (acciones correctivas), y Renovación (compromisos futuros)."
+        }
+      ]
+    },
+    "6": {
+      "title": "Aplicaciones de coaching para equipos de alto desempeño",
+      "categories": ["estrategia", "implementacion", "seguimiento"],
+      "questions": [
+        {
+          "id": "w6_q001",
+          "category": "estrategia",
+          "difficulty": "facil",
+          "question": "¿Qué significa SMART en objetivos?",
+          "options": {
+            "A": "Simple, Measurable, Achievable, Realistic, Timely",
+            "B": "Specific, Measurable, Attainable, Realistic, Timely",
+            "C": "Strategic, Modern, Adaptive, Relevant, Technical",
+            "D": "Strong, Motivated, Active, Responsible, Trustworthy"
+          },
+          "correct": "B",
+          "explanation": "SMART significa Specific (Específico), Measurable (Medible), Attainable (Alcanzable), Realistic (Realista), Timely (En tiempo)."
+        },
+        {
+          "id": "w6_q002",
+          "category": "estrategia",
+          "difficulty": "medio",
+          "question": "¿Cuál es el secreto más importante para equipos de alto desempeño según César Piqueras?",
+          "options": {
+            "A": "Tener el mejor salario",
+            "B": "Estar comprometidos al 100%",
+            "C": "Trabajar más horas",
+            "D": "Tener la mejor tecnología"
+          },
+          "correct": "B",
+          "explanation": "César Piqueras establece que el secreto más importante es 'estar comprometidos al 100%'."
+        },
+        {
+          "id": "w6_q003",
+          "category": "estrategia",
+          "difficulty": "dificil",
+          "question": "¿Cuáles son las cuatro etapas del liderazgo según César Piqueras?",
+          "options": {
+            "A": "Inicio, Desarrollo, Madurez, Excelencia",
+            "B": "Dependencia, Independencia, Contribución grupal, Liderazgo visionario",
+            "C": "Aprendizaje, Aplicación, Dominio, Enseñanza",
+            "D": "Novato, Competente, Experto, Maestro"
+          },
+          "correct": "B",
+          "explanation": "Las etapas son: Dependencia, Independencia, Contribución grupal, y Liderazgo visionario (solo el 5% de líderes la alcanza)."
+        },
+        {
+          "id": "w6_q004",
+          "category": "estrategia",
+          "difficulty": "medio",
+          "question": "¿Qué modelo estratégico incluye Objectives, Understand reasons, Take stock, Clarify gap?",
+          "options": {
+            "A": "GROW",
+            "B": "OUTCOMES",
+            "C": "SMART",
+            "D": "ACHIEVE"
+          },
+          "correct": "B",
+          "explanation": "El modelo OUTCOMES incluye: Objectives, Understand reasons, Take stock, Clarify gap, Options, Motivate, Enthusiasm, Support."
+        },
+        {
+          "id": "w6_q005",
+          "category": "estrategia",
+          "difficulty": "facil",
+          "question": "¿Cuáles son las características principales de equipos de alto desempeño?",
+          "options": {
+            "A": "Solo buenos salarios",
+            "B": "Propósito claro, roles definidos, comunicación abierta, confianza mutua",
+            "C": "Únicamente tecnología avanzada",
+            "D": "Solo líderes experimentados"
+          },
+          "correct": "B",
+          "explanation": "Las características incluyen: Propósito claro, Roles definidos, Comunicación abierta, Confianza mutua, Rendición de cuentas, Orientación a resultados, y Mejora continua."
+        },
+        {
+          "id": "w6_q006",
+          "category": "implementacion",
+          "difficulty": "facil",
+          "question": "¿Cuáles son las cinco fases de implementación del coaching?",
+          "options": {
+            "A": "Solo planificación y ejecución",
+            "B": "Preparación, Lanzamiento, Ejecución, Consolidación, Optimización",
+            "C": "Únicamente capacitación",
+            "D": "Solo evaluación final"
+          },
+          "correct": "B",
+          "explanation": "Las fases son: Preparación (diagnóstico), Lanzamiento (inicio), Ejecución (aplicación), Consolidación (integración), y Optimización (mejora continua)."
+        },
+        {
+          "id": "w6_q007",
+          "category": "implementacion",
+          "difficulty": "medio",
+          "question": "¿Qué es fundamental definir en la fase de preparación según Viterbit?",
+          "options": {
+            "A": "Solo el presupuesto",
+            "B": "Qué te interesa lograr con la aplicación del coaching",
+            "C": "Únicamente el cronograma",
+            "D": "Solo los participantes"
+          },
+          "correct": "B",
+          "explanation": "Viterbit establece que 'definir qué te interesa lograr con la aplicación del coaching es clave para el resto del proceso'."
+        },
+        {
+          "id": "w6_q008",
+          "category": "implementacion",
+          "difficulty": "dificil",
+          "question": "¿Cuáles son las seis técnicas fundamentales de coaching empresarial?",
+          "options": {
+            "A": "Solo escuchar y preguntar",
+            "B": "Preguntar, Escuchar, Ser Empático, Motivar, Comprometer, Feedback",
+            "C": "Únicamente dar instrucciones",
+            "D": "Solo evaluar resultados"
+          },
+          "correct": "B",
+          "explanation": "Las técnicas son: Preguntar (indagación estratégica), Escuchar (activa y empática), Ser Empático, Motivar, Comprometer, y proporcionar Feedback constructivo."
+        },
+        {
+          "id": "w6_q009",
+          "category": "implementacion",
+          "difficulty": "medio",
+          "question": "¿Cómo se pueden superar las resistencias culturales al coaching?",
+          "options": {
+            "A": "Imponer el programa obligatoriamente",
+            "B": "Involucrar líderes influyentes, adaptar el lenguaje, demostrar ROI, ser paciente",
+            "C": "Ignorar las resistencias",
+            "D": "Cambiar todo el personal"
+          },
+          "correct": "B",
+          "explanation": "Se superan involucrando a líderes influyentes como champions, adaptando el lenguaje a la cultura, demostrando ROI tangible y siendo paciente con la adopción."
+        },
+        {
+          "id": "w6_q010",
+          "category": "seguimiento",
+          "difficulty": "facil",
+          "question": "¿Cuáles son los cuatro niveles del modelo Kirkpatrick para evaluación?",
+          "options": {
+            "A": "Básico, Intermedio, Avanzado, Experto",
+            "B": "Reacción, Aprendizaje, Comportamiento, Resultados",
+            "C": "Inicio, Desarrollo, Aplicación, Maestría",
+            "D": "Conocimiento, Comprensión, Aplicación, Síntesis"
+          },
+          "correct": "B",
+          "explanation": "Los niveles de Kirkpatrick son: Reacción (satisfacción), Aprendizaje (conocimientos), Comportamiento (aplicación), y Resultados (impacto organizacional)."
+        },
+        {
+          "id": "w6_q011",
+          "category": "seguimiento",
+          "difficulty": "medio",
+          "question": "¿Cuáles son las características del seguimiento efectivo?",
+          "options": {
+            "A": "Solo eventos puntuales",
+            "B": "Continuo, Específico, Adaptativo, Constructivo",
+            "C": "Únicamente al final del programa",
+            "D": "Solo reportes escritos"
+          },
+          "correct": "B",
+          "explanation": "El seguimiento efectivo debe ser: Continuo (medición regular), Específico (métricas claras), Adaptativo (ajustes basados en evidencia), y Constructivo (orientado al aprendizaje)."
+        },
+        {
+          "id": "w6_q012",
+          "category": "seguimiento",
+          "difficulty": "dificil",
+          "question": "¿Cuál es el ciclo de retroalimentación continua en el seguimiento?",
+          "options": {
+            "A": "Solo recolectar datos",
+            "B": "Recolectar, Analizar, Comunicar, Ajustar",
+            "C": "Únicamente evaluar al final",
+            "D": "Solo hacer reportes"
+          },
+          "correct": "B",
+          "explanation": "El ciclo incluye: Recolectar (datos y evidencia), Analizar (patrones y tendencias), Comunicar (resultados e insights), y Ajustar (estrategias y tácticas)."
+        },
+        {
+          "id": "w6_q013",
+          "category": "estrategia",
+          "difficulty": "medio",
+          "question": "¿Qué incluye el Balanced Scorecard para equipos?",
+          "options": {
+            "A": "Solo métricas financieras",
+            "B": "Perspectiva financiera, del cliente, de procesos, de aprendizaje",
+            "C": "Únicamente satisfacción del empleado",
+            "D": "Solo resultados de ventas"
+          },
+          "correct": "B",
+          "explanation": "Incluye cuatro perspectivas: financiera (resultados económicos), del cliente (satisfacción), de procesos (eficiencia), y de aprendizaje (desarrollo de capacidades)."
+        },
+        {
+          "id": "w6_q014",
+          "category": "implementacion",
+          "difficulty": "facil",
+          "question": "¿Qué incluye la infraestructura de coaching según el contenido?",
+          "options": {
+            "A": "Solo salas de reuniones",
+            "B": "Plataformas tecnológicas, espacios físicos, bibliotecas de recursos, redes de coaches",
+            "C": "Únicamente computadoras",
+            "D": "Solo materiales impresos"
+          },
+          "correct": "B",
+          "explanation": "La infraestructura incluye: plataformas tecnológicas para seguimiento, espacios físicos adecuados, bibliotecas de recursos y herramientas, y redes de coaches internos y externos."
+        },
+        {
+          "id": "w6_q015",
+          "category": "seguimiento",
+          "difficulty": "medio",
+          "question": "¿Con qué frecuencia se deben realizar las reuniones de revisión según el contenido?",
+          "options": {
+            "A": "Solo al final del programa",
+            "B": "Semanales, Mensuales, Trimestrales, Anuales",
+            "C": "Únicamente cuando hay problemas",
+            "D": "Solo una vez al año"
+          },
+          "correct": "B",
+          "explanation": "Las reuniones incluyen: check-ins semanales rápidos, revisión mensual de métricas, evaluación trimestral integral, y evaluación anual de impacto y estrategia."
+        }
+      ]
+    },
+    "7": {
+      "title": "Prácticas de coaching en la empresa",
+      "categories": ["recursos-coaching", "aspectos-tecnicos", "logistica"],
+      "questions": [
+        {
+          "id": "w7_q001",
+          "category": "recursos-coaching",
+          "difficulty": "facil",
+          "question": "¿Cuáles son las categorías principales de recursos de coaching?",
+          "options": {
+            "A": "Solo herramientas físicas",
+            "B": "Herramientas, Metodologías, Tecnología, Materiales",
+            "C": "Únicamente software",
+            "D": "Solo libros y documentos"
+          },
+          "correct": "B",
+          "explanation": "Los recursos de coaching se organizan en cuatro categorías: Herramientas (instrumentos específicos), Metodologías (marcos estructurados), Tecnología (plataformas digitales), y Materiales (contenidos de aprendizaje)."
+        },
+        {
+          "id": "w7_q002",
+          "category": "recursos-coaching",
+          "difficulty": "medio",
+          "question": "¿Cuáles son los modelos de conversación principales para coaching individual?",
+          "options": {
+            "A": "Solo SMART",
+            "B": "GROW, OUTCOMES, ACHIEVE, CLEAR",
+            "C": "Únicamente DISC",
+            "D": "Solo evaluaciones 360°"
+          },
+          "correct": "B",
+          "explanation": "Los modelos principales son: GROW (Goal, Reality, Options, Will), OUTCOMES (proceso profundo), ACHIEVE (7 etapas), y CLEAR (Contracting, Listening, Exploring, Action, Review)."
+        },
+        {
+          "id": "w7_q003",
+          "category": "recursos-coaching",
+          "difficulty": "dificil",
+          "question": "¿Cuáles son las tres técnicas de PNL aplicadas al coaching mencionadas?",
+          "options": {
+            "A": "Solo visualización",
+            "B": "Anclajes, Línea del Tiempo, Técnicas de Modelado",
+            "C": "Únicamente hipnosis",
+            "D": "Solo análisis de personalidad"
+          },
+          "correct": "B",
+          "explanation": "Las técnicas de PNL son: Anclajes (asociación de estímulos), Línea del Tiempo (visualización de objetivos), y Técnicas de Modelado (replicación de comportamientos exitosos)."
+        },
+        {
+          "id": "w7_q004",
+          "category": "recursos-coaching",
+          "difficulty": "medio",
+          "question": "¿Cuáles son los factores de evaluación para seleccionar recursos de coaching?",
+          "options": {
+            "A": "Solo el costo",
+            "B": "Validez Científica, Aplicabilidad Práctica, Adaptabilidad Cultural, Escalabilidad, ROI",
+            "C": "Únicamente la popularidad",
+            "D": "Solo la disponibilidad"
+          },
+          "correct": "B",
+          "explanation": "Los factores son: Validez Científica (basados en investigación), Aplicabilidad Práctica (fáciles de implementar), Adaptabilidad Cultural (compatibles con la organización), Escalabilidad (crecen con las necesidades), y ROI Demostrable (generan valor medible)."
+        },
+        {
+          "id": "w7_q005",
+          "category": "aspectos-tecnicos",
+          "difficulty": "facil",
+          "question": "¿Cuáles son los componentes del diseño del programa de coaching?",
+          "options": {
+            "A": "Solo el cronograma",
+            "B": "Cronograma, Participantes, Modalidades, Presupuesto",
+            "C": "Únicamente el presupuesto",
+            "D": "Solo los materiales"
+          },
+          "correct": "B",
+          "explanation": "Los componentes incluyen: Cronograma (timeline detallado), Participantes (criterios de selección), Modalidades (individual, grupal, presencial, virtual), y Presupuesto (costos directos e indirectos)."
+        },
+        {
+          "id": "w7_q006",
+          "category": "aspectos-tecnicos",
+          "difficulty": "medio",
+          "question": "¿Qué incluyen los contratos de coaching según el contenido?",
+          "options": {
+            "A": "Solo el precio",
+            "B": "Acuerdos de Confidencialidad, Código de Ética, Expectativas, Términos de Terminación, Políticas de Datos",
+            "C": "Únicamente horarios",
+            "D": "Solo la duración"
+          },
+          "correct": "B",
+          "explanation": "Los contratos incluyen: Acuerdos de Confidencialidad, Código de Ética, Expectativas claras sobre roles y responsabilidades, Términos de Terminación, y Políticas de manejo de datos."
+        },
+        {
+          "id": "w7_q007",
+          "category": "aspectos-tecnicos",
+          "difficulty": "dificil",
+          "question": "¿Cuáles son los cinco tipos de espacios necesarios para coaching?",
+          "options": {
+            "A": "Solo oficinas normales",
+            "B": "Salas Individuales, Espacios Grupales, Áreas Informales, Zonas de Reflexión, Espacios Virtuales",
+            "C": "Únicamente salas de juntas",
+            "D": "Solo espacios virtuales"
+          },
+          "correct": "B",
+          "explanation": "Se necesitan: Salas Individuales (privacidad), Espacios Grupales (dinámicas de equipo), Áreas Informales (networking), Zonas de Reflexión (autoconocimiento), y Espacios Virtuales (coaching remoto)."
+        },
+        {
+          "id": "w7_q008",
+          "category": "logistica",
+          "difficulty": "facil",
+          "question": "¿Cuál es la estructura temporal típica del programa de coaching?",
+          "options": {
+            "A": "Solo una fase",
+            "B": "Fase Inicial, Desarrollo, Consolidación, Seguimiento",
+            "C": "Únicamente implementación",
+            "D": "Solo evaluación final"
+          },
+          "correct": "B",
+          "explanation": "La estructura incluye: Fase Inicial (diagnóstico 2-4 semanas), Desarrollo (implementación 3-6 meses), Consolidación (integración 1-2 meses), y Seguimiento (evaluación continua)."
+        },
+        {
+          "id": "w7_q009",
+          "category": "logistica",
+          "difficulty": "medio",
+          "question": "¿Cuál es la frecuencia recomendada para diferentes tipos de sesiones de coaching?",
+          "options": {
+            "A": "Todas iguales",
+            "B": "Individual: semanal/quincenal 60-90min, Grupal: quincenal/mensual 2-4h, Workshops: 1-2 días",
+            "C": "Solo una vez al mes",
+            "D": "Solo cuando hay problemas"
+          },
+          "correct": "B",
+          "explanation": "Las frecuencias son: Coaching Individual (semanal/quincenal 60-90 min), Coaching Grupal (quincenal/mensual 2-4 horas), Workshops (eventos intensivos 1-2 días), Check-ins (15-30 min), Evaluaciones (trimestral)."
+        },
+        {
+          "id": "w7_q010",
+          "category": "logistica",
+          "difficulty": "dificil",
+          "question": "¿Cuáles son los criterios de selección de participantes para coaching?",
+          "options": {
+            "A": "Solo la antigüedad",
+            "B": "Nivel jerárquico, Potencial de desarrollo, Disposición al cambio, Impacto organizacional, Disponibilidad",
+            "C": "Únicamente el salario",
+            "D": "Solo recomendaciones"
+          },
+          "correct": "B",
+          "explanation": "Los criterios incluyen: Nivel jerárquico y área funcional, Potencial de desarrollo y liderazgo, Disposición al cambio y apertura, Impacto en objetivos organizacionales, y Disponibilidad de tiempo y recursos."
+        },
+        {
+          "id": "w7_q011",
+          "category": "logistica",
+          "difficulty": "medio",
+          "question": "¿Qué incluye la plataforma tecnológica para coaching?",
+          "options": {
+            "A": "Solo email",
+            "B": "LMS, CRM de Coaching, Herramientas de Colaboración, Apps Móviles, Analytics",
+            "C": "Únicamente videoconferencias",
+            "D": "Solo documentos compartidos"
+          },
+          "correct": "B",
+          "explanation": "La plataforma incluye: LMS (contenidos y seguimiento), CRM de Coaching (gestión de relaciones), Herramientas de Colaboración (espacios virtuales), Apps Móviles (acceso personal), y Analytics (dashboards de métricas)."
+        },
+        {
+          "id": "w7_q012",
+          "category": "logistica",
+          "difficulty": "facil",
+          "question": "¿Cuáles son las categorías principales de costos del programa de coaching?",
+          "options": {
+            "A": "Solo salarios",
+            "B": "Personal, Infraestructura, Materiales, Tiempo",
+            "C": "Únicamente tecnología",
+            "D": "Solo capacitación"
+          },
+          "correct": "B",
+          "explanation": "Las categorías de costos son: Personal (coaches, facilitadores, coordinación), Infraestructura (espacios, tecnología, plataformas), Materiales (contenidos, evaluaciones, documentación), y Tiempo (horas de participantes, coordinación, costo de oportunidad)."
+        },
+        {
+          "id": "w7_q013",
+          "category": "aspectos-tecnicos",
+          "difficulty": "medio",
+          "question": "¿Cuáles son las cinco estrategias de comunicación durante el programa?",
+          "options": {
+            "A": "Solo enviar emails",
+            "B": "Lanzamiento, Progreso, Reconocimiento, Aprendizajes, Cierre",
+            "C": "Únicamente reuniones",
+            "D": "Solo reportes finales"
+          },
+          "correct": "B",
+          "explanation": "Las estrategias son: Lanzamiento (awareness e interés), Progreso (updates sobre avances), Reconocimiento (celebrar logros), Aprendizajes (compartir insights), y Cierre (resultados e impacto final)."
+        },
+        {
+          "id": "w7_q014",
+          "category": "logistica",
+          "difficulty": "dificil",
+          "question": "¿Cuáles son los cinco riesgos principales identificados y sus planes de contingencia?",
+          "options": {
+            "A": "Solo problemas técnicos",
+            "B": "Baja Participación, Calidad Inconsistente, Recursos Insuficientes, Cambios Organizacionales, Problemas Técnicos",
+            "C": "Únicamente falta de presupuesto",
+            "D": "Solo resistencia al cambio"
+          },
+          "correct": "B",
+          "explanation": "Los riesgos son: Baja Participación (falta de engagement), Calidad Inconsistente (variabilidad en coaches), Recursos Insuficientes (limitaciones), Cambios Organizacionales (reestructuraciones), y Problemas Técnicos (fallos en sistemas)."
+        },
+        {
+          "id": "w7_q015",
+          "category": "aspectos-tecnicos",
+          "difficulty": "medio",
+          "question": "¿Qué incluye el diseño para crecimiento y sostenibilidad a largo plazo?",
+          "options": {
+            "A": "Solo contratar más personal",
+            "B": "Procesos estandarizados, sistemas escalables, train-the-trainer, coaches internos, integración con HR",
+            "C": "Únicamente más presupuesto",
+            "D": "Solo más tecnología"
+          },
+          "correct": "B",
+          "explanation": "Incluye: Procesos estandarizados y replicables, Sistemas tecnológicos escalables, Modelo train-the-trainer, Red de coaches internos certificados, Integración con procesos HR, y Cultura de coaching como competencia core."
+        }
+      ]
+    }
+  }
+}
+```
+
+---
+
+## 🚀 Implementación en el Sistema
+
+### Paso 1: Crear el documento en Google Drive
+1. Crea un nuevo documento de Google Docs
+2. Título: "Base de Datos - Trivias Coaching Grupal"
+3. Copia y pega todo el contenido JSON de arriba
+
+### Paso 2: Modificar el código para usar la base de datos
+```javascript
+// Función para cargar preguntas desde Google Drive
+async function loadQuestionsFromDatabase(weekNumber, categories, difficulty, numQuestions) {
+    try {
+        // Aquí usarías google_drive_fetch para leer la base de datos
+        const databaseContent = await window.fs.readFile('base-datos-trivias.json', { encoding: 'utf8' });
+        const database = JSON.parse(databaseContent);
+        
+        const weekData = database.weeks[weekNumber.toString()];
+        if (!weekData) return generateFallbackQuestions(weekNumber, numQuestions);
+        
+        // Filtrar por categorías y dificultad
+        let filteredQuestions = weekData.questions.filter(q => 
+            categories.includes(q.category) && q.difficulty === difficulty
+        );
+        
+        // Si no hay suficientes preguntas, incluir otras dificultades
+        if (filteredQuestions.length < numQuestions) {
+            filteredQuestions = weekData.questions.filter(q => 
+                categories.includes(q.category)
+            );
+        }
+        
+        // Mezclar y seleccionar el número requerido
+        const shuffled = filteredQuestions.sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, numQuestions);
+        
+    } catch (error) {
+        console.error('Error loading database:', error);
+        return generateFallbackQuestions(weekNumber, numQuestions);
+    }
+}
