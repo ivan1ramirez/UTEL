@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: white;
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -45,7 +45,7 @@
 
         .subtitle {
             font-size: 1.5rem;
-            color: rgba(255,255,255,0.9);
+            color: rgba(0,0,0,0.7);
             font-weight: 300;
             letter-spacing: 2px;
         }
@@ -58,15 +58,16 @@
         }
 
         .week-card {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.9);
             backdrop-filter: blur(20px);
             border-radius: 25px;
             padding: 2.5rem;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 2px solid rgba(0,0,0,0.1);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .week-card::before {
@@ -76,7 +77,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(0,0,0,0.05), transparent);
             transform: translateX(-100%);
             transition: transform 0.6s;
         }
@@ -87,8 +88,8 @@
 
         .week-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            border-color: rgba(255,255,255,0.4);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border-color: rgba(0,0,0,0.3);
         }
 
         .week-header {
@@ -114,7 +115,7 @@
         }
 
         .week-title {
-            color: white;
+            color: black;
             font-size: 1.4rem;
             font-weight: 600;
             line-height: 1.3;
@@ -122,8 +123,8 @@
         }
 
         .week-duration {
-            background: rgba(255,255,255,0.2);
-            color: white;
+            background: rgba(0,0,0,0.1);
+            color: black;
             padding: 0.5rem 1rem;
             border-radius: 25px;
             font-size: 0.9rem;
@@ -131,7 +132,7 @@
         }
 
         .expand-icon {
-            color: white;
+            color: black;
             font-size: 1.5rem;
             margin-left: 1rem;
             transition: transform 0.3s ease;
@@ -213,7 +214,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-in-out;
-            background: rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.02);
             margin: 0 -1.5rem -1.5rem -1.5rem;
             border-radius: 0 0 15px 15px;
         }
@@ -224,7 +225,7 @@
 
         .topic-content-inner {
             padding: 2rem;
-            color: rgba(255,255,255,0.9);
+            color: rgba(0,0,0,0.8);
             line-height: 1.6;
         }
 
@@ -255,15 +256,15 @@
         }
 
         .organizer-visual {
-            background: rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.05);
             border-radius: 15px;
             padding: 1.5rem;
             margin: 1.5rem 0;
-            border: 2px dashed rgba(255,255,255,0.3);
+            border: 2px dashed rgba(0,0,0,0.2);
         }
 
         .organizer-title {
-            color: #ff6b6b;
+            color: #d63031;
             font-weight: 600;
             margin-bottom: 1rem;
             text-align: center;
@@ -278,28 +279,30 @@
         }
 
         .flow-item {
-            background: rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.1);
             padding: 1rem;
             border-radius: 10px;
             text-align: center;
             min-width: 120px;
             flex: 1;
+            color: black;
         }
 
         .arrow {
-            color: #feca57;
+            color: #d63031;
             font-size: 1.5rem;
         }
 
         .references {
-            background: rgba(255,255,255,0.08);
+            background: rgba(0,0,0,0.05);
             border-radius: 15px;
             padding: 1.5rem;
             margin-top: 2rem;
+            border: 1px solid rgba(0,0,0,0.1);
         }
 
         .references h4 {
-            color: #96ceb4;
+            color: #00b894;
             margin-bottom: 1rem;
             font-size: 1.1rem;
         }
@@ -315,6 +318,7 @@
             text-indent: -1rem;
             font-size: 0.9rem;
             line-height: 1.4;
+            color: rgba(0,0,0,0.8);
         }
 
         .floating-elements {
@@ -432,11 +436,11 @@
         }
 
         .video-container {
-            background: rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.05);
             backdrop-filter: blur(20px);
             border-radius: 25px;
             padding: 3rem;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 2px solid rgba(0,0,0,0.1);
             animation: fadeInUp 1s ease-out 0.5s both;
         }
 
@@ -554,16 +558,16 @@
         <!-- Video de Presentación -->
         <div class="video-section">
             <div class="video-container">
-                <h2 style="color: white; text-align: center; margin-bottom: 2rem; font-size: 2rem;">🎬 Video de Presentación del Curso</h2>
+                <h2 style="color: black; text-align: center; margin-bottom: 2rem; font-size: 2rem;">🎬 Video de Presentación del Curso</h2>
                 <div class="video-wrapper">
                     <iframe 
-                        src="https://ai.invideo.io/ai-mcp-video?video=coaching-grupal-programa-de-desarrollo-de-liderazgo-bzrqpf" 
+                        src="https://www.youtube.com/embed/PK-lbJfKZa4" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
                     </iframe>
                 </div>
-                <p style="color: rgba(255,255,255,0.9); text-align: center; margin-top: 1rem; font-size: 1.1rem;">
+                <p style="color: rgba(0,0,0,0.8); text-align: center; margin-top: 1rem; font-size: 1.1rem;">
                     🚀 <strong>Descubre cómo transformar tu liderazgo</strong> y potenciar equipos de alto rendimiento
                 </p>
                 <div style="text-align: center; margin-top: 1.5rem;">
@@ -3112,28 +3116,28 @@
         </div>
 
         <div class="cta-section">
-            <h2 style="color: white; margin-bottom: 1rem; font-size: 2rem;">¿Listo para transformar tu liderazgo?</h2>
-            <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1.1rem;">Has visto el video de presentación y explorado todo el contenido. Ahora únete a nuestro programa intensivo y desarrolla habilidades de coaching que impactarán tu carrera profesional</p>
+            <h2 style="color: black; margin-bottom: 1rem; font-size: 2rem;">¿Listo para transformar tu liderazgo?</h2>
+            <p style="color: rgba(0,0,0,0.7); margin-bottom: 2rem; font-size: 1.1rem;">Has visto el video de presentación y explorado todo el contenido. Ahora únete a nuestro programa intensivo y desarrolla habilidades de coaching que impactarán tu carrera profesional</p>
             <button class="cta-button" onclick="scrollToTop()">Volver al Video</button>
             <button class="cta-button secondary" onclick="printContent()">Descargar Contenido</button>
-            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 15px;">
-                <h3 style="color: #feca57; margin-bottom: 1rem;">📊 Programa Completo Desarrollado</h3>
+            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0,0,0,0.05); border-radius: 15px;">
+                <h3 style="color: #d63031; margin-bottom: 1rem;">📊 Programa Completo Desarrollado</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                     <div style="text-align: center;">
                         <div style="font-size: 2rem; color: #ff6b6b;">7</div>
-                        <div style="color: white;">Semanas Intensivas</div>
+                        <div style="color: black;">Semanas Intensivas</div>
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 2rem; color: #4ecdc4;">18</div>
-                        <div style="color: white;">Temas Desarrollados</div>
+                        <div style="color: black;">Temas Desarrollados</div>
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 2rem; color: #45b7d1;">50+</div>
-                        <div style="color: white;">Organizadores Visuales</div>
+                        <div style="color: black;">Organizadores Visuales</div>
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 2rem; color: #96ceb4;">30+</div>
-                        <div style="color: white;">Referencias APA</div>
+                        <div style="color: black;">Referencias APA</div>
                     </div>
                 </div>
             </div>
