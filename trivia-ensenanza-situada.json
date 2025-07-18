@@ -1,0 +1,2147 @@
+{
+  "metadata": {
+    "course": "Enseñanza Situada - Estrategias Metodológicas para Prácticas Educativas Auténticas",
+    "level": "Maestría",
+    "total_questions": 150,
+    "weeks": 6,
+    "filename": "trivia-ensenanza-situada.json"
+  },
+  "weeks": {
+    "1": {
+      "title": "Fundamentos conceptuales para una enseñanza situada",
+      "categories": ["aprendizaje-situado", "aprendizaje-cooperativo", "practica-reflexiva"],
+      "questions": [
+        {
+          "id": "w1_q1",
+          "category": "aprendizaje-situado",
+          "difficulty": "facil",
+          "question": "¿Cuál es el principio fundamental del aprendizaje situado?",
+          "options": {
+            "A": "El conocimiento se construye a través de la participación activa en prácticas socioculturalmente organizadas",
+            "B": "El aprendizaje debe ser individual y sin contexto",
+            "C": "La memorización es la base del conocimiento",
+            "D": "Los estudiantes aprenden mejor en silencio"
+          },
+          "correct": "A",
+          "explanation": "El aprendizaje situado enfatiza que el conocimiento se construye mediante la participación activa en contextos socioculturales auténticos."
+        },
+        {
+          "id": "w1_q2",
+          "category": "aprendizaje-situado",
+          "difficulty": "facil",
+          "question": "¿Qué significa 'participación legítima periférica' en el aprendizaje situado?",
+          "options": {
+            "A": "Los estudiantes no pueden participar en actividades importantes",
+            "B": "Los aprendices comienzan en los márgenes de las comunidades de práctica y gradualmente se mueven hacia el centro",
+            "C": "Solo algunos estudiantes pueden participar en el aprendizaje",
+            "D": "La participación debe ser limitada y controlada"
+          },
+          "correct": "B",
+          "explanation": "La participación legítima periférica describe cómo los novatos gradualmente se integran en comunidades de práctica, comenzando desde la periferia."
+        },
+        {
+          "id": "w1_q3",
+          "category": "aprendizaje-situado",
+          "difficulty": "facil",
+          "question": "¿Qué característica NO es propia del aprendizaje situado?",
+          "options": {
+            "A": "Contextualización en situaciones auténticas",
+            "B": "Participación social en comunidades de práctica",
+            "C": "Memorización de contenidos descontextualizados",
+            "D": "Construcción colaborativa del conocimiento"
+          },
+          "correct": "C",
+          "explanation": "El aprendizaje situado se opone a la memorización descontextualizada, promoviendo el aprendizaje en contextos auténticos."
+        },
+        {
+          "id": "w1_q4",
+          "category": "aprendizaje-cooperativo",
+          "difficulty": "facil",
+          "question": "Según Johnson y Johnson, ¿cuántos elementos esenciales tiene el aprendizaje cooperativo?",
+          "options": {
+            "A": "3 elementos",
+            "B": "4 elementos",
+            "C": "5 elementos",
+            "D": "6 elementos"
+          },
+          "correct": "C",
+          "explanation": "Johnson y Johnson identifican 5 elementos esenciales: interdependencia positiva, responsabilidad individual, interacción promotora, habilidades sociales y procesamiento grupal."
+        },
+        {
+          "id": "w1_q5",
+          "category": "aprendizaje-cooperativo",
+          "difficulty": "facil",
+          "question": "¿Qué elemento del aprendizaje cooperativo se refiere a que cada miembro del grupo es responsable de su propio aprendizaje?",
+          "options": {
+            "A": "Interdependencia positiva",
+            "B": "Responsabilidad individual",
+            "C": "Interacción promotora",
+            "D": "Procesamiento grupal"
+          },
+          "correct": "B",
+          "explanation": "La responsabilidad individual asegura que cada miembro del grupo sea accountable por su propio aprendizaje y contribución."
+        },
+        {
+          "id": "w1_q6",
+          "category": "aprendizaje-cooperativo",
+          "difficulty": "facil",
+          "question": "¿Cuál es la técnica cooperativa donde cada estudiante se especializa en una parte del tema y la enseña a su grupo?",
+          "options": {
+            "A": "Aprendiendo Juntos",
+            "B": "Jigsaw (Rompecabezas)",
+            "C": "Investigación Grupal",
+            "D": "Torneos de Equipos"
+          },
+          "correct": "B",
+          "explanation": "En la técnica Jigsaw, cada estudiante se convierte en 'experto' de una parte del contenido y la enseña al resto del grupo."
+        },
+        {
+          "id": "w1_q7",
+          "category": "practica-reflexiva",
+          "difficulty": "facil",
+          "question": "¿Quién es considerado el padre de la práctica reflexiva en educación?",
+          "options": {
+            "A": "John Dewey",
+            "B": "Donald Schön",
+            "C": "Jean Piaget",
+            "D": "Lev Vygotsky"
+          },
+          "correct": "B",
+          "explanation": "Donald Schön desarrolló el concepto de práctica reflexiva, distinguiendo entre reflexión en la acción y reflexión sobre la acción."
+        },
+        {
+          "id": "w1_q8",
+          "category": "practica-reflexiva",
+          "difficulty": "facil",
+          "question": "¿Qué tipo de reflexión ocurre durante la práctica docente?",
+          "options": {
+            "A": "Reflexión sobre la acción",
+            "B": "Reflexión en la acción",
+            "C": "Reflexión para la acción",
+            "D": "Reflexión post-acción"
+          },
+          "correct": "B",
+          "explanation": "La reflexión en la acción ocurre mientras se está realizando la actividad docente, permitiendo ajustes inmediatos."
+        },
+        {
+          "id": "w1_q9",
+          "category": "aprendizaje-situado",
+          "difficulty": "medio",
+          "question": "¿Cuál es la diferencia principal entre cognición distribuida y cognición individual?",
+          "options": {
+            "A": "La cognición distribuida es más lenta que la individual",
+            "B": "La cognición distribuida involucra múltiples personas, herramientas y representaciones del entorno",
+            "C": "La cognición individual es más efectiva para resolver problemas complejos",
+            "D": "No hay diferencias significativas entre ambas"
+          },
+          "correct": "B",
+          "explanation": "La cognición distribuida reconoce que el conocimiento y procesamiento cognitivo se extiende más allá del individuo, incluyendo herramientas y otros actores."
+        },
+        {
+          "id": "w1_q10",
+          "category": "aprendizaje-situado",
+          "difficulty": "medio",
+          "question": "En el aprendizaje situado, ¿qué papel juegan las herramientas culturales?",
+          "options": {
+            "A": "Son distractores que dificultan el aprendizaje",
+            "B": "Median el aprendizaje y la construcción de conocimiento",
+            "C": "Solo son útiles para estudiantes avanzados",
+            "D": "Reemplazan la necesidad de interacción social"
+          },
+          "correct": "B",
+          "explanation": "Las herramientas culturales, incluyendo lenguaje y tecnologías, median la actividad humana y la construcción de conocimiento."
+        },
+        {
+          "id": "w1_q11",
+          "category": "aprendizaje-cooperativo",
+          "difficulty": "medio",
+          "question": "¿Qué diferencia a los grupos cooperativos formales de los informales?",
+          "options": {
+            "A": "Los formales son más grandes que los informales",
+            "B": "Los formales duran más tiempo y tienen tareas más estructuradas",
+            "C": "Los informales son más efectivos para el aprendizaje",
+            "D": "No hay diferencias sustanciales entre ambos"
+          },
+          "correct": "B",
+          "explanation": "Los grupos formales duran desde una sesión hasta varias semanas con tareas estructuradas, mientras los informales son para actividades puntuales."
+        },
+        {
+          "id": "w1_q12",
+          "category": "aprendizaje-cooperativo",
+          "difficulty": "medio",
+          "question": "¿Cuál es el propósito principal del procesamiento grupal en el aprendizaje cooperativo?",
+          "options": {
+            "A": "Evaluar el rendimiento individual de cada miembro",
+            "B": "Reflexionar sobre el funcionamiento del grupo y mejorar la colaboración",
+            "C": "Asignar calificaciones a los participantes",
+            "D": "Planificar las próximas actividades del curso"
+          },
+          "correct": "B",
+          "explanation": "El procesamiento grupal permite al equipo reflexionar sobre su funcionamiento y identificar mejoras para la colaboración futura."
+        },
+        {
+          "id": "w1_q13",
+          "category": "practica-reflexiva",
+          "difficulty": "medio",
+          "question": "Según van Manen, ¿cuál es la característica del nivel crítico de reflexión?",
+          "options": {
+            "A": "Se enfoca únicamente en la eficacia de métodos de enseñanza",
+            "B": "Analiza supuestos subyacentes en las prácticas educativas",
+            "C": "Considera criterios morales, éticos y consecuencias sociopolíticas",
+            "D": "Se limita a aspectos técnicos de la enseñanza"
+          },
+          "correct": "C",
+          "explanation": "El nivel crítico de reflexión de van Manen considera las dimensiones morales, éticas y sociopolíticas de las prácticas educativas."
+        },
+        {
+          "id": "w1_q14",
+          "category": "practica-reflexiva",
+          "difficulty": "medio",
+          "question": "¿Qué estrategia de práctica reflexiva implica el análisis colaborativo de prácticas de enseñanza?",
+          "options": {
+            "A": "Diarios reflexivos",
+            "B": "Portafolios profesionales",
+            "C": "Observación entre pares",
+            "D": "Investigación-acción individual"
+          },
+          "correct": "C",
+          "explanation": "La observación entre pares permite el análisis colaborativo de prácticas de enseñanza, enriqueciendo la reflexión con perspectivas externas."
+        },
+        {
+          "id": "w1_q15",
+          "category": "aprendizaje-situado",
+          "difficulty": "dificil",
+          "question": "¿Cómo se relaciona el concepto de 'actividad mediada' de Vygotsky con el aprendizaje situado?",
+          "options": {
+            "A": "No existe relación entre ambos conceptos",
+            "B": "La actividad mediada por herramientas culturales es fundamental para la construcción situada del conocimiento",
+            "C": "La actividad mediada solo aplica al aprendizaje individual",
+            "D": "El aprendizaje situado rechaza la idea de mediación"
+          },
+          "correct": "B",
+          "explanation": "La actividad mediada por herramientas culturales y sistemas de signos es central en el aprendizaje situado, ya que el conocimiento se construye a través de esta mediación."
+        },
+        {
+          "id": "w1_q16",
+          "category": "aprendizaje-situado",
+          "difficulty": "dificil",
+          "question": "En el contexto del aprendizaje situado, ¿qué implica la 'transferencia situada'?",
+          "options": {
+            "A": "Mover conocimiento de un contexto a otro sin modificaciones",
+            "B": "La aplicación del conocimiento está íntimamente ligada al contexto original de aprendizaje",
+            "C": "Es imposible transferir conocimiento entre contextos diferentes",
+            "D": "La transferencia solo ocurre en situaciones idénticas"
+          },
+          "correct": "B",
+          "explanation": "La transferencia situada reconoce que el conocimiento está profundamente conectado con el contexto de aprendizaje, influyendo en cómo se aplica en nuevas situaciones."
+        },
+        {
+          "id": "w1_q17",
+          "category": "aprendizaje-cooperativo",
+          "difficulty": "dificil",
+          "question": "¿Cuál es la principal crítica al aprendizaje cooperativo desde una perspectiva de equidad educativa?",
+          "options": {
+            "A": "Es demasiado complejo para implementar",
+            "B": "Puede reproducir inequidades si no se consideran diferencias culturales y de poder",
+            "C": "No mejora el rendimiento académico",
+            "D": "Requiere demasiados recursos tecnológicos"
+          },
+          "correct": "B",
+          "explanation": "Una crítica importante es que el aprendizaje cooperativo puede reproducir inequidades existentes si no se abordan conscientemente las diferencias de poder y culturales."
+        },
+        {
+          "id": "w1_q18",
+          "category": "aprendizaje-cooperativo",
+          "difficulty": "dificil",
+          "question": "¿Cómo se relaciona la teoría de la interdependencia social con los beneficios del aprendizaje cooperativo?",
+          "options": {
+            "A": "Sugiere que la competencia siempre es más efectiva que la cooperación",
+            "B": "Establece que la interdependencia positiva genera motivación intrínseca y mejores relaciones",
+            "C": "Indica que la independencia individual es superior a la interdependencia",
+            "D": "No existe relación entre ambos conceptos"
+          },
+          "correct": "B",
+          "explanation": "La teoría de interdependencia social explica que cuando los objetivos están positivamente interconectados, se genera mayor motivación, esfuerzo y mejores relaciones interpersonales."
+        },
+        {
+          "id": "w1_q19",
+          "category": "practica-reflexiva",
+          "difficulty": "dificil",
+          "question": "¿Cuál es la relación entre la práctica reflexiva y el desarrollo de la experticia docente?",
+          "options": {
+            "A": "Los expertos no necesitan reflexionar sobre su práctica",
+            "B": "La reflexión sistemática transforma el conocimiento tácito en explícito, facilitando la mejora continua",
+            "C": "La práctica reflexiva solo es útil para docentes novatos",
+            "D": "La experticia se desarrolla únicamente a través de la experiencia directa"
+          },
+          "correct": "B",
+          "explanation": "La práctica reflexiva permite convertir el conocimiento tácito en explícito, facilitando el desarrollo continuo de la experticia docente."
+        },
+        {
+          "id": "w1_q20",
+          "category": "practica-reflexiva",
+          "difficulty": "dificil",
+          "question": "¿Cómo contribuye la metacognición a la práctica reflexiva efectiva?",
+          "options": {
+            "A": "La metacognición es irrelevante para la reflexión",
+            "B": "Permite la autorregulación del proceso reflexivo y la conciencia sobre las propias estrategias de pensamiento",
+            "C": "Solo es importante para estudiantes, no para docentes",
+            "D": "La metacognición reemplaza la necesidad de reflexión"
+          },
+          "correct": "B",
+          "explanation": "La metacognición facilita la autorregulación del proceso reflexivo, permitiendo al docente ser consciente de sus propias estrategias de pensamiento y mejorarlas."
+        },
+        {
+          "id": "w1_q21",
+          "category": "aprendizaje-situado",
+          "difficulty": "medio",
+          "question": "¿Qué ventaja principal ofrece el aprendizaje situado sobre métodos tradicionales de enseñanza?",
+          "options": {
+            "A": "Es más rápido y eficiente",
+            "B": "Mejora la transferencia del conocimiento a situaciones reales",
+            "C": "Requiere menos recursos para implementar",
+            "D": "Es más fácil de evaluar"
+          },
+          "correct": "B",
+          "explanation": "El aprendizaje situado mejora significativamente la transferencia del conocimiento porque se aprende en contextos similares a donde se aplicará."
+        },
+        {
+          "id": "w1_q22",
+          "category": "aprendizaje-cooperativo",
+          "difficulty": "medio",
+          "question": "¿Cuál es un obstáculo común en la implementación del aprendizaje cooperativo?",
+          "options": {
+            "A": "Los estudiantes prefieren trabajar individualmente",
+            "B": "La resistencia docente al cambio de paradigma pedagógico",
+            "C": "Es demasiado costoso económicamente",
+            "D": "No funciona con estudiantes adultos"
+          },
+          "correct": "B",
+          "explanation": "Un obstáculo significativo es la resistencia al cambio de paradigma, ya que requiere que los docentes adopten un rol facilitador en lugar de instructor tradicional."
+        },
+        {
+          "id": "w1_q23",
+          "category": "practica-reflexiva",
+          "difficulty": "medio",
+          "question": "¿Qué herramienta de práctica reflexiva es más efectiva para el desarrollo a largo plazo?",
+          "options": {
+            "A": "Reflexiones puntuales después de cada clase",
+            "B": "Portafolios profesionales con reflexiones sistemáticas",
+            "C": "Conversaciones informales con colegas",
+            "D": "Autoevaluaciones semestrales"
+          },
+          "correct": "B",
+          "explanation": "Los portafolios profesionales permiten un desarrollo reflexivo sistemático y documentado a largo plazo, facilitando el crecimiento profesional continuo."
+        },
+        {
+          "id": "w1_q24",
+          "category": "aprendizaje-situado",
+          "difficulty": "facil",
+          "question": "¿Cuál es un ejemplo típico de aprendizaje situado en la práctica?",
+          "options": {
+            "A": "Memorizar fórmulas matemáticas",
+            "B": "Practicar medicina en un hospital con pacientes reales",
+            "C": "Leer libros de texto individualmente",
+            "D": "Tomar exámenes estandarizados"
+          },
+          "correct": "B",
+          "explanation": "Practicar medicina en un hospital real es un ejemplo perfecto de aprendizaje situado, donde se aprende en el contexto auténtico de aplicación."
+        },
+        {
+          "id": "w1_q25",
+          "category": "practica-reflexiva",
+          "difficulty": "facil",
+          "question": "¿Cuál es el primer paso en el ciclo de reflexión de Gibbs?",
+          "options": {
+            "A": "Análisis",
+            "B": "Descripción",
+            "C": "Evaluación",
+            "D": "Plan de acción"
+          },
+          "correct": "B",
+          "explanation": "El ciclo de Gibbs comienza con la descripción objetiva de lo que ocurrió, estableciendo la base para la reflexión posterior."
+        }
+      ]
+    },
+    "2": {
+      "title": "Enseñanza basada en casos",
+      "categories": ["comunicacion-intrapersonal", "caracteristicas-objetivos", "metodologia-casos", "elaboracion-casos"],
+      "questions": [
+        {
+          "id": "w2_q1",
+          "category": "comunicacion-intrapersonal",
+          "difficulty": "facil",
+          "question": "¿Qué es la comunicación intrapersonal en el contexto del análisis de casos?",
+          "options": {
+            "A": "La comunicación entre diferentes personas del grupo",
+            "B": "El diálogo interno que mantiene cada individuo consigo mismo durante el análisis",
+            "C": "La comunicación formal con el instructor",
+            "D": "El intercambio de información por medios digitales"
+          },
+          "correct": "B",
+          "explanation": "La comunicación intrapersonal es el proceso metacognitivo de diálogo interno durante el análisis de casos."
+        },
+        {
+          "id": "w2_q2",
+          "category": "comunicacion-intrapersonal",
+          "difficulty": "facil",
+          "question": "¿Cuál es un componente clave de la comunicación intrapersonal?",
+          "options": {
+            "A": "Hablar en voz alta constantemente",
+            "B": "Autointerrogación reflexiva",
+            "C": "Evitar cualquier tipo de reflexión",
+            "D": "Seguir instrucciones sin cuestionarlas"
+          },
+          "correct": "B",
+          "explanation": "La autointerrogación es fundamental para el desarrollo del pensamiento crítico en el análisis de casos."
+        },
+        {
+          "id": "w2_q3",
+          "category": "caracteristicas-objetivos",
+          "difficulty": "facil",
+          "question": "¿Cuál es una característica distintiva del método de casos?",
+          "options": {
+            "A": "Los casos siempre tienen una solución única",
+            "B": "Los casos reflejan situaciones reales del campo profesional",
+            "C": "Los casos son problemas abstractos sin contexto",
+            "D": "Los casos requieren solo conocimientos memorísticos"
+          },
+          "correct": "B",
+          "explanation": "La autenticidad es una característica fundamental del método de casos, reflejando situaciones reales del campo profesional."
+        },
+        {
+          "id": "w2_q4",
+          "category": "caracteristicas-objetivos",
+          "difficulty": "facil",
+          "question": "¿Cuál es un objetivo principal del método de casos?",
+          "options": {
+            "A": "Memorizar información específica",
+            "B": "Desarrollar pensamiento crítico",
+            "C": "Evitar la discusión grupal",
+            "D": "Seguir procedimientos rígidos"
+          },
+          "correct": "B",
+          "explanation": "El desarrollo del pensamiento crítico es uno de los objetivos centrales del método de casos."
+        },
+        {
+          "id": "w2_q5",
+          "category": "metodologia-casos",
+          "difficulty": "facil",
+          "question": "¿Qué incluye un texto descriptivo de caso efectivo?",
+          "options": {
+            "A": "Solo datos cuantitativos",
+            "B": "Personajes desarrollados con motivaciones claras",
+            "C": "Soluciones predeterminadas",
+            "D": "Instrucciones paso a paso"
+          },
+          "correct": "B",
+          "explanation": "Los personajes bien desarrollados con motivaciones claras son esenciales para un caso efectivo."
+        },
+        {
+          "id": "w2_q6",
+          "category": "metodologia-casos",
+          "difficulty": "facil",
+          "question": "¿Cuál es el propósito de las preguntas críticas en el análisis de casos?",
+          "options": {
+            "A": "Confundir a los estudiantes",
+            "B": "Guiar el análisis sistemático del caso",
+            "C": "Proporcionar respuestas directas",
+            "D": "Evaluar la memoria de los estudiantes"
+          },
+          "correct": "B",
+          "explanation": "Las preguntas críticas estructuran y guían el proceso de análisis sistemático del caso."
+        },
+        {
+          "id": "w2_q7",
+          "category": "elaboracion-casos",
+          "difficulty": "facil",
+          "question": "¿Qué es fundamental al elaborar un caso educativo?",
+          "options": {
+            "A": "Que sea completamente ficticio",
+            "B": "Que tenga alineación con objetivos de aprendizaje específicos",
+            "C": "Que sea extremadamente complejo",
+            "D": "Que proporcione todas las respuestas"
+          },
+          "correct": "B",
+          "explanation": "La alineación con objetivos pedagógicos específicos es fundamental para la efectividad del caso."
+        },
+        {
+          "id": "w2_q8",
+          "category": "elaboracion-casos",
+          "difficulty": "facil",
+          "question": "¿Qué característica debe tener el final de un caso bien diseñado?",
+          "options": {
+            "A": "Debe resolver completamente el problema",
+            "B": "Debe ser abierto sin resolución explícita",
+            "C": "Debe incluir múltiples soluciones detalladas",
+            "D": "Debe ser confuso e incomprensible"
+          },
+          "correct": "B",
+          "explanation": "Los casos efectivos tienen finales abiertos que permiten múltiples interpretaciones y enfoques de solución."
+        },
+        {
+          "id": "w2_q9",
+          "category": "comunicacion-intrapersonal",
+          "difficulty": "medio",
+          "question": "¿Cómo contribuye la autorregulación a la comunicación intrapersonal efectiva?",
+          "options": {
+            "A": "Elimina la necesidad de reflexión",
+            "B": "Permite el control consciente del proceso de pensamiento durante el análisis",
+            "C": "Reduce la complejidad del caso",
+            "D": "Acelera el proceso de toma de decisiones"
+          },
+          "correct": "B",
+          "explanation": "La autorregulación permite controlar y dirigir conscientemente los procesos de pensamiento durante el análisis de casos."
+        },
+        {
+          "id": "w2_q10",
+          "category": "comunicacion-intrapersonal",
+          "difficulty": "medio",
+          "question": "¿Qué técnica de comunicación intrapersonal es más efectiva para el desarrollo metacognitivo?",
+          "options": {
+            "A": "Evitar cualquier autoreflexión",
+            "B": "Pensamiento en voz alta durante el análisis",
+            "C": "Seguir un guión predeterminado",
+            "D": "Trabajar en silencio absoluto"
+          },
+          "correct": "B",
+          "explanation": "El pensamiento en voz alta permite exteriorizar y reflexionar sobre los procesos cognitivos, desarrollando la metacognición."
+        },
+        {
+          "id": "w2_q11",
+          "category": "caracteristicas-objetivos",
+          "difficulty": "medio",
+          "question": "¿Cuál es la diferencia principal entre casos descriptivos y casos analíticos?",
+          "options": {
+            "A": "Los descriptivos son más largos que los analíticos",
+            "B": "Los descriptivos presentan situaciones para interpretación, los analíticos requieren identificación de problemas",
+            "C": "No hay diferencias significativas entre ambos tipos",
+            "D": "Los analíticos son más fáciles de resolver"
+          },
+          "correct": "B",
+          "explanation": "Los casos descriptivos se enfocan en presentar situaciones para análisis, mientras los analíticos demandan identificación activa de problemas."
+        },
+        {
+          "id": "w2_q12",
+          "category": "caracteristicas-objetivos",
+          "difficulty": "medio",
+          "question": "¿Por qué los casos complejos son más efectivos que los casos simples para el aprendizaje profesional?",
+          "options": {
+            "A": "Son más difíciles de resolver",
+            "B": "Reflejan mejor la realidad profesional donde múltiples variables interactúan",
+            "C": "Requieren más tiempo para analizar",
+            "D": "Son más entretenidos para los estudiantes"
+          },
+          "correct": "B",
+          "explanation": "La complejidad de los casos refleja la realidad profesional donde múltiples factores interactúan, preparando mejor a los estudiantes."
+        },
+        {
+          "id": "w2_q13",
+          "category": "metodologia-casos",
+          "difficulty": "medio",
+          "question": "¿Cuál es la función principal del interrogatorio socrático en el análisis de casos?",
+          "options": {
+            "A": "Proporcionar respuestas correctas a los estudiantes",
+            "B": "Facilitar la reflexión profunda mediante preguntas provocativas",
+            "C": "Evaluar el conocimiento memorístico",
+            "D": "Acelerar el proceso de análisis"
+          },
+          "correct": "B",
+          "explanation": "El interrogatorio socrático utiliza preguntas estratégicas para provocar reflexión profunda y desarrollo del pensamiento crítico."
+        },
+        {
+          "id": "w2_q14",
+          "category": "metodologia-casos",
+          "difficulty": "medio",
+          "question": "¿Por qué es importante la composición heterogénea en el trabajo grupal con casos?",
+          "options": {
+            "A": "Facilita la gestión del aula",
+            "B": "Aporta diversidad de perspectivas y enriquece el análisis",
+            "C": "Reduce el tiempo de análisis",
+            "D": "Evita conflictos entre estudiantes"
+          },
+          "correct": "B",
+          "explanation": "La heterogeneidad grupal enriquece el análisis al aportar diferentes perspectivas, experiencias y enfoques de solución."
+        },
+        {
+          "id": "w2_q15",
+          "category": "elaboracion-casos",
+          "difficulty": "medio",
+          "question": "¿Cuál es un criterio esencial para validar un caso educativo?",
+          "options": {
+            "A": "Que sea fácil de resolver",
+            "B": "Que genere múltiples interpretaciones válidas",
+            "C": "Que tenga una extensión mínima",
+            "D": "Que incluya datos numéricos complejos"
+          },
+          "correct": "B",
+          "explanation": "Un caso válido debe permitir múltiples interpretaciones y enfoques de solución, reflejando la complejidad de la realidad profesional."
+        },
+        {
+          "id": "w2_q16",
+          "category": "elaboracion-casos",
+          "difficulty": "medio",
+          "question": "¿Qué consideración ética es crucial al elaborar casos basados en situaciones reales?",
+          "options": {
+            "A": "Usar nombres reales para mayor autenticidad",
+            "B": "Proteger la identidad mediante modificación de datos sensibles",
+            "C": "Incluir toda la información disponible",
+            "D": "Evitar cualquier modificación de los hechos"
+          },
+          "correct": "B",
+          "explanation": "La protección de identidades y datos sensibles es fundamental, requiriendo modificaciones éticas de la información real."
+        },
+        {
+          "id": "w2_q17",
+          "category": "comunicacion-intrapersonal",
+          "difficulty": "dificil",
+          "question": "¿Cómo se relaciona la comunicación intrapersonal con el desarrollo de la expertise profesional?",
+          "options": {
+            "A": "No existe relación entre ambos conceptos",
+            "B": "La reflexión metacognitiva facilita la conversión de conocimiento tácito en explícito",
+            "C": "Solo es relevante para principiantes, no para expertos",
+            "D": "La expertise elimina la necesidad de comunicación intrapersonal"
+          },
+          "correct": "B",
+          "explanation": "La comunicación intrapersonal facilita la metacognición, convirtiendo conocimiento tácito en explícito y desarrollando expertise."
+        },
+        {
+          "id": "w2_q18",
+          "category": "caracteristicas-objetivos",
+          "difficulty": "dificil",
+          "question": "¿Cuál es la contribución específica del método de casos al desarrollo de competencias profesionales complejas?",
+          "options": {
+            "A": "Proporciona conocimientos específicos del área",
+            "B": "Integra conocimiento teórico, habilidades prácticas y juicio profesional en contextos auténticos",
+            "C": "Mejora únicamente las habilidades de comunicación",
+            "D": "Se enfoca exclusivamente en la resolución de problemas técnicos"
+          },
+          "correct": "B",
+          "explanation": "El método de casos integra múltiples dimensiones de competencia profesional en contextos auténticos, desarrollando juicio profesional."
+        },
+        {
+          "id": "w2_q19",
+          "category": "metodologia-casos",
+          "difficulty": "dificil",
+          "question": "¿Cómo influye la calidad de las actividades de seguimiento en el aprendizaje profundo a través de casos?",
+          "options": {
+            "A": "No tienen impacto significativo en el aprendizaje",
+            "B": "Facilitan la transferencia y consolidación del aprendizaje mediante reflexión metacognitiva",
+            "C": "Solo son útiles para evaluación sumativa",
+            "D": "Complican innecesariamente el proceso de aprendizaje"
+          },
+          "correct": "B",
+          "explanation": "Las actividades de seguimiento consolidan el aprendizaje y facilitan la transferencia mediante reflexión metacognitiva y aplicación."
+        },
+        {
+          "id": "w2_q20",
+          "category": "elaboracion-casos",
+          "difficulty": "dificil",
+          "question": "¿Qué equilibrio debe mantener un caso entre información suficiente y sobrecarga cognitiva?",
+          "options": {
+            "A": "Siempre proporcionar toda la información disponible",
+            "B": "Incluir información esencial para análisis profundo sin exceso que distraiga del aprendizaje",
+            "C": "Minimizar la información para simplificar el análisis",
+            "D": "La cantidad de información es irrelevante para la calidad del caso"
+          },
+          "correct": "B",
+          "explanation": "El caso debe proporcionar información suficiente para análisis profundo, pero evitar sobrecarga que impida el enfoque en objetivos de aprendizaje."
+        },
+        {
+          "id": "w2_q21",
+          "category": "metodologia-casos",
+          "difficulty": "medio",
+          "question": "¿Cuál es el beneficio principal del trabajo en pequeños grupos antes de la discusión plenaria?",
+          "options": {
+            "A": "Reduce el tiempo total de la sesión",
+            "B": "Maximiza la participación y permite desarrollo de ideas antes de compartir",
+            "C": "Evita la necesidad de facilitación docente",
+            "D": "Garantiza que todos lleguen a la misma conclusión"
+          },
+          "correct": "B",
+          "explanation": "El trabajo en grupos pequeños maximiza la participación y permite que los estudiantes desarrollen sus ideas antes de la discusión general."
+        },
+        {
+          "id": "w2_q22",
+          "category": "comunicacion-intrapersonal",
+          "difficulty": "medio",
+          "question": "¿Qué rol juegan los mapas conceptuales personales en la comunicación intrapersonal?",
+          "options": {
+            "A": "Son distractores que interfieren con el análisis",
+            "B": "Proporcionan representación visual del proceso de pensamiento",
+            "C": "Solo son útiles para estudiantes visuales",
+            "D": "Reemplazan la necesidad de reflexión verbal"
+          },
+          "correct": "B",
+          "explanation": "Los mapas conceptuales personales externalizan y organizan visualmente el proceso de pensamiento durante el análisis de casos."
+        },
+        {
+          "id": "w2_q23",
+          "category": "elaboracion-casos",
+          "difficulty": "medio",
+          "question": "¿Por qué es importante el pilotaje en el proceso de elaboración de casos?",
+          "options": {
+            "A": "Es un requisito legal obligatorio",
+            "B": "Permite identificar problemas y refinar el caso antes de uso extensivo",
+            "C": "Garantiza que el caso tenga una solución única",
+            "D": "Reduce los costos de implementación"
+          },
+          "correct": "B",
+          "explanation": "El pilotaje permite probar el caso con estudiantes reales, identificando problemas y oportunidades de mejora antes del uso extensivo."
+        },
+        {
+          "id": "w2_q24",
+          "category": "caracteristicas-objetivos",
+          "difficulty": "facil",
+          "question": "¿Qué ventaja ofrece el método de casos sobre conferencias magistrales tradicionales?",
+          "options": {
+            "A": "Requiere menos preparación docente",
+            "B": "Promueve participación activa y aplicación práctica del conocimiento",
+            "C": "Es más rápido para cubrir contenidos",
+            "D": "Elimina la necesidad de evaluación"
+          },
+          "correct": "B",
+          "explanation": "El método de casos promueve la participación activa de los estudiantes y la aplicación práctica del conocimiento teórico."
+        },
+        {
+          "id": "w2_q25",
+          "category": "metodologia-casos",
+          "difficulty": "facil",
+          "question": "¿Cuál es el propósito de establecer roles específicos en los grupos de análisis de casos?",
+          "options": {
+            "A": "Complicar el proceso de análisis",
+            "B": "Asegurar participación equitativa y organización eficiente",
+            "C": "Crear competencia entre miembros",
+            "D": "Reducir la responsabilidad individual"
+          },
+          "correct": "B",
+          "explanation": "Los roles específicos aseguran que todos los miembros participen equitativamente y que el trabajo grupal sea eficiente y organizado."
+        }
+      ]
+    },
+    "3": {
+      "title": "Enseñanza basada en resolución de problemas",
+      "categories": ["origen-fundamentos", "caracteristicas-abp", "etapas-solucion", "problemas-no-estructurados"],
+      "questions": [
+        {
+          "id": "w3_q1",
+          "category": "origen-fundamentos",
+          "difficulty": "facil",
+          "question": "¿En qué década y universidad se originó el Aprendizaje Basado en Problemas?",
+          "options": {
+            "A": "1950s, Harvard University",
+            "B": "1960s, McMaster University",
+            "C": "1970s, Stanford University",
+            "D": "1980s, MIT"
+          },
+          "correct": "B",
+          "explanation": "El ABP se originó en los años 1960 en McMaster University, Canadá, inicialmente para la educación médica."
+        },
+        {
+          "id": "w3_q2",
+          "category": "origen-fundamentos",
+          "difficulty": "facil",
+          "question": "¿Cuál es la característica principal que distingue al ABP de métodos tradicionales?",
+          "options": {
+            "A": "Usa tecnología avanzada",
+            "B": "El problema precede a la exposición de contenidos",
+            "C": "Requiere más tiempo de clase",
+            "D": "Solo funciona en grupos grandes"
+          },
+          "correct": "B",
+          "explanation": "En ABP, el problema se presenta antes de la exposición teórica, invirtiendo el proceso tradicional de enseñanza."
+        },
+        {
+          "id": "w3_q3",
+          "category": "caracteristicas-abp",
+          "difficulty": "facil",
+          "question": "¿Cuál es el rol del docente en el ABP?",
+          "options": {
+            "A": "Instructor que proporciona todas las respuestas",
+            "B": "Facilitador que guía el proceso de aprendizaje",
+            "C": "Evaluador que califica constantemente",
+            "D": "Observador pasivo del proceso"
+          },
+          "correct": "B",
+          "explanation": "En ABP, el docente actúa como facilitador, guiando el proceso sin proporcionar respuestas directas."
+        },
+        {
+          "id": "w3_q4",
+          "category": "caracteristicas-abp",
+          "difficulty": "facil",
+          "question": "¿Qué significa 'aprendizaje autodirigido' en el contexto del ABP?",
+          "options": {
+            "A": "Los estudiantes aprenden completamente solos",
+            "B": "Los estudiantes asumen responsabilidad de su propio aprendizaje",
+            "C": "No hay estructura en el proceso de aprendizaje",
+            "D": "Los estudiantes eligen cualquier tema que deseen"
+          },
+          "correct": "B",
+          "explanation": "El aprendizaje autodirigido implica que los estudiantes toman responsabilidad activa de su proceso de aprendizaje."
+        },
+        {
+          "id": "w3_q5",
+          "category": "etapas-solucion",
+          "difficulty": "facil",
+          "question": "¿Cuál es la primera etapa en el proceso de solución de problemas ABP?",
+          "options": {
+            "A": "Definición del problema",
+            "B": "Abordaje de la situación problemática",
+            "C": "Exploración del problema",
+            "D": "Planteamiento de la solución"
+          },
+          "correct": "B",
+          "explanation": "El abordaje inicial de la situación problemática es el primer paso para generar engagement y comprensión contextual."
+        },
+        {
+          "id": "w3_q6",
+          "category": "etapas-solucion",
+          "difficulty": "facil",
+          "question": "¿Qué elementos se consideran en la definición del problema?",
+          "options": {
+            "A": "Solo la naturaleza técnica del problema",
+            "B": "Qué, quién, dónde, cuándo del problema",
+            "C": "Únicamente las posibles soluciones",
+            "D": "Solo los recursos disponibles"
+          },
+          "correct": "B",
+          "explanation": "La definición del problema considera múltiples dimensiones: naturaleza, personas afectadas, contexto y temporalidad."
+        },
+        {
+          "id": "w3_q7",
+          "category": "problemas-no-estructurados",
+          "difficulty": "facil",
+          "question": "¿Qué caracteriza a un problema no estructurado (ill-structured)?",
+          "options": {
+            "A": "Tiene una solución única y correcta",
+            "B": "Permite múltiples interpretaciones y soluciones válidas",
+            "C": "Siempre es simple y directo",
+            "D": "No requiere análisis profundo"
+          },
+          "correct": "B",
+          "explanation": "Los problemas ill-structured se caracterizan por permitir múltiples interpretaciones y enfoques de solución válidos."
+        },
+        {
+          "id": "w3_q8",
+          "category": "problemas-no-estructurados",
+          "difficulty": "facil",
+          "question": "¿Por qué los problemas no estructurados son preferibles en ABP?",
+          "options": {
+            "A": "Son más fáciles de resolver",
+            "B": "Reflejan mejor la complejidad de situaciones reales",
+            "C": "Requieren menos tiempo de análisis",
+            "D": "Tienen respuestas predeterminadas"
+          },
+          "correct": "B",
+          "explanation": "Los problemas no estructurados reflejan la complejidad y ambigüedad de las situaciones profesionales reales."
+        },
+        {
+          "id": "w3_q9",
+          "category": "origen-fundamentos",
+          "difficulty": "medio",
+          "question": "¿Cómo se relaciona el constructivismo con los fundamentos del ABP?",
+          "options": {
+            "A": "No existe relación entre ambos conceptos",
+            "B": "El ABP aplica principios constructivistas donde los estudiantes construyen conocimiento activamente",
+            "C": "El constructivismo contradice los principios del ABP",
+            "D": "Solo se relacionan en aspectos tecnológicos"
+          },
+          "correct": "B",
+          "explanation": "El ABP se fundamenta en principios constructivistas, donde los estudiantes construyen conocimiento a través de la experiencia activa."
+        },
+        {
+          "id": "w3_q10",
+          "category": "origen-fundamentos",
+          "difficulty": "medio",
+          "question": "¿Cuál es la contribución específica del aprendizaje contextual a los fundamentos del ABP?",
+          "options": {
+            "A": "Elimina la necesidad de contenido teórico",
+            "B": "Sitúa el conocimiento en contextos auténticos de aplicación",
+            "C": "Reduce la complejidad del aprendizaje",
+            "D": "Acelera el proceso de adquisición de conocimientos"
+          },
+          "correct": "B",
+          "explanation": "El aprendizaje contextual aporta autenticidad al situar el conocimiento en contextos reales de aplicación profesional."
+        },
+        {
+          "id": "w3_q11",
+          "category": "caracteristicas-abp",
+          "difficulty": "medio",
+          "question": "¿Cómo se diferencia el ABP de otros métodos activos como el aprendizaje por descubrimiento?",
+          "options": {
+            "A": "No hay diferencias significativas",
+            "B": "El ABP utiliza problemas auténticos y complejos como punto de partida estructurado",
+            "C": "El ABP es menos efectivo que el aprendizaje por descubrimiento",
+            "D": "El ABP solo funciona en educación médica"
+          },
+          "correct": "B",
+          "explanation": "El ABP se distingue por usar problemas auténticos y complejos como punto de partida estructurado del aprendizaje."
+        },
+        {
+          "id": "w3_q12",
+          "category": "caracteristicas-abp",
+          "difficulty": "medio",
+          "question": "¿Qué beneficio específico aporta el trabajo grupal en ABP comparado con el trabajo individual?",
+          "options": {
+            "A": "Reduce la carga de trabajo individual",
+            "B": "Facilita la construcción social del conocimiento y múltiples perspectivas",
+            "C": "Garantiza que todos obtengan la misma calificación",
+            "D": "Elimina la necesidad de pensamiento crítico individual"
+          },
+          "correct": "B",
+          "explanation": "El trabajo grupal en ABP facilita la construcción social del conocimiento mediante el intercambio de múltiples perspectivas."
+        },
+        {
+          "id": "w3_q13",
+          "category": "etapas-solucion",
+          "difficulty": "medio",
+          "question": "¿Por qué la exploración del problema es crucial antes del planteamiento de soluciones?",
+          "options": {
+            "A": "Para cumplir con los requisitos temporales",
+            "B": "Para comprender profundamente las causas, consecuencias y restricciones del problema",
+            "C": "Para demostrar conocimientos teóricos",
+            "D": "Para complicar innecesariamente el proceso"
+          },
+          "correct": "B",
+          "explanation": "La exploración profunda permite comprender las múltiples dimensiones del problema antes de generar soluciones."
+        },
+        {
+          "id": "w3_q14",
+          "category": "etapas-solucion",
+          "difficulty": "medio",
+          "question": "¿Qué estrategias son efectivas durante la fase de planteamiento de soluciones?",
+          "options": {
+            "A": "Seleccionar inmediatamente la primera idea que surge",
+            "B": "Combinar brainstorming, evaluación de viabilidad y análisis de criterios",
+            "C": "Evitar la generación de múltiples alternativas",
+            "D": "Depender únicamente de soluciones previas conocidas"
+          },
+          "correct": "B",
+          "explanation": "La fase de planteamiento efectiva combina generación creativa, evaluación sistemática y análisis de viabilidad."
+        },
+        {
+          "id": "w3_q15",
+          "category": "problemas-no-estructurados",
+          "difficulty": "medio",
+          "question": "¿Cómo influye la ambigüedad de los problemas no estructurados en el desarrollo de competencias?",
+          "options": {
+            "A": "Dificulta el aprendizaje sin aportar beneficios",
+            "B": "Desarrolla tolerancia a la incertidumbre y habilidades de pensamiento crítico",
+            "C": "Solo confunde a los estudiantes",
+            "D": "Reduce la motivación por aprender"
+          },
+          "correct": "B",
+          "explanation": "La ambigüedad desarrolla tolerancia a la incertidumbre y fortalece las habilidades de análisis y pensamiento crítico."
+        },
+        {
+          "id": "w3_q16",
+          "category": "problemas-no-estructurados",
+          "difficulty": "medio",
+          "question": "¿Qué criterios son importantes para evaluar la calidad de un problema no estructurado?",
+          "options": {
+            "A": "Solo la dificultad técnica del problema",
+            "B": "Autenticidad, complejidad apropiada, relevancia curricular y potencial motivacional",
+            "C": "Únicamente la extensión del enunciado",
+            "D": "Solo la disponibilidad de recursos de información"
+          },
+          "correct": "B",
+          "explanation": "La calidad se evalúa considerando autenticidad, complejidad apropiada, relevancia curricular y capacidad motivacional."
+        },
+        {
+          "id": "w3_q17",
+          "category": "origen-fundamentos",
+          "difficulty": "dificil",
+          "question": "¿Cómo contribuye la teoría del aprendizaje autorregulado a la efectividad del ABP?",
+          "options": {
+            "A": "No tiene contribución significativa al ABP",
+            "B": "Proporciona marcos para que los estudiantes monitoreen y ajusten sus procesos de aprendizaje",
+            "C": "Solo es relevante para estudiantes avanzados",
+            "D": "Contradice los principios fundamentales del ABP"
+          },
+          "correct": "B",
+          "explanation": "La autorregulación permite a los estudiantes monitorear, evaluar y ajustar conscientemente sus estrategias de aprendizaje en ABP."
+        },
+        {
+          "id": "w3_q18",
+          "category": "caracteristicas-abp",
+          "difficulty": "dificil",
+          "question": "¿Cuál es la tensión fundamental entre estructura y apertura en el diseño de experiencias ABP?",
+          "options": {
+            "A": "No existe tal tensión en el ABP",
+            "B": "Equilibrar la guía suficiente para el aprendizaje con la libertad necesaria para la exploración auténtica",
+            "C": "Siempre priorizar la estructura sobre la apertura",
+            "D": "La apertura completa es siempre preferible a cualquier estructura"
+          },
+          "correct": "B",
+          "explanation": "El ABP debe equilibrar estructura suficiente para guiar el aprendizaje con apertura necesaria para exploración auténtica."
+        },
+        {
+          "id": "w3_q19",
+          "category": "etapas-solucion",
+          "difficulty": "dificil",
+          "question": "¿Cómo contribuye la evaluación del proceso (no solo de resultados) al aprendizaje profundo en ABP?",
+          "options": {
+            "A": "La evaluación del proceso es irrelevante para el aprendizaje",
+            "B": "Desarrolla metacognición y facilita la transferencia de estrategias de resolución a nuevos contextos",
+            "C": "Solo es útil para calificaciones académicas",
+            "D": "Complica innecesariamente el proceso de aprendizaje"
+          },
+          "correct": "B",
+          "explanation": "La evaluación del proceso desarrolla metacognición y facilita la transferencia de estrategias de resolución a contextos nuevos."
+        },
+        {
+          "id": "w3_q20",
+          "category": "problemas-no-estructurados",
+          "difficulty": "dificil",
+          "question": "¿Cómo se relaciona la 'zona de desarrollo próximo' de Vygotsky con el diseño de problemas no estructurados?",
+          "options": {
+            "A": "No existe relación entre ambos conceptos",
+            "B": "Los problemas deben calibrarse para estar ligeramente más allá de la capacidad individual, requiriendo colaboración",
+            "C": "Los problemas siempre deben estar dentro de la zona de confort",
+            "D": "La teoría de Vygotsky solo aplica al aprendizaje individual"
+          },
+          "correct": "B",
+          "explanation": "Los problemas efectivos se sitúan en la zona de desarrollo próximo, requiriendo colaboración para alcanzar soluciones."
+        },
+        {
+          "id": "w3_q21",
+          "category": "caracteristicas-abp",
+          "difficulty": "medio",
+          "question": "¿Cuál es un desafío común en la implementación del ABP en contextos educativos tradicionales?",
+          "options": {
+            "A": "Los estudiantes aprenden demasiado rápido",
+            "B": "Resistencia al cambio de paradigma tanto de docentes como estudiantes",
+            "C": "Es demasiado fácil de implementar",
+            "D": "No requiere recursos adicionales"
+          },
+          "correct": "B",
+          "explanation": "Un desafío mayor es la resistencia al cambio de paradigma educativo tanto por parte de docentes como estudiantes."
+        },
+        {
+          "id": "w3_q22",
+          "category": "etapas-solucion",
+          "difficulty": "medio",
+          "question": "¿Qué aspectos se deben considerar durante la implementación del plan de acción en ABP?",
+          "options": {
+            "A": "Solo la ejecución de tareas predefinidas",
+            "B": "Monitoreo continuo, gestión de riesgos y ajustes adaptativos",
+            "C": "Únicamente el cumplimiento de plazos",
+            "D": "Solo la asignación inicial de recursos"
+          },
+          "correct": "B",
+          "explanation": "La implementación efectiva requiere monitoreo continuo, gestión proactiva de riesgos y flexibilidad para ajustes."
+        },
+        {
+          "id": "w3_q23",
+          "category": "problemas-no-estructurados",
+          "difficulty": "medio",
+          "question": "¿Cómo pueden los problemas no estructurados promover la transferencia de aprendizaje?",
+          "options": {
+            "A": "Al ser idénticos a situaciones futuras",
+            "B": "Al desarrollar estrategias generales de análisis aplicables a diversos contextos",
+            "C": "Al proporcionar respuestas memorizables",
+            "D": "Al evitar la complejidad contextual"
+          },
+          "correct": "B",
+          "explanation": "Los problemas no estructurados desarrollan estrategias generales de análisis y resolución transferibles a diversos contextos."
+        },
+        {
+          "id": "w3_q24",
+          "category": "origen-fundamentos",
+          "difficulty": "facil",
+          "question": "¿Cuál es un beneficio clave del ABP para la motivación estudiantil?",
+          "options": {
+            "A": "Reduce la carga de trabajo",
+            "B": "Aumenta la motivación intrínseca mediante problemas auténticos y relevantes",
+            "C": "Garantiza calificaciones altas",
+            "D": "Elimina la necesidad de estudio individual"
+          },
+          "correct": "B",
+          "explanation": "El ABP aumenta la motivación intrínseca al presentar problemas auténticos y relevantes para la práctica profesional."
+        },
+        {
+          "id": "w3_q25",
+          "category": "etapas-solucion",
+          "difficulty": "facil",
+          "question": "¿Cuál es el propósito de la evaluación al final del proceso de resolución de problemas?",
+          "options": {
+            "A": "Solo asignar calificaciones",
+            "B": "Reflexionar sobre resultados y procesos para futuros aprendizajes",
+            "C": "Demostrar que se completó el proceso",
+            "D": "Comparar con otros grupos"
+          },
+          "correct": "B",
+          "explanation": "La evaluación final facilita la reflexión sobre resultados y procesos, consolidando aprendizajes para aplicaciones futuras."
+        }
+      ]
+    },
+    "4": {
+      "title": "Enseñanza basada en el método de proyectos - Fundamentos",
+      "categories": ["origen-proyectos", "caracteristicas-abpr", "objetivos-proyectos"],
+      "questions": [
+        {
+          "id": "w4_q1",
+          "category": "origen-proyectos",
+          "difficulty": "facil",
+          "question": "¿Quién es considerado el precursor del método de proyectos en educación?",
+          "options": {
+            "A": "John Dewey",
+            "B": "William Kilpatrick",
+            "C": "Jean Piaget",
+            "D": "Maria Montessori"
+          },
+          "correct": "A",
+          "explanation": "John Dewey desarrolló los principios fundamentales de la educación progresista que dieron origen al método de proyectos."
+        },
+        {
+          "id": "w4_q2",
+          "category": "origen-proyectos",
+          "difficulty": "facil",
+          "question": "¿En qué año William Kilpatrick publicó 'The Project Method'?",
+          "options": {
+            "A": "1915",
+            "B": "1918",
+            "C": "1920",
+            "D": "1925"
+          },
+          "correct": "B",
+          "explanation": "Kilpatrick formalizó el método de proyectos en su publicación 'The Project Method' en 1918."
+        },
+        {
+          "id": "w4_q3",
+          "category": "caracteristicas-abpr",
+          "difficulty": "facil",
+          "question": "¿Cuál es la característica central que distingue al ABPr de otros métodos?",
+          "options": {
+            "A": "Uso exclusivo de tecnología",
+            "B": "Creación de un producto tangible y significativo",
+            "C": "Evaluación únicamente sumativa",
+            "D": "Trabajo individual exclusivamente"
+          },
+          "correct": "B",
+          "explanation": "El ABPr se caracteriza por la creación de productos tangibles y significativos como resultado del proceso de aprendizaje."
+        },
+        {
+          "id": "w4_q4",
+          "category": "caracteristicas-abpr",
+          "difficulty": "facil",
+          "question": "¿Qué es una 'driving question' en el contexto del ABPr?",
+          "options": {
+            "A": "Una pregunta de evaluación final",
+            "B": "La pregunta esencial que guía todo el proyecto",
+            "C": "Una pregunta técnica específica",
+            "D": "Una pregunta administrativa"
+          },
+          "correct": "B",
+          "explanation": "La 'driving question' es la pregunta esencial que orienta y da dirección a todo el desarrollo del proyecto."
+        },
+        {
+          "id": "w4_q5",
+          "category": "objetivos-proyectos",
+          "difficulty": "facil",
+          "question": "¿Cuál es un objetivo cognitivo principal del ABPr?",
+          "options": {
+            "A": "Memorizar información específica",
+            "B": "Desarrollar pensamiento crítico y creativo",
+            "C": "Evitar el trabajo colaborativo",
+            "D": "Seguir instrucciones rígidas"
+          },
+          "correct": "B",
+          "explanation": "El desarrollo del pensamiento crítico y creativo es uno de los objetivos cognitivos centrales del ABPr."
+        },
+        {
+          "id": "w4_q6",
+          "category": "objetivos-proyectos",
+          "difficulty": "facil",
+          "question": "¿Qué habilidad procedimental desarrolla principalmente el ABPr?",
+          "options": {
+            "A": "Lectura rápida",
+            "B": "Gestión de proyectos y tiempo",
+            "C": "Memorización de datos",
+            "D": "Cálculo mental"
+          },
+          "correct": "B",
+          "explanation": "El ABPr desarrolla especialmente habilidades de gestión de proyectos y manejo efectivo del tiempo."
+        },
+        {
+          "id": "w4_q7",
+          "category": "caracteristicas-abpr",
+          "difficulty": "facil",
+          "question": "¿Qué papel tiene la 'audiencia auténtica' en el ABPr?",
+          "options": {
+            "A": "No tiene relevancia para el proyecto",
+            "B": "Proporciona un contexto real para la presentación del producto",
+            "C": "Solo evalúa el producto final",
+            "D": "Reemplaza al docente en la evaluación"
+          },
+          "correct": "B",
+          "explanation": "La audiencia auténtica proporciona un contexto real y significativo para la presentación y aplicación del producto."
+        },
+        {
+          "id": "w4_q8",
+          "category": "objetivos-proyectos",
+          "difficulty": "facil",
+          "question": "¿Cuál es un objetivo actitudinal del ABPr?",
+          "options": {
+            "A": "Dependencia del docente",
+            "B": "Fomentar autonomía y responsabilidad",
+            "C": "Evitar la toma de riesgos",
+            "D": "Priorizar el trabajo individual"
+          },
+          "correct": "B",
+          "explanation": "El ABPr busca desarrollar autonomía, responsabilidad personal y capacidad de autorregulación en los estudiantes."
+        },
+        {
+          "id": "w4_q9",
+          "category": "origen-proyectos",
+          "difficulty": "medio",
+          "question": "¿Cómo se relaciona la filosofía educativa de 'aprender haciendo' con los fundamentos del ABPr?",
+          "options": {
+            "A": "No existe relación entre ambos conceptos",
+            "B": "Proporciona la base filosófica para el aprendizaje experiencial a través de la creación",
+            "C": "Solo aplica a la educación técnica",
+            "D": "Es una idea obsoleta sin relevancia actual"
+          },
+          "correct": "B",
+          "explanation": "La filosofía de 'aprender haciendo' de Dewey proporciona la base filosófica para el aprendizaje experiencial del ABPr."
+        },
+        {
+          "id": "w4_q10",
+          "category": "origen-proyectos",
+          "difficulty": "medio",
+          "question": "¿Qué factores contribuyeron al resurgimiento del ABPr en las décadas de 1990-2000?",
+          "options": {
+            "A": "Solo el desarrollo de nuevas tecnologías",
+            "B": "Integración de tecnología y enfoque en competencias del siglo XXI",
+            "C": "Reducción de costos educativos",
+            "D": "Simplificación de métodos de evaluación"
+          },
+          "correct": "B",
+          "explanation": "El resurgimiento se debió a la integración tecnológica y el reconocimiento de la necesidad de competencias del siglo XXI."
+        },
+        {
+          "id": "w4_q11",
+          "category": "caracteristicas-abpr",
+          "difficulty": "medio",
+          "question": "¿Cómo se diferencia la colaboración en ABPr de otras formas de trabajo grupal?",
+          "options": {
+            "A": "No hay diferencias significativas",
+            "B": "Es interdependiente, orientada a un producto común y requiere roles complementarios",
+            "C": "Es menos estructurada que otros métodos",
+            "D": "Elimina la responsabilidad individual"
+          },
+          "correct": "B",
+          "explanation": "La colaboración en ABPr es interdependiente, orientada hacia un producto común y requiere roles complementarios para el éxito."
+        },
+        {
+          "id": "w4_q12",
+          "category": "caracteristicas-abpr",
+          "difficulty": "medio",
+          "question": "¿Qué distingue la investigación en ABPr de la investigación académica tradicional?",
+          "options": {
+            "A": "No requiere rigor metodológico",
+            "B": "Está orientada a la aplicación práctica y creación de productos auténticos",
+            "C": "Solo utiliza fuentes secundarias",
+            "D": "Evita la síntesis de información"
+          },
+          "correct": "B",
+          "explanation": "La investigación en ABPr está orientada hacia la aplicación práctica y la creación de productos auténticos y útiles."
+        },
+        {
+          "id": "w4_q13",
+          "category": "objetivos-proyectos",
+          "difficulty": "medio",
+          "question": "¿Cómo contribuye el ABPr al desarrollo de la autorregulación del aprendizaje?",
+          "options": {
+            "A": "No influye en la autorregulación",
+            "B": "Los estudiantes deben planificar, monitorear y evaluar su propio progreso",
+            "C": "Solo el docente regula el aprendizaje",
+            "D": "Elimina la necesidad de autorregulación"
+          },
+          "correct": "B",
+          "explanation": "El ABPr requiere que los estudiantes planifiquen, monitoreen y evalúen su propio progreso, desarrollando autorregulación."
+        },
+        {
+          "id": "w4_q14",
+          "category": "objetivos-proyectos",
+          "difficulty": "medio",
+          "question": "¿Qué competencias del siglo XXI desarrolla específicamente el ABPr?",
+          "options": {
+            "A": "Solo competencias técnicas específicas",
+            "B": "Pensamiento crítico, colaboración, comunicación y creatividad",
+            "C": "Únicamente habilidades de presentación",
+            "D": "Solo competencias digitales"
+          },
+          "correct": "B",
+          "explanation": "El ABPr desarrolla las competencias clave del siglo XXI: pensamiento crítico, colaboración, comunicación y creatividad."
+        },
+        {
+          "id": "w4_q15",
+          "category": "caracteristicas-abpr",
+          "difficulty": "medio",
+          "question": "¿Por qué la reflexión continua es esencial en el ABPr?",
+          "options": {
+            "A": "Solo para cumplir requisitos de evaluación",
+            "B": "Facilita la metacognición y mejora continua del proceso",
+            "C": "Para llenar tiempo en el cronograma",
+            "D": "No es realmente necesaria"
+          },
+          "correct": "B",
+          "explanation": "La reflexión continua facilita la metacognición y permite la mejora continua tanto del proceso como del producto."
+        },
+        {
+          "id": "w4_q16",
+          "category": "origen-proyectos",
+          "difficulty": "dificil",
+          "question": "¿Cómo influyó la teoría de las inteligencias múltiples de Gardner en la evolución del ABPr?",
+          "options": {
+            "A": "No tuvo influencia en el ABPr",
+            "B": "Proporcionó justificación para múltiples formas de expresión y demostración del aprendizaje",
+            "C": "Solo aplicó a estudiantes con necesidades especiales",
+            "D": "Complicó innecesariamente la metodología"
+          },
+          "correct": "B",
+          "explanation": "La teoría de Gardner justificó la importancia de múltiples formas de expresión y demostración del aprendizaje en ABPr."
+        },
+        {
+          "id": "w4_q17",
+          "category": "caracteristicas-abpr",
+          "difficulty": "dificil",
+          "question": "¿Cuál es la tensión fundamental entre estructura y autonomía en el diseño de proyectos?",
+          "options": {
+            "A": "No existe tal tensión",
+            "B": "Equilibrar la guía suficiente con la libertad creativa y toma de decisiones estudiantiles",
+            "C": "Siempre priorizar la estructura sobre la autonomía",
+            "D": "La autonomía completa es siempre preferible"
+          },
+          "correct": "B",
+          "explanation": "El ABPr debe equilibrar estructura suficiente para guiar el aprendizaje con autonomía necesaria para la creatividad y toma de decisiones."
+        },
+        {
+          "id": "w4_q18",
+          "category": "objetivos-proyectos",
+          "difficulty": "dificil",
+          "question": "¿Cómo contribuye el ABPr al desarrollo de la identidad profesional en estudiantes?",
+          "options": {
+            "A": "No tiene relación con la identidad profesional",
+            "B": "Permite experimentar roles profesionales auténticos y desarrollar competencias específicas del campo",
+            "C": "Solo proporciona información sobre profesiones",
+            "D": "Limita las opciones profesionales futuras"
+          },
+          "correct": "B",
+          "explanation": "El ABPr permite a los estudiantes experimentar roles profesionales auténticos y desarrollar competencias específicas de su campo."
+        },
+        {
+          "id": "w4_q19",
+          "category": "caracteristicas-abpr",
+          "difficulty": "dificil",
+          "question": "¿Qué papel juega la incertidumbre en el desarrollo de competencias a través del ABPr?",
+          "options": {
+            "A": "La incertidumbre debe eliminarse completamente",
+            "B": "Desarrolla tolerancia a la ambigüedad y habilidades de adaptación necesarias en contextos profesionales",
+            "C": "Solo genera ansiedad sin beneficios",
+            "D": "No es relevante para el aprendizaje"
+          },
+          "correct": "B",
+          "explanation": "La incertidumbre en proyectos desarrolla tolerancia a la ambigüedad y habilidades de adaptación cruciales para el mundo profesional."
+        },
+        {
+          "id": "w4_q20",
+          "category": "objetivos-proyectos",
+          "difficulty": "dificil",
+          "question": "¿Cómo se relaciona el ABPr con el desarrollo de la ciudadanía activa y responsable?",
+          "options": {
+            "A": "No existe relación entre ABPr y ciudadanía",
+            "B": "Los proyectos pueden abordar problemas sociales reales, desarrollando conciencia cívica y responsabilidad social",
+            "C": "Solo se enfoca en competencias técnicas individuales",
+            "D": "Evita temas relacionados con la sociedad"
+          },
+          "correct": "B",
+          "explanation": "El ABPr puede abordar problemas sociales reales, desarrollando en los estudiantes conciencia cívica y sentido de responsabilidad social."
+        },
+        {
+          "id": "w4_q21",
+          "category": "origen-proyectos",
+          "difficulty": "medio",
+          "question": "¿Cuál fue el contexto histórico que favoreció el surgimiento del método de proyectos?",
+          "options": {
+            "A": "La revolución digital",
+            "B": "La crítica a la educación tradicional y el movimiento de educación progresista",
+            "C": "La Segunda Guerra Mundial",
+            "D": "El desarrollo del internet"
+          },
+          "correct": "B",
+          "explanation": "El método de proyectos surgió como respuesta crítica a la educación tradicional dentro del movimiento progresista de principios del siglo XX."
+        },
+        {
+          "id": "w4_q22",
+          "category": "caracteristicas-abpr",
+          "difficulty": "medio",
+          "question": "¿Qué diferencia al producto final en ABPr de las tareas tradicionales?",
+          "options": {
+            "A": "Es más fácil de completar",
+            "B": "Tiene relevancia real y puede ser utilizado por audiencias auténticas",
+            "C": "Solo requiere memorización",
+            "D": "No requiere evaluación"
+          },
+          "correct": "B",
+          "explanation": "El producto final en ABPr tiene relevancia real y utilidad práctica para audiencias auténticas, no solo académicas."
+        },
+        {
+          "id": "w4_q23",
+          "category": "objetivos-proyectos",
+          "difficulty": "medio",
+          "question": "¿Cómo contribuye el ABPr al desarrollo de la perseverancia en los estudiantes?",
+          "options": {
+            "A": "Al hacer tareas más fáciles",
+            "B": "A través de desafíos complejos que requieren esfuerzo sostenido y superación de obstáculos",
+            "C": "Eliminando cualquier dificultad",
+            "D": "Solo mediante recompensas extrínsecas"
+          },
+          "correct": "B",
+          "explanation": "Los proyectos complejos y de largo plazo desarrollan perseverancia al requerir esfuerzo sostenido y superación de obstáculos."
+        },
+        {
+          "id": "w4_q24",
+          "category": "caracteristicas-abpr",
+          "difficulty": "facil",
+          "question": "¿Qué importancia tiene la planificación en el ABPr?",
+          "options": {
+            "A": "No es necesaria la planificación",
+            "B": "Es fundamental para organizar el tiempo, recursos y actividades del proyecto",
+            "C": "Solo la hace el docente",
+            "D": "Se hace únicamente al final del proyecto"
+          },
+          "correct": "B",
+          "explanation": "La planificación es fundamental en ABPr para organizar efectivamente tiempo, recursos y secuencia de actividades."
+        },
+        {
+          "id": "w4_q25",
+          "category": "origen-proyectos",
+          "difficulty": "facil",
+          "question": "¿Cuál es un principio fundamental del ABPr según la filosofía de Dewey?",
+          "options": {
+            "A": "La competencia individual es más importante que la colaboración",
+            "B": "El aprendizaje debe conectar con experiencias reales y significativas",
+            "C": "La memorización es la base del conocimiento",
+            "D": "Los estudiantes deben seguir instrucciones rígidas"
+          },
+          "correct": "B",
+          "explanation": "Dewey enfatizaba que el aprendizaje debe conectar con experiencias reales y significativas para ser efectivo."
+        }
+      ]
+    },
+    "5": {
+      "title": "Enseñanza basada en el método de proyectos - Metodología",
+      "categories": ["inicio-proyecto", "actividades-equipos", "metodologia-abpr"],
+      "questions": [
+        {
+          "id": "w5_q1",
+          "category": "inicio-proyecto",
+          "difficulty": "facil",
+          "question": "¿Cuál es el primer elemento que debe establecerse al iniciar un proyecto?",
+          "options": {
+            "A": "El presupuesto disponible",
+            "B": "La pregunta esencial que guiará el proyecto",
+            "C": "Los materiales necesarios",
+            "D": "La fecha de entrega final"
+          },
+          "correct": "B",
+          "explanation": "La pregunta esencial (driving question) es el elemento fundamental que debe establecerse primero para guiar todo el proyecto."
+        },
+        {
+          "id": "w5_q2",
+          "category": "inicio-proyecto",
+          "difficulty": "facil",
+          "question": "¿Qué característica debe tener una pregunta esencial efectiva?",
+          "options": {
+            "A": "Tener una respuesta única y simple",
+            "B": "Ser abierta, compleja y conectada con problemas reales",
+            "C": "Ser fácil de responder rápidamente",
+            "D": "Requerir solo información memorística"
+          },
+          "correct": "B",
+          "explanation": "Una pregunta esencial efectiva debe ser abierta, compleja y estar conectada con problemas o situaciones reales."
+        },
+        {
+          "id": "w5_q3",
+          "category": "actividades-equipos",
+          "difficulty": "facil",
+          "question": "¿Cuál es una actividad clave durante la formación inicial de equipos?",
+          "options": {
+            "A": "Comenzar inmediatamente con la investigación",
+            "B": "Conocimiento mutuo e identificación de fortalezas",
+            "C": "Competir entre miembros del equipo",
+            "D": "Trabajar individualmente sin interacción"
+          },
+          "correct": "B",
+          "explanation": "El conocimiento mutuo y la identificación de fortalezas individuales son fundamentales para formar equipos efectivos."
+        },
+        {
+          "id": "w5_q4",
+          "category": "actividades-equipos",
+          "difficulty": "facil",
+          "question": "¿Por qué es importante definir roles específicos en los equipos de proyecto?",
+          "options": {
+            "A": "Para crear competencia interna",
+            "B": "Para asegurar participación equitativa y organización eficiente",
+            "C": "Para complicar el trabajo grupal",
+            "D": "Para que solo algunos miembros trabajen"
+          },
+          "correct": "B",
+          "explanation": "Los roles específicos aseguran que todos los miembros participen equitativamente y que el trabajo sea eficiente y organizado."
+        },
+        {
+          "id": "w5_q5",
+          "category": "metodologia-abpr",
+          "difficulty": "facil",
+          "question": "¿Qué herramienta es útil para mapear visualmente los elementos clave del proyecto?",
+          "options": {
+            "A": "Lista de tareas simple",
+            "B": "Canvas del proyecto",
+            "C": "Cronograma tradicional",
+            "D": "Tabla de calificaciones"
+          },
+          "correct": "B",
+          "explanation": "El Canvas del proyecto es una herramienta visual que permite mapear y organizar todos los elementos clave del proyecto."
+        },
+        {
+          "id": "w5_q6",
+          "category": "metodologia-abpr",
+          "difficulty": "facil",
+          "question": "¿Cuál es el propósito del cronograma de Gantt en ABPr?",
+          "options": {
+            "A": "Evaluar el desempeño individual",
+            "B": "Visualizar la distribución temporal del proyecto",
+            "C": "Asignar calificaciones parciales",
+            "D": "Seleccionar temas de investigación"
+          },
+          "correct": "B",
+          "explanation": "El cronograma de Gantt permite visualizar la distribución temporal de actividades y milestones del proyecto."
+        },
+        {
+          "id": "w5_q7",
+          "category": "inicio-proyecto",
+          "difficulty": "facil",
+          "question": "¿Qué debe incluir la definición de objetivos específicos del proyecto?",
+          "options": {
+            "A": "Solo objetivos académicos abstractos",
+            "B": "Metas claras de aprendizaje y productos esperados",
+            "C": "Únicamente fechas de entrega",
+            "D": "Solo criterios de evaluación"
+          },
+          "correct": "B",
+          "explanation": "Los objetivos específicos deben incluir tanto metas claras de aprendizaje como los productos concretos esperados."
+        },
+        {
+          "id": "w5_q8",
+          "category": "actividades-equipos",
+          "difficulty": "facil",
+          "question": "¿Qué debe contener un 'contrato de equipo'?",
+          "options": {
+            "A": "Solo las reglas de comportamiento",
+            "B": "Acuerdos sobre comunicación, reuniones y toma de decisiones",
+            "C": "Únicamente la distribución de calificaciones",
+            "D": "Solo los datos de contacto"
+          },
+          "correct": "B",
+          "explanation": "El contrato de equipo debe incluir acuerdos claros sobre comunicación, frecuencia de reuniones y procesos de toma de decisiones."
+        },
+        {
+          "id": "w5_q9",
+          "category": "inicio-proyecto",
+          "difficulty": "medio",
+          "question": "¿Cómo debe formularse una pregunta esencial para maximizar el engagement estudiantil?",
+          "options": {
+            "A": "Debe ser académica y abstracta",
+            "B": "Debe conectar con problemas actuales y relevantes para los estudiantes",
+            "C": "Debe tener respuestas en libros de texto",
+            "D": "Debe ser respondible en una sesión"
+          },
+          "correct": "B",
+          "explanation": "Las preguntas esenciales efectivas conectan con problemas actuales y relevantes que generen interés genuino en los estudiantes."
+        },
+        {
+          "id": "w5_q10",
+          "category": "inicio-proyecto",
+          "difficulty": "medio",
+          "question": "¿Cuál es la relación entre la pregunta esencial y los objetivos de aprendizaje?",
+          "options": {
+            "A": "No existe relación entre ambos",
+            "B": "La pregunta esencial debe alinearse con y facilitar el logro de objetivos de aprendizaje específicos",
+            "C": "Son conceptos completamente diferentes",
+            "D": "Los objetivos reemplazan a la pregunta esencial"
+          },
+          "correct": "B",
+          "explanation": "La pregunta esencial debe estar cuidadosamente alineada con los objetivos de aprendizaje para facilitar su logro a través del proyecto."
+        },
+        {
+          "id": "w5_q11",
+          "category": "actividades-equipos",
+          "difficulty": "medio",
+          "question": "¿Qué estrategias son efectivas para manejar conflictos durante la formación de equipos?",
+          "options": {
+            "A": "Evitar cualquier discusión",
+            "B": "Establecer normas claras de comunicación y procesos de resolución de conflictos",
+            "C": "Permitir que los conflictos se resuelvan solos",
+            "D": "Cambiar constantemente los miembros del equipo"
+          },
+          "correct": "B",
+          "explanation": "Es crucial establecer normas claras de comunicación y procesos estructurados para abordar conflictos constructivamente."
+        },
+        {
+          "id": "w5_q12",
+          "category": "actividades-equipos",
+          "difficulty": "medio",
+          "question": "¿Por qué la lluvia de ideas inicial es importante en la fase de formación del equipo?",
+          "options": {
+            "A": "Para perder tiempo antes de empezar",
+            "B": "Para generar múltiples enfoques y fomentar la creatividad colectiva",
+            "C": "Para que todos digan lo mismo",
+            "D": "Para evaluar conocimientos previos individuales"
+          },
+          "correct": "B",
+          "explanation": "La lluvia de ideas inicial permite generar múltiples enfoques posibles y establece un clima de creatividad y colaboración."
+        },
+        {
+          "id": "w5_q13",
+          "category": "metodologia-abpr",
+          "difficulty": "medio",
+          "question": "¿Cómo contribuye la investigación preliminar al éxito del proyecto?",
+          "options": {
+            "A": "No es necesaria en las etapas iniciales",
+            "B": "Proporciona contexto y fundamentos para el desarrollo del proyecto",
+            "C": "Solo sirve para llenar tiempo",
+            "D": "Reemplaza la necesidad de planificación"
+          },
+          "correct": "B",
+          "explanation": "La investigación preliminar proporciona el contexto necesario y los fundamentos teóricos para el desarrollo efectivo del proyecto."
+        },
+        {
+          "id": "w5_q14",
+          "category": "metodologia-abpr",
+          "difficulty": "medio",
+          "question": "¿Qué elementos debe incluir un plan de trabajo detallado en ABPr?",
+          "options": {
+            "A": "Solo fechas de entrega",
+            "B": "Actividades específicas, timeline, recursos necesarios y responsabilidades",
+            "C": "Únicamente objetivos generales",
+            "D": "Solo metodologías de evaluación"
+          },
+          "correct": "B",
+          "explanation": "Un plan efectivo debe incluir actividades específicas, timeline claro, recursos necesarios y distribución de responsabilidades."
+        },
+        {
+          "id": "w5_q15",
+          "category": "inicio-proyecto",
+          "difficulty": "medio",
+          "question": "¿Cómo influye la identificación de la audiencia objetivo en el diseño del proyecto?",
+          "options": {
+            "A": "No tiene influencia en el diseño",
+            "B": "Determina el enfoque, formato y nivel de comunicación del producto final",
+            "C": "Solo afecta la presentación final",
+            "D": "Es irrelevante para el proceso de aprendizaje"
+          },
+          "correct": "B",
+          "explanation": "La audiencia objetivo influye significativamente en el enfoque, formato y nivel de comunicación de todo el producto y proceso."
+        },
+        {
+          "id": "w5_q16",
+          "category": "actividades-equipos",
+          "difficulty": "medio",
+          "question": "¿Qué beneficios aporta la matriz de roles y responsabilidades en equipos de proyecto?",
+          "options": {
+            "A": "Complica innecesariamente la organización",
+            "B": "Clarifica expectativas y previene solapamientos o vacíos de responsabilidad",
+            "C": "Solo sirve para la evaluación docente",
+            "D": "Reduce la flexibilidad del equipo"
+          },
+          "correct": "B",
+          "explanation": "La matriz clarifica expectativas específicas y previene problemas de solapamiento o vacíos en las responsabilidades."
+        },
+        {
+          "id": "w5_q17",
+          "category": "metodologia-abpr",
+          "difficulty": "dificil",
+          "question": "¿Cómo se equilibra la estructura necesaria con la flexibilidad requerida en la fase inicial del proyecto?",
+          "options": {
+            "A": "Priorizando siempre la estructura sobre la flexibilidad",
+            "B": "Estableciendo marcos claros que permitan adaptación y toma de decisiones durante el desarrollo",
+            "C": "Eliminando cualquier tipo de estructura",
+            "D": "Manteniendo rigidez total en todos los aspectos"
+          },
+          "correct": "B",
+          "explanation": "El equilibrio se logra estableciendo marcos y parámetros claros que proporcionen dirección pero permitan adaptación y decisiones emergentes."
+        },
+        {
+          "id": "w5_q18",
+          "category": "inicio-proyecto",
+          "difficulty": "dificil",
+          "question": "¿Cuál es la relación entre la complejidad de la pregunta esencial y el desarrollo de competencias de orden superior?",
+          "options": {
+            "A": "No existe relación entre ambos aspectos",
+            "B": "Preguntas complejas estimulan análisis, síntesis y evaluación, desarrollando pensamiento de orden superior",
+            "C": "Las preguntas simples son más efectivas para desarrollar competencias",
+            "D": "La complejidad solo genera confusión sin beneficios"
+          },
+          "correct": "B",
+          "explanation": "Las preguntas esenciales complejas requieren y desarrollan habilidades de análisis, síntesis y evaluación, promoviendo pensamiento de orden superior."
+        },
+        {
+          "id": "w5_q19",
+          "category": "actividades-equipos",
+          "difficulty": "dificil",
+          "question": "¿Cómo contribuye la diversidad de perspectivas en equipos al proceso de análisis de la pregunta esencial?",
+          "options": {
+            "A": "Genera solo conflictos sin beneficios",
+            "B": "Enriquece el análisis mediante múltiples lentes interpretativos y enfoques de solución",
+            "C": "Dificulta la toma de decisiones sin aportar valor",
+            "D": "Es irrelevante para la calidad del análisis"
+          },
+          "correct": "B",
+          "explanation": "La diversidad de perspectivas enriquece significativamente el análisis al aportar múltiples lentes interpretativos y enfoques diversos de solución."
+        },
+        {
+          "id": "w5_q20",
+          "category": "metodologia-abpr",
+          "difficulty": "dificil",
+          "question": "¿Qué papel juega la metacognición en las actividades iniciales de los equipos de proyecto?",
+          "options": {
+            "A": "No es relevante en las etapas iniciales",
+            "B": "Facilita la autorregulación grupal y la reflexión sobre procesos de colaboración",
+            "C": "Solo es importante para estudiantes individuales",
+            "D": "Complica innecesariamente el proceso inicial"
+          },
+          "correct": "B",
+          "explanation": "La metacognición facilita que los equipos desarrollen capacidades de autorregulación y reflexión sobre sus propios procesos de colaboración."
+        },
+        {
+          "id": "w5_q21",
+          "category": "inicio-proyecto",
+          "difficulty": "medio",
+          "question": "¿Cuál es la importancia de establecer criterios de evaluación desde el inicio del proyecto?",
+          "options": {
+            "A": "No es necesario definirlos al inicio",
+            "B": "Proporciona claridad sobre expectativas y guía el desarrollo del proyecto",
+            "C": "Solo sirve para la calificación final",
+            "D": "Limita la creatividad de los estudiantes"
+          },
+          "correct": "B",
+          "explanation": "Establecer criterios desde el inicio proporciona claridad sobre las expectativas y sirve como guía para el desarrollo del proyecto."
+        },
+        {
+          "id": "w5_q22",
+          "category": "actividades-equipos",
+          "difficulty": "medio",
+          "question": "¿Qué estrategias facilitan el establecimiento de normas grupales efectivas?",
+          "options": {
+            "A": "Imponer reglas desde el exterior",
+            "B": "Construcción colaborativa de acuerdos basados en necesidades del equipo",
+            "C": "Copiar normas de otros equipos",
+            "D": "Evitar cualquier tipo de normas"
+          },
+          "correct": "B",
+          "explanation": "Las normas efectivas surgen de la construcción colaborativa basada en las necesidades específicas y dinámicas del equipo."
+        },
+        {
+          "id": "w5_q23",
+          "category": "metodologia-abpr",
+          "difficulty": "medio",
+          "question": "¿Cómo debe adaptarse la metodología ABPr a diferentes estilos de aprendizaje?",
+          "options": {
+            "A": "Usar un enfoque único para todos",
+            "B": "Incorporar múltiples modalidades y formatos de actividades",
+            "C": "Enfocarse solo en aprendices visuales",
+            "D": "Ignorar las diferencias individuales"
+          },
+          "correct": "B",
+          "explanation": "La metodología debe incorporar múltiples modalidades y formatos para atender diversos estilos y preferencias de aprendizaje."
+        },
+        {
+          "id": "w5_q24",
+          "category": "inicio-proyecto",
+          "difficulty": "facil",
+          "question": "¿Cuál es un error común al formular preguntas esenciales?",
+          "options": {
+            "A": "Hacerlas demasiado complejas",
+            "B": "Hacerlas demasiado cerradas o con respuestas obvias",
+            "C": "Relacionarlas con problemas reales",
+            "D": "Conectarlas con los intereses estudiantiles"
+          },
+          "correct": "B",
+          "explanation": "Un error común es formular preguntas demasiado cerradas o con respuestas obvias, que no estimulan la investigación profunda."
+        },
+        {
+          "id": "w5_q25",
+          "category": "actividades-equipos",
+          "difficulty": "facil",
+          "question": "¿Qué rol debe asumir el facilitador durante las actividades iniciales de los equipos?",
+          "options": {
+            "A": "Controlar todas las decisiones del equipo",
+            "B": "Guiar el proceso sin imponer soluciones específicas",
+            "C": "Mantenerse completamente alejado",
+            "D": "Proporcionar todas las respuestas"
+          },
+          "correct": "B",
+          "explanation": "El facilitador debe guiar el proceso de formación y organización del equipo sin imponer soluciones específicas, promoviendo la autonomía grupal."
+        }
+      ]
+    },
+    "6": {
+      "title": "Enseñanza basada en el método de proyectos - Implementación",
+      "categories": ["implementacion-proyecto", "conclusion-proyecto", "evaluacion-abpr"],
+      "questions": [
+        {
+          "id": "w6_q1",
+          "category": "implementacion-proyecto",
+          "difficulty": "facil",
+          "question": "¿Cuál es una actividad central durante la implementación del proyecto?",
+          "options": {
+            "A": "Solo seguir instrucciones predefinidas",
+            "B": "Investigación profunda y desarrollo iterativo",
+            "C": "Evitar cualquier cambio al plan inicial",
+            "D": "Trabajar únicamente de forma individual"
+          },
+          "correct": "B",
+          "explanation": "La implementación se caracteriza por la investigación profunda y el desarrollo iterativo del producto o solución."
+        },
+        {
+          "id": "w6_q2",
+          "category": "implementacion-proyecto",
+          "difficulty": "facil",
+          "question": "¿Qué significa 'desarrollo iterativo' en el contexto del ABPr?",
+          "options": {
+            "A": "Hacer todo una sola vez",
+            "B": "Creación progresiva con ciclos de mejora continua",
+            "C": "Evitar cualquier revisión",
+            "D": "Completar tareas de forma lineal"
+          },
+          "correct": "B",
+          "explanation": "El desarrollo iterativo implica creación progresiva del producto a través de ciclos repetidos de mejora y refinamiento."
+        },
+        {
+          "id": "w6_q3",
+          "category": "implementacion-proyecto",
+          "difficulty": "facil",
+          "question": "¿Cuál es el rol del facilitador durante la implementación?",
+          "options": {
+            "A": "Controlar cada paso del proceso",
+            "B": "Monitorear el progreso sin interferir excesivamente",
+            "C": "Proporcionar todas las respuestas",
+            "D": "Mantenerse completamente ausente"
+          },
+          "correct": "B",
+          "explanation": "El facilitador debe monitorear el progreso y estar disponible para apoyo sin interferir excesivamente en el proceso estudiantil."
+        },
+        {
+          "id": "w6_q4",
+          "category": "conclusion-proyecto",
+          "difficulty": "facil",
+          "question": "¿Qué elemento es crucial en la fase de conclusión del proyecto?",
+          "options": {
+            "A": "Solo entregar el producto final",
+            "B": "Reflexión sobre el proceso y aprendizajes obtenidos",
+            "C": "Evitar cualquier tipo de evaluación",
+            "D": "Comenzar inmediatamente un nuevo proyecto"
+          },
+          "correct": "B",
+          "explanation": "La reflexión sobre el proceso y los aprendizajes obtenidos es crucial para consolidar el aprendizaje en la fase de conclusión."
+        },
+        {
+          "id": "w6_q5",
+          "category": "conclusion-proyecto",
+          "difficulty": "facil",
+          "question": "¿Qué pregunta de reflexión es importante para los estudiantes al concluir el proyecto?",
+          "options": {
+            "A": "¿Obtuvimos una buena calificación?",
+            "B": "¿Qué aprendimos y cómo lo aprendimos?",
+            "C": "¿Terminamos a tiempo?",
+            "D": "¿Fue fácil de completar?"
+          },
+          "correct": "B",
+          "explanation": "'¿Qué aprendimos y cómo lo aprendimos?' es una pregunta fundamental para la reflexión metacognitiva sobre el proceso."
+        },
+        {
+          "id": "w6_q6",
+          "category": "evaluacion-abpr",
+          "difficulty": "facil",
+          "question": "¿Qué debe evaluar el docente en ABPr además del producto final?",
+          "options": {
+            "A": "Solo el resultado final",
+            "B": "El proceso de trabajo colaborativo y desarrollo de competencias",
+            "C": "Únicamente el conocimiento memorístico",
+            "D": "Solo la presentación oral"
+          },
+          "correct": "B",
+          "explanation": "En ABPr es fundamental evaluar tanto el proceso de trabajo colaborativo como el desarrollo de competencias, no solo el producto final."
+        },
+        {
+          "id": "w6_q7",
+          "category": "evaluacion-abpr",
+          "difficulty": "facil",
+          "question": "¿Qué herramienta es efectiva para la evaluación integral en ABPr?",
+          "options": {
+            "A": "Solo exámenes escritos",
+            "B": "Rúbricas multidimensionales",
+            "C": "Únicamente autoevaluación",
+            "D": "Solo evaluación del docente"
+          },
+          "correct": "B",
+          "explanation": "Las rúbricas multidimensionales permiten evaluar diferentes aspectos del proyecto de manera integral y transparente."
+        },
+        {
+          "id": "w6_q8",
+          "category": "implementacion-proyecto",
+          "difficulty": "facil",
+          "question": "¿Por qué es importante la documentación durante la implementación?",
+          "options": {
+            "A": "Solo para cumplir requisitos administrativos",
+            "B": "Para registrar decisiones, procesos y facilitar la reflexión posterior",
+            "C": "Para complicar el trabajo",
+            "D": "No tiene importancia real"
+          },
+          "correct": "B",
+          "explanation": "La documentación registra decisiones y procesos importantes, facilitando la reflexión posterior y el aprendizaje metacognitivo."
+        },
+        {
+          "id": "w6_q9",
+          "category": "implementacion-proyecto",
+          "difficulty": "medio",
+          "question": "¿Cómo deben manejarse los obstáculos inesperados durante la implementación?",
+          "options": {
+            "A": "Ignorarlos y continuar con el plan original",
+            "B": "Verlos como oportunidades de aprendizaje y adaptación",
+            "C": "Abandonar inmediatamente el proyecto",
+            "D": "Pedir al docente que resuelva todos los problemas"
+          },
+          "correct": "B",
+          "explanation": "Los obstáculos deben verse como oportunidades de aprendizaje que desarrollan habilidades de adaptación y resolución de problemas."
+        },
+        {
+          "id": "w6_q10",
+          "category": "implementacion-proyecto",
+          "difficulty": "medio",
+          "question": "¿Qué estrategias son efectivas para mantener la motivación durante fases difíciles del proyecto?",
+          "options": {
+            "A": "Reducir los estándares de calidad",
+            "B": "Celebrar logros parciales y recordar el propósito del proyecto",
+            "C": "Trabajar de forma individual para evitar conflictos",
+            "D": "Postergar indefinidamente las tareas difíciles"
+          },
+          "correct": "B",
+          "explanation": "Celebrar logros parciales y mantener visible el propósito del proyecto ayuda a sostener la motivación durante fases desafiantes."
+        },
+        {
+          "id": "w6_q11",
+          "category": "conclusion-proyecto",
+          "difficulty": "medio",
+          "question": "¿Cómo contribuyen las presentaciones públicas al aprendizaje en ABPr?",
+          "options": {
+            "A": "Solo sirven para mostrar el trabajo realizado",
+            "B": "Desarrollan habilidades de comunicación y proporcionan feedback de audiencias auténticas",
+            "C": "Son una pérdida de tiempo del proceso",
+            "D": "Solo benefician a estudiantes extrovertidos"
+          },
+          "correct": "B",
+          "explanation": "Las presentaciones públicas desarrollan habilidades de comunicación y proporcionan feedback valioso de audiencias auténticas."
+        },
+        {
+          "id": "w6_q12",
+          "category": "conclusion-proyecto",
+          "difficulty": "medio",
+          "question": "¿Qué valor tiene la autoevaluación en la fase de conclusión?",
+          "options": {
+            "A": "No tiene valor real para el aprendizaje",
+            "B": "Desarrolla capacidades metacognitivas y responsabilidad personal",
+            "C": "Solo sirve para reducir trabajo docente",
+            "D": "Es menos importante que la evaluación externa"
+          },
+          "correct": "B",
+          "explanation": "La autoevaluación desarrolla capacidades metacognitivas fundamentales y sentido de responsabilidad personal sobre el aprendizaje."
+        },
+        {
+          "id": "w6_q13",
+          "category": "evaluacion-abpr",
+          "difficulty": "medio",
+          "question": "¿Qué aspectos debe incluir la evaluación del proceso en ABPr?",
+          "options": {
+            "A": "Solo la calidad del producto final",
+            "B": "Colaboración, gestión del tiempo, resolución de problemas y comunicación",
+            "C": "Únicamente conocimientos teóricos",
+            "D": "Solo la presentación oral final"
+          },
+          "correct": "B",
+          "explanation": "La evaluación del proceso debe incluir colaboración, gestión del tiempo, resolución de problemas y habilidades de comunicación."
+        },
+        {
+          "id": "w6_q14",
+          "category": "evaluacion-abpr",
+          "difficulty": "medio",
+          "question": "¿Por qué es importante la evaluación 360° en ABPr?",
+          "options": {
+            "A": "Para complicar el proceso de evaluación",
+            "B": "Proporciona perspectivas múltiples y más completas del desempeño",
+            "C": "Solo para involucrar a más personas",
+            "D": "Para reducir la responsabilidad docente"
+          },
+          "correct": "B",
+          "explanation": "La evaluación 360° proporciona perspectivas múltiples (auto, co, y heteroevaluación) para una visión más completa del desempeño."
+        },
+        {
+          "id": "w6_q15",
+          "category": "implementacion-proyecto",
+          "difficulty": "medio",
+          "question": "¿Cómo debe equilibrarse la autonomía estudiantil con la necesidad de orientación durante la implementación?",
+          "options": {
+            "A": "Proporcionar autonomía total sin orientación",
+            "B": "Ofrecer apoyo disponible sin imponer direcciones específicas",
+            "C": "Controlar cada decisión estudiantil",
+            "D": "Alternar entre control total y abandono completo"
+          },
+          "correct": "B",
+          "explanation": "El equilibrio se logra ofreciendo apoyo y orientación disponible sin imponer direcciones específicas, respetando la autonomía estudiantil."
+        },
+        {
+          "id": "w6_q16",
+          "category": "conclusion-proyecto",
+          "difficulty": "medio",
+          "question": "¿Qué estrategias facilitan la transferencia de aprendizajes a futuras situaciones?",
+          "options": {
+            "A": "Evitar cualquier conexión con otros contextos",
+            "B": "Reflexionar sobre principios generales y estrategias aplicables",
+            "C": "Enfocarse únicamente en detalles específicos del proyecto",
+            "D": "Memorizar procedimientos exactos"
+          },
+          "correct": "B",
+          "explanation": "La reflexión sobre principios generales y estrategias aplicables facilita la transferencia de aprendizajes a nuevas situaciones."
+        },
+        {
+          "id": "w6_q17",
+          "category": "implementacion-proyecto",
+          "difficulty": "dificil",
+          "question": "¿Cómo contribuye la experimentación iterativa al desarrollo de competencias de investigación?",
+          "options": {
+            "A": "No tiene relación con competencias de investigación",
+            "B": "Desarrolla habilidades de formulación de hipótesis, prueba y refinamiento metodológico",
+            "C": "Solo aplica a ciencias experimentales",
+            "D": "Complica innecesariamente el proceso"
+          },
+          "correct": "B",
+          "explanation": "La experimentación iterativa desarrolla habilidades fundamentales de investigación: formulación de hipótesis, diseño de pruebas y refinamiento metodológico."
+        },
+        {
+          "id": "w6_q18",
+          "category": "conclusion-proyecto",
+          "difficulty": "dificil",
+          "question": "¿Cuál es la relación entre reflexión metacognitiva y desarrollo de expertise profesional en ABPr?",
+          "options": {
+            "A": "No existe relación entre ambos conceptos",
+            "B": "La reflexión metacognitiva facilita la conversión de experiencia en conocimiento profesional transferible",
+            "C": "Solo es relevante para estudiantes avanzados",
+            "D": "La expertise se desarrolla únicamente con práctica sin reflexión"
+          },
+          "correct": "B",
+          "explanation": "La reflexión metacognitiva es crucial para convertir experiencias del proyecto en conocimiento profesional transferible y expertise."
+        },
+        {
+          "id": "w6_q19",
+          "category": "evaluacion-abpr",
+          "difficulty": "dificil",
+          "question": "¿Cómo puede la evaluación auténtica en ABPr preparar a los estudiantes para evaluaciones profesionales reales?",
+          "options": {
+            "A": "No existe conexión entre evaluación académica y profesional",
+            "B": "Simula condiciones y criterios similares a los que enfrentarán en contextos profesionales",
+            "C": "Solo es relevante para ciertas profesiones",
+            "D": "La evaluación tradicional es más efectiva para preparación profesional"
+          },
+          "correct": "B",
+          "explanation": "La evaluación auténtica simula condiciones y criterios similares a los contextos profesionales, preparando mejor a los estudiantes."
+        },
+        {
+          "id": "w6_q20",
+          "category": "implementacion-proyecto",
+          "difficulty": "dificil",
+          "question": "¿Qué papel juega la gestión de la incertidumbre en el desarrollo de competencias de liderazgo durante la implementación?",
+          "options": {
+            "A": "La incertidumbre debe eliminarse para desarrollar liderazgo",
+            "B": "La gestión de incertidumbre desarrolla adaptabilidad, toma de decisiones y liderazgo situacional",
+            "C": "Solo genera estrés sin beneficios para el liderazgo",
+            "D": "No existe relación entre incertidumbre y liderazgo"
+          },
+          "correct": "B",
+          "explanation": "Gestionar incertidumbre durante la implementación desarrolla competencias clave de liderazgo: adaptabilidad, toma de decisiones bajo presión y liderazgo situacional."
+        },
+        {
+          "id": "w6_q21",
+          "category": "conclusion-proyecto",
+          "difficulty": "medio",
+          "question": "¿Cómo pueden los portafolios de proceso enriquecer la evaluación en ABPr?",
+          "options": {
+            "A": "Solo documentan el trabajo realizado",
+            "B": "Proporcionan evidencia del desarrollo y reflexión a lo largo del tiempo",
+            "C": "Son una carga administrativa innecesaria",
+            "D": "Reemplazan la necesidad de productos finales"
+          },
+          "correct": "B",
+          "explanation": "Los portafolios proporcionan evidencia rica del desarrollo progresivo y la reflexión continua a lo largo del proceso del proyecto."
+        },
+        {
+          "id": "w6_q22",
+          "category": "implementacion-proyecto",
+          "difficulty": "medio",
+          "question": "¿Qué estrategias son efectivas para el monitoreo del progreso sin interferir con la autonomía estudiantil?",
+          "options": {
+            "A": "Controlar cada actividad diariamente",
+            "B": "Establecer check-points regulares y sistemas de auto-reporte",
+            "C": "No monitorear en absoluto",
+            "D": "Solo evaluar al final del proyecto"
+          },
+          "correct": "B",
+          "explanation": "Los check-points regulares y sistemas de auto-reporte permiten monitoreo efectivo respetando la autonomía estudiantil."
+        },
+        {
+          "id": "w6_q23",
+          "category": "evaluacion-abpr",
+          "difficulty": "medio",
+          "question": "¿Cómo contribuye el feedback de audiencias auténticas a la calidad del aprendizaje?",
+          "options": {
+            "A": "No aporta valor real al aprendizaje",
+            "B": "Proporciona perspectivas reales sobre la utilidad y calidad del trabajo",
+            "C": "Solo complica el proceso de evaluación",
+            "D": "Es menos valioso que el feedback docente"
+          },
+          "correct": "B",
+          "explanation": "El feedback de audiencias auténticas proporciona perspectivas valiosas sobre la utilidad real y calidad del trabajo desde usuarios potenciales."
+        },
+        {
+          "id": "w6_q24",
+          "category": "conclusion-proyecto",
+          "difficulty": "facil",
+          "question": "¿Cuál es un beneficio clave de la reflexión grupal al finalizar el proyecto?",
+          "options": {
+            "A": "Identificar culpables de problemas",
+            "B": "Compartir aprendizajes y estrategias efectivas entre miembros",
+            "C": "Justificar decisiones tomadas",
+            "D": "Planificar la próxima calificación"
+          },
+          "correct": "B",
+          "explanation": "La reflexión grupal permite compartir aprendizajes individuales y identificar estrategias efectivas que beneficien a todos los miembros."
+        },
+        {
+          "id": "w6_q25",
+          "category": "implementacion-proyecto",
+          "difficulty": "facil",
+          "question": "¿Qué actitud debe mantener el facilitador cuando los estudiantes enfrentan dificultades durante la implementación?",
+          "options": {
+            "A": "Resolver inmediatamente todos los problemas",
+            "B": "Proporcionar apoyo y guía para que resuelvan por sí mismos",
+            "C": "Ignorar las dificultades completamente",
+            "D": "Criticar las decisiones estudiantiles"
+          },
+          "correct": "B",
+          "explanation": "El facilitador debe proporcionar apoyo y orientación que permita a los estudiantes desarrollar capacidades de resolución autónoma de problemas."
+        }
+      ]
+    }
+  }
+}
