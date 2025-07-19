@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soft Skills Power-Up - Curso de Habilidades Blandas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFE000, #FF6B6B, #4ECDC4, #45B7D1);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientFlow 4s ease-in-out infinite;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: #E8F4FD;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .level-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B6B, #FFE066);
+            color: #2c3e50;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #FFE066;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #E8F4FD;
+            margin-top: 0.5rem;
+        }
+
+        /* Course Grid */
+        .course-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            backdrop-filter: blur(15px);
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .module-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .module-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: rgba(255, 230, 102, 0.5);
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+        }
+
+        .module-icon {
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-right: 1.5rem;
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .module-info {
+            flex: 1;
+        }
+
+        .module-title {
+            color: #FFE066;
+            font-size: 1.6rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .module-duration {
+            background: rgba(255, 230, 102, 0.2);
+            color: #FFE066;
+            padding: 0.4rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .expand-icon {
+            color: #FFE066;
+            font-size: 1.5rem;
+            margin-left: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .module-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Topics Container */
+        .topics-container {
+            margin-top: 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        .module-card.expanded .topics-container {
+            max-height: 8000px !important;
+            opacity: 1;
+        }
+
+        .topic-item {
+            background: rgba(255, 255, 255, 0.08);
+            margin: 1rem 0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateX(8px);
+        }
+
+        .topic-item:nth-child(1) { border-left-color: #FF6B6B; }
+        .topic-item:nth-child(2) { border-left-color: #4ECDC4; }
+        .topic-item:nth-child(3) { border-left-color: #FFE066; }
+        .topic-item:nth-child(4) { border-left-color: #45B7D1; }
+        .topic-item:nth-child(5) { border-left-color: #96CEB4; }
+
+        .topic-header {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        .topic-number {
+            color: #FFE066;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-right: 1rem;
+            background: rgba(255, 230, 102, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+        }
+
+        .topic-text {
+            color: #E8F4FD;
+            font-weight: 500;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .topic-expand-icon {
+            color: #FFE066;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .topic-item.expanded .topic-expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .topic-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 0 -1.5rem -1.5rem -1.5rem;
+            border-radius: 0 0 12px 12px;
+            opacity: 0;
+        }
+
+        .topic-item.expanded .topic-content {
+            max-height: 5000px !important;
+            opacity: 1;
+        }
+
+        .topic-content-inner {
+            padding: 2rem;
+            color: #E8F4FD;
+            line-height: 1.7;
+        }
+
+        .topic-content-inner h4 {
+            color: #FFE066;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .topic-content-inner h5 {
+            color: #4ECDC4;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .topic-content-inner ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .topic-content-inner li {
+            margin: 0.7rem 0;
+            line-height: 1.6;
+        }
+
+        .topic-content-inner p {
+            margin: 1rem 0;
+            text-align: justify;
+            line-height: 1.7;
+        }
+
+        /* Framework boxes */
+        .activity-framework {
+            background: rgba(255, 230, 102, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(255, 230, 102, 0.3);
+        }
+
+        .framework-title {
+            color: #FFE066;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .activity-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .activity-step {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 120px;
+            flex: 1;
+            color: #E8F4FD;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .activity-step:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .arrow {
+            color: #4ECDC4;
+            font-size: 1.2rem;
+        }
+
+        /* Badge System */
+        .badge-system {
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+        }
+
+        .badge-title {
+            text-align: center;
+            color: #FF6B6B;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .badge-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .badge-card:hover {
+            border-color: rgba(255, 230, 102, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .badge-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .badge-name {
+            color: #FFE066;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-description {
+            color: #E8F4FD;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Interactive Quiz */
+        .quiz-game {
+            background: rgba(76, 205, 196, 0.1);
+            border: 2px solid #4ECDC4;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: #E8F4FD;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #4ECDC4;
+            padding-bottom: 1rem;
+        }
+
+        .quiz-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #4ECDC4;
+        }
+
+        .quiz-setup {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .setup-group {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #4ECDC4;
+            border-radius: 10px;
+            padding: 1rem;
+        }
+
+        .setup-label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: #4ECDC4;
+        }
+
+        .setup-select, .setup-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #4ECDC4;
+            color: #E8F4FD;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .setup-select:focus, .setup-input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(76, 205, 196, 0.5);
+        }
+
+        .quiz-button {
+            background: #4ECDC4;
+            color: #2c3e50;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .quiz-button:hover {
+            background: #E8F4FD;
+            color: #4ECDC4;
+            border: 2px solid #4ECDC4;
+            box-shadow: 0 0 15px rgba(76, 205, 196, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+            margin: 0 0.5rem 1rem 0;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255, 107, 107, 0.6);
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(135deg, #FFE066, #45B7D1);
+            box-shadow: 0 8px 20px rgba(255, 230, 102, 0.4);
+        }
+
+        .cta-button.secondary:hover {
+            box-shadow: 0 12px 25px rgba(255, 230, 102, 0.6);
+        }
+
+        /* Video Section */
+        .video-section {
+            margin-bottom: 4rem;
+        }
+
+        .video-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(76, 205, 196, 0.1));
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 3s;
+        }
+
+        .shape-3 {
+            width: 80px;
+            height: 80px;
+            bottom: 25%;
+            left: 60%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #FFE066);
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .module-card {
+                padding: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+
+            .module-header {
+                flex-wrap: wrap;
+            }
+
+            .module-duration {
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+
+            .activity-steps {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .video-container {
+                padding: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quiz-setup {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="floating-elements">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1 class="main-title">SOFT SKILLS POWER-UP</h1>
+            <p class="subtitle">Habilidades Blandas para el Éxito Universitario y Profesional</p>
+            <div class="level-badge">🎯 CURSO VOCACIONAL A DISTANCIA</div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #FFE066; font-size: 2rem;">📊 Especificaciones del Curso</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">20</span>
+                    <span class="stat-label">Horas de Formación</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Semanas Intensivas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Módulos Especializados</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Insignias Digitales</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">A Distancia</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video de Presentación -->
+        <div class="video-section">
+            <div class="video-container">
+                <h2 style="color: #FFE066; text-align: center; margin-bottom: 2rem; font-size: 2rem;">🎬 Presentación del Curso</h2>
+                <div class="video-wrapper">
+                    <iframe 
+                        ` : ''}
+                        <p style="margin: 0.5rem 0; font-size: 0.9rem; opacity: 0.8;">
+                            <strong>Explicación:</strong> ${question.explanation}
+                        </p>
+                    </div>
+                `;
+            });
+            
+            reviewHTML += `
+                    </div>
+                    <div style="text-align: center;">
+                        <button class="quiz-button" onclick="restartQuiz(${moduleNumber})">
+                            Volver a Empezar
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            gameElement.innerHTML = reviewHTML;
+        }
+
+        // Progress bar animation
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Funciones de expansión y contracción
+        function toggleModule(header) {
+            const moduleCard = header.closest('.module-card');
+            moduleCard.classList.toggle('expanded');
+        }
+
+        function toggleTopic(header) {
+            event.stopPropagation();
+            const topicItem = header.closest('.topic-item');
+            topicItem.classList.toggle('expanded');
+        }
+
+        // Expandir todos los módulos
+        function expandAll() {
+            document.querySelectorAll('.module-card').forEach(card => {
+                card.classList.add('expanded');
+            });
+            document.querySelectorAll('.topic-item').forEach(item => {
+                item.classList.add('expanded');
+            });
+        }
+
+        // Contraer todos los módulos
+        function collapseAll() {
+            document.querySelectorAll('.module-card').forEach(card => {
+                card.classList.remove('expanded');
+            });
+            document.querySelectorAll('.topic-item').forEach(item => {
+                item.classList.remove('expanded');
+            });
+        }
+
+        // Smooth scroll to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Animación de entrada para las tarjetas
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Inicializar animaciones cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observar las tarjetas de módulos para animación
+            document.querySelectorAll('.module-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                observer.observe(card);
+            });
+
+            // Agregar animación de entrada adicional
+            const keyframes = `
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            
+            const styleSheet = document.createElement('style');
+            styleSheet.textContent = keyframes;
+            document.head.appendChild(styleSheet);
+
+            console.log('🚀 Soft Skills Power-Up Course cargado exitosamente');
+            console.log('💡 Funciones disponibles:');
+            console.log('   - expandAll(): Expandir todos los módulos');
+            console.log('   - collapseAll(): Contraer todos los módulos');
+            console.log('   - startQuiz(moduleNumber): Iniciar quiz del módulo');
+        });
+
+        // Agregar atajos de teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case 'e':
+                        e.preventDefault();
+                        expandAll();
+                        break;
+                    case 'q':
+                        e.preventDefault();
+                        collapseAll();
+                        break;
+                }
+            }
+        });
+
+        // Función para simular generación de certificados
+        function generateCertificate() {
+            alert('🏆 ¡Felicitaciones! Tu certificado digital se está generando. Será enviado a tu correo electrónico en los próximos minutos.');
+        }
+
+        // Función para conectar con sistema BADGER (simulada)
+        function connectToBadger() {
+            const badges = [
+                "🗣️ Comunicador Estratégico",
+                "🤝 Colaborador Elite", 
+                "🧠 Pensador Crítico"
+            ];
+            
+            let message = "🏆 Conectando con sistema BADGER...\n\n";
+            message += "Insignias disponibles para obtener:\n";
+            badges.forEach((badge, index) => {
+                message += `${index + 1}. ${badge}\n`;
+            });
+            message += "\n¡Completa los módulos para desbloquear tus badges!";
+            
+            alert(message);
+        }
+
+        // Función para feedback de usuario
+        function submitFeedback() {
+            const feedback = prompt("📝 Tu opinión es importante para nosotros. ¿Cómo podemos mejorar este curso?");
+            if (feedback) {
+                alert("✅ ¡Gracias por tu feedback! Hemos registrado tus comentarios para mejorar la experiencia de aprendizaje.");
+            }
+        }
+
+        // Simulación de IA personalizada
+        function getPersonalizedRecommendations() {
+            const recommendations = [
+                "💡 Basado en tu progreso, te recomendamos practicar más técnicas de storytelling",
+                "🎯 Tu fuerte es el trabajo en equipo, considera desarrollar más tu liderazgo",
+                "📈 Excelente progreso en pensamiento crítico, enfócate ahora en inteligencia emocional",
+                "🔥 ¡Vas muy bien! Mantén la constancia en todos los módulos"
+            ];
+            
+            const randomRec = recommendations[Math.floor(Math.random() * recommendations.length)];
+            alert("🤖 Recomendación personalizada de IA:\n\n" + randomRec);
+        }
+
+        // Agregar efectos de hover mejorados
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efecto parallax sutil en elementos flotantes
+            window.addEventListener('mousemove', function(e) {
+                const shapes = document.querySelectorAll('.floating-shape');
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                shapes.forEach((shape, index) => {
+                    const speed = (index + 1) * 0.5;
+                    const xMove = (x - 0.5) * speed;
+                    const yMove = (y - 0.5) * speed;
+                    
+                    shape.style.transform += ` translate(${xMove}px, ${yMove}px)`;
+                });
+            });
+
+            // Efectos de sonido simulados (comentados para no molestar)
+            // Puedes descomentar si quieres agregar feedback sonoro
+            /*
+            document.querySelectorAll('.cta-button, .quiz-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Simular sonido de click
+                    console.log('🔊 *Click sound*');
+                });
+            });
+            */
+        });
+
+        // Analytics simulado para tracking de progreso
+        function trackProgress(module, topic, completion) {
+            const progressData = {
+                module: module,
+                topic: topic,
+                completion: completion,
+                timestamp: new Date().toISOString()
+            };
+            
+            console.log('📊 Progress Tracked:', progressData);
+            
+            // En una implementación real, esto enviaría datos a un servidor
+            // fetch('/api/track-progress', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(progressData)
+            // });
+        }
+
+        // Función para exportar progreso (simulada)
+        function exportProgress() {
+            const progress = {
+                course: "Soft Skills Power-Up",
+                modules: {
+                    "comunicacion": { completed: true, score: 85 },
+                    "colaboracion": { completed: true, score: 92 },
+                    "pensamiento_critico": { completed: false, score: 0 },
+                    "liderazgo": { completed: false, score: 0 }
+                },
+                badges_earned: ["🗣️ Comunicador Estratégico"],
+                total_progress: 50
+            };
+            
+            const dataStr = JSON.stringify(progress, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = 'soft_skills_progress.json';
+            link.click();
+            
+            alert('📥 ¡Tu progreso ha sido exportado exitosamente!');
+        }
+    </script>
+</body>
+</html>src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="Soft Skills Power-Up - Presentación" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p style="color: #E8F4FD; text-align: center; margin-top: 1rem; font-size: 1.1rem;">
+                    🚀 <strong>Descubre cómo desarrollar las habilidades más valoradas por empleadores y universidades</strong>
+                </p>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <button class="cta-button" onclick="expandAll()">Ver Todo el Contenido</button>
+                    <button class="cta-button secondary" onclick="document.querySelector('.course-grid').scrollIntoView({behavior: 'smooth'})">Explorar Módulos</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Badge System -->
+        <div class="badge-system">
+            <h2 class="badge-title">🏆 Sistema de Insignias Digitales BADGER</h2>
+            <div class="badges-grid">
+                <div class="badge-card">
+                    <span class="badge-icon">🗣️</span>
+                    <div class="badge-name">Comunicador Estratégico</div>
+                    <div class="badge-description">Domina técnicas avanzadas de comunicación verbal, no verbal y digital. Capacidad para adaptar el mensaje a diferentes audiencias y contextos.</div>
+                </div>
+                <div class="badge-card">
+                    <span class="badge-icon">🤝</span>
+                    <div class="badge-name">Colaborador Elite</div>
+                    <div class="badge-description">Lidera equipos multidisciplinarios con efectividad. Facilita la resolución de conflictos y potencia la inteligencia colectiva del grupo.</div>
+                </div>
+                <div class="badge-card">
+                    <span class="badge-icon">🧠</span>
+                    <div class="badge-name">Pensador Crítico</div>
+                    <div class="badge-description">Analiza problemas complejos con metodologías estructuradas. Toma decisiones basadas en evidencia y pensamiento sistémico.</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <button class="cta-button" onclick="expandAll()">Expandir Todos los Módulos</button>
+            <button class="cta-button secondary" onclick="collapseAll()">Contraer Todos</button>
+        </div>
+
+        <div class="course-grid">
+            <!-- Módulo 1: Comunicación Efectiva -->
+            <div class="module-card" data-module="1">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <div class="module-icon">🗣️</div>
+                    <div class="module-info">
+                        <div class="module-title">Comunicación Efectiva y Estratégica</div>
+                        <div class="module-duration">5 Sesiones | 10 Horas</div>
+                    </div>
+                    <div class="expand-icon">▼</div>
+                </div>
+                <div class="topics-container">
+                    <div class="topic-item">
+                        <div class="topic-header" onclick="toggleTopic(this)">
+                            <div class="topic-number">1.1</div>
+                            <div class="topic-text">Fundamentos de la Comunicación Interpersonal</div>
+                            <div class="topic-expand-icon">▼</div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-content-inner">
+                                <h4>Comunicación Interpersonal en el Entorno Universitario</h4>
+                                
+                                <p>La comunicación efectiva es la base de todas las interacciones exitosas en el ámbito académico y profesional. En este módulo aprenderás a dominar tanto la comunicación verbal como la no verbal, adaptando tu mensaje a diferentes contextos y audiencias.</p>
+
+                                <h5>Componentes de la Comunicación Efectiva</h5>
+                                <div class="activity-framework">
+                                    <div class="framework-title">🎯 Modelo de Comunicación 360°</div>
+                                    <div class="activity-steps">
+                                        <div class="activity-step">Emisor<br><small>Claridad y propósito</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Mensaje<br><small>Estructura y contenido</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Canal<br><small>Medio apropiado</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Receptor<br><small>Escucha activa</small></div>
+                                    </div>
+                                </div>
+
+                                <h5>Actividades Prácticas</h5>
+                                <ul>
+                                    <li><strong>Simulación con IA:</strong> Conversaciones con chatbots especializados para practicar diferentes escenarios</li>
+                                    <li><strong>Video-análisis:</strong> Grabación y análisis de presentaciones personales con feedback automatizado</li>
+                                    <li><strong>Peer Review Digital:</strong> Evaluación cruzada de habilidades comunicativas usando rúbricas interactivas</li>
+                                    <li><strong>Realidad Virtual:</strong> Práctica de presentaciones en entornos simulados</li>
+                                </ul>
+
+                                <h5>Herramientas Tecnológicas</h5>
+                                <ul>
+                                    <li><strong>Mentimeter:</strong> Para presentaciones interactivas y feedback en tiempo real</li>
+                                    <li><strong>Flipgrid:</strong> Plataforma de video para práctica de comunicación oral</li>
+                                    <li><strong>Padlet:</strong> Colaboración visual para mapas mentales de comunicación</li>
+                                    <li><strong>ChatGPT/Gemini:</strong> Simulación de conversaciones y análisis de estilos comunicativos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-item">
+                        <div class="topic-header" onclick="toggleTopic(this)">
+                            <div class="topic-number">1.2</div>
+                            <div class="topic-text">Comunicación Digital y Netiqueta</div>
+                            <div class="topic-expand-icon">▼</div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-content-inner">
+                                <h4>Comunicación en Entornos Digitales</h4>
+                                
+                                <p>En la era digital, dominar la comunicación online es esencial. Aprenderás las mejores prácticas para comunicarte profesionalmente en plataformas digitales, desde correos electrónicos hasta redes sociales académicas.</p>
+
+                                <h5>Principios de la Netiqueta Profesional</h5>
+                                <ul>
+                                    <li>Protocolo en comunicaciones formales e informales</li>
+                                    <li>Gestión de la identidad digital profesional</li>
+                                    <li>Comunicación asíncrona efectiva</li>
+                                    <li>Manejo de conflictos en entornos virtuales</li>
+                                </ul>
+
+                                <div class="activity-framework">
+                                    <div class="framework-title">📱 Ejercicio: Auditoría Digital Personal</div>
+                                    <p>Utilizando herramientas de análisis, los estudiantes evaluarán su presencia digital actual y crearán un plan de mejora para su comunicación online profesional.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-item">
+                        <div class="topic-header" onclick="toggleTopic(this)">
+                            <div class="topic-number">1.3</div>
+                            <div class="topic-text">Presentaciones Impactantes con Storytelling</div>
+                            <div class="topic-expand-icon">▼</div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-content-inner">
+                                <h4>El Arte del Storytelling en Presentaciones Académicas</h4>
+                                
+                                <p>Transforma tus presentaciones académicas en narrativas convincentes que capturen la atención y transmitan ideas complejas de manera memorable y persuasiva.</p>
+
+                                <h5>Estructura Narrativa para Presentaciones</h5>
+                                <div class="activity-framework">
+                                    <div class="framework-title">📖 Método STORY</div>
+                                    <div class="activity-steps">
+                                        <div class="activity-step">Setup<br><small>Contexto y personajes</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Tension<br><small>Problema o desafío</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Options<br><small>Alternativas posibles</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Resolution<br><small>Solución propuesta</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Yours<br><small>Call to action</small></div>
+                                    </div>
+                                </div>
+
+                                <h5>Proyecto Integrador: TED Talk Personal</h5>
+                                <p>Cada estudiante creará una presentación estilo TED Talk sobre un tema de su área de estudio, aplicando técnicas de storytelling y utilizando herramientas de IA para optimizar su narrativa.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Interactivo -->
+                    <div id="quiz-module-1" class="quiz-game">
+                        <div class="quiz-header">
+                            <h3 class="quiz-title">🎮 Quiz: Comunicación Efectiva</h3>
+                            <p style="text-align: center; margin-top: 0.5rem; opacity: 0.8;">Evalúa tu dominio de las técnicas de comunicación</p>
+                        </div>
+                        
+                        <div id="quiz-setup-1" class="quiz-setup">
+                            <div class="setup-group">
+                                <div class="setup-label">📚 Áreas de Evaluación</div>
+                                <select id="categories-1" class="setup-select" multiple>
+                                    <option value="comunicacion-interpersonal">Comunicación Interpersonal</option>
+                                    <option value="comunicacion-digital">Comunicación Digital</option>
+                                    <option value="storytelling">Storytelling</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">⚡ Nivel</div>
+                                <select id="difficulty-1" class="setup-select">
+                                    <option value="basico">Básico</option>
+                                    <option value="intermedio">Intermedio</option>
+                                    <option value="avanzado">Avanzado</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">🎯 Preguntas</div>
+                                <input type="number" id="questions-1" class="setup-input" value="5" min="3" max="10">
+                            </div>
+                            
+                            <div class="setup-group">
+                                <button id="start-quiz-1" class="quiz-button" onclick="startQuiz(1)">Iniciar Evaluación</button>
+                            </div>
+                        </div>
+                        
+                        <div id="quiz-game-1" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Módulo 2: Trabajo en Equipo y Colaboración -->
+            <div class="module-card" data-module="2">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <div class="module-icon">🤝</div>
+                    <div class="module-info">
+                        <div class="module-title">Trabajo en Equipo y Colaboración</div>
+                        <div class="module-duration">5 Sesiones | 10 Horas</div>
+                    </div>
+                    <div class="expand-icon">▼</div>
+                </div>
+                <div class="topics-container">
+                    <div class="topic-item">
+                        <div class="topic-header" onclick="toggleTopic(this)">
+                            <div class="topic-number">2.1</div>
+                            <div class="topic-text">Dinámicas de Grupo y Roles de Equipo</div>
+                            <div class="topic-expand-icon">▼</div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-content-inner">
+                                <h4>Formación y Gestión de Equipos de Alto Rendimiento</h4>
+                                
+                                <p>Comprende las dinámicas grupales y aprende a identificar y desarrollar roles complementarios que maximicen la efectividad del equipo en proyectos académicos y profesionales.</p>
+
+                                <h5>Modelo de Roles de Belbin</h5>
+                                <div class="activity-framework">
+                                    <div class="framework-title">🎭 Los 9 Roles de Equipo</div>
+                                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
+                                        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                                            <h6 style="color: #FF6B6B;">🧠 Cerebro</h6>
+                                            <p style="font-size: 0.9rem;">Creatividad e innovación</p>
+                                        </div>
+                                        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                                            <h6 style="color: #4ECDC4;">🎯 Coordinador</h6>
+                                            <p style="font-size: 0.9rem;">Liderazgo y delegación</p>
+                                        </div>
+                                        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                                            <h6 style="color: #FFE066;">⚡ Impulsor</h6>
+                                            <p style="font-size: 0.9rem;">Energía y determinación</p>
+                                        </div>
+                                        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                                            <h6 style="color: #45B7D1;">🔍 Evaluador</h6>
+                                            <p style="font-size: 0.9rem;">Análisis crítico</p>
+                                        </div>
+                                        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                                            <h6 style="color: #96CEB4;">🌐 Investigador</h6>
+                                            <p style="font-size: 0.9rem;">Networking y exploración</p>
+                                        </div>
+                                        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                                            <h6 style="color: #DDA0DD;">🛠️ Implementador</h6>
+                                            <p style="font-size: 0.9rem;">Ejecución práctica</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5>Actividades Tecnológicas</h5>
+                                <ul>
+                                    <li><strong>Simulación de Equipos con IA:</strong> Herramientas que simulan diferentes personalidades de equipo</li>
+                                    <li><strong>Escape Rooms Virtuales:</strong> Resolución colaborativa de problemas en entornos gamificados</li>
+                                    <li><strong>Análisis de Redes Sociales:</strong> Mapeo de interacciones grupales usando visualización de datos</li>
+                                    <li><strong>Canvas Colaborativo Digital:</strong> Herramientas como Miro para mapear dinámicas de grupo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-item">
+                        <div class="topic-header" onclick="toggleTopic(this)">
+                            <div class="topic-number">2.2</div>
+                            <div class="topic-text">Resolución de Conflictos y Negociación</div>
+                            <div class="topic-expand-icon">▼</div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-content-inner">
+                                <h4>Gestión Constructiva de Conflictos</h4>
+                                
+                                <p>Desarrolla habilidades para identificar, abordar y resolver conflictos de manera constructiva, transformando tensiones en oportunidades de crecimiento y mejora grupal.</p>
+
+                                <h5>Metodología WIN-WIN</h5>
+                                <div class="activity-framework">
+                                    <div class="framework-title">🤲 Proceso de Negociación Colaborativa</div>
+                                    <div class="activity-steps">
+                                        <div class="activity-step">Preparación<br><small>Análisis de posiciones</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Diálogo<br><small>Escucha activa</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Generación<br><small>Opciones creativas</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Acuerdo<br><small>Beneficio mutuo</small></div>
+                                    </div>
+                                </div>
+
+                                <h5>Herramientas de Simulación</h5>
+                                <ul>
+                                    <li>Simuladores de negociación con escenarios adaptativos</li>
+                                    <li>Análisis de comunicación no verbal mediante IA</li>
+                                    <li>Role-playing virtual con diferentes personalidades</li>
+                                    <li>Sistemas de feedback en tiempo real para mejorar técnicas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-item">
+                        <div class="topic-header" onclick="toggleTopic(this)">
+                            <div class="topic-number">2.3</div>
+                            <div class="topic-text">Liderazgo Colaborativo y Facilitación</div>
+                            <div class="topic-expand-icon">▼</div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-content-inner">
+                                <h4>Liderazgo del Siglo XXI: Facilitación y Empoderamiento</h4>
+                                
+                                <p>Aprende técnicas de liderazgo moderno basadas en la facilitación, el empoderamiento del equipo y la creación de entornos colaborativos que potencien el talento colectivo.</p>
+
+                                <h5>Estilos de Liderazgo Situacional</h5>
+                                <ul>
+                                    <li><strong>Directivo:</strong> Para equipos nuevos o tareas complejas</li>
+                                    <li><strong>Coach:</strong> Para desarrollo de habilidades específicas</li>
+                                    <li><strong>Facilitador:</strong> Para equipos experimentados</li>
+                                    <li><strong>Delegativo:</strong> Para expertos autónomos</li>
+                                </ul>
+
+                                <h5>Proyecto Final Colaborativo</h5>
+                                <p>Los estudiantes liderarán un proyecto real de mejora en su institución educativa, aplicando todas las técnicas aprendidas y utilizando herramientas de gestión de proyectos digitales.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz del Módulo 2 -->
+                    <div id="quiz-module-2" class="quiz-game">
+                        <div class="quiz-header">
+                            <h3 class="quiz-title">🎮 Quiz: Trabajo en Equipo</h3>
+                            <p style="text-align: center; margin-top: 0.5rem; opacity: 0.8;">Demuestra tu capacidad de colaboración</p>
+                        </div>
+                        
+                        <div id="quiz-setup-2" class="quiz-setup">
+                            <div class="setup-group">
+                                <div class="setup-label">📚 Áreas de Evaluación</div>
+                                <select id="categories-2" class="setup-select" multiple>
+                                    <option value="dinamicas-grupo">Dinámicas de Grupo</option>
+                                    <option value="resolucion-conflictos">Resolución de Conflictos</option>
+                                    <option value="liderazgo-colaborativo">Liderazgo Colaborativo</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">⚡ Nivel</div>
+                                <select id="difficulty-2" class="setup-select">
+                                    <option value="basico">Básico</option>
+                                    <option value="intermedio">Intermedio</option>
+                                    <option value="avanzado">Avanzado</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">🎯 Preguntas</div>
+                                <input type="number" id="questions-2" class="setup-input" value="5" min="3" max="10">
+                            </div>
+                            
+                            <div class="setup-group">
+                                <button id="start-quiz-2" class="quiz-button" onclick="startQuiz(2)">Iniciar Evaluación</button>
+                            </div>
+                        </div>
+                        
+                        <div id="quiz-game-2" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Módulo 3: Pensamiento Crítico -->
+            <div class="module-card" data-module="3">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <div class="module-icon">🧠</div>
+                    <div class="module-info">
+                        <div class="module-title">Pensamiento Crítico y Resolución de Problemas</div>
+                        <div class="module-duration">5 Sesiones | 10 Horas</div>
+                    </div>
+                    <div class="expand-icon">▼</div>
+                </div>
+                <div class="topics-container">
+                    <div class="topic-item">
+                        <div class="topic-header" onclick="toggleTopic(this)">
+                            <div class="topic-number">3.1</div>
+                            <div class="topic-text">Fundamentos del Pensamiento Crítico</div>
+                            <div class="topic-expand-icon">▼</div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-content-inner">
+                                <h4>Desarrollo de Habilidades de Análisis y Evaluación</h4>
+                                
+                                <p>Fortalece tu capacidad para analizar información, evaluar argumentos y tomar decisiones fundamentadas basadas en evidencia y razonamiento lógico.</p>
+
+                                <h5>Proceso de Pensamiento Crítico</h5>
+                                <div class="activity-framework">
+                                    <div class="framework-title">🔍 Método IDEAL</div>
+                                    <div class="activity-steps">
+                                        <div class="activity-step">Identificar<br><small>El problema</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Definir<br><small>Objetivos</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Explorar<br><small>Alternativas</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Actuar<br><small>Implementar</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Look<br><small>Evaluar resultados</small></div>
+                                    </div>
+                                </div>
+
+                                <h5>Herramientas de Análisis</h5>
+                                <ul>
+                                    <li><strong>Mapas Argumentativos:</strong> Visualización de estructuras lógicas</li>
+                                    <li><strong>Matrices de Decisión:</strong> Evaluación sistemática de opciones</li>
+                                    <li><strong>Análisis FODA:</strong> Evaluación estratégica de situaciones</li>
+                                    <li><strong>Diagramas de Ishikawa:</strong> Análisis de causa-efecto</li>
+                                </ul>
+
+                                <h5>Actividades con IA</h5>
+                                <ul>
+                                    <li>Debate con chatbots especializados en diferentes perspectivas</li>
+                                    <li>Análisis de sesgos cognitivos mediante simulaciones</li>
+                                    <li>Evaluación automatizada de argumentos lógicos</li>
+                                    <li>Generación de escenarios complejos para análisis</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-item">
+                        <div class="topic-header" onclick="toggleTopic(this)">
+                            <div class="topic-number">3.2</div>
+                            <div class="topic-text">Metodologías de Resolución de Problemas</div>
+                            <div class="topic-expand-icon">▼</div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-content-inner">
+                                <h4>Enfoques Sistemáticos para Problemas Complejos</h4>
+                                
+                                <p>Domina metodologías estructuradas para abordar problemas complejos, desde el Design Thinking hasta técnicas de creatividad e innovación.</p>
+
+                                <h5>Design Thinking Process</h5>
+                                <div class="activity-framework">
+                                    <div class="framework-title">💡 Proceso de Innovación</div>
+                                    <div class="activity-steps">
+                                        <div class="activity-step">Empatizar<br><small>Entender usuarios</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Definir<br><small>Punto de vista</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Idear<br><small>Brainstorming</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Prototipar<br><small>Soluciones</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Testear<br><small>Validar</small></div>
+                                    </div>
+                                </div>
+
+                                <h5>Técnicas de Creatividad</h5>
+                                <ul>
+                                    <li><strong>Brainstorming Asistido por IA:</strong> Generación ampliada de ideas</li>
+                                    <li><strong>SCAMPER Digital:</strong> Técnica de mejora con ejemplos automatizados</li>
+                                    <li><strong>Mapas Mentales Colaborativos:</strong> Herramientas digitales para visualización</li>
+                                    <li><strong>Six Thinking Hats Virtual:</strong> Simulación de diferentes perspectivas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-item">
+                        <div class="topic-header" onclick="toggleTopic(this)">
+                            <div class="topic-number">3.3</div>
+                            <div class="topic-text">Toma de Decisiones Basada en Evidencia</div>
+                            <div class="topic-expand-icon">▼</div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-content-inner">
+                                <h4>Decisiones Inteligentes en Entornos Complejos</h4>
+                                
+                                <p>Aprende a tomar decisiones efectivas utilizando datos, análisis y metodologías que minimicen sesgos y maximicen la probabilidad de éxito.</p>
+
+                                <h5>Proceso de Toma de Decisiones</h5>
+                                <ul>
+                                    <li>Identificación y definición del problema</li>
+                                    <li>Recopilación y análisis de información relevante</li>
+                                    <li>Generación de alternativas viables</li>
+                                    <li>Evaluación de pros y contras</li>
+                                    <li>Selección de la mejor opción</li>
+                                    <li>Implementación y seguimiento</li>
+                                </ul>
+
+                                <h5>Herramientas de Análisis de Datos</h5>
+                                <ul>
+                                    <li>Análisis estadístico básico con Python/R</li>
+                                    <li>Visualización de datos con herramientas web</li>
+                                    <li>Interpretación de métricas y KPIs</li>
+                                    <li>Uso de IA para análisis predictivo básico</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz del Módulo 3 -->
+                    <div id="quiz-module-3" class="quiz-game">
+                        <div class="quiz-header">
+                            <h3 class="quiz-title">🎮 Quiz: Pensamiento Crítico</h3>
+                            <p style="text-align: center; margin-top: 0.5rem; opacity: 0.8;">Evalúa tus habilidades de análisis</p>
+                        </div>
+                        
+                        <div id="quiz-setup-3" class="quiz-setup">
+                            <div class="setup-group">
+                                <div class="setup-label">📚 Áreas de Evaluación</div>
+                                <select id="categories-3" class="setup-select" multiple>
+                                    <option value="fundamentos-critico">Fundamentos</option>
+                                    <option value="resolucion-problemas">Resolución de Problemas</option>
+                                    <option value="toma-decisiones">Toma de Decisiones</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">⚡ Nivel</div>
+                                <select id="difficulty-3" class="setup-select">
+                                    <option value="basico">Básico</option>
+                                    <option value="intermedio">Intermedio</option>
+                                    <option value="avanzado">Avanzado</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">🎯 Preguntas</div>
+                                <input type="number" id="questions-3" class="setup-input" value="5" min="3" max="10">
+                            </div>
+                            
+                            <div class="setup-group">
+                                <button id="start-quiz-3" class="quiz-button" onclick="startQuiz(3)">Iniciar Evaluación</button>
+                            </div>
+                        </div>
+                        
+                        <div id="quiz-game-3" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Módulo 4: Adaptabilidad y Liderazgo -->
+            <div class="module-card" data-module="4">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <div class="module-icon">🚀</div>
+                    <div class="module-info">
+                        <div class="module-title">Adaptabilidad, Autonomía y Liderazgo Personal</div>
+                        <div class="module-duration">5 Sesiones | 10 Horas</div>
+                    </div>
+                    <div class="expand-icon">▼</div>
+                </div>
+                <div class="topics-container">
+                    <div class="topic-item">
+                        <div class="topic-header" onclick="toggleTopic(this)">
+                            <div class="topic-number">4.1</div>
+                            <div class="topic-text">Inteligencia Emocional y Autogestión</div>
+                            <div class="topic-expand-icon">▼</div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-content-inner">
+                                <h4>Desarrollo de la Inteligencia Emocional</h4>
+                                
+                                <p>Fortalece tu capacidad para reconocer, comprender y gestionar tus emociones, así como para establecer relaciones interpersonales saludables y productivas.</p>
+
+                                <h5>Componentes de la Inteligencia Emocional</h5>
+                                <div class="activity-framework">
+                                    <div class="framework-title">❤️ Modelo de Goleman</div>
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                                        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px;">
+                                            <h6 style="color: #FF6B6B; margin-bottom: 0.5rem;">🔍 Autoconciencia</h6>
+                                            <ul style="font-size: 0.9rem;">
+                                                <li>Reconocimiento emocional</li>
+                                                <li>Autoevaluación precisa</li>
+                                                <li>Confianza en uno mismo</li>
+                                            </ul>
+                                        </div>
+                                        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px;">
+                                            <h6 style="color: #4ECDC4; margin-bottom: 0.5rem;">⚖️ Autorregulación</h6>
+                                            <ul style="font-size: 0.9rem;">
+                                                <li>Autocontrol emocional</li>
+                                                <li>Adaptabilidad</li>
+                                                <li>Orientación al logro</li>
+                                            </ul>
+                                        </div>
+                                        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px;">
+                                            <h6 style="color: #FFE066; margin-bottom: 0.5rem;">👥 Conciencia Social</h6>
+                                            <ul style="font-size: 0.9rem;">
+                                                <li>Empatía</li>
+                                                <li>Conciencia organizacional</li>
+                                                <li>Orientación al servicio</li>
+                                            </ul>
+                                        </div>
+                                        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px;">
+                                            <h6 style="color: #45B7D1; margin-bottom: 0.5rem;">🤝 Gestión de Relaciones</h6>
+                                            <ul style="font-size: 0.9rem;">
+                                                <li>Influencia</li>
+                                                <li>Gestión de conflictos</li>
+                                                <li>Liderazgo inspiracional</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5>Herramientas de Autoconocimiento</h5>
+                                <ul>
+                                    <li><strong>Journaling Digital:</strong> Aplicaciones para seguimiento emocional</li>
+                                    <li><strong>Assessments de Personalidad:</strong> Tests validados con interpretación IA</li>
+                                    <li><strong>Biofeedback Virtual:</strong> Herramientas para medir respuestas fisiológicas</li>
+                                    <li><strong>Mindfulness Apps:</strong> Aplicaciones de meditación y atención plena</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-item">
+                        <div class="topic-header" onclick="toggleTopic(this)">
+                            <div class="topic-number">4.2</div>
+                            <div class="topic-text">Gestión del Cambio y Resiliencia</div>
+                            <div class="topic-expand-icon">▼</div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-content-inner">
+                                <h4>Adaptabilidad en Entornos Dinámicos</h4>
+                                
+                                <p>Desarrolla la capacidad de adaptarte a cambios constantes, mantener la resiliencia ante adversidades y convertir desafíos en oportunidades de crecimiento.</p>
+
+                                <h5>Modelo de Adaptabilidad</h5>
+                                <div class="activity-framework">
+                                    <div class="framework-title">🌱 Ciclo de Adaptación</div>
+                                    <div class="activity-steps">
+                                        <div class="activity-step">Percepción<br><small>Detectar cambios</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Evaluación<br><small>Analizar impacto</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Respuesta<br><small>Estrategias de acción</small></div>
+                                        <div class="arrow">→</div>
+                                        <div class="activity-step">Aprendizaje<br><small>Integrar experiencia</small></div>
+                                    </div>
+                                </div>
+
+                                <h5>Técnicas de Resiliencia</h5>
+                                <ul>
+                                    <li>Reformulación cognitiva (reframing)</li>
+                                    <li>Técnicas de manejo del estrés</li>
+                                    <li>Construcción de redes de apoyo</li>
+                                    <li>Desarrollo de la mentalidad de crecimiento</li>
+                                </ul>
+
+                                <h5>Simulaciones de Cambio</h5>
+                                <p>Utilizando escenarios virtuales y gamificación, los estudiantes practicarán la adaptación a diferentes tipos de cambio organizacional y personal.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-item">
+                        <div class="topic-header" onclick="toggleTopic(this)">
+                            <div class="topic-number">4.3</div>
+                            <div class="topic-text">Liderazgo Personal y Profesional</div>
+                            <div class="topic-expand-icon">▼</div>
+                        </div>
+                        <div class="topic-content">
+                            <div class="topic-content-inner">
+                                <h4>Desarrollo del Liderazgo Auténtico</h4>
+                                
+                                <p>Cultiva tu estilo personal de liderazgo basado en valores auténticos, visión clara y capacidad para inspirar y movilizar a otros hacia objetivos comunes.</p>
+
+                                <h5>Modelo de Liderazgo Auténtico</h5>
+                                <ul>
+                                    <li><strong>Autoconciencia:</strong> Conocimiento profundo de fortalezas y debilidades</li>
+                                    <li><strong>Transparencia Relacional:</strong> Comunicación abierta y honesta</li>
+                                    <li><strong>Procesamiento Equilibrado:</strong> Análisis objetivo de información</li>
+                                    <li><strong>Perspectiva Moral:</strong> Liderazgo ético y responsable</li>
+                                </ul>
+
+                                <h5>Proyecto Capstone: Plan de Liderazgo Personal</h5>
+                                <p>Cada estudiante desarrollará un plan personal de liderazgo que incluya:</p>
+                                <ul>
+                                    <li>Misión y visión personal</li>
+                                    <li>Valores fundamentales</li>
+                                    <li>Objetivos de desarrollo a corto y largo plazo</li>
+                                    <li>Estrategias de implementación</li>
+                                    <li>Métricas de seguimiento</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz del Módulo 4 -->
+                    <div id="quiz-module-4" class="quiz-game">
+                        <div class="quiz-header">
+                            <h3 class="quiz-title">🎮 Quiz: Liderazgo y Adaptabilidad</h3>
+                            <p style="text-align: center; margin-top: 0.5rem; opacity: 0.8;">Evalúa tu capacidad de liderazgo</p>
+                        </div>
+                        
+                        <div id="quiz-setup-4" class="quiz-setup">
+                            <div class="setup-group">
+                                <div class="setup-label">📚 Áreas de Evaluación</div>
+                                <select id="categories-4" class="setup-select" multiple>
+                                    <option value="inteligencia-emocional">Inteligencia Emocional</option>
+                                    <option value="gestion-cambio">Gestión del Cambio</option>
+                                    <option value="liderazgo-personal">Liderazgo Personal</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">⚡ Nivel</div>
+                                <select id="difficulty-4" class="setup-select">
+                                    <option value="basico">Básico</option>
+                                    <option value="intermedio">Intermedio</option>
+                                    <option value="avanzado">Avanzado</option>
+                                </select>
+                            </div>
+                            
+                            <div class="setup-group">
+                                <div class="setup-label">🎯 Preguntas</div>
+                                <input type="number" id="questions-4" class="setup-input" value="5" min="3" max="10">
+                            </div>
+                            
+                            <div class="setup-group">
+                                <button id="start-quiz-4" class="quiz-button" onclick="startQuiz(4)">Iniciar Evaluación</button>
+                            </div>
+                        </div>
+                        
+                        <div id="quiz-game-4" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2 style="color: #FFE066; margin-bottom: 1rem; font-size: 2rem;">¿Listo para potenciar tus habilidades blandas?</h2>
+            <p style="color: #E8F4FD; margin-bottom: 2rem; font-size: 1.1rem;">
+                Únete a una experiencia de aprendizaje transformadora que combina lo mejor de la pedagogía moderna con tecnología de vanguardia. 
+                Desarrolla las competencias que marcarán la diferencia en tu futuro académico y profesional.
+            </p>
+            <button class="cta-button" onclick="scrollToTop()">Comenzar Ahora</button>
+            <button class="cta-button secondary" onclick="window.open('https://badgr.com', '_blank')">Ver Sistema de Badges</button>
+            
+            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.1); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                <h3 style="color: #FFE066; margin-bottom: 1rem;">🎯 Resultados Esperados</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; color: #FF6B6B;">95%</div>
+                        <div style="color: #E8F4FD;">Mejora en Comunicación</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; color: #4ECDC4;">90%</div>
+                        <div style="color: #E8F4FD;">Efectividad en Equipos</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; color: #FFE066;">85%</div>
+                        <div style="color: #E8F4FD;">Capacidad de Liderazgo</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; color: #45B7D1;">92%</div>
+                        <div style="color: #E8F4FD;">Pensamiento Crítico</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; color: #96CEB4;">88%</div>
+                        <div style="color: #E8F4FD;">Adaptabilidad</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales para el sistema de quiz
+        let currentQuiz = null;
+        let currentQuestion = 0;
+        let score = 0;
+        let questions = [];
+        let userAnswers = [];
+
+        // Base de datos de preguntas de ejemplo
+        const quizDatabase = {
+            1: {
+                "comunicacion-interpersonal": [
+                    {
+                        question: "¿Cuál es el componente más importante de la comunicación efectiva?",
+                        options: {
+                            "A": "La velocidad al hablar",
+                            "B": "La escucha activa",
+                            "C": "El volumen de voz",
+                            "D": "El uso de palabras complejas"
+                        },
+                        correct: "B",
+                        explanation: "La escucha activa es fundamental para una comunicación bidireccional efectiva."
+                    },
+                    {
+                        question: "¿Qué porcentaje de la comunicación es no verbal según estudios?",
+                        options: {
+                            "A": "25%",
+                            "B": "45%",
+                            "C": "55%",
+                            "D": "75%"
+                        },
+                        correct: "C",
+                        explanation: "Aproximadamente el 55% de la comunicación es no verbal, incluyendo gestos y postura."
+                    }
+                ],
+                "comunicacion-digital": [
+                    {
+                        question: "¿Cuál es una buena práctica en correos electrónicos profesionales?",
+                        options: {
+                            "A": "Usar solo mayúsculas para enfatizar",
+                            "B": "Incluir un asunto claro y específico",
+                            "C": "Enviar sin revisar para ser más rápido",
+                            "D": "Usar emojis en exceso"
+                        },
+                        correct: "B",
+                        explanation: "Un asunto claro ayuda al receptor a priorizar y entender el contenido."
+                    }
+                ],
+                "storytelling": [
+                    {
+                        question: "¿Cuál es el elemento más importante en una historia convincente?",
+                        options: {
+                            "A": "La duración",
+                            "B": "El conflicto o tensión",
+                            "C": "Los datos estadísticos",
+                            "D": "El uso de jerga técnica"
+                        },
+                        correct: "B",
+                        explanation: "El conflicto o tensión mantiene el interés y hace que la historia sea memorable."
+                    }
+                ]
+            },
+            2: {
+                "dinamicas-grupo": [
+                    {
+                        question: "Según Belbin, ¿cuántos roles principales existen en un equipo efectivo?",
+                        options: {
+                            "A": "6 roles",
+                            "B": "7 roles", 
+                            "C": "8 roles",
+                            "D": "9 roles"
+                        },
+                        correct: "D",
+                        explanation: "Belbin identificó 9 roles de equipo que contribuyen al éxito grupal."
+                    }
+                ]
+            },
+            3: {
+                "fundamentos-critico": [
+                    {
+                        question: "¿Qué significa IDEAL en el proceso de pensamiento crítico?",
+                        options: {
+                            "A": "Un método de memorización",
+                            "B": "Identificar, Definir, Explorar, Actuar, Look",
+                            "C": "Una técnica de creatividad",
+                            "D": "Un tipo de evaluación"
+                        },
+                        correct: "B",
+                        explanation: "IDEAL es una metodología estructurada para el pensamiento crítico y resolución de problemas."
+                    }
+                ]
+            },
+            4: {
+                "inteligencia-emocional": [
+                    {
+                        question: "¿Cuáles son los componentes principales de la Inteligencia Emocional según Goleman?",
+                        options: {
+                            "A": "Solo autoconciencia y autorregulación",
+                            "B": "Autoconciencia, autorregulación, conciencia social y gestión de relaciones",
+                            "C": "Únicamente empatía y liderazgo",
+                            "D": "Solo habilidades sociales"
+                        },
+                        correct: "B",
+                        explanation: "Goleman identifica cuatro dominios principales de la inteligencia emocional."
+                    }
+                ]
+            }
+        };
+
+        // Función para iniciar quiz
+        function startQuiz(moduleNumber) {
+            const categoriesElement = document.getElementById(`categories-${moduleNumber}`);
+            const difficultyElement = document.getElementById(`difficulty-${moduleNumber}`);
+            const questionsElement = document.getElementById(`questions-${moduleNumber}`);
+            
+            const categories = Array.from(categoriesElement.selectedOptions).map(option => option.value);
+            const difficulty = difficultyElement.value;
+            const numQuestions = parseInt(questionsElement.value);
+
+            if (categories.length === 0) {
+                alert('Por favor selecciona al menos una categoría');
+                return;
+            }
+
+            // Generar preguntas aleatorias
+            questions = generateRandomQuestions(moduleNumber, categories, numQuestions);
+            
+            if (questions.length === 0) {
+                alert('No se encontraron preguntas para los criterios seleccionados');
+                return;
+            }
+
+            currentQuiz = moduleNumber;
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = [];
+            
+            startGame(moduleNumber);
+        }
+
+        function generateRandomQuestions(moduleNumber, categories, numQuestions) {
+            const moduleQuestions = quizDatabase[moduleNumber] || {};
+            let allQuestions = [];
+            
+            categories.forEach(category => {
+                if (moduleQuestions[category]) {
+                    allQuestions = allQuestions.concat(moduleQuestions[category]);
+                }
+            });
+            
+            // Mezclar y seleccionar
+            const shuffled = allQuestions.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, Math.min(numQuestions, shuffled.length));
+        }
+
+        function startGame(moduleNumber) {
+            const setupElement = document.getElementById(`quiz-setup-${moduleNumber}`);
+            const gameElement = document.getElementById(`quiz-game-${moduleNumber}`);
+            
+            setupElement.style.display = 'none';
+            gameElement.style.display = 'block';
+            
+            showQuestion(moduleNumber);
+        }
+
+        function showQuestion(moduleNumber) {
+            if (currentQuestion >= questions.length) {
+                showResults(moduleNumber);
+                return;
+            }
+
+            const question = questions[currentQuestion];
+            const gameElement = document.getElementById(`quiz-game-${moduleNumber}`);
+            
+            gameElement.innerHTML = `
+                <div style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 2rem; color: #E8F4FD;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid #4ECDC4; padding-bottom: 1rem;">
+                        <div style="font-weight: bold; font-size: 1.2rem;">Pregunta ${currentQuestion + 1} de ${questions.length}</div>
+                        <div style="font-size: 1.1rem;">Puntuación: ${score}/${questions.length}</div>
+                    </div>
+                    
+                    <div style="background: #4ECDC4; height: 8px; border-radius: 4px; margin-bottom: 2rem; overflow: hidden;">
+                        <div style="background: #FFE066; height: 100%; width: ${((currentQuestion) / questions.length) * 100}%; transition: width 0.3s ease;"></div>
+                    </div>
+                    
+                    <div style="font-size: 1.2rem; text-align: center; margin-bottom: 2rem; line-height: 1.5;">${question.question}</div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                        ${Object.entries(question.options).map(([key, value]) => `
+                            <button style="
+                                background: rgba(255, 255, 255, 0.1);
+                                border: 2px solid #4ECDC4;
+                                color: #E8F4FD;
+                                padding: 1rem;
+                                border-radius: 10px;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                                text-align: left;
+                                line-height: 1.4;
+                            " onclick="selectAnswer('${key}', ${moduleNumber})" 
+                               onmouseover="this.style.background='rgba(76, 205, 196, 0.2)'"
+                               onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'"
+                               data-option="${key}">
+                                <strong>${key}:</strong> ${value}
+                            </button>
+                        `).join('')}
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <button id="next-button-${moduleNumber}" 
+                                style="background: #4ECDC4; color: #2c3e50; border: none; padding: 1rem 2rem; border-radius: 5px; font-weight: bold; cursor: pointer; opacity: 0.5;" 
+                                onclick="nextQuestion(${moduleNumber})" disabled>
+                            Siguiente Pregunta
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectAnswer(selectedOption, moduleNumber) {
+            const buttons = document.querySelectorAll(`#quiz-game-${moduleNumber} button[data-option]`);
+            buttons.forEach(btn => {
+                btn.style.background = 'rgba(255, 255, 255, 0.1)';
+                btn.style.fontWeight = 'normal';
+            });
+            
+            const selectedButton = document.querySelector(`#quiz-game-${moduleNumber} button[data-option="${selectedOption}"]`);
+            selectedButton.style.background = '#4ECDC4';
+            selectedButton.style.color = '#2c3e50';
+            selectedButton.style.fontWeight = 'bold';
+            
+            userAnswers[currentQuestion] = selectedOption;
+            const nextButton = document.getElementById(`next-button-${moduleNumber}`);
+            nextButton.disabled = false;
+            nextButton.style.opacity = '1';
+        }
+
+        function nextQuestion(moduleNumber) {
+            const question = questions[currentQuestion];
+            const userAnswer = userAnswers[currentQuestion];
+            const isCorrect = userAnswer === question.correct;
+            
+            if (isCorrect) {
+                score++;
+            }
+            
+            // Mostrar respuesta correcta brevemente
+            const buttons = document.querySelectorAll(`#quiz-game-${moduleNumber} button[data-option]`);
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                const option = btn.dataset.option;
+                if (option === question.correct) {
+                    btn.style.background = '#27ae60';
+                    btn.style.color = 'white';
+                } else if (option === userAnswer && !isCorrect) {
+                    btn.style.background = '#e74c3c';
+                    btn.style.color = 'white';
+                }
+            });
+            
+            setTimeout(() => {
+                currentQuestion++;
+                showQuestion(moduleNumber);
+            }, 1500);
+        }
+
+        function showResults(moduleNumber) {
+            const percentage = Math.round((score / questions.length) * 100);
+            const gameElement = document.getElementById(`quiz-game-${moduleNumber}`);
+            
+            let performanceMessage = '';
+            let performanceColor = '#27ae60';
+            
+            if (percentage >= 90) {
+                performanceMessage = '¡EXCELENTE! Dominas completamente los conceptos';
+                performanceColor = '#27ae60';
+            } else if (percentage >= 70) {
+                performanceMessage = '¡Muy bien! Tienes un buen dominio del tema';
+                performanceColor = '#4ECDC4';
+            } else if (percentage >= 50) {
+                performanceMessage = 'Regular. Te recomendamos revisar el contenido';
+                performanceColor = '#FFE066';
+            } else {
+                performanceMessage = 'Necesitas estudiar más el material del curso';
+                performanceColor = '#e74c3c';
+            }
+            
+            gameElement.innerHTML = `
+                <div style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 3rem; text-align: center; color: #E8F4FD;">
+                    <h3 style="font-size: 2rem; margin-bottom: 2rem;">🎯 ¡Evaluación Completada!</h3>
+                    <div style="font-size: 4rem; font-weight: bold; color: ${performanceColor}; margin-bottom: 1rem;">${percentage}%</div>
+                    <div style="font-size: 1.2rem; margin-bottom: 2rem;">
+                        Respondiste correctamente ${score} de ${questions.length} preguntas
+                    </div>
+                    <div style="margin: 2rem 0; padding: 1rem; background: rgba(76, 205, 196, 0.1); border-radius: 10px;">
+                        <p style="color: ${performanceColor}; font-weight: bold; font-size: 1.1rem;">${performanceMessage}</p>
+                    </div>
+                    <button class="quiz-button" onclick="restartQuiz(${moduleNumber})" style="margin-right: 1rem;">
+                        Intentar de Nuevo
+                    </button>
+                    <button class="quiz-button" onclick="reviewAnswers(${moduleNumber})">
+                        Revisar Respuestas
+                    </button>
+                </div>
+            `;
+        }
+
+        function restartQuiz(moduleNumber) {
+            const setupElement = document.getElementById(`quiz-setup-${moduleNumber}`);
+            const gameElement = document.getElementById(`quiz-game-${moduleNumber}`);
+            
+            setupElement.style.display = 'grid';
+            gameElement.style.display = 'none';
+            
+            currentQuiz = null;
+            currentQuestion = 0;
+            score = 0;
+            questions = [];
+            userAnswers = [];
+        }
+
+        function reviewAnswers(moduleNumber) {
+            const gameElement = document.getElementById(`quiz-game-${moduleNumber}`);
+            
+            let reviewHTML = `
+                <div style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 2rem; color: #E8F4FD;">
+                    <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.8rem;">📋 Revisión de Respuestas</h3>
+                    <div style="max-height: 400px; overflow-y: auto; margin: 2rem 0;">
+            `;
+            
+            questions.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === question.correct;
+                const statusIcon = isCorrect ? '✅' : '❌';
+                const statusColor = isCorrect ? '#27ae60' : '#e74c3c';
+                
+                reviewHTML += `
+                    <div style="margin-bottom: 2rem; padding: 1rem; border: 1px solid #4ECDC4; border-radius: 10px; background: rgba(255, 255, 255, 0.05);">
+                        <p style="font-weight: bold; color: ${statusColor}; margin-bottom: 0.5rem;">
+                            ${statusIcon} Pregunta ${index + 1}: ${question.question}
+                        </p>
+                        <p style="margin: 0.5rem 0;">
+                            <strong>Tu respuesta:</strong> ${userAnswer} - ${question.options[userAnswer]}
+                        </p>
+                        ${!isCorrect ? `
+                            <p style="margin: 0.5rem 0; color: #27ae60;">
+                                <strong>Respuesta correcta:</strong> ${question.correct} - ${question.options[question.correct]}
+                            </p>
