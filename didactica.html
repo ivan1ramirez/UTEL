@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Didáctica y sus Elementos: Una Guía Interactiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals & Slate Blue -->
+    <!-- Application Structure Plan: La aplicación se estructura en dos secciones principales navegables por pestañas: "Conceptos Fundamentales" y "El Proceso Didáctico". Esta división temática, en lugar de un recorrido lineal por diapositivas, permite al usuario explorar los conceptos teóricos y su aplicación práctica de forma independiente y a su propio ritmo. La interacción se centra en elementos de "clic para revelar" y visualizaciones de datos, diseñados para fomentar la exploración activa y la comprensión. Esta estructura fue elegida para transformar un reporte pasivo en una herramienta de aprendizaje activa, mejorando la usabilidad y el engagement del estudiante. -->
+    <!-- Visualization & Content Choices: 
+        - Pirámide del Aprendizaje (Datos: 10%, 50%, 90%) -> Objetivo: Comparar efectividad -> Visualización: Gráfico de barras horizontales (Chart.js/Canvas) -> Interacción: Tooltips al pasar el cursor -> Justificación: Un gráfico de barras es ideal para comparar valores discretos, haciendo el impacto del aprendizaje activo visualmente evidente y memorable.
+        - Diagramas de Flujo y Mapas Mentales (Mermaid del reporte) -> Objetivo: Organizar y mostrar relaciones -> Visualización: HTML/CSS estructurado (Divs con Tailwind Flexbox/Grid) -> Interacción: Hover effects y secciones colapsables -> Justificación: Recrear los diagramas con HTML/CSS nativo cumple el requisito de no usar SVG/Mermaid, manteniendo la claridad visual de las relaciones y procesos.
+        - Comparativas (Tradicional vs. Crítica) -> Objetivo: Comparar enfoques -> Visualización: Layout de dos columnas con tarjetas estilizadas -> Interacción: Estática -> Justificación: Una comparación lado a lado es la forma más clara y directa de presentar información contrastante. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-active { border-color: #3b82f6; color: #3b82f6; background-color: #eff6ff; }
+        .tab-inactive { border-color: transparent; color: #4b5563; }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 400px; }
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            color: #9ca3af;
+            line-height: 1;
+        }
+        .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div id="app" class="container mx-auto p-4 sm:p-6 lg:p-8">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">La Didáctica y sus Elementos</h1>
+            <p class="text-lg text-slate-600 mt-2">Una Guía Interactiva para la Enseñanza Efectiva</p>
+        </header>
+
+        <nav class="mb-8 p-1.5 bg-slate-200 rounded-xl flex justify-center space-x-2">
+            <button data-tab="conceptos" class="tab-btn flex-1 py-2 px-4 rounded-lg font-semibold text-sm sm:text-base transition-colors duration-200 tab-active">Conceptos Fundamentales</button>
+            <button data-tab="proceso" class="tab-btn flex-1 py-2 px-4 rounded-lg font-semibold text-sm sm:text-base transition-colors duration-200 tab-inactive">El Proceso Didáctico</button>
+        </nav>
+
+        <main>
+            <section id="conceptos" class="content-section active">
+                <div class="text-center mb-12">
+                     <p class="max-w-3xl mx-auto text-slate-600">Esta sección explora los cimientos de la didáctica. Aquí descubrirás qué es, cuáles son sus preguntas esenciales y cómo ha evolucionado a través de diferentes enfoques, incluyendo su adaptación a la era digital. Interactúa con los elementos para desglosar las ideas clave.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                        <h3 class="font-bold text-xl text-slate-900 mb-3">Definición</h3>
+                        <p class="text-slate-700">Disciplina pedagógica que busca optimizar la enseñanza y el aprendizaje.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                        <h3 class="font-bold text-xl text-slate-900 mb-3">Origen</h3>
+                        <p class="text-slate-700">Proviene del griego <span class="font-semibold">didaskein</span> (enseñar) y el latín <span class="font-semibold">discere</span> (aprender). Consolidado por Comenio en el s. XVII.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md card-hover md:col-span-2 lg:col-span-1">
+                        <h3 class="font-bold text-xl text-slate-900 mb-3">Importancia</h3>
+                        <p class="text-slate-700">Organiza el aprendizaje, define métodos y estrategias, y facilita la toma de decisiones en el aula.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg mb-12">
+                    <h2 class="text-2xl font-bold text-center mb-6 text-slate-900">Las Preguntas Fundamentales de la Didáctica</h2>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="text-center p-4 bg-blue-100 text-blue-800 rounded-lg font-semibold w-40">¿Para qué enseñar?<div class="text-sm font-normal">(Objetivos)</div></div>
+                        <div class="text-center p-4 bg-green-100 text-green-800 rounded-lg font-semibold w-40">¿Qué enseñar?<div class="text-sm font-normal">(Contenidos)</div></div>
+                        <div class="text-center p-4 bg-yellow-100 text-yellow-800 rounded-lg font-semibold w-40">¿Cuándo enseñar?<div class="text-sm font-normal">(Secuenciación)</div></div>
+                        <div class="text-center p-4 bg-purple-100 text-purple-800 rounded-lg font-semibold w-40">¿Cómo enseñar?<div class="text-sm font-normal">(Metodología)</div></div>
+                        <div class="text-center p-4 bg-pink-100 text-pink-800 rounded-lg font-semibold w-40">¿Con qué enseñar?<div class="text-sm font-normal">(Recursos)</div></div>
+                         <div class="text-center p-4 bg-red-100 text-red-800 rounded-lg font-semibold w-40">¿Cómo evaluar?<div class="text-sm font-normal">(Evaluación)</div></div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-bold text-center mb-6 text-slate-900">Didáctica Tradicional</h2>
+                        <div class="flex flex-col items-center space-y-4">
+                            <div class="p-4 bg-slate-100 rounded-lg text-center w-full">
+                                <h4 class="font-semibold">Docente como centro</h4>
+                                <p class="text-sm text-slate-600">Discurso Magistral</p>
+                            </div>
+                            <div class="flow-arrow">&darr;</div>
+                            <div class="p-4 bg-slate-100 rounded-lg text-center w-full">
+                                <h4 class="font-semibold">Alumno como receptor pasivo</h4>
+                            </div>
+                            <div class="mt-4 p-3 bg-red-100 text-red-800 rounded-lg text-center text-sm w-full">
+                                <span class="font-bold">Foco:</span> Memorización y poca autonomía.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-bold text-center mb-6 text-slate-900">Didáctica Crítica</h2>
+                        <div class="flex flex-col items-center space-y-4">
+                            <div class="p-4 bg-blue-100 rounded-lg text-center w-full">
+                                <h4 class="font-semibold">Diálogo y Comunicación</h4>
+                                <p class="text-sm text-slate-600">Docente como "científico del aula"</p>
+                            </div>
+                            <div class="flow-arrow">&darr;</div>
+                            <div class="p-4 bg-blue-100 rounded-lg text-center w-full">
+                                <h4 class="font-semibold">Alumno activo y constructor</h4>
+                            </div>
+                            <div class="mt-4 p-3 bg-green-100 text-green-800 rounded-lg text-center text-sm w-full">
+                                <span class="font-bold">Principios:</span> Conciencia crítica, aprender investigando.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-bold text-center mb-6 text-slate-900">Didáctica y Currículo en la Educación Superior</h2>
+                     <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
+                        <div class="p-4 bg-slate-100 rounded-lg">
+                            <h4 class="font-semibold">Cambio de Paradigma</h4>
+                            <p class="text-sm">De enseñar a aprender</p>
+                        </div>
+                        <div class="flow-arrow hidden md:block">&rarr;</div>
+                        <div class="flow-arrow md:hidden">&darr;</div>
+                        <div class="p-4 bg-slate-100 rounded-lg">
+                             <h4 class="font-semibold">Diseño por Competencias</h4>
+                             <p class="text-xs font-medium text-slate-600">Saber | Saber Hacer | Saber Ser</p>
+                        </div>
+                        <div class="flow-arrow hidden md:block">&rarr;</div>
+                        <div class="flow-arrow md:hidden">&darr;</div>
+                        <div class="p-4 bg-blue-200 text-blue-900 rounded-lg ring-2 ring-blue-500">
+                             <h4 class="font-semibold">Alineación Constructiva</h4>
+                             <p class="text-xs font-medium">Coherencia total entre Objetivos, Metodología y Evaluación.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="proceso" class="content-section">
+                <div class="text-center mb-12">
+                     <p class="max-w-3xl mx-auto text-slate-600">Esta sección detalla los componentes prácticos del proceso de enseñanza-aprendizaje. Explora la estructura de una secuencia didáctica, las dimensiones del aprendizaje y el impacto de los recursos educativos. Utiliza el gráfico interactivo para ver cómo diferentes métodos de enseñanza afectan la retención.</p>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg mb-12">
+                    <h2 class="text-2xl font-bold text-center mb-8 text-slate-900">La Secuencia Didáctica en 3 Fases</h2>
+                    <div class="flex flex-col md:flex-row justify-between items-center text-center gap-4">
+                        
+                        <div class="flex-1 w-full">
+                            <div class="p-6 bg-blue-100 rounded-xl">
+                                <h3 class="font-bold text-xl text-blue-800 mb-2">1. Apertura</h3>
+                                <p class="text-sm text-blue-700 mb-3"><strong>Propósito:</strong> Activar saberes previos y motivar.</p>
+                                <p class="text-sm font-semibold text-blue-900">Evaluación: Diagnóstica</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flow-arrow hidden md:block">&rarr;</div>
+                        <div class="flow-arrow md:hidden">&darr;</div>
+
+                        <div class="flex-1 w-full">
+                             <div class="p-6 bg-green-100 rounded-xl">
+                                <h3 class="font-bold text-xl text-green-800 mb-2">2. Desarrollo</h3>
+                                <p class="text-sm text-green-700 mb-3"><strong>Propósito:</strong> Construir el nuevo conocimiento.</p>
+                                <p class="text-sm font-semibold text-green-900">Evaluación: Formativa</p>
+                            </div>
+                        </div>
+
+                        <div class="flow-arrow hidden md:block">&rarr;</div>
+                        <div class="flow-arrow md:hidden">&darr;</div>
+                        
+                        <div class="flex-1 w-full">
+                             <div class="p-6 bg-purple-100 rounded-xl">
+                                <h3 class="font-bold text-xl text-purple-800 mb-2">3. Cierre</h3>
+                                <p class="text-sm text-purple-700 mb-3"><strong>Propósito:</strong> Integrar, sintetizar y transferir lo aprendido.</p>
+                                <p class="text-sm font-semibold text-purple-900">Evaluación: Sumativa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-bold text-center mb-6 text-slate-900">Dimensiones del Aprendizaje</h2>
+                         <div class="space-y-4">
+                             <div class="p-4 border-l-4 border-red-500 bg-red-50">
+                                 <h4 class="font-bold text-red-800">Saber (Conceptual)</h4>
+                                 <p class="text-sm text-red-700">Hechos, datos, principios. (Verbos: definir, explicar).</p>
+                             </div>
+                              <div class="p-4 border-l-4 border-yellow-500 bg-yellow-50">
+                                 <h4 class="font-bold text-yellow-800">Saber Hacer (Procedimental)</h4>
+                                 <p class="text-sm text-yellow-700">Habilidades, técnicas, estrategias. (Verbos: aplicar, diseñar).</p>
+                             </div>
+                              <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50">
+                                 <h4 class="font-bold text-indigo-800">Saber Ser (Actitudinal)</h4>
+                                 <p class="text-sm text-indigo-700">Valores, actitudes, normas. (Verbos: valorar, respetar).</p>
+                             </div>
+                         </div>
+                    </div>
+                    <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-bold text-center mb-6 text-slate-900">Impacto del Método en el Aprendizaje</h2>
+                        <div class="chart-container">
+                            <canvas id="learningPyramidChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-bold text-center mb-6 text-slate-900">Flujo de Creación de Recursos con IA</h2>
+                     <div class="flex flex-col md:flex-row items-stretch justify-center gap-4 text-center">
+                        <div class="flex-1 p-4 bg-slate-100 rounded-lg flex flex-col justify-center">
+                            <h4 class="font-semibold">1. Definir Objetivo</h4>
+                            <p class="text-sm text-slate-600">El docente establece la meta de aprendizaje.</p>
+                        </div>
+                        <div class="flow-arrow self-center">&rarr;</div>
+                        <div class="flex-1 p-4 bg-slate-100 rounded-lg flex flex-col justify-center">
+                             <h4 class="font-semibold">2. Diseñar Prompt</h4>
+                             <p class="text-sm text-slate-600">Se dan instrucciones claras a la IA.</p>
+                        </div>
+                        <div class="flow-arrow self-center">&rarr;</div>
+                         <div class="flex-1 p-4 bg-blue-100 rounded-lg flex flex-col justify-center">
+                             <h4 class="font-semibold">3. Generar Recurso</h4>
+                             <p class="text-sm text-blue-700">La IA crea una propuesta de material.</p>
+                        </div>
+                        <div class="flow-arrow self-center">&rarr;</div>
+                        <div class="flex-1 p-4 bg-green-100 rounded-lg flex flex-col justify-center">
+                             <h4 class="font-semibold">4. Validar y Usar</h4>
+                             <p class="text-sm text-green-700">El docente revisa, refina y aplica el recurso en clase.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <footer class="mt-12 pt-8 border-t border-slate-200 text-center text-slate-500">
+            <h3 class="font-semibold text-lg text-slate-700 mb-4">Referencias Bibliográficas</h3>
+            <ul class="text-xs sm:text-sm space-y-2 max-w-4xl mx-auto">
+                <li>Bolívar, A. (2005). Conocimiento didáctico del contenido y didácticas específicas. <em>Revista de Currículum y Formación del Profesorado, 9</em>(2), 1-39.</li>
+                <li>Díaz Barriga, Á. (1992). <em>Didáctica y Currículum</em>. Paidós.</li>
+                <li>Gimeno Sacristán, J. (2008). <em>Educar por competencias, ¿qué hay de nuevo?</em>. Ediciones Morata.</li>
+                <li>Zabalza, M. A. (2007). <em>La enseñanza universitaria. El escenario y sus protagonistas</em>. Narcea Ediciones.</li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const sections = document.querySelectorAll('.content-section');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.getAttribute('data-tab');
+
+                    tabs.forEach(t => {
+                        t.classList.remove('tab-active');
+                        t.classList.add('tab-inactive');
+                    });
+                    tab.classList.add('tab-active');
+                    tab.classList.remove('tab-inactive');
+
+                    sections.forEach(section => {
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            const ctx = document.getElementById('learningPyramidChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Decimos y Hacemos (Aprendizaje Activo)', 'Vemos y Oímos', 'Leemos'],
+                    datasets: [{
+                        label: '% de Retención Estimado',
+                        data: [90, 50, 10],
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.7)',
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(239, 68, 68, 0.7)',
+                        ],
+                        borderColor: [
+                            'rgba(59, 130, 246, 1)',
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(239, 68, 68, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                             max: 100,
+                             ticks: {
+                                callback: function(value) {
+                                    return value + '%'
+                                }
+                             }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Retención de aprendizaje según el método'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.dataset.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
