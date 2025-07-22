@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de Estudio: Trabajo en Equipo - Análisis y Soluciones</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 0 40px 0;
+            border-bottom: 3px solid #667eea;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .nav-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-left: 5px solid #667eea;
+        }
+        
+        .section h2 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section h3 {
+            font-size: 1.6rem;
+            color: #34495e;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+        }
+        
+        .icon {
+            font-size: 2rem;
+        }
+        
+        .case-content {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .character-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease;
+        }
+        
+        .character-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .character-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .definition-item, .obstacle-item, .step-item {
+            background: #fff;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #27ae60;
+        }
+        
+        .obstacle-item {
+            border-left-color: #e74c3c;
+        }
+        
+        .step-item {
+            border-left-color: #f39c12;
+        }
+        
+        .term {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .obstacle-title, .step-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .result-box {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(255,107,107,0.3);
+        }
+        
+        .barriers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .barrier-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 4px solid #e67e22;
+        }
+        
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .solution-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #27ae60;
+        }
+        
+        .reflection-questions {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .reflection-questions h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .reflection-questions ul {
+            list-style-type: none;
+        }
+        
+        .reflection-questions li {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .reflection-questions li::before {
+            content: "🤔";
+            position: absolute;
+            left: 0;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        li::before {
+            content: "•";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Caso de Estudio: Trabajo Final de Estrategia Empresarial</h1>
+            <p>Análisis de Barreras en el Trabajo en Equipo Universitario</p>
+        </div>
+        
+        <div class="nav-menu">
+            <a href="#caso" class="nav-btn">📖 Caso Original</a>
+            <a href="#definiciones" class="nav-btn">🎯 Definiciones Clave</a>
+            <a href="#obstaculos" class="nav-btn">⚠️ Análisis de Obstáculos</a>
+            <a href="#soluciones" class="nav-btn">💡 Soluciones</a>
+            <a href="#prevencion" class="nav-btn">🛡️ Prevención</a>
+        </div>
+
+        <section id="caso" class="section">
+            <h2><span class="icon">📖</span>Caso Original</h2>
+            
+            <h3>🎓 Contexto</h3>
+            <div class="case-content">
+                <p><strong>Proyecto:</strong> Trabajo final de estrategia empresarial - análisis de empresa real y propuesta de plan estratégico a cinco años.</p>
+                <p><strong>Participantes:</strong> Cinco estudiantes de noveno semestre de Ingeniería Industrial, Universidad Central, asignados aleatoriamente.</p>
+            </div>
+            
+            <h3>👥 Integrantes del Equipo</h3>
+            <div class="character-grid">
+                <div class="character-card">
+                    <div class="character-name">María José</div>
+                    <p>Responsable, organizada, pero reservada.</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">Andrés</div>
+                    <p>Muy participativo, pero con tendencia a dominar las discusiones.</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">Daniela</div>
+                    <p>Creativa, pero con poca disponibilidad de tiempo.</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">Sergio</div>
+                    <p>Con conocimientos técnicos, pero poco comunicativo.</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">Luisa</div>
+                    <p>Buena redactora, pero se sentía insegura y evitaba opinar.</p>
+                </div>
+            </div>
+            
+            <h3>🔍 Desarrollo del Caso</h3>
+            <div class="case-content">
+                <p><strong>Inicio problemático:</strong> Desde el principio, el equipo mostró falta de cohesión. Dividieron las tareas por partes (análisis, estrategia, presentación) sin planificación conjunta real. Cada miembro trabajaba por separado con mínima comunicación.</p>
+                
+                <div class="barriers-grid">
+                    <div class="barrier-card">
+                        <h4>🚫 Primer Obstáculo</h4>
+                        <p>Andrés asumió el liderazgo sin consenso, imponiendo decisiones. María José y Luisa no lo confrontaban pero discrepaban, generando tensión en los pocos encuentros virtuales.</p>
+                    </div>
+                    <div class="barrier-card">
+                        <h4>⏰ Segundo Obstáculo</h4>
+                        <p>Daniela, aunque capaz, trabajaba y estudiaba simultáneamente. No asistía a reuniones y enviaba su parte el último día sin posibilidad de corrección, frustrando al equipo.</p>
+                    </div>
+                    <div class="barrier-card">
+                        <h4>💸 Tercer Obstáculo</h4>
+                        <p>Sergio nunca entregó el análisis financiero. Alegó problemas personales pero no informó a tiempo. El grupo se enteró solo dos días antes de la entrega final.</p>
+                    </div>
+                    <div class="barrier-card">
+                        <h4>📝 Cuarto Obstáculo</h4>
+                        <p>Luisa redactó el informe sin entender las partes de Sergio y Daniela, resultando en un documento desarticulado. Nadie revisó el trabajo completo antes de entregarlo.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result-box">
+                💥 RESULTADO FINAL: Calificación 3.2/5.0
+                <br><br>
+                El docente señaló falta de coherencia interna y evidencia de trabajo fragmentado sin integración
+            </div>
+            
+            <h3>😤 Reacciones Post-Entrega</h3>
+            <div class="case-content">
+                <ul>
+                    <li><strong>María José:</strong> Consideró hablar con el profesor pero decidió no hacerlo</li>
+                    <li><strong>Andrés:</strong> Culpó directamente a Sergio</li>
+                    <li><strong>Daniela:</strong> Se excusó por su trabajo</li>
+                    <li><strong>Luisa:</strong> Declaró no querer volver a trabajar con el equipo</li>
+                    <li><strong>Sergio:</strong> Se mantuvo en silencio</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="definiciones" class="section">
+            <h2><span class="icon">🎯</span>Definiciones Clave</h2>
+            
+            <div class="definition-item">
+                <div class="term">Trabajo Colaborativo</div>
+                <p>Metodología de aprendizaje donde los estudiantes trabajan juntos para alcanzar objetivos comunes, compartiendo responsabilidades y recursos. Es crucial en este caso porque el éxito del proyecto dependía de la integración efectiva de las contribuciones individuales en un producto final coherente.</p>
+            </div>
+            
+            <div class="definition-item">
+                <div class="term">Liderazgo Autocrático</div>
+                <p>Estilo de dirección donde una persona toma decisiones unilateralmente sin consultar al grupo. Es fundamental para entender la dinámica disfuncional que se generó cuando Andrés asumió control sin consenso, generando resistencia pasiva.</p>
+            </div>
+            
+            <div class="definition-item">
+                <div class="term">Cohesión Grupal</div>
+                <p>Grado de unión, solidaridad y atracción mutua entre los miembros de un equipo. Su ausencia desde el inicio explica la fragmentación del trabajo y la falta de sinergia en el resultado final.</p>
+            </div>
+            
+            <div class="definition-item">
+                <div class="term">Comunicación Asíncrona</div>
+                <p>Intercambio de información que no ocurre en tiempo real entre los participantes. La dependencia exclusiva de este tipo de comunicación (sin reuniones efectivas) impidió la coordinación necesaria para el proyecto.</p>
+            </div>
+            
+            <div class="definition-item">
+                <div class="term">Conflicto Latente</div>
+                <p>Tensiones o desacuerdos que existen pero no se expresan abiertamente. Es clave porque estos conflictos no resueltos afectaron la motivación y la calidad del trabajo sin ser abordados constructivamente.</p>
+            </div>
+            
+            <div class="definition-item">
+                <div class="term">Interdependencia de Tareas</div>
+                <p>Situación donde el trabajo de cada miembro depende o afecta el de los demás. Es esencial comprender que el proyecto requería integración, no solo división del trabajo.</p>
+            </div>
+        </section>
+
+        <section id="obstaculos" class="section">
+            <h2><span class="icon">⚠️</span>Análisis de Obstáculos</h2>
+            
+            <div class="obstacle-item">
+                <div class="obstacle-title">Ausencia de Planificación Conjunta Inicial</div>
+                <p>El equipo dividió tareas sin establecer marcos de trabajo comunes, cronogramas integrados o mecanismos de seguimiento. Esto generó trabajo fragmentado sin visión unificada, impidiendo la coherencia del producto final.</p>
+            </div>
+            
+            <div class="obstacle-item">
+                <div class="obstacle-title">Liderazgo Impuesto sin Legitimidad</div>
+                <p>Andrés asumió control sin consenso grupal, generando resistencia pasiva y minando la motivación de otros miembros. Esto creó un ambiente de trabajo tóxico que inhibió la participación activa y la creatividad colaborativa.</p>
+            </div>
+            
+            <div class="obstacle-item">
+                <div class="obstacle-title">Desigualdad en Niveles de Compromiso</div>
+                <p>Las diferencias en disponibilidad y dedicación (especialmente Daniela y Sergio) crearon cargas de trabajo desproporcionadas. Esto generó resentimiento y comprometió la calidad del trabajo al no poder coordinar contribuciones de manera equilibrada.</p>
+            </div>
+            
+            <div class="obstacle-item">
+                <div class="obstacle-title">Comunicación Deficiente y Esporádica</div>
+                <p>La falta de reuniones regulares y canales de comunicación efectivos impidió la detección temprana de problemas y la coordinación necesaria. Esto resultó en sorpresas de último momento que no pudieron ser gestionadas.</p>
+            </div>
+            
+            <div class="obstacle-item">
+                <div class="obstacle-title">Evitación Sistemática de Conflictos</div>
+                <p>Los miembros eligieron no confrontar problemas evidentes. Esta evitación permitió que los problemas se acumularan hasta volverse irresolubles.</p>
+            </div>
+            
+            <div class="obstacle-item">
+                <div class="obstacle-title">Falta de Integración y Revisión Colectiva</div>
+                <p>Nadie asumió responsabilidad por la coherencia del documento final, resultando en un producto desarticulado. Esto refleja la ausencia de una cultura de calidad compartida y responsabilidad colectiva.</p>
+            </div>
+        </section>
+
+        <section id="soluciones" class="section">
+            <h2><span class="icon">💡</span>Pasos para Resolver la Situación</h2>
+            
+            <h3>🚨 Intervención Inmediata (Si fuera posible)</h3>
+            
+            <div class="step-item">
+                <div class="step-title">Paso 1: Mediación Facilitada</div>
+                <ul>
+                    <li>Organizar reunión con facilitador externo (profesor o tutor)</li>
+                    <li>Permitir expresión segura de frustraciones y expectativas</li>
+                    <li>Establecer acuerdos básicos de convivencia grupal</li>
+                </ul>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-title">Paso 2: Redefinición de Roles y Responsabilidades</div>
+                <ul>
+                    <li>Crear matriz de responsabilidades clara y consensuada</li>
+                    <li>Establecer liderazgo rotativo o co-liderazgo</li>
+                    <li>Definir mecanismos de toma de decisiones grupales</li>
+                </ul>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-title">Paso 3: Implementación de Sistema de Seguimiento</div>
+                <ul>
+                    <li>Reuniones semanales obligatorias con agenda estructurada</li>
+                    <li>Plataforma digital para seguimiento de avances</li>
+                    <li>Deadlines intermedios con revisiones cruzadas</li>
+                </ul>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-title">Paso 4: Creación de Protocolos de Comunicación</div>
+                <ul>
+                    <li>Canales específicos para diferentes tipos de comunicación</li>
+                    <li>Tiempos de respuesta acordados</li>
+                    <li>Escalamiento de problemas cuando no hay respuesta</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="prevencion" class="section">
+            <h2><span class="icon">🛡️</span>Estrategias Preventivas para Futuros Proyectos</h2>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <h4>📋 Paso 5: Carta de Equipo (Team Charter)</h4>
+                    <ul>
+                        <li>Definir objetivos comunes y expectativas</li>
+                        <li>Establecer normas de funcionamiento</li>
+                        <li>Crear plan de contingencia para problemas típicos</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <h4>🎯 Paso 6: Capacitación en Habilidades Colaborativas</h4>
+                    <ul>
+                        <li>Talleres sobre comunicación efectiva</li>
+                        <li>Entrenamiento en resolución de conflictos</li>
+                        <li>Técnicas de feedback constructivo</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <h4>📊 Paso 7: Estructura de Evaluación Integral</h4>
+                    <ul>
+                        <li>Evaluación individual y grupal separada</li>
+                        <li>Peer assessment (evaluación entre pares)</li>
+                        <li>Autoevaluación reflexiva del proceso</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <h4>🏫 Paso 8: Soporte Institucional Continuo</h4>
+                    <ul>
+                        <li>Tutorías especializadas en trabajo colaborativo</li>
+                        <li>Recursos digitales para gestión de proyectos</li>
+                        <li>Intervención temprana ante señales de alerta</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>🔧 Barreras Identificadas y Soluciones Específicas</h3>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <h4>❌ Liderazgo Disfuncional</h4>
+                    <p><strong>Solución:</strong> Liderazgo compartido y democrático con rotación de responsabilidades.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <h4>❌ Comunicación Deficiente</h4>
+                    <p><strong>Solución:</strong> Protocolos estructurados de comunicación con herramientas digitales.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <h4>❌ Compromiso Desigual</h4>
+                    <p><strong>Solución:</strong> Contratos de participación y sistemas de seguimiento personalizado.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <h4>❌ Evitación de Conflictos</h4>
+                    <p><strong>Solución:</strong> Entrenamiento en gestión constructiva de diferencias y mediación.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <h4>❌ Falta de Integración</h4>
+                    <p><strong>Solución:</strong> Revisiones colaborativas obligatorias en múltiples etapas del proyecto.</p>
+                </div>
+            </div>
+            
+            <div class="reflection-questions">
+                <h4>🤔 Preguntas para la Reflexión Estudiantil</h4>
+                <ul>
+                    <li>¿Qué errores cometió el equipo que podrían haberse evitado?</li>
+                    <li>¿Cómo podrían haber prevenido estos problemas desde el inicio?</li>
+                    <li>¿Qué barreras del trabajo en equipo identificas en tu experiencia?</li>
+                    <li>¿Qué estrategias propones para mejorar el trabajo colaborativo en futuros proyectos?</li>
+                    <li>¿Cómo manejarías una situación similar como líder de equipo?</li>
+                    <li>¿Qué papel juega la comunicación efectiva en el éxito de los proyectos colaborativos?</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation to cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.character-card, .definition-item, .obstacle-item, .step-item, .solution-card, .barrier-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
