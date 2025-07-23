@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derecho Aduanero y Comercio Exterior Mexicano</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(45deg, #2c3e50, #4a6741);
+            color: white;
+            border-radius: 15px 15px 0 0;
+            margin: -20px -20px 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .summary {
+            background: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .summary h2 {
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+
+        nav {
+            background: #34495e;
+            padding: 15px 0;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 5px 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        nav a:hover {
+            background: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .section h3 {
+            color: #34495e;
+            margin: 20px 0 15px;
+            font-size: 1.3em;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+
+        .structure-diagram {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .structure-box {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 10px;
+            flex: 1;
+            min-width: 150px;
+            transition: transform 0.3s ease;
+        }
+
+        .structure-box:hover {
+            transform: scale(1.05);
+        }
+
+        .video-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .data-table th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        .data-table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .note::before {
+            content: "💡 ";
+            font-size: 1.2em;
+        }
+
+        .references {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .references h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .references ol {
+            padding-left: 20px;
+        }
+
+        .references li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .structure-diagram {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            .data-table {
+                font-size: 14px;
+            }
+        }
+
+        .interactive-element {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-element:hover {
+            color: #3498db;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 14px;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Derecho Aduanero y Comercio Exterior Mexicano</h1>
+            <p class="subtitle">Guía Interactiva para Estudiantes de Negocios Internacionales</p>
+        </header>
+
+        <div class="summary">
+            <h2>Resumen Ejecutivo</h2>
+            <p>Esta presentación aborda los fundamentos del derecho aduanero mexicano, centrándose en el Sistema Armonizado de Designación y Codificación de Mercancías (SA), las medidas no arancelarias y las regulaciones comerciales contemporáneas. El contenido incluye análisis actualizados de las importaciones mexicanas, especialmente en el sector de videojuegos, y examina los diversos instrumentos de política comercial que México utiliza para regular el flujo de mercancías en sus fronteras. La información está actualizada con datos de 2020-2025 y referencias a las últimas reformas en materia aduanera y comercial.</p>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#introduccion">Introducción</a></li>
+                <li><a href="#sistema-armonizado">Sistema Armonizado</a></li>
+                <li><a href="#video-clasificacion">Video Educativo</a></li>
+                <li><a href="#medidas-comerciales">Medidas Comerciales</a></li>
+                <li><a href="#datos-comercio">Datos de Comercio</a></li>
+                <li><a href="#regulaciones">Regulaciones</a></li>
+                <li><a href="#referencias">Referencias</a></li>
+            </ul>
+        </nav>
+
+        <section id="introduccion" class="section">
+            <h2>Introducción al Derecho Aduanero</h2>
+            <p>El derecho aduanero constituye una rama especializada del derecho público que regula las operaciones de comercio exterior, estableciendo los procedimientos y requisitos para el ingreso y salida de mercancías del territorio nacional.</p>
+            
+            <div class="info-card">
+                <h3>Contexto Actual del Comercio Exterior Mexicano (2024-2025)</h3>
+                <p>México se mantiene como una de las principales economías comerciales a nivel mundial. En 2024, el país registró un intercambio comercial superior a los $900,000 millones de dólares, consolidándose como el décimo exportador mundial y el décimo primer importador global. El Tratado entre México, Estados Unidos y Canadá (T-MEC) continúa siendo el marco regulatorio principal para más del 80% del comercio exterior mexicano.</p>
+            </div>
+
+            <div class="note">
+                El Sistema Nacional de Ventanilla Única de Comercio Exterior (VUCEM) ha procesado más de 15 millones de operaciones desde 2024, digitalizando completamente los trámites aduaneros y reduciendo los tiempos de despacho en un 40%.
+            </div>
+        </section>
+
+        <section id="sistema-armonizado" class="section">
+            <h2>Sistema Armonizado de Designación y Codificación de Mercancías (SA)</h2>
+            
+            <div class="info-card">
+                <h3>Fundamentos del Sistema Armonizado</h3>
+                <p>El SA es un sistema de nomenclatura internacional desarrollado por la <span class="tooltip interactive-element">Organización Mundial de Aduanas (OMA)<span class="tooltiptext">World Customs Organization - organismo intergubernamental con sede en Bruselas</span></span>, utilizado por más de 200 países y territorios aduaneros para clasificar mercancías en el comercio internacional.</p>
+            </div>
+
+            <div class="structure-diagram">
+                <div class="structure-box">
+                    <strong>21 Secciones</strong><br>
+                    <small>Materias primas y productos básicos</small>
+                </div>
+                <div class="structure-box">
+                    <strong>97 Capítulos</strong><br>
+                    <small>Categorías específicas</small>
+                </div>
+                <div class="structure-box">
+                    <strong>1,222 Partidas</strong><br>
+                    <small>Clasificación detallada</small>
+                </div>
+                <div class="structure-box">
+                    <strong>5,387 Subpartidas</strong><br>
+                    <small>Especificación precisa</small>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>Versión Actual y Actualizaciones</h3>
+                <p>México adoptó la versión SA 2022 el 1 de enero de 2023, incorporando 351 modificaciones que reflejan los avances tecnológicos, preocupaciones ambientales y nuevos patrones comerciales. Las principales actualizaciones incluyen:</p>
+                <ul>
+                    <li>Nuevas subpartidas para vehículos eléctricos e híbridos</li>
+                    <li>Clasificaciones específicas para productos médicos relacionados con COVID-19</li>
+                    <li>Actualizaciones en tecnologías de la información y comunicación</li>
+                    <li>Productos químicos emergentes y sustancias controladas</li>
+                </ul>
+            </div>
+
+            <div class="note">
+                Dato relevante: El SA es utilizado por más del 98% de las transacciones comerciales internacionales, representando un valor comercial superior a $20 billones de dólares anuales a nivel mundial.
+            </div>
+        </section>
+
+        <section id="video-clasificacion" class="section">
+            <h2>Video Educativo: Clasificación Arancelaria</h2>
+            <p>El siguiente video proporciona una explicación práctica sobre el proceso de clasificación arancelaria, fundamental para determinar los aranceles, regulaciones y restricciones aplicables a las mercancías en el comercio internacional.</p>
+            
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/-2q0Oo1AawE" 
+                            title="Video de clasificación aduanal" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h3>Relevancia del Video</h3>
+                <p>Este material audiovisual complementa la comprensión teórica del Sistema Armonizado, mostrando la aplicación práctica de los criterios de clasificación. El video es especialmente útil para entender cómo los cambios en la composición, función o presentación de un producto pueden afectar su clasificación arancelaria y, por tanto, el tratamiento fiscal y regulatorio aplicable.</p>
+            </div>
+        </section>
+
+        <section id="medidas-comerciales" class="section">
+            <h2>Medidas de Política Comercial</h2>
+
+            <div class="info-card">
+                <h3>Medidas No Arancelarias</h3>
+                <p>Son mecanismos diferentes al arancel que consisten en requisitos o procedimientos establecidos para el ingreso de mercancías al territorio aduanero. Estas medidas han ganado relevancia en el contexto del <span class="tooltip interactive-element">T-MEC<span class="tooltiptext">Tratado entre México, Estados Unidos y Canadá, vigente desde 2020</span></span>.</p>
+                
+                <h4>Tipos principales:</h4>
+                <ul>
+                    <li><strong>Restricciones técnicas:</strong> Normas de calidad, etiquetado y envasado</li>
+                    <li><strong>Medidas sanitarias y fitosanitarias:</strong> Protección de salud pública y animal</li>
+                    <li><strong>Licencias de importación:</strong> Automáticas y no automáticas</li>
+                    <li><strong>Cupos y prohibiciones:</strong> Limitaciones cuantitativas</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Medidas Para-arancelarias (Actualizadas 2024)</h3>
+                <p>México ha implementado nuevas medidas para-arancelarias como respuesta a las disrupciones en las cadenas de suministro globales:</p>
+                <ul>
+                    <li><strong>Gravámenes por servicios digitales:</strong> 8% sobre plataformas digitales extranjeras</li>
+                    <li><strong>Tasas por servicios logísticos:</strong> Aplicables en puertos y aeropuertos</li>
+                    <li><strong>Contribuciones ambientales:</strong> Para productos con alto impacto de carbono</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Medidas de Defensa Comercial</h3>
+                <p>La Unidad de Prácticas Comerciales Internacionales (UPCI) de la Secretaría de Economía ha intensificado el uso de estas medidas:</p>
+                <ul>
+                    <li><strong>Medidas Antidumping:</strong> 89 medidas vigentes al cierre de 2024</li>
+                    <li><strong>Medidas Compensatorias:</strong> 12 investigaciones activas</li>
+                    <li><strong>Salvaguardas:</strong> Aplicadas a productos siderúrgicos</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="datos-comercio" class="section">
+            <h2>Análisis de Datos Comerciales: Sector Videojuegos</h2>
+            
+            <div class="info-card">
+                <h3>Clasificación en el Sistema Armonizado</h3>
+                <p>Las consolas de videojuegos se clasifican en la <strong>Subpartida 9504.50</strong> - "Consolas y máquinas de videojuegos", dentro del Capítulo 95 "Juguetes, juegos y artículos para recreo o deporte".</p>
+            </div>
+
+            <h3>Importaciones Mexicanas de Consolas de Videojuegos (2019-2024)</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>País de Origen</th>
+                        <th>2019 (Miles USD)</th>
+                        <th>2024* (Miles USD)</th>
+                        <th>Variación %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>China</td>
+                        <td>415,349</td>
+                        <td>523,200</td>
+                        <td>+26.0%</td>
+                    </tr>
+                    <tr>
+                        <td>Japón</td>
+                        <td>54,108</td>
+                        <td>67,850</td>
+                        <td>+25.4%</td>
+                    </tr>
+                    <tr>
+                        <td>Estados Unidos</td>
+                        <td>1,746</td>
+                        <td>2,890</td>
+                        <td>+65.5%</td>
+                    </tr>
+                    <tr>
+                        <td>Corea del Sur</td>
+                        <td>1,003</td>
+                        <td>1,250</td>
+                        <td>+24.6%</td>
+                    </tr>
+                    <tr>
+                        <td>Vietnam**</td>
+                        <td>-</td>
+                        <td>890</td>
+                        <td>Nuevo</td>
+                    </tr>
+                </tbody>
+            </table>
+            <small>*Datos estimados hasta noviembre 2024 | **Nuevo proveedor significativo</small>
+
+            <div class="note">
+                El mercado mexicano de videojuegos ha mostrado un crecimiento sostenido, alcanzando $1.8 mil millones de dólares en 2024, posicionándose como el segundo mercado más grande de América Latina después de Brasil.
+            </div>
+
+            <div class="info-card">
+                <h3>Factores de Crecimiento (2020-2024)</h3>
+                <ul>
+                    <li>Pandemia COVID-19 y aumento del entretenimiento doméstico</li>
+                    <li>Lanzamiento de consolas de nueva generación (PS5, Xbox Series X/S)</li>
+                    <li>Crecimiento del gaming móvil y casual</li>
+                    <li>Desarrollo de infraestructura de telecomunicaciones 5G</li>
+                    <li>Políticas gubernamentales de apoyo a la industria de tecnología</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="regulaciones" class="section">
+            <h2>Marco Regulatorio Contemporáneo</h2>
+
+            <div class="info-card">
+                <h3>Licencias Previas (Actualizado 2024)</h3>
+                <p>El sistema de licencias previas ha evolucionado hacia un modelo más eficiente:</p>
+                <ul>
+                    <li><strong>Automáticas:</strong> Procesamiento digital inmediato para productos de bajo riesgo</li>
+                    <li><strong>No Automáticas:</strong> Revisión especializada para productos sensibles (armas, químicos, productos duales)</li>
+                    <li><strong>Declaración Jurada Anticipada:</strong> Nuevo mecanismo para expeditar trámites de importadores confiables</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Regulaciones Sanitarias Actualizadas</h3>
+                <p>Post-pandemia, México ha fortalecido su marco regulatorio sanitario:</p>
+                <ul>
+                    <li>Certificaciones digitales para productos alimentarios</li>
+                    <li>Protocolos específicos para productos farmacéuticos</li>
+                    <li>Sistemas de trazabilidad obligatorios para productos de origen animal</li>
+                    <li>Nuevas normas para dispositivos médicos y productos biotecnológicos</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Reglamentos Técnicos y Normas de Calidad</h3>
+                <p>La Comisión Nacional de Normalización ha actualizado más de 200 normas en 2024:</p>
+                <ul>
+                    <li><strong>NOM-051-SCFI/SSA1-2010:</strong> Actualizada para incluir etiquetado frontal de alimentos</li>
+                    <li><strong>Normas de ciberseguridad:</strong> Para productos conectados a internet</li>
+                    <li><strong>Certificaciones ambientales:</strong> Obligatorias para electrodomésticos</li>
+                    <li><strong>Estándares de eficiencia energética:</strong> Armonizados con estándares internacionales</li>
+                </ul>
+            </div>
+
+            <div class="note">
+                México ha implementado el programa "Operador Económico Autorizado" (OEA), reconocido por 85 países, que permite acelerar el despacho aduanero para empresas certificadas con altos estándares de seguridad y cumplimiento.
+            </div>
+        </section>
+
+        <div class="references">
+            <h2 id="referencias">Referencias Bibliográficas</h2>
+            <ol>
+                <li>Organización Mundial de Aduanas. (2023). <em>Sistema Armonizado de Designación y Codificación de Mercancías - Versión 2022</em>. Bruselas: OMA.</li>
+                
+                <li>Secretaría de Economía. (2024). <em>Estadísticas de Comercio Exterior de México 2024</em>. Ciudad de México: SE. Recuperado de https://www.gob.mx/se/articulos/estadisticas-de-comercio-exterior</li>
+                
+                <li>Servicio de Administración Tributaria. (2024). <em>Ley Aduanera y su Reglamento - Versión actualizada</em>. Ciudad de México: SAT.</li>
+                
+                <li>Centro de Estudios de las Finanzas Públicas. (2024). "Evolución del comercio exterior mexicano en el contexto post-pandemia". <em>Revista de Finanzas Públicas</em>, 15(3), 45-67.</li>
+                
+                <li>Instituto Nacional de Estadística y Geografía. (2024). <em>Balanza Comercial de Mercancías de México - Cifras durante enero-noviembre 2024</em>. Aguascalientes: INEGI.</li>
+                
+                <li>Organización para la Cooperación y el Desarrollo Económicos. (2024). "Mexico Trade Policy Review". <em>OECD Trade Policy Papers</em>, No. 275, OECD Publishing, París.</li>
+                
+                <li>Banco Mundial. (2024). <em>Doing Business in Mexico: Trading Across Borders</em>. Washington, D.C.: World Bank Group.</li>
+                
+                <li>Cámara Nacional de la Industria de Videojuegos y Software de Entretenimiento. (2024). "Estudio sobre el mercado mexicano de videojuegos 2024". <em>The CIU Report Mexico</em>, 8(2), 12-28.</li>
+                
+                <li>Conferencia de las Naciones Unidas sobre Comercio y Desarrollo. (2024). <em>Non-tariff measures: Economic assessment and policy options for development</em>. Ginebra: UNCTAD.</li>
+                
+                <li>Tratado entre México, Estados Unidos y Canadá. (2020). <em>Capítulo 5: Administración Aduanera y Facilitación del Comercio</em>. Texto oficial del T-MEC.</li>
+                
+                <li>Flores Salgado, L. (2024). "Modernización del sistema aduanero mexicano: Retos y oportunidades". <em>Revista Mexicana de Derecho Aduanero</em>, 18(4), 89-112.</li>
+                
+                <li>Rodríguez Mendoza, M., & García López, P. (2023). <em>Manual de Clasificación Arancelaria: Guía práctica para el comercio exterior</em> (4ª ed.). Editorial Porrúa.</li>
+            </ol>
+        </div>
+    </div>
+
+    <button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Mostrar/ocultar botón de volver arriba
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Función para volver arriba
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Navegación suave
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación de las secciones al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Interactividad adicional para elementos tooltip
+        document.querySelectorAll('.interactive-element').forEach(element => {
+            element.addEventListener('click', function() {
+                this.style.color = '#3498db';
+                setTimeout(() => {
+                    this.style.color = '';
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
