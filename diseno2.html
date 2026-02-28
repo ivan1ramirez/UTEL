@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 2: Modelos para el Diseño Instruccional | UTEL</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #00b900;
+    --green-dark: #008f00;
+    --green-deep: #006600;
+    --green-light: #e8f9e8;
+    --green-mid: #c5f0c5;
+    --white: #ffffff;
+    --off-white: #f8faf8;
+    --gray-100: #f2f4f2;
+    --gray-200: #e4e8e4;
+    --gray-500: #7a8a7a;
+    --gray-700: #3d4d3d;
+    --gray-900: #1a251a;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --radius: 14px;
+    --shadow-sm: 0 2px 8px rgba(0,100,0,.07);
+    --shadow-md: 0 8px 28px rgba(0,100,0,.1);
+    --shadow-lg: 0 20px 60px rgba(0,100,0,.13);
+    --transition: all .3s cubic-bezier(.4,0,.2,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); color: var(--gray-900); background: var(--white); line-height: 1.75; overflow-x: hidden; }
+
+  /* ──── SCROLLBAR ──── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--gray-100); }
+  ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
+
+  /* ──── NAVBAR ──── */
+  .navbar {
+    position: sticky; top: 0; z-index: 200;
+    height: 66px;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 2.5px solid var(--green);
+    display: flex; align-items: center;
+    padding: 0 2.5rem;
+    gap: 2rem;
+    box-shadow: 0 1px 20px rgba(0,185,0,.08);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: .9rem;
+    text-decoration: none; flex-shrink: 0;
+  }
+
+  .nav-logo-mark {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--green), var(--green-dark));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-serif);
+    color: white; font-size: 1rem; font-weight: 700;
+    letter-spacing: -.5px;
+    box-shadow: 0 3px 10px rgba(0,185,0,.3);
+  }
+
+  .nav-logo-info strong { display: block; font-size: .88rem; font-weight: 700; color: var(--green-dark); line-height: 1.2; }
+  .nav-logo-info span { font-size: .7rem; color: var(--gray-500); letter-spacing: .04em; text-transform: uppercase; }
+
+  .nav-links { display: flex; gap: .1rem; margin-left: auto; }
+  .nav-links a {
+    text-decoration: none; color: var(--gray-700);
+    font-size: .8rem; font-weight: 500;
+    padding: .45rem .85rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    white-space: nowrap;
+  }
+  .nav-links a:hover { background: var(--green-light); color: var(--green-dark); }
+
+  .nav-badge {
+    background: var(--green);
+    color: white;
+    border-radius: 999px;
+    padding: .3rem .9rem;
+    font-size: .75rem;
+    font-weight: 600;
+    margin-left: .5rem;
+  }
+
+  /* ──── HERO ──── */
+  .hero {
+    min-height: 540px;
+    background: var(--gray-900);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 55% 45%;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 80% at 20% 50%, rgba(0,185,0,.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 80% 20%, rgba(0,185,0,.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* Animated grid lines */
+  .hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: 
+      linear-gradient(rgba(0,185,0,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,185,0,.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    animation: gridMove 20s linear infinite;
+  }
+
+  @keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 60px 60px; }
+  }
+
+  .hero-left {
+    padding: 5rem 3rem 5rem 5rem;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; z-index: 2;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: .6rem;
+    background: rgba(0,185,0,.15);
+    border: 1px solid rgba(0,185,0,.3);
+    border-radius: 999px;
+    padding: .4rem 1.1rem;
+    margin-bottom: 1.75rem;
+    width: fit-content;
+  }
+
+  .hero-eyebrow .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
+    animation: blink 2.5s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .4; transform: scale(1.4); }
+  }
+
+  .hero-eyebrow span { font-size: .75rem; font-weight: 600; color: var(--green); letter-spacing: .08em; text-transform: uppercase; }
+
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.1rem, 3.8vw, 3.2rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 .accent { color: var(--green); }
+
+  .hero-desc {
+    font-size: 1rem; color: rgba(255,255,255,.65);
+    max-width: 500px; margin-bottom: 2.25rem;
+    line-height: 1.8;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .85rem 1.75rem;
+    border-radius: 10px;
+    font-size: .875rem; font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer; border: none;
+    font-family: var(--font-sans);
+  }
+
+  .btn-primary {
+    background: var(--green); color: white;
+    box-shadow: 0 4px 20px rgba(0,185,0,.35);
+  }
+  .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,185,0,.4); }
+
+  .btn-ghost {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.2);
+    color: rgba(255,255,255,.85);
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,.15); }
+
+  .hero-right {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    padding: 3rem 3rem 3rem 1rem;
+  }
+
+  .hero-card-stack { position: relative; width: 300px; }
+
+  .hcard {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 16px;
+    padding: 1.5rem;
+    backdrop-filter: blur(8px);
+    color: white;
+  }
+
+  .hcard-main { margin-bottom: 1rem; }
+
+  .hcard-label {
+    font-size: .68rem; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--green); margin-bottom: .6rem;
+  }
+
+  .hcard-title {
+    font-family: var(--font-serif);
+    font-size: 1.05rem; font-weight: 600;
+    margin-bottom: .5rem; line-height: 1.35;
+  }
+
+  .hcard-sub { font-size: .78rem; opacity: .65; }
+
+  .models-pills {
+    display: flex; flex-wrap: wrap; gap: .4rem;
+    margin-top: 1rem;
+  }
+
+  .mpill {
+    background: rgba(0,185,0,.2);
+    border: 1px solid rgba(0,185,0,.3);
+    border-radius: 999px;
+    padding: .2rem .75rem;
+    font-size: .72rem; font-weight: 600;
+    color: rgba(255,255,255,.9);
+    cursor: default;
+    transition: var(--transition);
+  }
+  .mpill:hover { background: var(--green); }
+
+  .hcard-float {
+    position: absolute;
+    bottom: -1rem; right: -1.5rem;
+    width: 160px;
+    background: linear-gradient(135deg, var(--green), var(--green-dark));
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+  }
+
+  .hcard-float .num {
+    font-family: var(--font-serif);
+    font-size: 2rem; font-weight: 700; color: white; line-height: 1;
+  }
+
+  .hcard-float p { font-size: .7rem; color: rgba(255,255,255,.8); margin-top: .2rem; }
+
+  /* ──── SECTION COMMON ──── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+  section { padding: 5.5rem 0; }
+
+  .section-eyebrow {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--green-light);
+    color: var(--green-dark);
+    border-radius: 8px;
+    padding: .3rem .9rem;
+    font-size: .72rem; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.7rem, 2.8vw, 2.35rem);
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  .section-lead {
+    font-size: 1.02rem;
+    color: var(--gray-500);
+    max-width: 720px;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ──── SECTION 2.1: HISTORIA ──── */
+  #historia { background: var(--off-white); }
+
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: .5rem; bottom: .5rem;
+    width: 3px;
+    background: linear-gradient(180deg, var(--green), var(--green-dark), var(--green-deep));
+    border-radius: 3px;
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+
+  .tl-item.visible { opacity: 1; transform: translateX(0); }
+
+  .tl-dot {
+    position: absolute;
+    left: -2.9rem; top: .5rem;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--green);
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px var(--green);
+  }
+
+  .tl-period {
+    font-size: .72rem; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: .4rem;
+  }
+
+  .tl-title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem; font-weight: 600;
+    color: var(--gray-900); margin-bottom: .5rem;
+  }
+
+  .tl-body {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 3px solid var(--green);
+  }
+
+  .tl-body p { font-size: .9rem; color: var(--gray-700); }
+
+  .tl-tag {
+    display: inline-block;
+    background: var(--green-light);
+    color: var(--green-dark);
+    border-radius: 6px;
+    padding: .2rem .65rem;
+    font-size: .72rem; font-weight: 600;
+    margin-top: .75rem;
+  }
+
+  /* ──── SECTION 2.2: MODELOS ──── */
+  #modelos { background: white; }
+
+  .models-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-bottom: 2.5rem;
+    padding: 1rem;
+    background: var(--gray-100);
+    border-radius: 14px;
+  }
+
+  .mnav-btn {
+    flex: 1; min-width: 110px;
+    padding: .65rem 1rem;
+    border: none; background: none; cursor: pointer;
+    border-radius: 10px;
+    font-family: var(--font-sans);
+    font-size: .82rem; font-weight: 600;
+    color: var(--gray-700);
+    transition: var(--transition);
+    text-align: center;
+  }
+  .mav-btn { background: white; }
+  .mav-btn:hover { background: white; }
+  .mav-btn.active, .mav-btn:hover { background: white; color: var(--green-dark); box-shadow: var(--shadow-sm); }
+  .mav-btn.active { color: var(--green-dark); box-shadow: var(--shadow-sm); }
+
+  .mav-btn { background: transparent; }
+
+  /* model tab button */
+  .mtab {
+    padding: .6rem 1.2rem;
+    border: none; background: transparent;
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: var(--font-sans);
+    font-size: .82rem; font-weight: 600;
+    color: var(--gray-700);
+    transition: var(--transition);
+  }
+  .mtab:hover { background: white; color: var(--green-dark); }
+  .mtab.active { background: white; color: var(--green-dark); box-shadow: var(--shadow-sm); }
+
+  .model-panel { display: none; }
+  .model-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+  .model-info { }
+
+  .model-badge {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--green);
+    color: white;
+    border-radius: 10px;
+    padding: .5rem 1.1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .model-badge .mbname { font-size: .95rem; font-weight: 700; }
+  .model-badge .mbsub { font-size: .72rem; opacity: .85; }
+
+  .model-info h3 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem; font-weight: 700;
+    color: var(--gray-900); margin-bottom: .75rem;
+  }
+
+  .model-info p { font-size: .92rem; color: var(--gray-700); margin-bottom: 1rem; }
+
+  .model-pros-cons {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .pros, .cons {
+    border-radius: 10px; padding: 1.1rem;
+  }
+
+  .pros { background: var(--green-light); }
+  .cons { background: #fff5f5; }
+
+  .pros h5 { color: var(--green-dark); font-size: .78rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; margin-bottom: .5rem; }
+  .cons h5 { color: #c53030; font-size: .78rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; margin-bottom: .5rem; }
+
+  .pros li, .cons li { font-size: .8rem; padding-left: 1rem; position: relative; margin-bottom: .35rem; }
+  .pros li::before { content: '✓'; position: absolute; left: 0; color: var(--green-dark); font-weight: 700; }
+  .cons li::before { content: '×'; position: absolute; left: 0; color: #c53030; font-weight: 700; }
+
+  .model-visual {
+    background: var(--gray-100);
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+
+  .model-visual h4 {
+    font-size: .78rem; font-weight: 700;
+    letter-spacing: .07em; text-transform: uppercase;
+    color: var(--gray-500);
+  }
+
+  .steps-list { display: flex; flex-direction: column; gap: .6rem; }
+
+  .step-item {
+    display: flex; align-items: flex-start; gap: .85rem;
+    background: white;
+    border-radius: 10px;
+    padding: .75rem 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  .step-item:hover { transform: translateX(4px); box-shadow: var(--shadow-md); }
+
+  .step-num {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: var(--green); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .75rem; font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .step-text { font-size: .83rem; color: var(--gray-700); line-height: 1.45; }
+
+  .daniel-note {
+    background: linear-gradient(135deg, var(--green-light), white);
+    border: 1px solid var(--green-mid);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .daniel-note .dn-label {
+    font-size: .7rem; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: var(--green-dark); margin-bottom: .4rem;
+  }
+
+  .daniel-note p { font-size: .84rem; color: var(--gray-700); }
+
+  /* ──── BLOG / CASO LEONES ──── */
+  #caso-leones { background: var(--gray-900); }
+  #caso-leones .section-title { color: white; }
+  #caso-leones .section-lead { color: rgba(255,255,255,.55); }
+  #caso-leones .section-eyebrow { background: rgba(0,185,0,.15); color: var(--green); }
+
+  .leones-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .blog-cards { display: flex; flex-direction: column; gap: 1.75rem; }
+
+  .blog-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(6px);
+    transition: var(--transition);
+    opacity: 0; transform: translateY(20px);
+  }
+  .blog-card.visible { opacity: 1; transform: translateY(0); }
+  .blog-card:hover { background: rgba(255,255,255,.08); border-color: rgba(0,185,0,.3); }
+
+  .bc-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+
+  .bc-icon {
+    width: 44px; height: 44px;
+    background: var(--green);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+
+  .bc-meta .bc-q { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
+  .bc-meta h3 { font-family: var(--font-serif); font-size: 1.08rem; color: white; font-weight: 600; line-height: 1.3; }
+
+  .blog-card p { font-size: .88rem; color: rgba(255,255,255,.7); line-height: 1.8; }
+  .blog-card p + p { margin-top: .8rem; }
+
+  .bc-highlight {
+    background: rgba(0,185,0,.1);
+    border: 1px solid rgba(0,185,0,.25);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  .bc-highlight .bch-label {
+    font-size: .7rem; font-weight: 700;
+    letter-spacing: .07em; text-transform: uppercase;
+    color: var(--green); margin-bottom: .5rem;
+  }
+
+  .bc-highlight ul { padding-left: 1.1rem; }
+  .bc-highlight li { font-size: .82rem; color: rgba(255,255,255,.7); margin-bottom: .35rem; }
+
+  /* Sidebar Leones */
+  .leones-sidebar { position: sticky; top: 86px; }
+
+  .ls-card {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 16px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ls-card h4 {
+    font-family: var(--font-serif);
+    font-size: 1rem; font-weight: 600; color: white;
+    margin-bottom: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding-bottom: .75rem;
+  }
+
+  .context-item {
+    display: flex; gap: .85rem;
+    margin-bottom: 1rem;
+  }
+
+  .ci-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .ci-text h5 { font-size: .82rem; font-weight: 600; color: rgba(255,255,255,.9); margin-bottom: .2rem; }
+  .ci-text p { font-size: .77rem; color: rgba(255,255,255,.55); }
+
+  .recommended-model {
+    background: linear-gradient(135deg, var(--green), var(--green-dark));
+    border-radius: 14px;
+    padding: 1.75rem;
+  }
+
+  .rm-label { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-bottom: .5rem; }
+
+  .rm-model {
+    font-family: var(--font-serif);
+    font-size: 1.6rem; font-weight: 700; color: white; line-height: 1.1; margin-bottom: .6rem;
+  }
+
+  .recommended-model p { font-size: .82rem; color: rgba(255,255,255,.85); line-height: 1.7; }
+
+  /* ──── COMPARISON TABLE ──── */
+  #comparativa { background: var(--off-white); }
+
+  .table-wrap { overflow-x: auto; border-radius: 16px; box-shadow: var(--shadow-md); }
+
+  table {
+    width: 100%; border-collapse: collapse;
+    background: white;
+    min-width: 700px;
+  }
+
+  thead {
+    background: var(--green);
+    color: white;
+  }
+
+  th {
+    padding: 1.1rem 1.25rem;
+    font-size: .82rem; font-weight: 700;
+    letter-spacing: .04em; text-align: left;
+  }
+
+  td {
+    padding: 1rem 1.25rem;
+    font-size: .85rem;
+    color: var(--gray-700);
+    border-bottom: 1px solid var(--gray-200);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--gray-100); }
+  tr:hover td { background: var(--green-light); transition: background .2s; }
+
+  .rec-badge {
+    display: inline-flex; align-items: center; gap: .3rem;
+    background: var(--green);
+    color: white;
+    border-radius: 999px;
+    padding: .2rem .7rem;
+    font-size: .72rem; font-weight: 700;
+  }
+
+  /* ──── REFERENCIAS ──── */
+  #referencias { background: var(--gray-900); color: white; }
+  #referencias .section-title { color: white; }
+  #referencias .section-lead { color: rgba(255,255,255,.55); }
+  #referencias .section-eyebrow { background: rgba(0,185,0,.15); color: var(--green); }
+
+  .refs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+  .ref-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-left: 4px solid var(--green);
+    border-radius: 12px;
+    padding: 1.4rem;
+    font-size: .85rem;
+    color: rgba(255,255,255,.75);
+    line-height: 1.8;
+    transition: var(--transition);
+  }
+  .ref-card:hover { background: rgba(255,255,255,.08); }
+  .ref-card strong { color: white; }
+  .ref-card em { color: rgba(255,255,255,.6); }
+
+  /* ──── FOOTER ──── */
+  footer {
+    background: var(--green-deep);
+    color: white;
+    text-align: center;
+    padding: 2.25rem;
+    font-size: .83rem;
+  }
+
+  footer strong { color: rgba(255,255,255,.9); }
+  footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+  footer a:hover { color: white; }
+
+  /* ──── UTILS ──── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--green), transparent);
+    margin: .5rem 0;
+  }
+
+  /* ──── RESPONSIVE ──── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { display: none; }
+    .hero-left { padding: 3.5rem 1.5rem; }
+    .model-panel.active { grid-template-columns: 1fr; }
+    .model-pros-cons { grid-template-columns: 1fr; }
+    .leones-grid { grid-template-columns: 1fr; }
+    .leones-sidebar { position: static; }
+    .refs-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .container { padding: 0 1.25rem; }
+    section { padding: 3.5rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">UTEL</div>
+    <div class="nav-logo-info">
+      <strong>UTEL Universidad</strong>
+      <span>Diseño de Programas de Enseñanza</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#historia">2.1 Historia</a>
+    <a href="#modelos">2.2 Modelos</a>
+    <a href="#caso-leones">Caso Leones</a>
+    <a href="#comparativa">Comparativa</a>
+    <a href="#referencias">Referencias</a>
+    <span class="nav-badge">Tema 2</span>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="dot"></div>
+      <span>Tema 2 · Diseño de Programas de Enseñanza</span>
+    </div>
+    <h1>Modelos para el <span class="accent">Diseño Instruccional</span></h1>
+    <p class="hero-desc">Explora la evolución histórica del DI, analiza los modelos instruccionales clásicos y contemporáneos, y aplica el conocimiento al Caso Universidad Leones para la educación en línea.</p>
+    <div class="hero-actions">
+      <a href="#historia" class="btn btn-primary">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Explorar contenido
+      </a>
+      <a href="#caso-leones" class="btn btn-ghost">Ver caso de estudio</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card-stack">
+      <div class="hcard hcard-main">
+        <p class="hcard-label">Caso de Estudio Activo</p>
+        <h3 class="hcard-title">Universidad Leones: transición a la educación en línea</h3>
+        <p class="hcard-sub">Lic. en Pedagogía · Modalidad a distancia · Asignatura: Historia de la Educación</p>
+        <div class="models-pills">
+          <span class="mpill">Gagné</span>
+          <span class="mpill">ASSURE</span>
+          <span class="mpill">Dick & Carey</span>
+          <span class="mpill">ADDIE</span>
+          <span class="mpill">Jonassen</span>
+        </div>
+      </div>
+      <div class="hcard hcard-float">
+        <div class="num">6</div>
+        <p>Modelos instruccionales analizados</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ SECCIÓN 2.1: HISTORIA ══ -->
+<section id="historia">
+  <div class="container">
+    <div class="section-eyebrow">Sección 2.1</div>
+    <h2 class="section-title">Evolución histórica del Diseño Instruccional</h2>
+    <p class="section-lead">Desde sus orígenes conductistas en los años 60 hasta el auge del constructivismo en los 90, el DI ha evolucionado de la mano de la psicología, la tecnología y las ciencias de la comunicación.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <p class="tl-period">Década de 1960</p>
+        <p class="tl-title">Conductismo y los primeros modelos sistemáticos</p>
+        <div class="tl-body">
+          <p>El DI nace formalmente en el contexto de la capacitación militar durante la Segunda Guerra Mundial y se consolida en los 60 con el conductismo como paradigma dominante. Skinner, con su teoría del refuerzo, influye directamente en la instrucción programada: secuencias lineales de contenidos donde el aprendiz avanza respondiendo estímulos y recibiendo retroalimentación inmediata. Gagné publica en 1965 "The Conditions of Learning", estableciendo los primeros fundamentos científicos del DI.</p>
+          <span class="tl-tag">Conductismo · Instrucción programada · Gagné (1965)</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <p class="tl-period">Década de 1970</p>
+        <p class="tl-title">El enfoque sistémico y los modelos de proceso</p>
+        <div class="tl-body">
+          <p>La Teoría General de Sistemas de Bertalanffy permea el DI. Se consolida la idea de que la instrucción debe diseñarse como un sistema de componentes interrelacionados: análisis, diseño, desarrollo, implementación y evaluación. Dick y Carey (1978) publican "The Systematic Design of Instruction", un hito que introduce el modelo reduccionista de sistemas. Gagné y Briggs amplían el trabajo original con un enfoque de 14 pasos en cuatro niveles de diseño.</p>
+          <span class="tl-tag">Teoría de Sistemas · Dick & Carey · Gagné & Briggs</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <p class="tl-period">Década de 1980</p>
+        <p class="tl-title">Cognitivismo y tecnología educativa</p>
+        <div class="tl-body">
+          <p>El cognitivismo desplaza al conductismo como paradigma dominante. Los modelos de DI comienzan a incorporar la carga cognitiva (Sweller), la memoria de trabajo y los esquemas mentales como variables de diseño. Aparecen los primeros entornos de aprendizaje mediados por tecnología (Computer-Based Training). Heinich y colaboradores desarrollan el modelo ASSURE, específicamente orientado a la selección y uso de medios educativos en el aula. La televisión educativa y el video instruccional cobran protagonismo.</p>
+          <span class="tl-tag">Cognitivismo · ASSURE · Sweller · CBT</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <p class="tl-period">Década de 1990</p>
+        <p class="tl-title">Constructivismo, Internet y los entornos de aprendizaje</p>
+        <div class="tl-body">
+          <p>El constructivismo —con Vygotski, Piaget y Bruner como referencias— transforma radicalmente el DI. Jonassen propone los Entornos de Aprendizaje Constructivistas (EAC), centrados en problemas auténticos y en el aprendizaje situado. La irrupción de Internet genera nuevos paradigmas: el modelo ADDIE se populariza como marco genérico y flexible para cualquier contexto. El e-learning comienza su expansión. El enfoque cambia del "qué enseñar" al "cómo construir conocimiento significativo".</p>
+          <span class="tl-tag">Constructivismo · Jonassen · ADDIE · e-learning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SECCIÓN 2.2: MODELOS ══ -->
+<section id="modelos">
+  <div class="container">
+    <div class="section-eyebrow">Sección 2.2</div>
+    <h2 class="section-title">Modelos de Diseño Instruccional</h2>
+    <p class="section-lead">Cada modelo propone una manera distinta de estructurar el proceso de diseño. Conocer sus fases, ventajas y limitaciones permite al diseñador seleccionar el más adecuado para cada contexto.</p>
+
+    <div class="models-nav" id="modelsNav">
+      <button class="mtab active" onclick="showModel('gagne', this)">Gagné</button>
+      <button class="mtab" onclick="showModel('gagne-briggs', this)">Gagné & Briggs</button>
+      <button class="mtab" onclick="showModel('assure', this)">ASSURE</button>
+      <button class="mtab" onclick="showModel('dick-carey', this)">Dick & Carey</button>
+      <button class="mtab" onclick="showModel('jonassen', this)">Jonassen</button>
+      <button class="mtab" onclick="showModel('addie', this)">ADDIE</button>
+    </div>
+
+    <!-- GAGNÉ -->
+    <div id="model-gagne" class="model-panel active">
+      <div class="model-info">
+        <div class="model-badge">
+          <div>
+            <div class="mbname">Modelo de Gagné</div>
+            <div class="mbsub">Los 9 Eventos de Instrucción</div>
+          </div>
+        </div>
+        <h3>Nueve condiciones para el aprendizaje efectivo</h3>
+        <p>Gagné (1965, 1985) sostiene que el aprendizaje es un proceso interno que depende de condiciones externas cuidadosamente diseñadas. Su modelo identifica nueve eventos instruccionales que el docente debe orquestar para activar los procesos cognitivos internos del aprendiz, desde la atención hasta la transferencia.</p>
+        <p>Se trata de un modelo conductista-cognitivista que permite estructurar con gran precisión las actividades de una sesión o módulo instruccional. Es especialmente útil para contenidos académicos bien delimitados.</p>
+        <div class="model-pros-cons">
+          <div class="pros">
+            <h5>Ventajas</h5>
+            <ul>
+              <li>Secuencia lógica y probada</li>
+              <li>Facilita la planificación detallada</li>
+              <li>Aplicable a múltiples contextos</li>
+              <li>Base científica sólida</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h5>Limitaciones</h5>
+            <ul>
+              <li>Lineal, poco flexible</li>
+              <li>No contempla aprendizaje situado</li>
+              <li>Subestima la autonomía del estudiante</li>
+            </ul>
+          </div>
+        </div>
+        <div class="daniel-note">
+          <p class="dn-label">🎓 Aplicación para los grupos de Daniel</p>
+          <p>Para el grupo de Educación (baja participación, estructura requerida), los 9 eventos de Gagné ofrecen un andamiaje ideal: captación de atención → objetivos claros → activación de conocimiento previo → presentación → guía → práctica → retroalimentación → evaluación → transferencia.</p>
+        </div>
+      </div>
+      <div class="model-visual">
+        <h4>Los 9 Eventos Instruccionales</h4>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">1</div><div class="step-text">Captar la atención del estudiante</div></div>
+          <div class="step-item"><div class="step-num">2</div><div class="step-text">Informar los objetivos de aprendizaje</div></div>
+          <div class="step-item"><div class="step-num">3</div><div class="step-text">Estimular el recuerdo de aprendizajes previos</div></div>
+          <div class="step-item"><div class="step-num">4</div><div class="step-text">Presentar el material de instrucción</div></div>
+          <div class="step-item"><div class="step-num">5</div><div class="step-text">Proporcionar guía para el aprendizaje</div></div>
+          <div class="step-item"><div class="step-num">6</div><div class="step-text">Provocar la práctica y el desempeño</div></div>
+          <div class="step-item"><div class="step-num">7</div><div class="step-text">Proporcionar retroalimentación</div></div>
+          <div class="step-item"><div class="step-num">8</div><div class="step-text">Evaluar el desempeño</div></div>
+          <div class="step-item"><div class="step-num">9</div><div class="step-text">Aumentar la retención y la transferencia</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAGNÉ & BRIGGS -->
+    <div id="model-gagne-briggs" class="model-panel">
+      <div class="model-info">
+        <div class="model-badge">
+          <div>
+            <div class="mbname">Gagné & Briggs</div>
+            <div class="mbsub">Enfoque de Sistemas · 4 Niveles</div>
+          </div>
+        </div>
+        <h3>Diseño instruccional sistémico en cuatro niveles</h3>
+        <p>Gagné y Briggs amplían el modelo original incorporando una visión sistémica y multinivel. Identifican cuatro niveles de diseño —currículo, curso, lección y módulo— que permiten una planificación coherente desde lo macro hasta lo micro. El proceso se desarrolla en 14 pasos que contemplan desde el análisis de necesidades hasta la evaluación sumativa.</p>
+        <p>Este modelo es particularmente robusto para el diseño de programas académicos completos, donde se requiere coherencia vertical y horizontal entre unidades, cursos y objetivos curriculares.</p>
+        <div class="model-pros-cons">
+          <div class="pros">
+            <h5>Ventajas</h5>
+            <ul>
+              <li>Visión macro y micro del diseño</li>
+              <li>Coherencia curricular garantizada</li>
+              <li>Adecuado para programas completos</li>
+              <li>Incluye evaluación formativa</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h5>Limitaciones</h5>
+            <ul>
+              <li>Proceso largo y complejo</li>
+              <li>Requiere equipos especializados</li>
+              <li>Rígido para contextos cambiantes</li>
+            </ul>
+          </div>
+        </div>
+        <div class="daniel-note">
+          <p class="dn-label">🎓 Aplicación para el contexto institucional</p>
+          <p>Si Daniel rediseñara su asignatura de manera sistemática para los tres grupos, aplicar Gagné & Briggs garantizaría que los objetivos de cada sesión sean coherentes con el objetivo del curso y con el perfil de egreso de cada licenciatura.</p>
+        </div>
+      </div>
+      <div class="model-visual">
+        <h4>4 Niveles de Diseño</h4>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">N1</div><div class="step-text"><strong>Currículo:</strong> Plan de estudios completo y competencias de egreso</div></div>
+          <div class="step-item"><div class="step-num">N2</div><div class="step-text"><strong>Curso:</strong> Objetivos generales, unidades y evaluación sumativa</div></div>
+          <div class="step-item"><div class="step-num">N3</div><div class="step-text"><strong>Lección:</strong> Objetivos específicos y secuencia instruccional</div></div>
+          <div class="step-item"><div class="step-num">N4</div><div class="step-text"><strong>Módulo/Marco:</strong> Actividades, materiales y evaluación formativa</div></div>
+        </div>
+        <h4 style="margin-top:1rem">Principios clave</h4>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">✦</div><div class="step-text">Análisis de necesidades del sistema educativo</div></div>
+          <div class="step-item"><div class="step-num">✦</div><div class="step-text">Taxonomía de dominios de aprendizaje (cognitivo, afectivo, psicomotor)</div></div>
+          <div class="step-item"><div class="step-num">✦</div><div class="step-text">Coherencia entre objetivos, actividades y evaluación</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ASSURE -->
+    <div id="model-assure" class="model-panel">
+      <div class="model-info">
+        <div class="model-badge">
+          <div>
+            <div class="mbname">Modelo ASSURE</div>
+            <div class="mbsub">Heinich y colaboradores · 6 Fases</div>
+          </div>
+        </div>
+        <h3>Diseño centrado en la selección de medios y tecnología</h3>
+        <p>ASSURE fue desarrollado por Heinich, Molenda, Russell y Smaldino (1993) con un enfoque especial en la integración de medios y tecnología al proceso instruccional. Es un modelo orientado al salón de clases, donde el docente es el diseñador. Su nombre es un acrónimo en inglés de sus seis fases: Analyze, State, Select, Utilize, Require, Evaluate.</p>
+        <p>Este modelo destaca por su practicidad: el docente puede aplicarlo directamente sin necesidad de un equipo de diseñadores. Es ideal para contextos escolares donde se integra tecnología educativa.</p>
+        <div class="model-pros-cons">
+          <div class="pros">
+            <h5>Ventajas</h5>
+            <ul>
+              <li>Práctico y aplicable por el docente</li>
+              <li>Enfocado en medios y TIC</li>
+              <li>Considera características del aprendiz</li>
+              <li>Proceso evaluativo incluido</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h5>Limitaciones</h5>
+            <ul>
+              <li>Limitado a contextos de aula</li>
+              <li>No apto para programas a gran escala</li>
+              <li>Menos orientado al constructivismo</li>
+            </ul>
+          </div>
+        </div>
+        <div class="daniel-note">
+          <p class="dn-label">🎓 Aplicación para Daniel</p>
+          <p>ASSURE es el modelo más accesible para que Daniel rediseñe su instrucción sin apoyo institucional: en la fase "A" analizaría las características de sus tres grupos (Educación, Psicología, Pedagogía), en la fase "S" fijaría objetivos ABCD diferenciados, y en la "S" siguiente seleccionaría medios distintos para cada grupo.</p>
+        </div>
+      </div>
+      <div class="model-visual">
+        <h4>Las 6 Fases ASSURE</h4>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">A</div><div class="step-text"><strong>Analizar</strong> las características del aprendiz (perfil, estilos, conocimientos previos)</div></div>
+          <div class="step-item"><div class="step-num">S</div><div class="step-text"><strong>Fijar objetivos</strong> en formato ABCD: Audience, Behavior, Condition, Degree</div></div>
+          <div class="step-item"><div class="step-num">S</div><div class="step-text"><strong>Seleccionar</strong> métodos, medios y materiales adecuados al perfil del grupo</div></div>
+          <div class="step-item"><div class="step-num">U</div><div class="step-text"><strong>Utilizar</strong> los materiales (vista previa, preparación, experiencia)</div></div>
+          <div class="step-item"><div class="step-num">R</div><div class="step-text"><strong>Requerir</strong> la participación activa de los estudiantes</div></div>
+          <div class="step-item"><div class="step-num">E</div><div class="step-text"><strong>Evaluar y revisar</strong> los materiales, métodos y el aprendizaje logrado</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DICK & CAREY -->
+    <div id="model-dick-carey" class="model-panel">
+      <div class="model-info">
+        <div class="model-badge">
+          <div>
+            <div class="mbname">Dick & Carey</div>
+            <div class="mbsub">Modelo sistémico · 10 Pasos</div>
+          </div>
+        </div>
+        <h3>El modelo reduccionista de sistemas</h3>
+        <p>Dick, Carey y Carey (1978/2005) desarrollan uno de los modelos más rigurosos y completos del DI. Su enfoque "reduccionista" descompone el problema instruccional en componentes interconectados que se analizan y diseñan de forma sistemática. Los 10 pasos cubren desde la identificación de la meta instruccional hasta la revisión sumativa, con bucles de retroalimentación en cada etapa.</p>
+        <p>Es un modelo robusto para proyectos de educación formal de mediana y gran escala, donde la coherencia entre todos los componentes del diseño es crítica.</p>
+        <div class="model-pros-cons">
+          <div class="pros">
+            <h5>Ventajas</h5>
+            <ul>
+              <li>Modelo más completo y detallado</li>
+              <li>Retroalimentación continua en cada paso</li>
+              <li>Sólido fundamento empírico</li>
+              <li>Excelente para proyectos formales</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h5>Limitaciones</h5>
+            <ul>
+              <li>Proceso extenso y costoso</li>
+              <li>Requiere equipo especializado</li>
+              <li>Demasiado lineal para contextos ágilmente cambiantes</li>
+            </ul>
+          </div>
+        </div>
+        <div class="daniel-note">
+          <p class="dn-label">🎓 Aplicación para la Universidad Leones</p>
+          <p>Para el rediseño completo de la Licenciatura en Pedagogía en modalidad a distancia, Dick y Carey sería el modelo más adecuado: permite un análisis instruccional profundo de cada asignatura y garantiza la alineación con el objetivo curricular.</p>
+        </div>
+      </div>
+      <div class="model-visual">
+        <h4>Los 10 Pasos Interconectados</h4>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">1</div><div class="step-text">Identificar la meta instruccional</div></div>
+          <div class="step-item"><div class="step-num">2</div><div class="step-text">Realizar el análisis instruccional</div></div>
+          <div class="step-item"><div class="step-num">3</div><div class="step-text">Analizar las características del aprendiz y del contexto</div></div>
+          <div class="step-item"><div class="step-num">4</div><div class="step-text">Redactar los objetivos de desempeño</div></div>
+          <div class="step-item"><div class="step-num">5</div><div class="step-text">Desarrollar instrumentos de evaluación</div></div>
+          <div class="step-item"><div class="step-num">6</div><div class="step-text">Desarrollar la estrategia instruccional</div></div>
+          <div class="step-item"><div class="step-num">7</div><div class="step-text">Desarrollar y seleccionar materiales</div></div>
+          <div class="step-item"><div class="step-num">8</div><div class="step-text">Diseñar y realizar la evaluación formativa</div></div>
+          <div class="step-item"><div class="step-num">9</div><div class="step-text">Revisar la instrucción</div></div>
+          <div class="step-item"><div class="step-num">10</div><div class="step-text">Diseñar y realizar la evaluación sumativa</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JONASSEN -->
+    <div id="model-jonassen" class="model-panel">
+      <div class="model-info">
+        <div class="model-badge">
+          <div>
+            <div class="mbname">Modelo de Jonassen</div>
+            <div class="mbsub">Entornos de Aprendizaje Constructivistas</div>
+          </div>
+        </div>
+        <h3>Diseño centrado en problemas y construcción de significado</h3>
+        <p>David Jonassen (1999) propone los Entornos de Aprendizaje Constructivistas (EAC), un modelo radicalmente diferente a los anteriores: en lugar de diseñar la instrucción desde el contenido, el diseñador comienza con el problema auténtico que el aprendiz debe resolver. El EAC incluye el problema o proyecto como núcleo, rodeado de casos relacionados, fuentes de información, herramientas cognitivas, conversación y colaboración, y apoyo social/contextual.</p>
+        <p>Este modelo es ideal para el aprendizaje en línea basado en proyectos, donde los estudiantes construyen conocimiento a través de la investigación, la reflexión y la colaboración.</p>
+        <div class="model-pros-cons">
+          <div class="pros">
+            <h5>Ventajas</h5>
+            <ul>
+              <li>Aprendizaje auténtico y significativo</li>
+              <li>Alta motivación intrínseca</li>
+              <li>Desarrolla pensamiento crítico</li>
+              <li>Ideal para e-learning colaborativo</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h5>Limitaciones</h5>
+            <ul>
+              <li>Requiere mayor autonomía del estudiante</li>
+              <li>Difícil de evaluar estandarizadamente</li>
+              <li>Demanda más tiempo de diseño</li>
+            </ul>
+          </div>
+        </div>
+        <div class="daniel-note">
+          <p class="dn-label">🎓 Aplicación para el grupo de Pedagogía</p>
+          <p>El grupo de Pedagogía —que comprende rápido y se aburre— es el candidato ideal para un EAC: diseñar un problema auténtico de investigación educativa como núcleo del módulo los mantendría desafiados, autónomos y significativamente comprometidos con el aprendizaje.</p>
+        </div>
+      </div>
+      <div class="model-visual">
+        <h4>Componentes del EAC (Jonassen)</h4>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">🎯</div><div class="step-text"><strong>Problema/Proyecto:</strong> Núcleo auténtico y significativo del entorno</div></div>
+          <div class="step-item"><div class="step-num">📋</div><div class="step-text"><strong>Casos relacionados:</strong> Experiencias previas análogas para dar contexto</div></div>
+          <div class="step-item"><div class="step-num">📚</div><div class="step-text"><strong>Fuentes de información:</strong> Recursos, datos y materiales para investigar</div></div>
+          <div class="step-item"><div class="step-num">🧠</div><div class="step-text"><strong>Herramientas cognitivas:</strong> Tecnologías que apoyan el pensamiento</div></div>
+          <div class="step-item"><div class="step-num">💬</div><div class="step-text"><strong>Conversación y colaboración:</strong> Comunidades de práctica y debate</div></div>
+          <div class="step-item"><div class="step-num">🤝</div><div class="step-text"><strong>Apoyo social/contextual:</strong> Facilitadores, tutores y pares</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADDIE -->
+    <div id="model-addie" class="model-panel">
+      <div class="model-info">
+        <div class="model-badge">
+          <div>
+            <div class="mbname">Modelo ADDIE</div>
+            <div class="mbsub">Marco genérico · 5 Fases</div>
+          </div>
+        </div>
+        <h3>El marco de trabajo flexible por excelencia</h3>
+        <p>ADDIE no es un modelo con un autor único sino un marco de referencia genérico que sintetiza los principios fundamentales del DI. Sus cinco fases —Análisis, Diseño, Desarrollo, Implementación y Evaluación— forman un proceso iterativo y cíclico donde la evaluación formativa se integra en cada etapa. Su flexibilidad lo hace aplicable a casi cualquier contexto instruccional: presencial, mixto o a distancia.</p>
+        <p>Es el modelo más utilizado en la industria del e-learning y en instituciones de educación superior que desarrollan programas en línea por primera vez, precisamente porque puede adaptarse a las características específicas de cada proyecto.</p>
+        <div class="model-pros-cons">
+          <div class="pros">
+            <h5>Ventajas</h5>
+            <ul>
+              <li>Flexible y adaptable a cualquier contexto</li>
+              <li>Proceso iterativo con mejora continua</li>
+              <li>Ampliamente conocido y documentado</li>
+              <li>Ideal para iniciativas de e-learning</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h5>Limitaciones</h5>
+            <ul>
+              <li>Puede volverse burocrático si se aplica rígidamente</li>
+              <li>Marco genérico que requiere complementos específicos</li>
+              <li>Etapas pueden ser ambiguas sin metodología explícita</li>
+            </ul>
+          </div>
+        </div>
+        <div class="daniel-note">
+          <p class="dn-label">🎓 Recomendación para la Universidad Leones</p>
+          <p>ADDIE es el modelo más recomendable para la Universidad Leones en su transición a la educación en línea: permite hacer un análisis inicial del perfil de los estudiantes (adultos trabajadores de 18-35 años), diseñar actividades asincrónicas compatibles con sus horarios, desarrollar recursos multimedia iterativos y evaluar continuamente la efectividad del programa.</p>
+        </div>
+      </div>
+      <div class="model-visual">
+        <h4>Las 5 Fases del Modelo ADDIE</h4>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-num">A</div><div class="step-text"><strong>Análisis:</strong> Diagnóstico de necesidades, perfil del aprendiz, contexto y recursos disponibles</div></div>
+          <div class="step-item"><div class="step-num">D</div><div class="step-text"><strong>Diseño:</strong> Objetivos, estructura curricular, estrategias, evaluación y secuenciación</div></div>
+          <div class="step-item"><div class="step-num">D</div><div class="step-text"><strong>Desarrollo:</strong> Producción de materiales, recursos multimedia, plataforma virtual</div></div>
+          <div class="step-item"><div class="step-num">I</div><div class="step-text"><strong>Implementación:</strong> Despliegue del curso, capacitación de facilitadores, apertura a estudiantes</div></div>
+          <div class="step-item"><div class="step-num">E</div><div class="step-text"><strong>Evaluación:</strong> Formativa (en cada etapa) y sumativa (resultados de aprendizaje finales)</div></div>
+        </div>
+        <div style="background:var(--green-light); border-radius:10px; padding:1rem; margin-top:1rem;">
+          <p style="font-size:.8rem; color:var(--green-dark); font-weight:600;">💡 Proceso iterativo: la evaluación formativa retroalimenta todas las fases anteriores, permitiendo mejora continua en tiempo real.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ CASO UNIVERSIDAD LEONES ══ -->
+<section id="caso-leones">
+  <div class="container">
+    <div class="section-eyebrow">Blog Académico · Caso de Estudio</div>
+    <h2 class="section-title">Universidad Leones: transición al e-learning</h2>
+    <p class="section-lead">Análisis fundamentado del caso para seleccionar el modelo instruccional más adecuado para la Licenciatura en Pedagogía en modalidad a distancia.</p>
+
+    <div class="leones-grid">
+      <div class="blog-cards">
+
+        <article class="blog-card">
+          <div class="bc-header">
+            <div class="bc-icon">📋</div>
+            <div class="bc-meta">
+              <p class="bc-q">Pregunta 1</p>
+              <h3>¿Cómo el programa de la asignatura orienta la selección del modelo?</h3>
+            </div>
+          </div>
+          <p>El programa de "Historia de la Educación" (PLP1001) proporciona información determinante en cinco dimensiones: el <strong>objetivo general</strong> —valorar la práctica educativa mediante análisis histórico— exige estrategias que desarrollen pensamiento crítico y reflexivo, no solo memorización. El <strong>temario</strong> es extenso (5 temas, desde la época antigua hasta el siglo XX), lo que demanda una secuenciación instruccional precisa compatible con la carga cognitiva del estudiante en línea.</p>
+          <p>Las <strong>sugerencias didácticas</strong> —debates, mapas conceptuales, lecturas comentadas, investigación documental— son intrínsecamente activas y colaborativas, señalando que el modelo debe contemplar entornos de participación asincrónica. La <strong>evaluación</strong> —ensayos, foros, reportes de lectura, autoevaluación— requiere rúbricas claras y retroalimentación continua. Finalmente, la <strong>bibliografía</strong> actualizada exige que el diseño incluya acceso a fuentes digitales y bibliotecas virtuales.</p>
+          <div class="bc-highlight">
+            <p class="bch-label">Conclusión</p>
+            <ul>
+              <li>El objetivo demanda pensamiento crítico → modelo constructivista o cognitivo</li>
+              <li>El temario extenso exige secuenciación cuidadosa → ADDIE o Dick & Carey</li>
+              <li>Las didácticas activas requieren diseño de interacciones → Jonassen o ASSURE</li>
+              <li>La evaluación diversa demanda planificación en múltiples momentos → ADDIE</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="bc-header">
+            <div class="bc-icon">🧩</div>
+            <div class="bc-meta">
+              <p class="bc-q">Pregunta 2</p>
+              <h3>¿Qué otros elementos deben considerarse para seleccionar el modelo?</h3>
+            </div>
+          </div>
+          <p>Más allá del programa académico, la selección del modelo instruccional para la Universidad Leones debe considerar el <strong>perfil del estudiante</strong>: adultos de 18 a 35 años, trabajadores, de clase media, zona metropolitana del Estado de México, con habilidades TIC básicas y necesidad de estudio autónomo. Este perfil es determinante: los modelos lineales y rígidos (como Dick & Carey aplicado mecánicamente) serán incompatibles con la flexibilidad que estos estudiantes requieren.</p>
+          <p>También son factores clave: la <strong>infraestructura tecnológica disponible</strong> (plataforma LMS, acceso a internet), el <strong>nivel de experiencia del equipo docente</strong> en diseño instruccional, el <strong>presupuesto institucional</strong>, el <strong>tiempo disponible</strong> para el diseño antes del lanzamiento del programa, y la <strong>misión institucional</strong> de la Universidad Leones —calidad, pertinencia, innovación, inclusión— que prioriza enfoques activos y flexibles sobre modelos expositivos.</p>
+          <div class="bc-highlight">
+            <p class="bch-label">Variables adicionales de selección</p>
+            <ul>
+              <li>Perfil del estudiante: adulto trabajador → actividades asincrónicas, autogestión</li>
+              <li>Misión institucional: innovación y pertinencia → modelo flexible e iterativo</li>
+              <li>Infraestructura tecnológica: define qué medios son viables</li>
+              <li>Tiempo de diseño disponible: modelos ágiles vs. exhaustivos</li>
+              <li>Capacidad del equipo docente: modelos que el docente pueda implementar</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="bc-header">
+            <div class="bc-icon">🏆</div>
+            <div class="bc-meta">
+              <p class="bc-q">Pregunta 3</p>
+              <h3>¿Cuál es el mejor modelo para la Universidad Leones?</h3>
+            </div>
+          </div>
+          <p>El análisis del caso conduce a una recomendación clara: <strong>ADDIE como modelo marco</strong>, complementado con elementos del <strong>modelo ASSURE</strong> para el diseño de sesiones específicas. La justificación es multidimensional.</p>
+          <p>ADDIE es el modelo más adecuado porque: (1) es flexible e iterativo, compatible con una institución que está iniciando en e-learning y necesitará ajustar el diseño continuamente; (2) su fase de Análisis permite un diagnóstico exhaustivo del perfil del estudiante adulto trabajador; (3) la fase de Desarrollo facilita la producción de recursos multimedia y actividades asincrónicas; y (4) la evaluación formativa integrada permite mejora en tiempo real.</p>
+          <p>ASSURE complementa ADDIE en el nivel de sesión: el docente puede aplicar sus seis fases para diseñar cada módulo de "Historia de la Educación" seleccionando los medios más adecuados —lecturas digitales, videos históricos, foros de debate— para el perfil del estudiante. Jonassen puede incorporarse para diseñar las actividades de mayor complejidad: el proyecto integrador y los foros de discusión profunda.</p>
+          <div class="bc-highlight">
+            <p class="bch-label">Modelo recomendado: ADDIE + ASSURE + Elementos Jonassen</p>
+            <ul>
+              <li><strong>ADDIE:</strong> Marco general para el diseño del programa completo y de cada asignatura</li>
+              <li><strong>ASSURE:</strong> Diseño de sesiones/módulos específicos con selección de medios</li>
+              <li><strong>Jonassen:</strong> Actividades de mayor orden cognitivo: foros, proyectos, estudios de caso</li>
+            </ul>
+          </div>
+        </article>
+
+      </div><!-- /blog-cards -->
+
+      <aside class="leones-sidebar">
+        <div class="ls-card">
+          <h4>Contexto Universidad Leones</h4>
+          <div class="context-item">
+            <div class="ci-icon">🎓</div>
+            <div class="ci-text">
+              <h5>Población objetivo</h5>
+              <p>18–35 años, adultos trabajadores, Zona Metropolitana EdoMex</p>
+            </div>
+          </div>
+          <div class="context-item">
+            <div class="ci-icon">💻</div>
+            <div class="ci-text">
+              <h5>Modalidad</h5>
+              <p>Transición de presencial/mixta a educación a distancia</p>
+            </div>
+          </div>
+          <div class="context-item">
+            <div class="ci-icon">📖</div>
+            <div class="ci-text">
+              <h5>Asignatura piloto</h5>
+              <p>Historia de la Educación · PLP1001 · 12 créditos · 1° semestre</p>
+            </div>
+          </div>
+          <div class="context-item">
+            <div class="ci-icon">🏛️</div>
+            <div class="ci-text">
+              <h5>Misión institucional</h5>
+              <p>Calidad, pertinencia, innovación, inclusión, enfoque humanista</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="recommended-model">
+          <p class="rm-label">Modelo recomendado</p>
+          <div class="rm-model">ADDIE</div>
+          <p>Marco iterativo y flexible, ideal para instituciones que se inician en e-learning. Permite diseño centrado en el perfil del estudiante adulto trabajador y mejora continua durante el ciclo.</p>
+          <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,.25);">
+            <p style="font-size:.75rem; opacity:.85;">Complementado con: <strong>ASSURE</strong> (nivel sesión) y <strong>Jonassen</strong> (actividades de alto orden cognitivo)</p>
+          </div>
+        </div>
+      </aside>
+    </div><!-- /leones-grid -->
+  </div>
+</section>
+
+
+<!-- ══ COMPARATIVA ══ -->
+<section id="comparativa">
+  <div class="container">
+    <div class="section-eyebrow">Tabla Comparativa</div>
+    <h2 class="section-title">Comparativa de modelos instruccionales</h2>
+    <p class="section-lead">Síntesis de las características, ventajas, limitaciones y contexto de aplicación de los seis modelos analizados.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Paradigma</th>
+            <th>Fases / Pasos</th>
+            <th>Contexto óptimo</th>
+            <th>Para U. Leones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Gagné</strong></td>
+            <td>Conductista-Cognitivo</td>
+            <td>9 eventos instruccionales</td>
+            <td>Sesiones presenciales estructuradas; contenidos definidos</td>
+            <td>Útil para diseño de módulos individuales</td>
+          </tr>
+          <tr>
+            <td><strong>Gagné & Briggs</strong></td>
+            <td>Sistémico-Cognitivo</td>
+            <td>14 pasos · 4 niveles</td>
+            <td>Rediseño curricular completo de programas formales</td>
+            <td>Aplicable a largo plazo en toda la Lic. Pedagogía</td>
+          </tr>
+          <tr>
+            <td><strong>ASSURE</strong></td>
+            <td>Cognitivo-TIC</td>
+            <td>6 fases (acrónimo)</td>
+            <td>Salón de clases con integración de medios y tecnología</td>
+            <td>Diseño de módulos específicos por docente</td>
+          </tr>
+          <tr>
+            <td><strong>Dick & Carey</strong></td>
+            <td>Sistémico-Reduccionista</td>
+            <td>10 pasos interconectados</td>
+            <td>Proyectos formales de mediana/gran escala con equipo especializado</td>
+            <td>Útil si hay equipo de DI profesional disponible</td>
+          </tr>
+          <tr>
+            <td><strong>Jonassen (EAC)</strong></td>
+            <td>Constructivista</td>
+            <td>6 componentes del entorno</td>
+            <td>e-learning basado en proyectos; pensamiento crítico; educación superior</td>
+            <td>Actividades complejas: foros, proyectos integradores</td>
+          </tr>
+          <tr>
+            <td><strong>ADDIE</strong></td>
+            <td>Genérico-Iterativo</td>
+            <td>5 fases cíclicas</td>
+            <td>Cualquier contexto; especialmente e-learning en instituciones nuevas</td>
+            <td><span class="rec-badge">⭐ Recomendado</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ REFERENCIAS ══ -->
+<section id="referencias">
+  <div class="container">
+    <div class="section-eyebrow">Referencias APA 7.ª Edición</div>
+    <h2 class="section-title">Bibliografía</h2>
+    <p class="section-lead">Fuentes académicas que sustentan los contenidos del Tema 2: Modelos para el Diseño Instruccional.</p>
+
+    <div class="refs-grid">
+      <div class="ref-card">
+        <strong>Dick, W., Carey, L., & Carey, J. O.</strong> (2005). <em>The systematic design of instruction</em> (6.ª ed.). Pearson.
+      </div>
+      <div class="ref-card">
+        <strong>Gagné, R. M.</strong> (1985). <em>The conditions of learning and theory of instruction</em> (4.ª ed.). Holt, Rinehart & Winston.
+      </div>
+      <div class="ref-card">
+        <strong>Gagné, R. M., & Briggs, L. J.</strong> (1979). <em>Principles of instructional design</em> (2.ª ed.). Holt, Rinehart & Winston.
+      </div>
+      <div class="ref-card">
+        <strong>Heinich, R., Molenda, M., Russell, J. D., & Smaldino, S.</strong> (1993). <em>Instructional media and technologies for learning</em> (4.ª ed.). Merrill/Prentice Hall.
+      </div>
+      <div class="ref-card">
+        <strong>Jonassen, D. H.</strong> (1999). Designing constructivist learning environments. En C. M. Reigeluth (Ed.), <em>Instructional design theories and models: A new paradigm of instructional theory</em> (Vol. II, pp. 215–239). Lawrence Erlbaum Associates.
+      </div>
+      <div class="ref-card">
+        <strong>Williams, P., Schrum, L., Sangrà, A., & Guardia, L.</strong> (2006). Modelos de diseño instruccional. <em>Fundamentos del diseño técnico-pedagógico en e-learning.</em> FUOC. http://www.uoc.edu/
+      </div>
+      <div class="ref-card">
+        <strong>Gustafson, K. L., & Branch, R. M.</strong> (2002). <em>Survey of instructional development models</em> (4.ª ed.). ERIC Clearinghouse on Information & Technology.
+      </div>
+      <div class="ref-card">
+        <strong>Ertmer, P. A., & Newby, T. J.</strong> (1993). Conductismo, cognitivismo y constructivismo: Una comparación de los aspectos críticos desde la perspectiva del diseño de instrucción. <em>Performance Improvement Quarterly, 6</em>(4), 50–72. https://doi.org/10.1111/j.1937-8327.1993.tb00605.x
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p><strong>UTEL Universidad</strong> · Diseño de Programas de Enseñanza · Tema 2: Modelos para el Diseño Instruccional</p>
+  <p style="margin-top:.5rem; opacity:.7; font-size:.76rem;">
+    <a href="https://utel.edu.mx">utel.edu.mx</a> · Recurso educativo para nivel posgrado · Compatible con GitHub Pages
+  </p>
+</footer>
+
+
+<script>
+  // ── Model tabs ──
+  function showModel(id, btn) {
+    document.querySelectorAll('.model-panel').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.mtab').forEach(el => el.classList.remove('active'));
+    document.getElementById('model-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // ── Scroll animations ──
+  const observerOptions = { threshold: 0.12 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 80);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.tl-item, .blog-card').forEach(el => observer.observe(el));
+
+  // ── Stagger step items ──
+  document.querySelectorAll('.step-item').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.05}s`;
+  });
+</script>
+
+</body>
+</html>
