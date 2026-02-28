@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diseño de Programas de Enseñanza | UTEL Universidad</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #00b900;
+    --green-dark: #009400;
+    --green-light: #e6f9e6;
+    --green-mid: #00d400;
+    --white: #ffffff;
+    --gray-100: #f7f8f7;
+    --gray-200: #ebebeb;
+    --gray-600: #555;
+    --gray-800: #222;
+    --text: #1a1a1a;
+    --font-display: 'Fraunces', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 3px solid var(--green);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 68px;
+    box-shadow: 0 2px 16px rgba(0,185,0,.08);
+  }
+
+  .logo-area {
+    display: flex; align-items: center; gap: 1rem;
+  }
+
+  .logo-badge {
+    width: 48px; height: 48px;
+    background: var(--green);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: white;
+    font-size: 1.1rem;
+    letter-spacing: -1px;
+    flex-shrink: 0;
+  }
+
+  .logo-text { line-height: 1.2; }
+  .logo-text strong { display: block; font-size: .9rem; font-weight: 600; color: var(--green-dark); }
+  .logo-text span { font-size: .72rem; color: var(--gray-600); letter-spacing: .04em; text-transform: uppercase; }
+
+  nav { display: flex; gap: .15rem; }
+  nav a {
+    text-decoration: none;
+    color: var(--gray-600);
+    font-size: .82rem;
+    font-weight: 500;
+    padding: .45rem .8rem;
+    border-radius: 6px;
+    transition: background .2s, color .2s;
+    letter-spacing: .02em;
+  }
+  nav a:hover { background: var(--green-light); color: var(--green-dark); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 520px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    background: var(--gray-100);
+  }
+
+  .hero-content {
+    padding: 5rem 3rem 5rem 5rem;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--green-light);
+    color: var(--green-dark);
+    border: 1px solid var(--green);
+    border-radius: 999px;
+    padding: .35rem 1rem;
+    font-size: .78rem; font-weight: 600;
+    letter-spacing: .06em; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    width: fit-content;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .5; transform: scale(1.3); }
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--gray-800);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--green);
+    display: block;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    color: var(--gray-600);
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--green);
+    color: white;
+    padding: .85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .9rem;
+    transition: background .2s, transform .15s;
+    width: fit-content;
+  }
+  .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); }
+
+  .hero-visual {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-visual-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .hero-visual-content {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
+    padding: 3rem;
+  }
+
+  .case-card {
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 16px;
+    padding: 2rem;
+    color: white;
+    max-width: 320px;
+    width: 100%;
+  }
+
+  .case-card .case-label {
+    font-size: .7rem; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+    opacity: .75; margin-bottom: .75rem;
+  }
+
+  .case-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem; font-weight: 600;
+    margin-bottom: .75rem; line-height: 1.3;
+  }
+
+  .groups-mini {
+    display: flex; flex-direction: column; gap: .5rem; margin-top: 1.2rem;
+  }
+
+  .group-bar {
+    display: flex; align-items: center; gap: .75rem;
+  }
+
+  .group-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: rgba(255,255,255,.5); flex-shrink: 0;
+  }
+  .group-dot.active { background: white; }
+
+  .group-name { font-size: .82rem; opacity: .9; }
+  .group-count {
+    margin-left: auto;
+    font-size: .75rem; opacity: .65;
+    background: rgba(255,255,255,.15);
+    border-radius: 999px;
+    padding: .1rem .55rem;
+  }
+
+  /* ─── LAYOUT ─── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+  section { padding: 5rem 0; }
+
+  .section-tag {
+    display: inline-block;
+    background: var(--green-light);
+    color: var(--green-dark);
+    border-radius: 6px;
+    padding: .3rem .85rem;
+    font-size: .72rem; font-weight: 600;
+    letter-spacing: .07em; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+
+  .section-lead {
+    font-size: 1.05rem;
+    color: var(--gray-600);
+    max-width: 700px;
+    margin-bottom: 3rem;
+  }
+
+  /* ─── SECTION 1 ─── */
+  #seccion-1 { background: var(--white); }
+
+  .concept-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .concept-card {
+    background: var(--gray-100);
+    border-radius: 14px;
+    padding: 2rem;
+    border-left: 4px solid var(--green);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .concept-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,185,0,.1); }
+
+  .concept-card h4 {
+    font-family: var(--font-display);
+    font-size: 1.05rem; font-weight: 600;
+    margin-bottom: .75rem; color: var(--gray-800);
+    display: flex; align-items: center; gap: .6rem;
+  }
+
+  .concept-card h4 .num {
+    background: var(--green);
+    color: white;
+    border-radius: 6px;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .75rem; font-weight: 700; flex-shrink: 0;
+    font-family: var(--font-body);
+  }
+
+  .concept-card p { font-size: .9rem; color: var(--gray-600); }
+
+  .theories-tabs {
+    background: var(--gray-100);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .tabs-header {
+    display: flex;
+    border-bottom: 1px solid var(--gray-200);
+    background: white;
+  }
+
+  .tab-btn {
+    flex: 1;
+    padding: 1.1rem;
+    border: none; background: none; cursor: pointer;
+    font-family: var(--font-body);
+    font-size: .87rem; font-weight: 500;
+    color: var(--gray-600);
+    border-bottom: 3px solid transparent;
+    transition: all .2s;
+    position: relative;
+  }
+  .tab-btn.active {
+    color: var(--green-dark);
+    border-bottom-color: var(--green);
+    background: var(--green-light);
+  }
+
+  .tab-content { display: none; padding: 2.5rem; }
+  .tab-content.active { display: block; }
+
+  .theory-body { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: start; }
+
+  .theory-icon-box {
+    background: var(--green);
+    border-radius: 12px;
+    aspect-ratio: 1;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+  }
+
+  .theory-body h4 {
+    font-family: var(--font-display);
+    font-size: 1.2rem; font-weight: 600;
+    margin-bottom: .75rem; color: var(--gray-800);
+  }
+
+  .theory-body p { font-size: .92rem; color: var(--gray-600); margin-bottom: 1rem; }
+
+  .theory-tag {
+    display: inline-block;
+    background: var(--green-light);
+    color: var(--green-dark);
+    border-radius: 999px;
+    padding: .25rem .85rem;
+    font-size: .78rem; font-weight: 600;
+  }
+
+  /* ─── SECTION 2 ─── */
+  #seccion-2 { background: var(--gray-100); }
+
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .model-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .model-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,185,0,.12); }
+
+  .model-header {
+    background: var(--green);
+    padding: 1.75rem 1.5rem 1.25rem;
+    color: white;
+    position: relative;
+  }
+
+  .model-num {
+    font-size: 3.5rem; font-weight: 700;
+    font-family: var(--font-display);
+    opacity: .2;
+    position: absolute; top: .5rem; right: 1.2rem;
+    line-height: 1;
+  }
+
+  .model-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem; font-weight: 600;
+    position: relative; z-index: 1;
+  }
+
+  .model-header .model-sub {
+    font-size: .78rem; opacity: .85; margin-top: .3rem;
+    position: relative; z-index: 1;
+  }
+
+  .model-body { padding: 1.5rem; }
+  .model-body p { font-size: .88rem; color: var(--gray-600); margin-bottom: 1rem; }
+
+  .model-examples { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .model-ex-tag {
+    background: var(--green-light);
+    color: var(--green-dark);
+    border-radius: 6px;
+    padding: .25rem .65rem;
+    font-size: .75rem; font-weight: 500;
+  }
+
+  .model-daniel {
+    margin-top: 1rem;
+    border-top: 1px dashed var(--gray-200);
+    padding-top: 1rem;
+  }
+
+  .model-daniel-label {
+    font-size: .7rem; font-weight: 600;
+    letter-spacing: .07em; text-transform: uppercase;
+    color: var(--green-dark); margin-bottom: .35rem;
+  }
+
+  .model-daniel p { font-size: .82rem; color: var(--gray-600); margin: 0; }
+
+  /* ─── SECTION 3: BLOG ─── */
+  #seccion-blog { background: white; }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+  }
+
+  .blog-entries { display: flex; flex-direction: column; gap: 2rem; }
+
+  .blog-entry {
+    border-left: 4px solid var(--green);
+    padding-left: 2rem;
+    position: relative;
+  }
+
+  .blog-entry::before {
+    content: '';
+    position: absolute; left: -8px; top: 1.5rem;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+
+  .entry-meta {
+    display: flex; align-items: center; gap: .75rem;
+    margin-bottom: .75rem;
+  }
+
+  .entry-cat {
+    background: var(--green);
+    color: white;
+    border-radius: 4px;
+    padding: .2rem .6rem;
+    font-size: .7rem; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase;
+  }
+
+  .entry-q {
+    font-size: .78rem;
+    color: var(--gray-600);
+  }
+
+  .blog-entry h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem; font-weight: 600;
+    color: var(--gray-800); margin-bottom: .75rem;
+    line-height: 1.3;
+  }
+
+  .blog-entry p { font-size: .9rem; color: var(--gray-600); }
+
+  .blog-entry p + p { margin-top: .75rem; }
+
+  .blog-highlight {
+    background: var(--green-light);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin-top: 1.2rem;
+  }
+
+  .blog-highlight h5 {
+    font-size: .78rem; font-weight: 700;
+    color: var(--green-dark);
+    letter-spacing: .05em; text-transform: uppercase;
+    margin-bottom: .5rem;
+  }
+
+  .blog-highlight ul { padding-left: 1.2rem; }
+  .blog-highlight li { font-size: .85rem; color: var(--gray-600); margin-bottom: .4rem; }
+
+  /* Sidebar */
+  .blog-sidebar { position: sticky; top: 88px; align-self: start; }
+
+  .sidebar-card {
+    background: var(--gray-100);
+    border-radius: 14px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .sidebar-card h4 {
+    font-family: var(--font-display);
+    font-size: 1rem; font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--green);
+    padding-bottom: .5rem;
+  }
+
+  .group-profile {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: .75rem;
+    border-left: 3px solid var(--green);
+  }
+
+  .group-profile h5 {
+    font-size: .82rem; font-weight: 600;
+    color: var(--gray-800); margin-bottom: .35rem;
+  }
+
+  .group-profile p { font-size: .78rem; color: var(--gray-600); }
+
+  .group-profile .gp-stat {
+    display: flex; align-items: center; gap: .4rem;
+    margin-top: .5rem;
+  }
+
+  .gp-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+
+  /* ─── REFERENCES ─── */
+  #referencias { background: var(--gray-800); color: white; }
+
+  #referencias .section-title { color: white; }
+  #referencias .section-lead { color: rgba(255,255,255,.6); }
+
+  .refs-list { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .ref-item {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--green);
+    font-size: .88rem;
+    color: rgba(255,255,255,.8);
+    line-height: 1.8;
+  }
+
+  .ref-item strong { color: white; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--green);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    font-size: .85rem;
+    font-weight: 500;
+  }
+
+  footer a { color: rgba(255,255,255,.75); text-decoration: none; }
+  footer a:hover { color: white; }
+
+  /* ─── DIVIDERS ─── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--green), transparent);
+    margin: 1rem 0;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-visual { display: none; }
+    .hero-content { padding: 3rem 2rem; }
+    .concept-grid { grid-template-columns: 1fr; }
+    .models-grid { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .blog-sidebar { position: static; }
+    .theory-body { grid-template-columns: 1fr; }
+    .theory-icon-box { width: 60px; height: 60px; font-size: 1.5rem; border-radius: 8px; }
+    nav { display: none; }
+    header { padding: 0 1.5rem; }
+    .container { padding: 0 1.25rem; }
+    section { padding: 3rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-area">
+    <div class="logo-badge">UTEL</div>
+    <div class="logo-text">
+      <strong>UTEL Universidad</strong>
+      <span>Diseño de Programas de Enseñanza</span>
+    </div>
+  </div>
+  <nav>
+    <a href="#seccion-1">1. Diseño Instruccional</a>
+    <a href="#seccion-2">2. Modelos</a>
+    <a href="#seccion-blog">3. Blog Académico</a>
+    <a href="#referencias">Referencias</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Tema 1 · Posgrado</div>
+    <h1>El Diseño Instruccional
+      <em>y su relación con el aprendizaje</em>
+    </h1>
+    <p>Explora los fundamentos teóricos del Diseño Instruccional, los modelos de clasificación y su aplicación práctica a través del caso del Mtro. Daniel Castañeda.</p>
+    <a href="#seccion-1" class="btn-primary">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Explorar contenidos
+    </a>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-visual-bg"></div>
+    <div class="hero-visual-content">
+      <div class="case-card">
+        <p class="case-label">Caso de estudio</p>
+        <h3>¿Diseño instruccional diferenciado?</h3>
+        <p style="font-size:.82rem; opacity:.8;">El Mtro. Daniel Castañeda imparte la misma planeación a tres grupos con perfiles radicalmente distintos.</p>
+        <div class="groups-mini">
+          <div class="group-bar">
+            <div class="group-dot"></div>
+            <span class="group-name">Educación</span>
+            <span class="group-count">40 est.</span>
+          </div>
+          <div class="group-bar">
+            <div class="group-dot"></div>
+            <span class="group-name">Psicología Educativa</span>
+            <span class="group-count">38 est.</span>
+          </div>
+          <div class="group-bar">
+            <div class="group-dot active"></div>
+            <span class="group-name">Pedagogía</span>
+            <span class="group-count">42 est.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SECCIÓN 1: DISEÑO INSTRUCCIONAL -->
+<section id="seccion-1">
+  <div class="container">
+    <div class="section-tag">Sección I · 1.1</div>
+    <h2 class="section-title">Concepto de Diseño Instruccional y su relación con el aprendizaje</h2>
+    <p class="section-lead">El Diseño Instruccional (DI) es la planeación y diseño sistemático de recursos, estrategias y ambientes educativos para que el aprendizaje se lleve a cabo de manera efectiva y significativa (Bruner, 1969).</p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h4><span class="num">1.1</span>Concepto y definición</h4>
+        <p>El DI integra principios de la psicología del aprendizaje, el enfoque sistémico y las Tecnologías de la Información y Comunicación (TIC) para diseñar experiencias educativas coherentes, con propósito y centradas en el aprendiz.</p>
+      </div>
+      <div class="concept-card">
+        <h4><span class="num">1.1.1</span>Fundamentos teóricos</h4>
+        <p>La confluencia entre la psicología educativa, el pensamiento sistémico y las TIC da origen al DI moderno. Estas tres dimensiones permiten al diseñador instruccional diagnosticar necesidades, estructurar contenidos y seleccionar medios apropiados.</p>
+      </div>
+      <div class="concept-card">
+        <h4><span class="num">1.1.2</span>Teorías descriptiva y prescriptiva</h4>
+        <p>Reigeluth distingue las <strong>teorías descriptivas</strong>, que explican <em>cómo ocurre</em> el aprendizaje (ej. teoría cognitiva de la carga), de las <strong>teorías prescriptivas o instruccionales</strong>, que indican <em>qué hacer</em> para lograr las metas de aprendizaje con la mayor efectividad posible.</p>
+      </div>
+      <div class="concept-card">
+        <h4><span class="num">1.1.3</span>Teorías didácticas y de aprendizaje</h4>
+        <p>El DI se apoya en tres grandes paradigmas: <strong>conductismo</strong> (estímulo-respuesta, refuerzo), <strong>cognitivismo</strong> (procesamiento de información, esquemas mentales) y <strong>constructivismo</strong> (construcción de significados a partir de la experiencia). La elección del paradigma guía el diseño de actividades y evaluaciones.</p>
+      </div>
+    </div>
+
+    <!-- Teorías tabs -->
+    <div class="theories-tabs">
+      <div class="tabs-header">
+        <button class="tab-btn active" onclick="showTab('conductismo', this)">Conductismo</button>
+        <button class="tab-btn" onclick="showTab('cognitivismo', this)">Cognitivismo</button>
+        <button class="tab-btn" onclick="showTab('constructivismo', this)">Constructivismo</button>
+      </div>
+      <div id="tab-conductismo" class="tab-content active">
+        <div class="theory-body">
+          <div class="theory-icon-box">🎯</div>
+          <div>
+            <h4>Conductismo: Estímulo – Respuesta</h4>
+            <p>El aprendizaje se concibe como la modificación observable de la conducta a través del refuerzo y el condicionamiento. Autores como Skinner y Pavlov son referentes centrales. El docente controla los estímulos ambientales para producir respuestas específicas en el alumno.</p>
+            <p><strong>Aplicación en el caso Daniel:</strong> El grupo de Educación, con baja participación y entrega irregular de tareas, podría beneficiarse de esquemas de refuerzo positivo: puntos extra por participación, retroalimentación inmediata y rubricas claras que establezcan expectativas concretas de conducta.</p>
+            <span class="theory-tag">Grupo Educación → Refuerzo y estructura</span>
+          </div>
+        </div>
+      </div>
+      <div id="tab-cognitivismo" class="tab-content">
+        <div class="theory-body">
+          <div class="theory-icon-box">🧠</div>
+          <div>
+            <h4>Cognitivismo: Procesamiento de Información</h4>
+            <p>El aprendizaje es un proceso mental interno que involucra la percepción, la atención, la memoria de trabajo y la memoria a largo plazo. Ausubel y Gagne son referencias clave. El diseño instruccional busca estructurar la información para facilitar su procesamiento y almacenamiento.</p>
+            <p><strong>Aplicación en el caso Daniel:</strong> El grupo de Psicología Educativa, que prefiere recursos multimedia y tiende a ser repetidor en un 15%, se beneficia de materiales que presenten la información en capas (de lo simple a lo complejo), con organizadores previos, infografías, videos y esquemas comparativos que reducen la carga cognitiva.</p>
+            <span class="theory-tag">Grupo Psicología → Multimedia y organización</span>
+          </div>
+        </div>
+      </div>
+      <div id="tab-constructivismo" class="tab-content">
+        <div class="theory-body">
+          <div class="theory-icon-box">🔨</div>
+          <div>
+            <h4>Constructivismo: Creación de Significados</h4>
+            <p>El aprendizaje es un proceso activo en el que el estudiante construye su propio conocimiento a partir de experiencias previas e interacciones con el entorno. Vygotski, Piaget y Bruner son pilares de esta corriente. El diseño instruccional promueve la exploración, el trabajo colaborativo y la resolución de problemas auténticos.</p>
+            <p><strong>Aplicación en el caso Daniel:</strong> El grupo de Pedagogía, que comprende los temas muy rápido y se aburre, requiere actividades de aplicación auténtica: proyectos de investigación, estudios de caso complejos, debates y diseño de propuestas educativas propias. Esto los mantiene desafiados y conectados al aprendizaje significativo.</p>
+            <span class="theory-tag">Grupo Pedagogía → Desafío y aplicación</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECCIÓN 2: MODELOS INSTRUCCIONALES -->
+<section id="seccion-2">
+  <div class="container">
+    <div class="section-tag">Sección II · 1.2</div>
+    <h2 class="section-title">Clasificación de Modelos Instruccionales</h2>
+    <p class="section-lead">Gustafson y Branch (2002) clasifican los modelos de DI en tres grandes categorías según su contexto y alcance. Daniel aplica un único diseño para todos sus grupos, ignorando esta clasificación y las necesidades diferenciadas de cada uno.</p>
+
+    <div class="models-grid">
+      <div class="model-card">
+        <div class="model-header">
+          <div class="model-num">01</div>
+          <h3>Orientados al Salón de Clases</h3>
+          <p class="model-sub">Decisiones del docente sobre contenido y estrategias</p>
+        </div>
+        <div class="model-body">
+          <p>Diseñados para que el profesor tome decisiones sobre qué enseñar, cómo organizarlo y qué estrategias didácticas emplear. Son modelos flexibles, iterativos y centrados en la interacción presencial.</p>
+          <div class="model-examples">
+            <span class="model-ex-tag">Modelo ASSURE</span>
+            <span class="model-ex-tag">Modelo de Kemp</span>
+            <span class="model-ex-tag">Modelo de Morrison</span>
+          </div>
+          <div class="model-daniel">
+            <p class="model-daniel-label">⚠ Situación de Daniel</p>
+            <p>El Mtro. Castañeda aplica este enfoque de forma <em>lineal y uniforme</em> para los tres grupos sin adaptar contenidos, actividades ni evaluaciones a sus características particulares. Esto genera apatía y reprobación.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <div class="model-header" style="background: var(--green-dark);">
+          <div class="model-num">02</div>
+          <h3>Orientados al Producto</h3>
+          <p class="model-sub">Materiales independientes y multimedia</p>
+        </div>
+        <div class="model-body">
+          <p>Se enfocan en el desarrollo de materiales educativos técnicamente elaborados (videos, simulaciones, módulos interactivos) que el alumno puede usar de forma autónoma. El diseñador se convierte en productor de recursos.</p>
+          <div class="model-examples">
+            <span class="model-ex-tag">Modelo de Bates</span>
+            <span class="model-ex-tag">ADDIE</span>
+          </div>
+          <div class="model-daniel">
+            <p class="model-daniel-label">✅ Grupo Psicología</p>
+            <p>Dado que el grupo de Psicología Educativa prefiere recursos multimedia, Daniel podría adoptar un enfoque orientado al producto: diseñar videos, podcast educativos y materiales interactivos específicamente para este grupo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <div class="model-header" style="background: #007a00;">
+          <div class="model-num">03</div>
+          <h3>Orientados al Sistema</h3>
+          <p class="model-sub">Proyectos complejos y de gran escala</p>
+        </div>
+        <div class="model-body">
+          <p>Diseñados para proyectos educativos de gran envergadura que requieren análisis profundo de necesidades organizacionales, diseño curricular integral y evaluación sistemática a lo largo de todo el proceso.</p>
+          <div class="model-examples">
+            <span class="model-ex-tag">Dick y Carey</span>
+            <span class="model-ex-tag">Modelo de Smith & Ragan</span>
+          </div>
+          <div class="model-daniel">
+            <p class="model-daniel-label">💡 Recomendación</p>
+            <p>Un rediseño curricular de la asignatura completa (para los tres grupos) debería usar un enfoque sistémico: análisis de necesidades de cada carrera, objetivos diferenciados y evaluación formativa continua.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECCIÓN 3: BLOG ACADÉMICO -->
+<section id="seccion-blog">
+  <div class="container">
+    <div class="section-tag">Sección III · Blog Académico</div>
+    <h2 class="section-title">Análisis del caso: resolución fundamentada</h2>
+    <p class="section-lead">Entradas académicas que responden a las preguntas del caso del Mtro. Daniel Castañeda, con base en la teoría del DI.</p>
+
+    <div class="blog-grid">
+      <div class="blog-entries">
+
+        <!-- Entrada P2 -->
+        <article class="blog-entry">
+          <div class="entry-meta">
+            <span class="entry-cat">Pregunta 2</span>
+            <span class="entry-q">Teorías del aprendizaje como marco de referencia</span>
+          </div>
+          <h3>¿Cómo las teorías del aprendizaje pueden guiar al Mtro. Daniel con sus grupos?</h3>
+          <p>Las teorías del aprendizaje no son simplemente marcos conceptuales abstractos; son herramientas de diagnóstico y acción que permiten al docente leer la realidad de su aula y responder de manera diferenciada. Cada grupo del Mtro. Castañeda exige una aproximación teórica distinta:</p>
+          <p>El <strong>grupo de Educación</strong>, con baja participación y habilidades expositivas limitadas, responde mejor a un enfoque <em>conductista estructurado</em>: objetivos claros, refuerzo positivo frecuente, grupos pequeños de trabajo (como ellos mismos prefieren) y tareas graduadas en dificultad.</p>
+          <p>El <strong>grupo de Psicología Educativa</strong>, con tendencia a la práctica sobre la teoría y preferencia por multimedia, requiere un diseño <em>cognitivista</em>: materiales bien organizados visualmente, casos prácticos, organizadores gráficos y recursos audiovisuales que anclen el conocimiento nuevo a los esquemas previos.</p>
+          <p>El <strong>grupo de Pedagogía</strong>, que comprende con rapidez y busca desafíos, necesita una pedagogía <em>constructivista</em>: proyectos de investigación auténticos, debates, diseño colaborativo de propuestas educativas y aprendizaje basado en problemas reales del campo.</p>
+          <div class="blog-highlight">
+            <h5>Marco de acción para Daniel</h5>
+            <ul>
+              <li>Diagnosticar el perfil de cada grupo (ya hecho por el coordinador)</li>
+              <li>Seleccionar el paradigma teórico dominante para cada grupo</li>
+              <li>Diseñar actividades, materiales y evaluaciones coherentes con ese paradigma</li>
+              <li>Implementar evaluación formativa para ajustar el diseño durante el ciclo</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="divider"></div>
+
+        <!-- Entrada P3 -->
+        <article class="blog-entry">
+          <div class="entry-meta">
+            <span class="entry-cat">Pregunta 3</span>
+            <span class="entry-q">Fundamentación de la diferenciación instruccional</span>
+          </div>
+          <h3>¿Por qué el diseño instruccional debe ser distinto para cada grupo?</h3>
+          <p>La respuesta se fundamenta en un principio central de las teorías contemporáneas del aprendizaje: el aprendizaje es <em>situado</em>, es decir, depende del contexto, las experiencias previas, la cultura y las características del aprendiz (Lave & Wenger, 1991). Un mismo diseño instruccional no puede producir resultados equivalentes en contextos cualitativamente distintos.</p>
+          <p>Los grupos del Mtro. Castañeda no solo tienen perfiles académicos diferentes; tienen motivaciones, habilidades sociales, estilos de trabajo y relaciones con el conocimiento radicalmente distintos. Aplicar el mismo diseño equivale a ignorar esta realidad y perpetuar la inequidad educativa.</p>
+          <p>Desde la perspectiva del DI, el diseño diferenciado no es un lujo pedagógico; es una exigencia ética. El coordinador académico lo señala explícitamente: el problema no es solo de rendimiento, sino de justicia educativa. Un diseño que favorece sistemáticamente al grupo más participativo —aquel con el que Daniel se siente cómodo— es un diseño instruccionalmente deficiente y éticamente cuestionable.</p>
+          <div class="blog-highlight">
+            <h5>Fundamentos de la diferenciación</h5>
+            <ul>
+              <li><strong>Aprendizaje situado:</strong> El contexto y las características del aprendiz determinan la efectividad de cualquier estrategia instruccional.</li>
+              <li><strong>Zona de Desarrollo Próximo (Vygotski):</strong> Cada grupo requiere un nivel de desafío calibrado a su potencial, no una talla única.</li>
+              <li><strong>Análisis de necesidades:</strong> El primer paso del DI es diagnosticar las necesidades específicas de cada población objetivo.</li>
+              <li><strong>Equidad educativa:</strong> Diferenciar el diseño es una práctica ética que garantiza igualdad de oportunidades de aprendizaje.</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="divider"></div>
+
+        <!-- Entrada P4 -->
+        <article class="blog-entry">
+          <div class="entry-meta">
+            <span class="entry-cat">Pregunta 4</span>
+            <span class="entry-q">Propuesta instruccional diferenciada</span>
+          </div>
+          <h3>Propuesta de diseño instruccional diferenciado para el Mtro. Daniel</h3>
+          <p>Se propone un <strong>Diseño Instruccional Diferenciado por Grupo</strong> basado en el modelo ASSURE como eje metodológico, adaptado con fundamentos constructivistas, cognitivistas y conductistas según el perfil de cada grupo:</p>
+          <div class="blog-highlight">
+            <h5>🎓 Grupo Educación (40 estudiantes) — Enfoque estructurado y colaborativo</h5>
+            <ul>
+              <li>Organizar la clase en grupos pequeños de 4-5 personas para aprovechar su preferencia colaborativa.</li>
+              <li>Implementar rubricas claras, calendarización visible y refuerzo positivo (puntos extra por participación).</li>
+              <li>Centrar los materiales en lectura de textos académicos con guías de análisis estructuradas.</li>
+              <li>Incorporar exposiciones breves internas al grupo para desarrollar habilidades expositivas de manera gradual y segura.</li>
+            </ul>
+          </div>
+          <div class="blog-highlight" style="margin-top:1rem">
+            <h5>🎓 Grupo Psicología Educativa (38 estudiantes) — Enfoque multimedia y práctico</h5>
+            <ul>
+              <li>Diseñar materiales multimedia: videos conceptuales, infografías, podcasts y presentaciones interactivas.</li>
+              <li>Priorizar actividades prácticas con aplicación directa al campo de la psicología educativa.</li>
+              <li>Fomentar la autonomía y trabajo individual con rúbricas que equilibren teoría y práctica.</li>
+              <li>Implementar estrategias de inclusión para reducir la discriminación entre compañeros.</li>
+            </ul>
+          </div>
+          <div class="blog-highlight" style="margin-top:1rem">
+            <h5>🎓 Grupo Pedagogía (42 estudiantes) — Enfoque desafiante y constructivista</h5>
+            <ul>
+              <li>Diseñar proyectos de investigación aplicada en los que los estudiantes propongan soluciones educativas reales.</li>
+              <li>Implementar Aprendizaje Basado en Problemas (ABP) con casos complejos y multidimensionales.</li>
+              <li>Fomentar el liderazgo académico: que alumnos avanzados modelen actividades para sus pares.</li>
+              <li>Incorporar lectura de textos especializados de nivel avanzado que mantengan el desafío intelectual.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div><!-- /blog-entries -->
+
+      <!-- SIDEBAR -->
+      <aside class="blog-sidebar">
+        <div class="sidebar-card">
+          <h4>Perfiles de los Grupos</h4>
+          <div class="group-profile">
+            <h5>Educación · 40 est.</h5>
+            <p>Poco participativos · Prefieren grupos pequeños · Lectores de textos</p>
+            <div class="gp-stat"><div class="gp-dot"></div><span style="font-size:.78rem;color:var(--gray-600);">65% entrega tareas correctamente</span></div>
+          </div>
+          <div class="group-profile">
+            <h5>Psicología Educativa · 38 est.</h5>
+            <p>Atentos pero impuntuales · Orientados a la práctica · Prefieren multimedia</p>
+            <div class="gp-stat"><div class="gp-dot"></div><span style="font-size:.78rem;color:var(--gray-600);">15% repiten la materia</span></div>
+          </div>
+          <div class="group-profile" style="border-color:var(--green);">
+            <h5>Pedagogía · 42 est. ⭐</h5>
+            <p>Muy participativos · Puntuales · Comprensión rápida → aburrimiento</p>
+            <div class="gp-stat"><div class="gp-dot"></div><span style="font-size:.78rem;color:var(--gray-600);">Alta calidad en entregas</span></div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h4>Preguntas del Caso</h4>
+          <p style="font-size:.82rem; color:var(--gray-600); margin-bottom:.75rem;">El caso plantea cuatro preguntas que este blog académico responde de manera fundamentada:</p>
+          <ul style="font-size:.82rem; color:var(--gray-600); padding-left:1.2rem; line-height:1.9;">
+            <li>Descripción del caso</li>
+            <li><a href="#" style="color:var(--green-dark);">Teorías como marco de referencia</a></li>
+            <li><a href="#" style="color:var(--green-dark);">Fundamentos de la diferenciación</a></li>
+            <li><a href="#" style="color:var(--green-dark);">Propuesta instruccional diferenciada</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card" style="background:var(--green); color:white;">
+          <h4 style="border-color:rgba(255,255,255,.4); color:white;">Dato Clave</h4>
+          <p style="font-size:.85rem; opacity:.9; line-height:1.7;">El Diseño Instruccional diferenciado no es opcional cuando los grupos tienen perfiles distintos: es una <strong>obligación ética</strong> del docente y un requisito para lograr aprendizajes equitativos.</p>
+        </div>
+      </aside>
+    </div><!-- /blog-grid -->
+  </div>
+</section>
+
+
+<!-- REFERENCIAS -->
+<section id="referencias">
+  <div class="container">
+    <div class="section-tag" style="background:rgba(255,255,255,.1); color:var(--green);">Referencias Bibliográficas</div>
+    <h2 class="section-title">Referencias (APA 7.ª edición)</h2>
+    <p class="section-lead">Fuentes académicas que fundamentan los contenidos de este recurso educativo.</p>
+
+    <div class="refs-list">
+      <div class="ref-item">
+        <strong>Bruner, J. S.</strong> (1969). <em>Toward a Theory of Instruction.</em> Harvard University Press.
+      </div>
+      <div class="ref-item">
+        <strong>Bustamante, A., Millán, M., Rodríguez, F., & García, J.</strong> (2014). Análisis de un diseño instruccional para aplicarlo en unidades curriculares híbridas. <em>Revista Iberoamericana de Producción Académica y Gestión Educativa, 1</em>(1). https://www.pag.org.mx/index.php/PAG
+      </div>
+      <div class="ref-item">
+        <strong>Ertmer, P. A., & Newby, T. J.</strong> (1993). Conductismo, cognitivismo y constructivismo: Una comparación de los aspectos críticos desde la perspectiva del diseño de instrucción. <em>Performance Improvement Quarterly, 6</em>(4), 50–72. https://doi.org/10.1111/j.1937-8327.1993.tb00605.x
+      </div>
+      <div class="ref-item">
+        <strong>Gustafson, K. L., & Branch, R. M.</strong> (2002). <em>Survey of Instructional Development Models</em> (4.ª ed.). ERIC Clearinghouse on Information & Technology.
+      </div>
+      <div class="ref-item">
+        <strong>Reigeluth, C. M.</strong> (1983). <em>Instructional Design Theories and Models: An Overview of their Current Status.</em> Lawrence Erlbaum Associates.
+      </div>
+      <div class="ref-item">
+        <strong>Williams, P., Schrum, L., Sangrà, A., & Guardia, L.</strong> (2006). Modelos de diseño instruccional. <em>Fundamentos del diseño técnico-pedagógico en e-learning.</em> FUOC. http://www.uoc.edu/
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>UTEL Universidad</strong> · Diseño de Programas de Enseñanza · Tema 1: El Diseño Instruccional y su relación con el aprendizaje</p>
+  <p style="margin-top:.5rem; opacity:.75; font-size:.78rem;">
+    <a href="https://utel.edu.mx" target="_blank">utel.edu.mx</a> · Recurso educativo para uso académico
+  </p>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    // Hide all
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    // Show target
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Smooth scroll animation for sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.concept-card, .model-card, .blog-entry').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
