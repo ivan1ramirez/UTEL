@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 3: Fases del Diseño Instruccional | UTEL</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   VARIABLES & RESET
+═══════════════════════════════════════════ */
+:root {
+  --green:       #00b900;
+  --green-d:     #009200;
+  --green-dd:    #006600;
+  --green-xs:    #f0fdf0;
+  --green-sm:    #dcfadc;
+  --green-md:    #b3f0b3;
+  --white:       #ffffff;
+  --ink:         #111a11;
+  --ink-mid:     #2e3d2e;
+  --ink-light:   #5a705a;
+  --paper:       #f9fbf9;
+  --border:      #d8e8d8;
+  --font-serif:  'Cormorant Garamond', serif;
+  --font-sans:   'Syne', sans-serif;
+  --r:           12px;
+  --r-lg:        20px;
+  --sh:          0 2px 10px rgba(0,120,0,.07);
+  --sh-md:       0 8px 32px rgba(0,120,0,.11);
+  --sh-lg:       0 20px 64px rgba(0,120,0,.14);
+  --ease:        cubic-bezier(.4,0,.2,1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-sans); color: var(--ink); background: var(--white); line-height: 1.7; overflow-x: hidden; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
+img { max-width: 100%; }
+a { color: var(--green-d); }
+
+/* ═══════════════════════════════════════════
+   HEADER / NAV
+═══════════════════════════════════════════ */
+.site-header {
+  position: sticky; top: 0; z-index: 300;
+  height: 64px;
+  background: rgba(255,255,255,.97);
+  border-bottom: 2.5px solid var(--green);
+  backdrop-filter: blur(14px);
+  display: flex; align-items: center;
+  padding: 0 2.5rem; gap: 1.5rem;
+  box-shadow: 0 1px 18px rgba(0,185,0,.07);
+}
+.header-logo {
+  display: flex; align-items: center; gap: .9rem;
+  text-decoration: none; flex-shrink: 0;
+}
+.logo-mark {
+  width: 42px; height: 42px; border-radius: 9px;
+  background: var(--green);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); font-weight: 700; font-size: 1.05rem;
+  color: white; letter-spacing: -.5px;
+  box-shadow: 0 3px 12px rgba(0,185,0,.28);
+}
+.logo-text strong { display: block; font-size: .87rem; font-weight: 700; color: var(--green-d); line-height: 1.2; }
+.logo-text span { font-size: .67rem; color: var(--ink-light); letter-spacing: .05em; text-transform: uppercase; }
+.header-nav { display: flex; gap: .1rem; margin-left: auto; }
+.header-nav a {
+  font-size: .78rem; font-weight: 600; color: var(--ink-light);
+  padding: .4rem .8rem; border-radius: 7px; text-decoration: none;
+  transition: background .2s, color .2s;
+  white-space: nowrap;
+}
+.header-nav a:hover { background: var(--green-sm); color: var(--green-d); }
+.header-nav .badge {
+  background: var(--green); color: white;
+  padding: .28rem .85rem; border-radius: 999px;
+  font-size: .72rem; font-weight: 700; margin-left: .4rem;
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero {
+  min-height: 520px;
+  background: var(--ink);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center;
+}
+
+/* Geometric background shapes */
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,185,0,.16) 0%, transparent 70%);
+  top: -200px; right: -100px;
+  animation: pulse-bg 8s ease-in-out infinite;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0,185,0,.03) 0px, rgba(0,185,0,.03) 1px,
+    transparent 1px, transparent 80px
+  ), repeating-linear-gradient(
+    0deg,
+    rgba(0,185,0,.03) 0px, rgba(0,185,0,.03) 1px,
+    transparent 1px, transparent 80px
+  );
+}
+@keyframes pulse-bg {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: .7; }
+}
+
+.addie-strip {
+  position: absolute; right: 0; top: 0; bottom: 0;
+  width: 340px;
+  background: linear-gradient(180deg, rgba(0,185,0,.08) 0%, rgba(0,185,0,.15) 100%);
+  border-left: 1px solid rgba(0,185,0,.2);
+  display: flex; flex-direction: column;
+  justify-content: center; gap: .4rem;
+  padding: 2rem 1.5rem;
+  z-index: 1;
+}
+.addie-letter {
+  display: flex; align-items: center; gap: 1rem;
+  padding: .9rem 1rem;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
+  cursor: default;
+  transition: background .25s, border-color .25s, transform .25s;
+}
+.addie-letter:hover {
+  background: rgba(0,185,0,.12);
+  border-color: rgba(0,185,0,.35);
+  transform: translateX(-4px);
+}
+.al-char {
+  width: 38px; height: 38px; border-radius: 8px;
+  background: var(--green); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700;
+  flex-shrink: 0;
+}
+.al-text h4 { font-size: .8rem; font-weight: 700; color: rgba(255,255,255,.9); }
+.al-text p { font-size: .7rem; color: rgba(255,255,255,.5); }
+
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 5rem 3rem 5rem 5rem;
+  max-width: calc(100% - 340px);
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: .55rem;
+  background: rgba(0,185,0,.15);
+  border: 1px solid rgba(0,185,0,.3);
+  border-radius: 999px; padding: .35rem 1rem;
+  margin-bottom: 1.6rem; width: fit-content;
+}
+.hero-tag .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: blink 2s ease-in-out infinite; }
+.hero-tag span { font-size: .72rem; font-weight: 700; color: var(--green); letter-spacing: .08em; text-transform: uppercase; }
+@keyframes blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .35; transform: scale(1.5); }
+}
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 700; color: white; line-height: 1.12;
+  margin-bottom: 1.25rem;
+}
+.hero h1 em { font-style: normal; color: var(--green); }
+.hero-desc { font-size: .98rem; color: rgba(255,255,255,.6); max-width: 520px; margin-bottom: 2rem; line-height: 1.85; }
+.hero-btns { display: flex; gap: .85rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .8rem 1.6rem; border-radius: 9px;
+  font-family: var(--font-sans); font-size: .84rem; font-weight: 700;
+  text-decoration: none; cursor: pointer; border: none;
+  transition: transform .2s var(--ease), box-shadow .2s;
+}
+.btn-solid { background: var(--green); color: white; box-shadow: 0 4px 18px rgba(0,185,0,.3); }
+.btn-solid:hover { background: var(--green-d); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,185,0,.4); }
+.btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,.22); color: rgba(255,255,255,.8); }
+.btn-outline:hover { background: rgba(255,255,255,.07); transform: translateY(-2px); }
+
+/* ═══════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════ */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+section { padding: 5.5rem 0; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: var(--green-sm); color: var(--green-d);
+  border-radius: 7px; padding: .28rem .85rem;
+  font-size: .7rem; font-weight: 800;
+  letter-spacing: .08em; text-transform: uppercase;
+  margin-bottom: .9rem;
+}
+.sec-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700; color: var(--ink); line-height: 1.2;
+  margin-bottom: .85rem;
+}
+.sec-lead {
+  font-size: .98rem; color: var(--ink-light);
+  max-width: 700px; margin-bottom: 3.5rem; line-height: 1.85;
+}
+
+/* ═══════════════════════════════════════════
+   3.1 / 3.2 – INTRO: ACTORS
+═══════════════════════════════════════════ */
+#intro { background: var(--paper); }
+
+.definition-box {
+  background: white;
+  border-radius: var(--r-lg);
+  border-left: 5px solid var(--green);
+  padding: 2rem 2.5rem;
+  box-shadow: var(--sh-md);
+  margin-bottom: 3rem;
+  position: relative; overflow: hidden;
+}
+.definition-box::before {
+  content: '"';
+  font-family: var(--font-serif);
+  font-size: 8rem; font-weight: 700;
+  color: var(--green-sm);
+  position: absolute; top: -1.5rem; right: 1.5rem;
+  line-height: 1; pointer-events: none;
+}
+.definition-box p {
+  font-family: var(--font-serif);
+  font-size: 1.2rem; color: var(--ink-mid);
+  line-height: 1.8; font-style: italic;
+  position: relative; z-index: 1;
+}
+.definition-box cite {
+  display: block; margin-top: .75rem;
+  font-size: .78rem; font-style: normal;
+  color: var(--green-d); font-weight: 700;
+}
+
+.actors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.actor-card {
+  background: white; border-radius: var(--r-lg);
+  padding: 2rem; text-align: center;
+  box-shadow: var(--sh);
+  border-top: 4px solid var(--green);
+  transition: transform .25s var(--ease), box-shadow .25s;
+}
+.actor-card:hover { transform: translateY(-6px); box-shadow: var(--sh-md); }
+.actor-icon {
+  width: 68px; height: 68px; border-radius: 50%;
+  background: var(--green-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; margin: 0 auto 1.1rem;
+}
+.actor-card h3 {
+  font-family: var(--font-serif); font-size: 1.25rem;
+  font-weight: 700; color: var(--ink); margin-bottom: .5rem;
+}
+.actor-card p { font-size: .85rem; color: var(--ink-light); }
+
+/* ═══════════════════════════════════════════
+   3.3 – PHASES ACCORDION
+═══════════════════════════════════════════ */
+#fases { background: white; }
+
+.phases-container { display: flex; flex-direction: column; gap: 1.2rem; }
+
+.phase-block {
+  border-radius: var(--r-lg);
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  transition: border-color .3s, box-shadow .3s;
+}
+.phase-block.open { border-color: var(--green); box-shadow: var(--sh-md); }
+
+.phase-trigger {
+  width: 100%; display: flex; align-items: center; gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: none; border: none; cursor: pointer;
+  font-family: var(--font-sans);
+  text-align: left;
+  transition: background .2s;
+}
+.phase-trigger:hover { background: var(--green-xs); }
+.phase-block.open .phase-trigger { background: var(--green-xs); }
+
+.phase-num {
+  width: 52px; height: 52px; flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--green); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700;
+  transition: background .2s, transform .2s;
+}
+.phase-block.open .phase-num { background: var(--green-d); }
+.phase-block:hover .phase-num { transform: scale(1.05); }
+
+.phase-meta { flex: 1; }
+.phase-meta .plabel { font-size: .68rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--green); margin-bottom: .15rem; }
+.phase-meta h3 { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--ink); }
+
+.phase-chevron {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--green-sm);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .3s var(--ease), background .2s;
+}
+.phase-block.open .phase-chevron { transform: rotate(180deg); background: var(--green-md); }
+.phase-chevron svg { width: 16px; height: 16px; stroke: var(--green-d); }
+
+.phase-body {
+  display: none;
+  padding: 0 2rem 2rem;
+}
+.phase-block.open .phase-body { display: block; animation: fadeIn .3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+
+.phase-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+.phase-theory h4 {
+  font-size: .75rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--ink-light); margin-bottom: .75rem;
+}
+.phase-theory p { font-size: .9rem; color: var(--ink-mid); line-height: 1.8; }
+.phase-theory ul { padding-left: 1.1rem; margin-top: .75rem; }
+.phase-theory li { font-size: .88rem; color: var(--ink-mid); margin-bottom: .4rem; }
+
+/* UGB Case Box — visually distinguished */
+.ugb-box {
+  background: linear-gradient(135deg, #f0fdf0 0%, #e8fbe8 100%);
+  border: 1.5px solid var(--green-md);
+  border-radius: var(--r);
+  padding: 1.5rem 1.75rem;
+}
+.ugb-header {
+  display: flex; align-items: center; gap: .75rem;
+  margin-bottom: 1rem;
+}
+.ugb-badge {
+  background: var(--green); color: white;
+  border-radius: 6px; padding: .2rem .65rem;
+  font-size: .68rem; font-weight: 800;
+  letter-spacing: .06em; text-transform: uppercase;
+  flex-shrink: 0;
+}
+.ugb-header span { font-size: .8rem; font-weight: 700; color: var(--green-dd); }
+.ugb-box p { font-size: .88rem; color: var(--ink-mid); line-height: 1.8; margin-bottom: .75rem; }
+.ugb-box p:last-child { margin-bottom: 0; }
+
+.ugb-chips {
+  display: flex; flex-wrap: wrap; gap: .4rem;
+  margin-top: .75rem;
+}
+.ugb-chip {
+  background: var(--green-md); color: var(--green-dd);
+  border-radius: 999px; padding: .22rem .75rem;
+  font-size: .72rem; font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════
+   ADDIE VISUAL FLOW
+═══════════════════════════════════════════ */
+#flujo { background: var(--paper); }
+
+.addie-flow {
+  display: flex; align-items: stretch; gap: 0;
+  background: white; border-radius: var(--r-lg);
+  box-shadow: var(--sh-md); overflow: hidden;
+}
+.flow-step {
+  flex: 1; padding: 2rem 1.5rem;
+  border-right: 1.5px solid var(--border);
+  position: relative;
+  transition: background .2s;
+}
+.flow-step:last-child { border-right: none; }
+.flow-step:hover { background: var(--green-xs); }
+.flow-step::after {
+  content: '→';
+  position: absolute; right: -12px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem; color: var(--green);
+  z-index: 10; pointer-events: none;
+}
+.flow-step:last-child::after { display: none; }
+.fs-letter {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: var(--green); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700;
+  margin-bottom: 1rem;
+}
+.fs-name { font-size: .82rem; font-weight: 800; color: var(--ink); margin-bottom: .35rem; }
+.fs-desc { font-size: .77rem; color: var(--ink-light); line-height: 1.6; }
+
+/* ═══════════════════════════════════════════
+   BLOG ACADÉMICO
+═══════════════════════════════════════════ */
+#blog { background: var(--ink); }
+#blog .sec-title { color: white; }
+#blog .sec-lead { color: rgba(255,255,255,.5); }
+#blog .eyebrow { background: rgba(0,185,0,.15); color: var(--green); }
+
+.blog-layout { display: grid; grid-template-columns: 1fr 360px; gap: 3rem; align-items: start; }
+
+.blog-posts { display: flex; flex-direction: column; gap: 2rem; }
+
+.post-card {
+  background: rgba(255,255,255,.05);
+  border: 1.5px solid rgba(255,255,255,.1);
+  border-radius: var(--r-lg); padding: 2.25rem;
+  backdrop-filter: blur(6px);
+  transition: background .25s, border-color .25s, transform .25s;
+  opacity: 0; transform: translateY(18px);
+}
+.post-card.visible { opacity: 1; transform: translateY(0); transition: opacity .5s ease, transform .5s ease; }
+.post-card:hover { background: rgba(255,255,255,.08); border-color: rgba(0,185,0,.3); transform: translateY(-3px); }
+
+.post-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem; }
+.post-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: var(--green); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.35rem; flex-shrink: 0;
+}
+.post-meta .pm-q { font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--green); margin-bottom: .1rem; }
+.post-meta h3 { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 700; color: white; line-height: 1.3; }
+
+.post-card p { font-size: .88rem; color: rgba(255,255,255,.68); line-height: 1.85; }
+.post-card p + p { margin-top: .85rem; }
+
+.post-box {
+  background: rgba(0,185,0,.1);
+  border: 1px solid rgba(0,185,0,.25);
+  border-radius: 10px; padding: 1.25rem 1.5rem;
+  margin-top: 1.4rem;
+}
+.post-box .pb-label { font-size: .68rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--green); margin-bottom: .5rem; }
+.post-box ul { padding-left: 1.1rem; }
+.post-box li { font-size: .83rem; color: rgba(255,255,255,.68); margin-bottom: .38rem; }
+
+/* Compare table in blog */
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 1.25rem; }
+.compare-table th, .compare-table td { padding: .75rem 1rem; font-size: .82rem; border-bottom: 1px solid rgba(255,255,255,.08); text-align: left; }
+.compare-table th { font-size: .7rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--green); }
+.compare-table td { color: rgba(255,255,255,.68); }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table td:first-child { color: rgba(255,255,255,.9); font-weight: 600; }
+
+/* Sidebar */
+.blog-sidebar { position: sticky; top: 80px; }
+.sidebar-widget {
+  background: rgba(255,255,255,.06);
+  border: 1.5px solid rgba(255,255,255,.1);
+  border-radius: var(--r-lg); padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+.sw-title {
+  font-family: var(--font-serif); font-size: 1rem; font-weight: 700;
+  color: white; margin-bottom: 1.1rem;
+  border-bottom: 1px solid rgba(255,255,255,.1); padding-bottom: .65rem;
+}
+
+.team-item {
+  display: flex; align-items: flex-start; gap: .8rem;
+  margin-bottom: .9rem;
+}
+.ti-icon {
+  width: 34px; height: 34px; border-radius: 8px;
+  background: rgba(0,185,0,.2); color: var(--green);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9rem; flex-shrink: 0;
+}
+.ti-text h5 { font-size: .8rem; font-weight: 700; color: rgba(255,255,255,.9); margin-bottom: .1rem; }
+.ti-text p { font-size: .74rem; color: rgba(255,255,255,.5); }
+
+.verdict-box {
+  background: linear-gradient(135deg, var(--green), var(--green-d));
+  border-radius: var(--r-lg); padding: 1.75rem;
+}
+.vb-label { font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: .4rem; }
+.vb-title { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: white; margin-bottom: .65rem; }
+.verdict-box p { font-size: .83rem; color: rgba(255,255,255,.88); line-height: 1.75; }
+
+/* ═══════════════════════════════════════════
+   REFERENCES
+═══════════════════════════════════════════ */
+#referencias { background: var(--paper); }
+
+.refs-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.ref-item {
+  background: white;
+  border-radius: var(--r);
+  border-left: 4px solid var(--green);
+  padding: 1.4rem 1.6rem;
+  box-shadow: var(--sh);
+  font-size: .85rem; color: var(--ink-mid); line-height: 1.8;
+  transition: box-shadow .2s, transform .2s;
+}
+.ref-item:hover { box-shadow: var(--sh-md); transform: translateY(-2px); }
+.ref-item strong { color: var(--ink); }
+.ref-item em { color: var(--ink-light); }
+.ref-item a { word-break: break-all; font-size: .78rem; }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer {
+  background: var(--green);
+  color: white;
+  text-align: center; padding: 2rem;
+  font-size: .82rem; font-weight: 600;
+}
+footer a { color: rgba(255,255,255,.8); text-decoration: none; }
+footer a:hover { color: white; }
+footer .ft-sub { margin-top: .4rem; font-weight: 400; font-size: .74rem; opacity: .8; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 960px) {
+  .addie-strip { display: none; }
+  .hero-content { max-width: 100%; padding: 3.5rem 1.5rem; }
+  .actors-grid { grid-template-columns: 1fr; }
+  .phase-cols { grid-template-columns: 1fr; }
+  .addie-flow { flex-direction: column; }
+  .flow-step { border-right: none; border-bottom: 1.5px solid var(--border); }
+  .flow-step::after { content: '↓'; right: auto; left: 50%; top: auto; bottom: -12px; transform: translateX(-50%); }
+  .flow-step:last-child::after { display: none; }
+  .blog-layout { grid-template-columns: 1fr; }
+  .blog-sidebar { position: static; }
+  .refs-list { grid-template-columns: 1fr; }
+  .header-nav { display: none; }
+  .wrap { padding: 0 1.25rem; }
+  section { padding: 3.5rem 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ██ HEADER ██ -->
+<header class="site-header">
+  <a href="#" class="header-logo">
+    <div class="logo-mark">UTEL</div>
+    <div class="logo-text">
+      <strong>UTEL Universidad</strong>
+      <span>Diseño de Programas de Enseñanza</span>
+    </div>
+  </a>
+  <nav class="header-nav">
+    <a href="#intro">3.1–3.2 Introducción</a>
+    <a href="#fases">3.3 Fases ADDIE</a>
+    <a href="#flujo">Flujo</a>
+    <a href="#blog">Blog · Caso UGB</a>
+    <a href="#referencias">Referencias</a>
+    <span class="badge">Tema 3</span>
+  </nav>
+</header>
+
+
+<!-- ██ HERO ██ -->
+<div class="hero">
+  <div class="hero-bg"></div>
+
+  <!-- ADDIE letters strip (right panel) -->
+  <div class="addie-strip">
+    <div class="addie-letter"><div class="al-char">A</div><div class="al-text"><h4>Análisis</h4><p>Diagnóstico del contexto y aprendiz</p></div></div>
+    <div class="addie-letter"><div class="al-char">D</div><div class="al-text"><h4>Diseño</h4><p>Objetivos, estrategias y estructura</p></div></div>
+    <div class="addie-letter"><div class="al-char">D</div><div class="al-text"><h4>Desarrollo</h4><p>Materiales y recursos educativos</p></div></div>
+    <div class="addie-letter"><div class="al-char">I</div><div class="al-text"><h4>Implementación</h4><p>Despliegue del curso virtual</p></div></div>
+    <div class="addie-letter"><div class="al-char">E</div><div class="al-text"><h4>Evaluación</h4><p>Formativa y sumativa con rúbricas</p></div></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag"><div class="dot"></div><span>Tema 3 · Posgrado · UTEL</span></div>
+    <h1>Fases del <em>Diseño Instruccional</em></h1>
+    <p class="hero-desc">Análisis profundo del modelo ADDIE como metodología sistemática para el diseño de cursos virtuales, estudiado a través de su implementación real en la Universidad Gerardo Barrios (UGB) de El Salvador.</p>
+    <div class="hero-btns">
+      <a href="#fases" class="btn btn-solid">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Explorar fases
+      </a>
+      <a href="#blog" class="btn btn-outline">Análisis del Caso UGB</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ██ SECCIÓN 3.1–3.2: INTRODUCCIÓN ██ -->
+<section id="intro">
+  <div class="wrap">
+    <div class="eyebrow">Secciones 3.1 y 3.2</div>
+    <h2 class="sec-title">Diseño Instruccional: planificación sistemática del aprendizaje</h2>
+    <p class="sec-lead">El DI es mucho más que elaborar materiales didácticos. Es un proceso metódico y documentado que valora necesidades, diseña soluciones y evalúa resultados para garantizar la calidad del aprendizaje en cualquier modalidad.</p>
+
+    <!-- Definición destacada -->
+    <div class="definition-box">
+      <p>El Diseño Instruccional es la ciencia de creación de especificaciones detalladas para el desarrollo, implementación, evaluación y mantenimiento de situaciones que facilitan el aprendizaje de pequeñas y grandes unidades de contenidos en diferentes niveles de complejidad.</p>
+      <cite>— Berger y Kam (1996), citado por Belloch (2013)</cite>
+    </div>
+
+    <!-- Actores clave -->
+    <h3 style="font-family:var(--font-serif); font-size:1.5rem; margin-bottom:1.5rem; color:var(--ink);">Actores clave del proceso instruccional</h3>
+    <div class="actors-grid">
+      <div class="actor-card">
+        <div class="actor-icon">👨‍🎓</div>
+        <h3>El Estudiante</h3>
+        <p>Centro del proceso de enseñanza-aprendizaje. El DI parte del análisis de su perfil, contexto, conocimientos previos y necesidades de aprendizaje para diseñar experiencias pertinentes y accesibles.</p>
+      </div>
+      <div class="actor-card">
+        <div class="actor-icon">👩‍🏫</div>
+        <h3>El Docente / E-tutor</h3>
+        <p>Facilitador del aprendizaje que, junto con el diseñador instruccional, define los contenidos, estrategias y actividades del curso. Aporta el conocimiento disciplinar y la relación pedagógica con el estudiante.</p>
+      </div>
+      <div class="actor-card">
+        <div class="actor-icon">🛠️</div>
+        <h3>Los Recursos</h3>
+        <p>Materiales, herramientas tecnológicas, plataformas y estrategias didácticas que median entre el contenido y el aprendiz. Su selección es determinada por el diseñador instruccional en función del perfil del estudiante.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ SECCIÓN 3.3: FASES ADDIE ██ -->
+<section id="fases">
+  <div class="wrap">
+    <div class="eyebrow">Sección 3.3 · Caso UGB integrado</div>
+    <h2 class="sec-title">Las cinco fases del modelo ADDIE en la UGB</h2>
+    <p class="sec-lead">Cada fase del modelo ADDIE representa un momento específico del proceso de diseño instruccional. Aquí se analiza tanto la definición teórica de cada fase como su aplicación concreta en el curso de Inglés Básico de la Universidad Gerardo Barrios de El Salvador.</p>
+
+    <div class="phases-container" id="phasesContainer">
+
+      <!-- ANÁLISIS -->
+      <div class="phase-block" id="ph-analisis">
+        <button class="phase-trigger" onclick="togglePhase('analisis')">
+          <div class="phase-num">A</div>
+          <div class="phase-meta">
+            <p class="plabel">Fase 1</p>
+            <h3>Análisis — Diagnóstico del contexto y la audiencia</h3>
+          </div>
+          <div class="phase-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="phase-body">
+          <div class="phase-cols">
+            <div class="phase-theory">
+              <h4>Definición teórica</h4>
+              <p>La fase de análisis determina las características de la audiencia: qué necesita aprender, cuáles son los medios o recursos a utilizar, el presupuesto disponible y las actividades que se llevarán a cabo (Yukavetsky, 2003). Es la base de todo el proceso: sin un análisis riguroso, las fases siguientes pierden pertinencia.</p>
+              <ul>
+                <li>Análisis de necesidades de aprendizaje</li>
+                <li>Caracterización del aprendiz (perfil, contexto, conocimientos previos)</li>
+                <li>Identificación de recursos y restricciones</li>
+                <li>Definición del problema instruccional central</li>
+              </ul>
+            </div>
+            <div class="ugb-box">
+              <div class="ugb-header">
+                <span class="ugb-badge">Caso UGB</span>
+                <span>Universidad Gerardo Barrios · El Salvador</span>
+              </div>
+              <p>En la UGB, la fase de análisis consistió en <strong>estudiar el grupo social</strong> al cual se dirige el diseño instruccional. Se reconoció que los estudiantes de la UGB requerían una nueva modalidad de enseñanza (e-Learning) para satisfacer necesidades educativas de quienes, por tiempo, trabajo o distancia, no podían acceder a la educación presencial.</p>
+              <p>Se conformó un equipo de trabajo especializado para llevar adelante el proceso: un coordinador, un experto en el tema de Inglés (con escasa experiencia en cursos virtuales) y un diseñador instruccional. Esta conformación determinó que fuera necesaria una asesoría detallada sobre cada proceso.</p>
+              <div class="ugb-chips">
+                <span class="ugb-chip">Perfil social del estudiante</span>
+                <span class="ugb-chip">Modalidad e-Learning</span>
+                <span class="ugb-chip">Equipo interdisciplinario</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DISEÑO -->
+      <div class="phase-block" id="ph-diseno">
+        <button class="phase-trigger" onclick="togglePhase('diseno')">
+          <div class="phase-num">D</div>
+          <div class="phase-meta">
+            <p class="plabel">Fase 2</p>
+            <h3>Diseño — Objetivos, estructura y estrategias pedagógicas</h3>
+          </div>
+          <div class="phase-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="phase-body">
+          <div class="phase-cols">
+            <div class="phase-theory">
+              <h4>Definición teórica</h4>
+              <p>La fase de diseño implica seleccionar el mejor ambiente de aprendizaje, definir los objetivos o competencias, bosquejar las unidades y lecciones a desarrollar, seleccionar estrategias pedagógicas y diseñar el contenido haciendo uso de los recursos que la web pone a disposición (Yukavetsky, 2003).</p>
+              <ul>
+                <li>Redacción de objetivos de aprendizaje medibles (ABCD)</li>
+                <li>Selección del ambiente de aprendizaje (LMS, herramientas)</li>
+                <li>Estructura curricular: unidades, lecciones, módulos</li>
+                <li>Elección de estrategias pedagógicas (colaborativas, individuales)</li>
+                <li>Secuenciación y dosificación del contenido</li>
+              </ul>
+            </div>
+            <div class="ugb-box">
+              <div class="ugb-header">
+                <span class="ugb-badge">Caso UGB</span>
+                <span>Fase de Diseño instruccional</span>
+              </div>
+              <p>En la UGB, la fase de diseño se estructuró a través de <strong>cuatro tipos de plantillas</strong> que organizaron la información del curso de manera sistemática: Plantilla del programa del curso, Plantilla de dosificación por unidad, Plantilla de la unidad introductoria y Plantilla de contenido de cada unidad didáctica.</p>
+              <p>Cada plantilla incluía campos específicos: descripción del curso, audiencia, objetivos/competencias, duración, temario, metodología y evaluación. Las competencias se identificaron desde las plantillas iniciales, integrando el análisis de necesidades directamente en el diseño —una característica particular del caso UGB.</p>
+              <div class="ugb-chips">
+                <span class="ugb-chip">4 tipos de plantillas</span>
+                <span class="ugb-chip">Objetivos ABCD</span>
+                <span class="ugb-chip">Dosificación semanal</span>
+                <span class="ugb-chip">5 unidades didácticas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESARROLLO -->
+      <div class="phase-block" id="ph-desarrollo">
+        <button class="phase-trigger" onclick="togglePhase('desarrollo')">
+          <div class="phase-num">D</div>
+          <div class="phase-meta">
+            <p class="plabel">Fase 3</p>
+            <h3>Desarrollo — Creación de materiales y recursos</h3>
+          </div>
+          <div class="phase-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="phase-body">
+          <div class="phase-cols">
+            <div class="phase-theory">
+              <h4>Definición teórica</h4>
+              <p>En la fase de desarrollo se crea el medio requerido. Se hace uso de formatos variados, creatividad, innovación y exploración para que el estudiante tenga una experiencia de aprendizaje agradable y funcional (Yukavetsky, 2003). El diseñador instruccional trabaja conjuntamente con el experto del tema para producir y revisar todos los materiales.</p>
+              <ul>
+                <li>Producción de contenidos: textos, videos, actividades</li>
+                <li>Revisión de materiales con criterios instruccionales</li>
+                <li>Integración de herramientas web 2.0</li>
+                <li>Diseño de actividades colaborativas e individuales</li>
+                <li>Control de calidad del material desarrollado</li>
+              </ul>
+            </div>
+            <div class="ugb-box">
+              <div class="ugb-header">
+                <span class="ugb-badge">Caso UGB</span>
+                <span>Trabajo colaborativo a distancia</span>
+              </div>
+              <p>El desarrollo de las 8 plantillas del curso se realizó de forma <strong>completamente virtual</strong>. El equipo utilizó <strong>Google Docs</strong> para compartir y revisar en tiempo real cada plantilla, con un sistema de observaciones y correcciones en línea. Se estableció una <strong>videoconferencia semanal</strong> para resolver dudas y acordar estrategias.</p>
+              <p>El diseñador instruccional de la Universidad Galileo revisó cada plantilla generada por el experto en inglés, verificando: contenido, temario, dosificación, estructura, forma y desarrollo de actividades. Se utilizó Dropbox para la entrega final de versiones definitivas en formato Word.</p>
+              <p>En esta fase se <strong>priorizaron las necesidades del estudiante</strong> como centro del proceso: los objetivos, competencias, carga académica y actividades estuvieron focalizados para que al momento de la implementación el estudiante no tuviera dificultades.</p>
+              <div class="ugb-chips">
+                <span class="ugb-chip">Google Docs colaborativo</span>
+                <span class="ugb-chip">Videoconferencias semanales</span>
+                <span class="ugb-chip">Dropbox para entregas</span>
+                <span class="ugb-chip">8 plantillas totales</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IMPLEMENTACIÓN -->
+      <div class="phase-block" id="ph-implementacion">
+        <button class="phase-trigger" onclick="togglePhase('implementacion')">
+          <div class="phase-num">I</div>
+          <div class="phase-meta">
+            <p class="plabel">Fase 4</p>
+            <h3>Implementación — Despliegue del curso</h3>
+          </div>
+          <div class="phase-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="phase-body">
+          <div class="phase-cols">
+            <div class="phase-theory">
+              <h4>Definición teórica</h4>
+              <p>En la fase de implementación se distribuyen los materiales que se van a utilizar, se asegura la usabilidad y se resuelven problemas técnicos o de otra índole relacionados al curso (Yukavetsky, 2003). Es el momento en que el diseño instruccional se convierte en realidad para el estudiante.</p>
+              <ul>
+                <li>Carga de materiales en la plataforma LMS</li>
+                <li>Capacitación de docentes y tutores</li>
+                <li>Pruebas de usabilidad y acceso</li>
+                <li>Resolución de problemas técnicos previos al inicio</li>
+                <li>Lanzamiento y seguimiento del curso</li>
+              </ul>
+            </div>
+            <div class="ugb-box">
+              <div class="ugb-header">
+                <span class="ugb-badge">Caso UGB</span>
+                <span>Programada para 2014, primer semestre</span>
+              </div>
+              <p>La implementación del curso de Inglés Básico de la UGB fue <strong>programada para el primer semestre de 2014</strong> en la plataforma de educación virtual de la Universidad Gerardo Barrios en línea. El hecho de que el artículo original se publicó en mayo de 2014 (CAFVIR 2014) indica que la implementación estaba aún en preparación al momento de la publicación.</p>
+              <p>Esta fase demuestra un principio central del modelo ADDIE: el rigor de las fases anteriores (análisis, diseño y desarrollo) sienta las bases para que la implementación transcurra sin contratiempos, garantizando que el estudiante no encuentre dificultades al desarrollar el contenido.</p>
+              <div class="ugb-chips">
+                <span class="ugb-chip">Universidad virtual UGB</span>
+                <span class="ugb-chip">Plataforma e-Learning</span>
+                <span class="ugb-chip">Primer semestre 2014</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVALUACIÓN -->
+      <div class="phase-block" id="ph-evaluacion">
+        <button class="phase-trigger" onclick="togglePhase('evaluacion')">
+          <div class="phase-num">E</div>
+          <div class="phase-meta">
+            <p class="plabel">Fase 5</p>
+            <h3>Evaluación — Formativa, sumativa y calidad del DI</h3>
+          </div>
+          <div class="phase-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="phase-body">
+          <div class="phase-cols">
+            <div class="phase-theory">
+              <h4>Definición teórica</h4>
+              <p>La evaluación comprende el desarrollo de instrumentos de evaluación formativa y sumativa para emitir un juicio sobre la efectividad de la instrucción a través de rúbricas diseñadas para el curso (Yukavetsky, 2003). La evaluación formativa ocurre en cada fase del proceso; la sumativa, al final, mide los resultados globales.</p>
+              <ul>
+                <li><strong>Evaluación formativa:</strong> durante el proceso, en cada fase, para corregir y mejorar</li>
+                <li><strong>Evaluación sumativa:</strong> al final, para medir el logro de objetivos</li>
+                <li>Diseño de rúbricas específicas para el contexto</li>
+                <li>Retroalimentación a todos los actores del proceso</li>
+              </ul>
+            </div>
+            <div class="ugb-box">
+              <div class="ugb-header">
+                <span class="ugb-badge">Caso UGB</span>
+                <span>Dos rúbricas especializadas</span>
+              </div>
+              <p><strong>Rúbrica formativa:</strong> Verificaba la calidad del proceso instruccional en tiempo real: comunicación fluida, integración de sugerencias, cumplimiento de calendarización, motivación del equipo y claridad de recomendaciones. Fue evaluada por el experto de inglés, el diseñador instruccional, la coordinadora de U. Galileo y la coordinadora de la UGB.</p>
+              <p><strong>Rúbrica sumativa:</strong> Evaluó la calidad del diseño instruccional finalizado, con criterios como: habilidad de uso de herramientas, coherencia de conceptos, calidad de análisis y redacción, ortografía, creatividad, instrucciones claras, e-actividades, imágenes y diagramas, referencias y entrega. Usó ponderación: Insuficiente (no aceptable), Bien (aceptable) y Excelente (ideal).</p>
+              <p>Adicionalmente, se utilizó una <strong>plantilla de control de entregas</strong> con sistema de colores (Completa / En proceso / Pendiente) para las 6 unidades del curso (unidad 0 a unidad 5, más programa y dosificación).</p>
+              <div class="ugb-chips">
+                <span class="ugb-chip">Rúbrica formativa</span>
+                <span class="ugb-chip">Rúbrica sumativa</span>
+                <span class="ugb-chip">Control de entregas (colores)</span>
+                <span class="ugb-chip">4 evaluadores</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /phases-container -->
+  </div>
+</section>
+
+
+<!-- ██ FLUJO VISUAL ADDIE ██ -->
+<section id="flujo">
+  <div class="wrap">
+    <div class="eyebrow">Resumen Visual</div>
+    <h2 class="sec-title">El ciclo iterativo ADDIE</h2>
+    <p class="sec-lead">El modelo no es lineal: la evaluación formativa retroalimenta todas las fases, permitiendo correcciones en tiempo real. La conclusión del ciclo puede iniciar un nuevo proceso de mejora continua.</p>
+
+    <div class="addie-flow">
+      <div class="flow-step">
+        <div class="fs-letter">A</div>
+        <div class="fs-name">Análisis</div>
+        <div class="fs-desc">Diagnóstico del aprendiz, contexto, necesidades y recursos disponibles.</div>
+      </div>
+      <div class="flow-step">
+        <div class="fs-letter">D</div>
+        <div class="fs-name">Diseño</div>
+        <div class="fs-desc">Objetivos medibles, estructura del curso, estrategias y secuencia didáctica.</div>
+      </div>
+      <div class="flow-step">
+        <div class="fs-letter">D</div>
+        <div class="fs-name">Desarrollo</div>
+        <div class="fs-desc">Producción de materiales, actividades y recursos multimedia del curso.</div>
+      </div>
+      <div class="flow-step">
+        <div class="fs-letter">I</div>
+        <div class="fs-name">Implementación</div>
+        <div class="fs-desc">Despliegue en plataforma, capacitación de tutores y apertura a estudiantes.</div>
+      </div>
+      <div class="flow-step">
+        <div class="fs-letter">E</div>
+        <div class="fs-name">Evaluación</div>
+        <div class="fs-desc">Formativa en cada fase; sumativa al cierre. Rúbricas y mejora continua.</div>
+      </div>
+    </div>
+
+    <!-- UGB Planteamiento de solución (3.3.4) -->
+    <div style="background:white; border-radius:var(--r-lg); border:1.5px solid var(--green-md); padding:2.5rem; margin-top:2.5rem; box-shadow:var(--sh);">
+      <div class="eyebrow" style="margin-bottom:.75rem;">3.3.4 · Planteamiento de la solución</div>
+      <h3 style="font-family:var(--font-serif); font-size:1.4rem; margin-bottom:1rem; color:var(--ink);">El DI sistemático como garantía de calidad instruccional</h3>
+      <p style="font-size:.92rem; color:var(--ink-mid); line-height:1.85; max-width:820px;">La aplicación del modelo ADDIE en el desarrollo del diseño instruccional del curso de Inglés Básico de la UGB demostró que este modelo es una forma eficaz de lograr que <strong>los procesos se realicen de forma sistemática y documentada</strong>. El diseño instruccional es un proceso metódico que sienta las bases para un buen desarrollo del contenido al momento de implementarse; por ello, es necesario realizar un trabajo minucioso y detallista que involucre a todos los miembros del equipo en cada fase del proceso.</p>
+      <p style="font-size:.92rem; color:var(--ink-mid); line-height:1.85; max-width:820px; margin-top:.85rem;">Este planteamiento resuelve el problema central que el DI busca atender: pasar de un proceso ad-hoc, informal e improvisado, a uno <strong>documentado, evaluado y replicable</strong>, que garantice la calidad del aprendizaje independientemente del experto en contenido que lo imparta.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ BLOG ACADÉMICO: ANÁLISIS CASO UGB ██ -->
+<section id="blog">
+  <div class="wrap">
+    <div class="eyebrow">Blog Académico · Análisis crítico</div>
+    <h2 class="sec-title">Resolución del Caso: Universidad Gerardo Barrios</h2>
+    <p class="sec-lead">Respuestas fundamentadas a las preguntas de análisis de la Semana 3, con base en el artículo de Sicán Chajon et al. (2014).</p>
+
+    <div class="blog-layout">
+      <div class="blog-posts">
+
+        <!-- PREGUNTA 2 -->
+        <article class="post-card">
+          <div class="post-header">
+            <div class="post-icon">✅</div>
+            <div class="post-meta">
+              <p class="pm-q">Pregunta 2</p>
+              <h3>¿Fue aplicado correctamente el modelo ADDIE en la UGB?</h3>
+            </div>
+          </div>
+          <p>La aplicación del modelo ADDIE en la Universidad Gerardo Barrios puede considerarse <strong>correcta en términos generales</strong>, con algunas particularidades que la hacen singular. Los argumentos son los siguientes:</p>
+          <p><strong>A favor de la correcta aplicación:</strong> el proceso contempló las cinco fases del modelo de manera secuencial y documentada. Se utilizaron instrumentos de evaluación específicos en cada etapa (plantillas de control de contenidos, plantilla de control de entregas con sistema de colores, rúbrica formativa y rúbrica sumativa). Las necesidades del estudiante se colocaron al centro del proceso —tanto en la fase de análisis como en el desarrollo— lo que es coherente con la filosofía del modelo. El trabajo colaborativo fue sistemático y calendarizado.</p>
+          <p><strong>Una particularidad destacable:</strong> la identificación de competencias se integró directamente desde las plantillas iniciales (unidas análisis-diseño), lo que en teoría ADDIE corresponde a dos momentos separados. Sin embargo, esta integración puede considerarse una adaptación pragmática al contexto —el experto tenía poca experiencia en cursos virtuales— que no compromete la calidad del resultado.</p>
+          <p><strong>Viabilidad de otro modelo:</strong> si bien ADDIE fue adecuado, podría haberse considerado el modelo <em>Dick y Carey</em> por su mayor nivel de detalle en la fase de análisis instruccional y su retroalimentación explícita entre todos los pasos. Sin embargo, la complejidad de Dick y Carey requeriría un equipo más numeroso y experimentado que el disponible en la UGB-U. Galileo, por lo que ADDIE fue la elección más pertinente para ese contexto.</p>
+          <div class="post-box">
+            <p class="pb-label">Veredicto fundamentado</p>
+            <ul>
+              <li>Las 5 fases de ADDIE fueron contempladas ✓</li>
+              <li>Se utilizaron instrumentos de evaluación en cada etapa ✓</li>
+              <li>El estudiante fue el centro del proceso ✓</li>
+              <li>La integración análisis-diseño fue una adaptación pragmática válida ✓</li>
+              <li>La implementación pendiente no invalida la calidad del DI ✓</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- PREGUNTA 3 -->
+        <article class="post-card">
+          <div class="post-header">
+            <div class="post-icon">🔍</div>
+            <div class="post-meta">
+              <p class="pm-q">Pregunta 3</p>
+              <h3>¿Dónde se establecen los objetivos en ADDIE y qué diferencias encontramos en la UGB?</h3>
+            </div>
+          </div>
+          <p>En la teoría del modelo ADDIE, <strong>los objetivos de aprendizaje se establecen en la fase de Diseño</strong> (segunda fase). Específicamente, Yukavetsky (2003) señala que la fase de Diseño incluye la "definición de los objetivos o competencias". La fase de Análisis, en cambio, se limita a determinar qué necesita aprender la audiencia, sin redactar objetivos formales.</p>
+          <p>Sin embargo, en el reporte de la UGB se observa una integración de ambas fases: las plantillas de Diseño ya incluyen desde el inicio campos de "Objetivos/Competencias" que debían ser completados por el experto de inglés desde las primeras entregas. Esto significa que la identificación de competencias se inició simultáneamente con el análisis del perfil del estudiante, no de manera secuencial.</p>
+
+          <table class="compare-table">
+            <tr>
+              <th>Aspecto</th>
+              <th>ADDIE teórico</th>
+              <th>UGB (reporte)</th>
+            </tr>
+            <tr>
+              <td>¿Dónde se definen los objetivos?</td>
+              <td>Fase de Diseño (fase 2)</td>
+              <td>Integrados desde las plantillas del Diseño, simultáneamente con el análisis del perfil</td>
+            </tr>
+            <tr>
+              <td>¿Qué hace la fase de Análisis?</td>
+              <td>Caracteriza la audiencia, identifica necesidades y medios</td>
+              <td>Estudia el grupo social y conforma el equipo de trabajo</td>
+            </tr>
+            <tr>
+              <td>¿Cómo se gestionan las competencias?</td>
+              <td>Se redactan en Diseño, tras el análisis</td>
+              <td>Se estructuran en plantillas desde el inicio del diseño</td>
+            </tr>
+            <tr>
+              <td>Evaluación de la diferencia</td>
+              <td>—</td>
+              <td>Adaptación válida: no es un error, sino una integración práctica dada la experiencia del equipo</td>
+            </tr>
+          </table>
+          <div class="post-box" style="margin-top:1.25rem;">
+            <p class="pb-label">Reflexión crítica</p>
+            <ul>
+              <li>La diferencia no implica un error de aplicación del modelo, sino una adaptación contextual.</li>
+              <li>La integración análisis-diseño es frecuente en proyectos de educación a distancia con equipos pequeños.</li>
+              <li>Lo que importa es que los objetivos resultantes sean medibles, relevantes y alineados con las competencias esperadas del curso.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- PREGUNTA 4 -->
+        <article class="post-card">
+          <div class="post-header">
+            <div class="post-icon">📊</div>
+            <div class="post-meta">
+              <p class="pm-q">Pregunta 4</p>
+              <h3>¿Coinciden los criterios de evaluación con el objetivo del curso de Inglés?</h3>
+            </div>
+          </div>
+          <p>El objetivo general implícito del curso de Inglés Básico de la UGB es que el estudiante desarrolle habilidades comunicativas básicas en inglés en un entorno virtual, considerando su contexto (trabajo, distancia, tiempo limitado). Los criterios de evaluación de la rúbrica sumativa —coherencia de conceptos, calidad de redacción, instrucciones claras, diseño de e-actividades, creatividad y aplicación de recursos visuales— evalúan la <strong>calidad del diseño instruccional</strong>, no directamente el aprendizaje del inglés.</p>
+          <p>Esto revela una distinción importante: la UGB evalúa la <strong>calidad del proceso de diseño</strong> (¿fue bien diseñado el curso?) más que el <strong>logro de aprendizaje del estudiante</strong> (¿aprendió inglés?). Esto es coherente con el momento de publicación del artículo —antes de la implementación— pero señala que la evaluación del impacto real en el aprendizaje aún estaba pendiente.</p>
+          <div class="post-box">
+            <p class="pb-label">Grado de coincidencia</p>
+            <ul>
+              <li><strong>Alta coincidencia:</strong> criterios de instrucciones claras y diseño de e-actividades alinean con el objetivo de facilitar el aprendizaje del idioma.</li>
+              <li><strong>Coincidencia parcial:</strong> coherencia conceptual y calidad de redacción evalúan la competencia del diseñador, no del aprendiz de inglés.</li>
+              <li><strong>Pendiente:</strong> la evaluación del logro real del objetivo de aprendizaje (¿adquirió el estudiante competencias básicas de inglés?) corresponde a la fase de implementación, que aún no se había ejecutado.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div><!-- /blog-posts -->
+
+      <aside class="blog-sidebar">
+        <div class="sidebar-widget">
+          <div class="sw-title">Equipo UGB · U. Galileo</div>
+          <div class="team-item">
+            <div class="ti-icon">🎯</div>
+            <div class="ti-text"><h5>Coordinadora (U. Galileo)</h5><p>Planificación, calendarización de procesos y evaluación formativa del DI</p></div>
+          </div>
+          <div class="team-item">
+            <div class="ti-icon">🌐</div>
+            <div class="ti-text"><h5>Experto en Inglés (UGB)</h5><p>Contenidos, competencias y actividades de la asignatura</p></div>
+          </div>
+          <div class="team-item">
+            <div class="ti-icon">🛠️</div>
+            <div class="ti-text"><h5>Diseñador Instruccional (U. Galileo)</h5><p>Revisión de plantillas, estrategias pedagógicas y videoconferencias</p></div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="sw-title">Herramientas utilizadas</div>
+          <div class="team-item">
+            <div class="ti-icon">📄</div>
+            <div class="ti-text"><h5>Google Docs</h5><p>Revisión colaborativa de plantillas en tiempo real</p></div>
+          </div>
+          <div class="team-item">
+            <div class="ti-icon">📹</div>
+            <div class="ti-text"><h5>Videoconferencias</h5><p>Reuniones semanales para seguimiento y estrategia</p></div>
+          </div>
+          <div class="team-item">
+            <div class="ti-icon">📦</div>
+            <div class="ti-text"><h5>Dropbox</h5><p>Entrega de versiones finales en Word</p></div>
+          </div>
+        </div>
+
+        <div class="verdict-box">
+          <p class="vb-label">Conclusión del análisis</p>
+          <div class="vb-title">ADDIE aplicado correctamente</div>
+          <p>La implementación del modelo ADDIE en la UGB fue pertinente, sistemática y documentada. Las adaptaciones realizadas (integración análisis-diseño) reflejan madurez instruccional, no errores. El proceso sentó bases sólidas para una implementación de calidad.</p>
+        </div>
+      </aside>
+    </div><!-- /blog-layout -->
+  </div>
+</section>
+
+
+<!-- ██ REFERENCIAS ██ -->
+<section id="referencias">
+  <div class="wrap">
+    <div class="eyebrow">Bibliografía · APA 7.ª edición</div>
+    <h2 class="sec-title">Referencias</h2>
+    <p class="sec-lead">Fuentes académicas que fundamentan los contenidos del Tema 3: Fases del Diseño Instruccional.</p>
+
+    <div class="refs-list">
+      <div class="ref-item">
+        <strong>Belloch, C.</strong> (2013). Diseño Instruccional. <em>Entornos Virtuales de Formación.</em> Universitat de València. <a href="http://www.uv.es/bellochc/pedagogia/EVA4.wiki" target="_blank">http://www.uv.es/bellochc/pedagogia/EVA4.wiki</a>
+      </div>
+      <div class="ref-item">
+        <strong>Sicán Chajon, S. I., Son Simón, L. E., & Fernández Morales, K.</strong> (2014). Implementación del modelo ADDIE en el diseño instruccional del Curso de Inglés Básico de la Universidad Gerardo Barrios de El Salvador. <em>V Congreso Internacional sobre Calidad y Accesibilidad de la Formación Virtual (CAFVIR 2014),</em> 378–385.
+      </div>
+      <div class="ref-item">
+        <strong>Berger, C., & Kam, R.</strong> (1996). Definitions of instructional design. Cited in Belloch, C. (2013). <em>Diseño Instruccional.</em> Universitat de València.
+      </div>
+      <div class="ref-item">
+        <strong>Morales Irizarry, C. R.</strong> (2007). La importancia del diseñador instruccional en el diseño de cursos en línea. <em>DIM: Didáctica, Innovación y Multimedia, 3.</em> <a href="http://www.raco.cat/index.php/DIM/article/viewArticle/56105/0" target="_blank">http://www.raco.cat/index.php/DIM</a>
+      </div>
+      <div class="ref-item">
+        <strong>Yukavetsky, G. J.</strong> (2003). La elaboración de un módulo instruccional. <em>Centro de Competencias de la Comunicación.</em> Universidad de Puerto Rico en Humacao. <a href="http://academic.uprm.edu/~marion/tecnofilia2011/files/1277/CCC_LEDUMI.pdf" target="_blank">uprm.edu [PDF]</a>
+      </div>
+      <div class="ref-item">
+        <strong>Dick, W., Carey, L., & Carey, J. O.</strong> (2005). <em>The systematic design of instruction</em> (6.ª ed.). Pearson Allyn & Bacon.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ FOOTER ██ -->
+<footer>
+  <p><strong>UTEL Universidad</strong> · Diseño de Programas de Enseñanza · Tema 3: Fases del Diseño Instruccional</p>
+  <p class="ft-sub"><a href="https://utel.edu.mx">utel.edu.mx</a> · Recurso educativo para nivel posgrado · Compatible con GitHub Pages</p>
+</footer>
+
+
+<!-- ██ JAVASCRIPT ██ -->
+<script>
+/* ─── Accordion de fases ADDIE ─── */
+function togglePhase(id) {
+  const block = document.getElementById('ph-' + id);
+  const isOpen = block.classList.contains('open');
+
+  // Close all
+  document.querySelectorAll('.phase-block').forEach(b => b.classList.remove('open'));
+
+  // Open clicked (if was closed)
+  if (!isOpen) block.classList.add('open');
+}
+
+/* ─── Scroll reveal ─── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.post-card').forEach(el => revealObserver.observe(el));
+
+/* ─── Actor cards stagger ─── */
+document.querySelectorAll('.actor-card').forEach((el, i) => {
+  el.style.animationDelay = `${i * 0.1}s`;
+});
+
+/* ─── Open first phase by default ─── */
+document.getElementById('ph-analisis').classList.add('open');
+</script>
+
+</body>
+</html>
