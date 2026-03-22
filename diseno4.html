@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 4: Diseño Instruccional y Educación a Distancia | UTEL</title>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@300;400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════ */
+:root {
+  --G:    #00b900;
+  --Gd:   #008f00;
+  --Gdd:  #005c00;
+  --Gxs:  #f2fdf2;
+  --Gsm:  #e0fae0;
+  --Gmd:  #b5edb5;
+  --ink:  #101810;
+  --ink2: #304030;
+  --ink3: #607060;
+  --bg:   #f8faf8;
+  --wh:   #ffffff;
+  --bdr:  #d5e8d5;
+  --fs:   'Bitter', serif;
+  --fb:   'Outfit', sans-serif;
+  --r:    14px;
+  --rl:   22px;
+  --s1:   0 2px 12px rgba(0,120,0,.07);
+  --s2:   0 8px 32px rgba(0,120,0,.11);
+  --s3:   0 24px 72px rgba(0,120,0,.14);
+  --ease: cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);color:var(--ink);background:var(--wh);line-height:1.75;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--G);border-radius:3px}
+a{color:var(--Gd)}
+
+/* ═══════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════ */
+.nav{
+  position:sticky;top:0;z-index:400;
+  height:62px;
+  background:rgba(255,255,255,.97);
+  border-bottom:2.5px solid var(--G);
+  backdrop-filter:blur(14px);
+  display:flex;align-items:center;
+  padding:0 2.5rem;gap:1.5rem;
+  box-shadow:0 1px 20px rgba(0,185,0,.07);
+}
+.nav-logo{display:flex;align-items:center;gap:.85rem;text-decoration:none;flex-shrink:0}
+.nl-mark{
+  width:42px;height:42px;border-radius:9px;
+  background:var(--G);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fs);font-weight:700;font-size:1rem;color:#fff;
+  box-shadow:0 3px 12px rgba(0,185,0,.3);
+}
+.nl-text strong{display:block;font-size:.85rem;font-weight:700;color:var(--Gd);line-height:1.2}
+.nl-text span{font-size:.66rem;color:var(--ink3);letter-spacing:.05em;text-transform:uppercase}
+.nav-links{display:flex;gap:.1rem;margin-left:auto}
+.nav-links a{
+  font-size:.76rem;font-weight:600;color:var(--ink3);
+  padding:.38rem .75rem;border-radius:7px;text-decoration:none;
+  transition:background .2s,color .2s;white-space:nowrap;
+}
+.nav-links a:hover{background:var(--Gsm);color:var(--Gd)}
+.nav-badge{
+  background:var(--G);color:#fff;
+  padding:.26rem .82rem;border-radius:999px;
+  font-size:.7rem;font-weight:700;margin-left:.4rem;
+}
+
+/* ═══════════════════════════════════════
+   HERO — split layout, warm editorial
+═══════════════════════════════════════ */
+.hero{
+  min-height:560px;
+  display:grid;grid-template-columns:1fr 420px;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+}
+/* subtle dot texture */
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(0,185,0,.12) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+/* green glow */
+.hero::after{
+  content:'';position:absolute;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,185,0,.18) 0%,transparent 68%);
+  top:-150px;right:300px;
+  pointer-events:none;
+  animation:hglow 9s ease-in-out infinite;
+}
+@keyframes hglow{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.1);opacity:.6}}
+
+.hero-left{
+  padding:5.5rem 3rem 5rem 5rem;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;z-index:2;
+}
+.htag{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:rgba(0,185,0,.14);border:1px solid rgba(0,185,0,.3);
+  border-radius:999px;padding:.35rem 1rem;
+  margin-bottom:1.75rem;width:fit-content;
+}
+.htag .dot{width:7px;height:7px;border-radius:50%;background:var(--G);animation:blink 2.2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.6)}}
+.htag span{font-size:.7rem;font-weight:700;color:var(--G);letter-spacing:.09em;text-transform:uppercase}
+
+.hero h1{
+  font-family:var(--fs);
+  font-size:clamp(2rem,3.8vw,3.2rem);
+  font-weight:700;color:#fff;line-height:1.12;
+  margin-bottom:1.25rem;
+}
+.hero h1 em{font-style:normal;color:var(--G)}
+.hero-desc{font-size:.97rem;color:rgba(255,255,255,.62);max-width:500px;margin-bottom:2.2rem;line-height:1.85}
+
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.8rem 1.6rem;border-radius:10px;
+  font-family:var(--fb);font-size:.84rem;font-weight:700;
+  text-decoration:none;cursor:pointer;border:none;
+  transition:transform .2s var(--ease),box-shadow .2s,background .2s;
+}
+.btn-g{background:var(--G);color:#fff;box-shadow:0 4px 20px rgba(0,185,0,.32)}
+.btn-g:hover{background:var(--Gd);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,185,0,.42)}
+.btn-o{background:transparent;border:1.5px solid rgba(255,255,255,.22);color:rgba(255,255,255,.82)}
+.btn-o:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
+
+/* right panel */
+.hero-right{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:3rem 2.5rem;
+  background:rgba(0,185,0,.07);
+  border-left:1px solid rgba(0,185,0,.18);
+}
+.topics-list{display:flex;flex-direction:column;gap:.7rem}
+.topic-item{
+  display:flex;align-items:center;gap:1rem;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;padding:1rem 1.25rem;
+  cursor:default;
+  transition:background .25s,border-color .25s,transform .25s;
+}
+.topic-item:hover{
+  background:rgba(0,185,0,.12);border-color:rgba(0,185,0,.35);transform:translateX(-4px)
+}
+.ti-num{
+  width:34px;height:34px;border-radius:8px;
+  background:var(--G);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:.82rem;flex-shrink:0;
+}
+.ti-text h4{font-size:.8rem;font-weight:700;color:rgba(255,255,255,.92)}
+.ti-text p{font-size:.68rem;color:rgba(255,255,255,.48);margin-top:.08rem}
+.hero-right h3{
+  font-family:var(--fs);font-size:1rem;font-weight:600;
+  color:rgba(255,255,255,.55);margin-bottom:1.1rem;
+  letter-spacing:.04em;text-transform:uppercase;font-size:.72rem;
+}
+
+/* ═══════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════ */
+.wrap{max-width:1120px;margin:0 auto;padding:0 2rem}
+section{padding:5.5rem 0}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--Gsm);color:var(--Gd);
+  border-radius:7px;padding:.28rem .85rem;
+  font-size:.68rem;font-weight:800;
+  letter-spacing:.09em;text-transform:uppercase;
+  margin-bottom:.9rem;
+}
+.sec-h{
+  font-family:var(--fs);
+  font-size:clamp(1.75rem,2.8vw,2.4rem);
+  font-weight:700;color:var(--ink);
+  line-height:1.2;margin-bottom:.9rem;
+}
+.sec-lead{
+  font-size:.97rem;color:var(--ink3);
+  max-width:720px;margin-bottom:3.5rem;line-height:1.85;
+}
+
+/* ═══════════════════════════════════════
+   TEMARIO — 5 temas
+═══════════════════════════════════════ */
+#temario{background:var(--bg)}
+
+.tema-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.4rem;
+  margin-bottom:1.4rem;
+}
+.tema-grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.4rem;
+}
+.tema-card{
+  background:var(--wh);border-radius:var(--rl);
+  padding:2rem;
+  border-top:4px solid var(--G);
+  box-shadow:var(--s1);
+  transition:transform .25s var(--ease),box-shadow .25s;
+  display:flex;flex-direction:column;
+}
+.tema-card:hover{transform:translateY(-6px);box-shadow:var(--s2)}
+.tc-num{
+  width:46px;height:46px;border-radius:12px;
+  background:var(--Gsm);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fs);font-size:1.2rem;font-weight:700;color:var(--Gd);
+  margin-bottom:1.1rem;
+}
+.tema-card h3{
+  font-family:var(--fs);font-size:1.05rem;font-weight:700;
+  color:var(--ink);margin-bottom:.65rem;line-height:1.35;
+}
+.tema-card p{font-size:.87rem;color:var(--ink3);flex:1}
+.tc-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1rem}
+.tctag{
+  background:var(--Gsm);color:var(--Gdd);
+  border-radius:999px;padding:.2rem .7rem;
+  font-size:.7rem;font-weight:700;
+}
+
+/* ═══════════════════════════════════════
+   PRINCIPIOS DEL APRENDIZAJE (Tema 4)
+═══════════════════════════════════════ */
+#principios{background:var(--wh)}
+
+.princ-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;
+}
+.princ-card{
+  background:var(--bg);border-radius:var(--r);
+  padding:1.75rem 1.5rem;text-align:center;
+  border-bottom:3px solid var(--G);
+  transition:transform .25s,box-shadow .25s;
+}
+.princ-card:hover{transform:translateY(-5px);box-shadow:var(--s2)}
+.pc-icon{
+  width:60px;height:60px;border-radius:50%;
+  background:var(--Gsm);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.7rem;margin:0 auto 1rem;
+}
+.princ-card h4{
+  font-family:var(--fs);font-size:1rem;font-weight:700;
+  color:var(--ink);margin-bottom:.5rem;
+}
+.princ-card p{font-size:.82rem;color:var(--ink3)}
+
+/* ═══════════════════════════════════════
+   COMPARATIVA PRESENCIAL / VIRTUAL
+═══════════════════════════════════════ */
+#comparativa{background:var(--bg)}
+
+.cmp-wrap{
+  display:grid;grid-template-columns:1fr 80px 1fr;
+  gap:0;align-items:start;
+}
+.cmp-col{
+  background:var(--wh);border-radius:var(--rl);
+  overflow:hidden;box-shadow:var(--s1);
+}
+.cmp-head{
+  padding:1.5rem 1.75rem;
+  background:var(--G);color:#fff;
+  font-family:var(--fs);font-size:1.05rem;font-weight:700;
+}
+.cmp-head.alt{background:var(--Gdd)}
+.cmp-item{
+  display:flex;align-items:flex-start;gap:.85rem;
+  padding:1rem 1.75rem;border-bottom:1px solid var(--bdr);
+}
+.cmp-item:last-child{border-bottom:none}
+.ci-dot{width:10px;height:10px;border-radius:50%;background:var(--G);flex-shrink:0;margin-top:.4rem}
+.cmp-item p{font-size:.85rem;color:var(--ink2)}
+
+.cmp-mid{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:2rem .5rem;gap:1.5rem;
+}
+.cmp-vs{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--G);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:.85rem;
+  box-shadow:0 4px 16px rgba(0,185,0,.3);
+}
+.cmp-arrow{font-size:1.4rem;color:var(--G)}
+
+/* ═══════════════════════════════════════
+   SMARTPHONES — viable?
+═══════════════════════════════════════ */
+#smartphones{background:var(--wh)}
+
+.phone-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.phone-text h3{
+  font-family:var(--fs);font-size:1.35rem;font-weight:700;
+  color:var(--ink);margin-bottom:1rem;
+}
+.phone-text p{font-size:.9rem;color:var(--ink3);line-height:1.85;margin-bottom:.9rem}
+
+.phone-dims{display:flex;flex-direction:column;gap:.9rem}
+.pd-item{
+  background:var(--bg);border-radius:var(--r);
+  border-left:4px solid var(--G);
+  padding:1.25rem 1.5rem;
+}
+.pd-item h5{
+  font-size:.78rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--Gd);margin-bottom:.4rem;
+}
+.pd-item p{font-size:.85rem;color:var(--ink3)}
+
+/* Case study highlight box */
+.case-box{
+  background:linear-gradient(135deg,var(--Gsm),var(--wh));
+  border:1.5px solid var(--Gmd);
+  border-radius:var(--rl);
+  padding:2rem 2.25rem;
+  margin-top:2.5rem;
+  position:relative;overflow:hidden;
+}
+.case-box::before{
+  content:'📱';
+  position:absolute;right:1.5rem;top:1rem;
+  font-size:4rem;opacity:.1;pointer-events:none;
+}
+.cb-label{
+  font-size:.68rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--Gd);margin-bottom:.6rem;
+}
+.case-box h4{
+  font-family:var(--fs);font-size:1.15rem;font-weight:700;
+  color:var(--ink);margin-bottom:.9rem;
+}
+.case-box p{font-size:.88rem;color:var(--ink2);line-height:1.85;margin-bottom:.8rem}
+.case-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem}
+.cc{
+  background:var(--Gmd);color:var(--Gdd);
+  border-radius:999px;padding:.22rem .8rem;
+  font-size:.72rem;font-weight:700;
+}
+
+/* ADDIE steps */
+.addie-steps{display:flex;flex-direction:column;gap:.75rem;margin-top:.75rem}
+.as-row{
+  display:grid;grid-template-columns:40px 1fr;gap:1rem;align-items:start;
+  background:var(--wh);border-radius:10px;padding:.85rem 1.1rem;
+  box-shadow:var(--s1);
+  transition:transform .2s,box-shadow .2s;
+}
+.as-row:hover{transform:translateX(4px);box-shadow:var(--s2)}
+.as-letter{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--G);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fs);font-size:1.1rem;font-weight:700;
+  flex-shrink:0;
+}
+.as-text h5{font-size:.8rem;font-weight:700;color:var(--ink);margin-bottom:.25rem}
+.as-text p{font-size:.78rem;color:var(--ink3)}
+
+/* ═══════════════════════════════════════
+   BLOG — 3 preguntas
+═══════════════════════════════════════ */
+#blog{background:var(--ink)}
+#blog .sec-h{color:#fff}
+#blog .sec-lead{color:rgba(255,255,255,.5)}
+#blog .eyebrow{background:rgba(0,185,0,.15);color:var(--G)}
+
+.blog-layout{display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:start}
+.blog-posts{display:flex;flex-direction:column;gap:2rem}
+
+.post{
+  background:rgba(255,255,255,.05);
+  border:1.5px solid rgba(255,255,255,.1);
+  border-radius:var(--rl);padding:2.25rem;
+  backdrop-filter:blur(6px);
+  transition:background .25s,border-color .25s,transform .25s;
+  opacity:0;transform:translateY(18px);
+}
+.post.visible{opacity:1;transform:translateY(0);transition:opacity .5s ease,transform .5s ease}
+.post:hover{background:rgba(255,255,255,.08);border-color:rgba(0,185,0,.3);transform:translateY(-3px)}
+
+.ph{display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem}
+.ph-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:var(--G);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;
+}
+.ph-meta .pmq{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--G)}
+.ph-meta h3{font-family:var(--fs);font-size:1.1rem;font-weight:700;color:#fff;line-height:1.3}
+
+.post p{font-size:.87rem;color:rgba(255,255,255,.68);line-height:1.85}
+.post p+p{margin-top:.85rem}
+
+.pbox{
+  background:rgba(0,185,0,.1);border:1px solid rgba(0,185,0,.25);
+  border-radius:10px;padding:1.25rem 1.5rem;margin-top:1.35rem;
+}
+.pbox .pbl{font-size:.68rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--G);margin-bottom:.5rem}
+.pbox ul{padding-left:1.1rem}
+.pbox li{font-size:.82rem;color:rgba(255,255,255,.68);margin-bottom:.38rem}
+
+/* sidebar */
+.bsidebar{position:sticky;top:78px}
+.bw{
+  background:rgba(255,255,255,.06);
+  border:1.5px solid rgba(255,255,255,.1);
+  border-radius:var(--rl);padding:1.75rem;
+  margin-bottom:1.5rem;
+}
+.bw-title{
+  font-family:var(--fs);font-size:.98rem;font-weight:700;color:#fff;
+  margin-bottom:1rem;
+  border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:.65rem;
+}
+.bitem{display:flex;align-items:flex-start;gap:.8rem;margin-bottom:.9rem}
+.bi-icon{
+  width:34px;height:34px;border-radius:8px;
+  background:rgba(0,185,0,.2);color:var(--G);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;flex-shrink:0;
+}
+.bi-t h5{font-size:.8rem;font-weight:700;color:rgba(255,255,255,.9);margin-bottom:.1rem}
+.bi-t p{font-size:.73rem;color:rgba(255,255,255,.5)}
+
+.verdict{
+  background:linear-gradient(135deg,var(--G),var(--Gd));
+  border-radius:var(--rl);padding:1.75rem;
+}
+.vl{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.4rem}
+.vt{font-family:var(--fs);font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.65rem}
+.verdict p{font-size:.83rem;color:rgba(255,255,255,.88);line-height:1.75}
+
+/* ═══════════════════════════════════════
+   REFERENCES
+═══════════════════════════════════════ */
+#referencias{background:var(--bg)}
+.refs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.ref-card{
+  background:var(--wh);border-radius:var(--r);
+  border-left:4px solid var(--G);
+  padding:1.4rem 1.6rem;box-shadow:var(--s1);
+  font-size:.84rem;color:var(--ink2);line-height:1.85;
+  transition:transform .2s,box-shadow .2s;
+}
+.ref-card:hover{transform:translateY(-2px);box-shadow:var(--s2)}
+.ref-card strong{color:var(--ink)}
+.ref-card em{color:var(--ink3)}
+.ref-card a{word-break:break-all;font-size:.77rem;color:var(--Gd)}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer{
+  background:var(--G);color:#fff;
+  text-align:center;padding:2.1rem;
+  font-size:.82rem;font-weight:600;
+}
+footer a{color:rgba(255,255,255,.8);text-decoration:none}
+footer a:hover{color:#fff}
+.ft-sub{margin-top:.4rem;font-weight:400;font-size:.73rem;opacity:.8}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:3.5rem 1.5rem}
+  .tema-grid{grid-template-columns:1fr}
+  .tema-grid-2{grid-template-columns:1fr}
+  .princ-grid{grid-template-columns:1fr 1fr}
+  .cmp-wrap{grid-template-columns:1fr}
+  .cmp-mid{display:none}
+  .phone-layout{grid-template-columns:1fr}
+  .blog-layout{grid-template-columns:1fr}
+  .bsidebar{position:static}
+  .refs-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .wrap{padding:0 1.25rem}
+  section{padding:3.5rem 0}
+}
+</style>
+</head>
+<body>
+
+<!-- ██ NAVBAR ██ -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <div class="nl-mark">UTEL</div>
+    <div class="nl-text">
+      <strong>UTEL Universidad</strong>
+      <span>Diseño de Programas de Enseñanza</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#temario">Temario</a>
+    <a href="#principios">Principios</a>
+    <a href="#comparativa">Presencial vs. Virtual</a>
+    <a href="#smartphones">Smartphones</a>
+    <a href="#blog">Blog · Caso</a>
+    <a href="#referencias">Referencias</a>
+    <span class="nav-badge">Tema 4</span>
+  </div>
+</nav>
+
+
+<!-- ██ HERO ██ -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="htag"><div class="dot"></div><span>Tema 4 · Diseño de Programas de Enseñanza</span></div>
+    <h1>Diseño Instruccional<br>y <em>Educación a Distancia</em></h1>
+    <p class="hero-desc">Explora la relación entre el DI y la educación virtual, analiza las particularidades del aprendizaje en línea y aplica el modelo ADDIE al desarrollo de contenidos educativos digitales para dispositivos móviles.</p>
+    <div class="hero-btns">
+      <a href="#temario" class="btn btn-g">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Explorar temario
+      </a>
+      <a href="#blog" class="btn btn-o">Caso: Smartphones</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <h3>Contenidos del curso</h3>
+    <div class="topics-list">
+      <div class="topic-item">
+        <div class="ti-num">1</div>
+        <div class="ti-text"><h4>El DI y el aprendizaje</h4><p>Concepto, fundamentos y teorías</p></div>
+      </div>
+      <div class="topic-item">
+        <div class="ti-num">2</div>
+        <div class="ti-text"><h4>Modelos instruccionales</h4><p>Gagné, ASSURE, Dick & Carey, ADDIE</p></div>
+      </div>
+      <div class="topic-item">
+        <div class="ti-num">3</div>
+        <div class="ti-text"><h4>Fases del DI</h4><p>Modelo ADDIE aplicado · Caso UGB</p></div>
+      </div>
+      <div class="topic-item" style="background:rgba(0,185,0,.14);border-color:rgba(0,185,0,.35)">
+        <div class="ti-num">4</div>
+        <div class="ti-text"><h4>DI y educación a distancia I</h4><p>TIC, aprendizaje virtual, m-learning ← Aquí</p></div>
+      </div>
+      <div class="topic-item">
+        <div class="ti-num">5</div>
+        <div class="ti-text"><h4>DI y educación a distancia II</h4><p>Modelos, entornos y práctica avanzada</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ██ TEMARIO ██ -->
+<section id="temario">
+  <div class="wrap">
+    <div class="eyebrow">Temario completo del curso</div>
+    <h2 class="sec-h">Los cinco temas de Diseño de Programas de Enseñanza</h2>
+    <p class="sec-lead">El curso integra los fundamentos teóricos del Diseño Instruccional con su aplicación práctica en entornos virtuales y de movilidad, siguiendo un recorrido que va de lo conceptual a lo aplicado.</p>
+
+    <div class="tema-grid">
+      <!-- T1 -->
+      <div class="tema-card">
+        <div class="tc-num">1</div>
+        <h3>El DI y su relación con el aprendizaje</h3>
+        <p>Define el DI como planificación sistemática de recursos para que el aprendizaje ocurra. Analiza las teorías descriptivas (cómo se aprende) y prescriptivas (cómo enseñar), así como los paradigmas conductista, cognitivista y constructivista y su relación con el perfil del estudiante.</p>
+        <div class="tc-tags">
+          <span class="tctag">Bruner (1969)</span>
+          <span class="tctag">Reigeluth</span>
+          <span class="tctag">Constructivismo</span>
+        </div>
+      </div>
+      <!-- T2 -->
+      <div class="tema-card">
+        <div class="tc-num">2</div>
+        <h3>Modelos para el Diseño Instruccional</h3>
+        <p>Clasifica los modelos instruccionales según Gustafson & Branch (2002): orientados al salón de clases, al producto y al sistema. Describe los modelos Gagné, Gagné & Briggs, ASSURE, Dick & Carey, Jonassen y ADDIE, con sus fases, ventajas y limitaciones.</p>
+        <div class="tc-tags">
+          <span class="tctag">ADDIE</span>
+          <span class="tctag">ASSURE</span>
+          <span class="tctag">Jonassen</span>
+        </div>
+      </div>
+      <!-- T3 -->
+      <div class="tema-card">
+        <div class="tc-num">3</div>
+        <h3>Fases del Diseño Instruccional</h3>
+        <p>Profundiza en las cinco fases del modelo ADDIE (Análisis, Diseño, Desarrollo, Implementación, Evaluación) como proceso sistemático y documentado. Caso práctico: implementación en el Curso de Inglés Básico de la Universidad Gerardo Barrios de El Salvador.</p>
+        <div class="tc-tags">
+          <span class="tctag">Caso UGB</span>
+          <span class="tctag">Rúbricas</span>
+          <span class="tctag">Google Docs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tema-grid-2">
+      <!-- T4 — DESTACADO -->
+      <div class="tema-card" style="border-color:var(--Gdd);border-top-width:6px">
+        <div class="tc-num" style="background:var(--Gdd);color:#fff;font-family:var(--fs);display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;margin-bottom:1.1rem;font-size:1.2rem;font-weight:700">4</div>
+        <h3>Diseño Instruccional y Educación a Distancia I</h3>
+        <p>Examina las diferencias entre el DI para educación presencial y virtual. Aborda los cuatro principios del aprendizaje contemporáneo (personalizado, social, diferenciado y conectado). Analiza el potencial pedagógico de los teléfonos inteligentes como herramienta de aprendizaje ubicuo. Caso: Domínguez, Organista & López (2018) — contenidos educativos digitales para smartphones con modelo ADDIE.</p>
+        <div class="tc-tags">
+          <span class="tctag">← TEMA ACTUAL</span>
+          <span class="tctag">M-learning</span>
+          <span class="tctag">Smartphones</span>
+          <span class="tctag">TIC</span>
+        </div>
+      </div>
+      <!-- T5 -->
+      <div class="tema-card">
+        <div class="tc-num">5</div>
+        <h3>Diseño Instruccional y Educación a Distancia II</h3>
+        <p>Profundiza en los modelos de DI específicamente diseñados para entornos virtuales y a distancia. Explora los principios socioculturales y situados del aprendizaje en red (Díaz, 2005), el diseño colaborativo basado en proyectos con TIC (Badia & García, 2006) y los modelos para educación a distancia (Correa & Castro, 2001; Martínez, 2009).</p>
+        <div class="tc-tags">
+          <span class="tctag">Díaz (2005)</span>
+          <span class="tctag">Badia & García</span>
+          <span class="tctag">Diseño colaborativo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ 4 PRINCIPIOS DEL APRENDIZAJE ██ -->
+<section id="principios">
+  <div class="wrap">
+    <div class="eyebrow">Tema 4 · Fundamentos</div>
+    <h2 class="sec-h">El aprendizaje contemporáneo: cuatro principios clave</h2>
+    <p class="sec-lead">Lo que sabemos sobre cómo aprenden las personas se ha transformado radicalmente en los últimos 20 años. El DI para entornos virtuales debe integrar estos cuatro principios como base del diseño de cualquier experiencia educativa digital.</p>
+
+    <div class="princ-grid">
+      <div class="princ-card">
+        <div class="pc-icon">👤</div>
+        <h4>Personalizado</h4>
+        <p>Cada persona aprende de manera diferente. No existen dos individuos que aprendan igual, ni experiencias previas similares llevan a los mismos aprendizajes.</p>
+      </div>
+      <div class="princ-card">
+        <div class="pc-icon">🤝</div>
+        <h4>Social</h4>
+        <p>La colaboración es un pilar para comprender nuevos conocimientos, ya sea entre personas o entre recursos e individuos en entornos digitales.</p>
+      </div>
+      <div class="princ-card">
+        <div class="pc-icon">🎯</div>
+        <h4>Diferenciado</h4>
+        <p>Cada estudiante requiere distintos niveles de desafío. El ritmo, el contenido y el contexto determinan cómo y qué se aprende en cada caso.</p>
+      </div>
+      <div class="princ-card">
+        <div class="pc-icon">🔗</div>
+        <h4>Conectado</h4>
+        <p>El contacto con contextos reales a través de la interacción permite establecer conexiones más significativas entre el conocimiento teórico y la realidad.</p>
+      </div>
+    </div>
+
+    <!-- Quote Londoño -->
+    <div style="background:var(--ink);border-radius:var(--rl);padding:2.5rem 3rem;margin-top:3rem;position:relative;overflow:hidden">
+      <div style="position:absolute;right:2rem;top:1rem;font-size:7rem;font-family:var(--fs);color:rgba(0,185,0,.12);line-height:1;pointer-events:none">"</div>
+      <p style="font-family:var(--fs);font-size:1.15rem;color:#fff;line-height:1.8;font-style:italic;position:relative;z-index:1;max-width:800px">El diseño instruccional en la educación virtual debe ir más allá de la presentación de contenidos; debe considerar las características del aprendizaje en línea, la interacción, la comunicación y la colaboración entre los actores del proceso educativo.</p>
+      <cite style="display:block;margin-top:.85rem;font-size:.8rem;color:var(--G);font-style:normal;font-weight:700;position:relative;z-index:1">— Londoño (2011). El diseño instruccional en la educación virtual.</cite>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ PRESENCIAL VS VIRTUAL ██ -->
+<section id="comparativa">
+  <div class="wrap">
+    <div class="eyebrow">Análisis comparativo</div>
+    <h2 class="sec-h">DI Presencial vs. DI Virtual: diferencias clave</h2>
+    <p class="sec-lead">La principal diferencia no reside en los contenidos, sino en el diseño de la interacción, la mediación tecnológica y la gestión de la autonomía del aprendiz. Ambas modalidades tienen virtudes que un DI de calidad debe aprovechar.</p>
+
+    <div class="cmp-wrap">
+      <div class="cmp-col">
+        <div class="cmp-head">🏫 Educación Presencial</div>
+        <div class="cmp-item"><div class="ci-dot"></div><p><strong>Interacción cara a cara:</strong> el docente es el principal recurso de interacción y puede adaptar la instrucción en tiempo real según el contexto del aula.</p></div>
+        <div class="cmp-item"><div class="ci-dot"></div><p><strong>Mediación docente directa:</strong> el docente observa, escucha y responde de manera inmediata a las necesidades del estudiante.</p></div>
+        <div class="cmp-item"><div class="ci-dot"></div><p><strong>Espacio-tiempo fijo:</strong> el aprendizaje ocurre en un lugar y horario determinados, lo que limita la flexibilidad pero facilita la cohesión grupal.</p></div>
+        <div class="cmp-item"><div class="ci-dot"></div><p><strong>Recursos analógicos y digitales:</strong> el DI integra materiales impresos, pizarrón, presentaciones y TIC como apoyo, no como medio principal.</p></div>
+        <div class="cmp-item"><div class="ci-dot"></div><p><strong>Evaluación observable:</strong> el docente puede evaluar en tiempo real el nivel de comprensión mediante preguntas, gestos y participación espontánea.</p></div>
+      </div>
+
+      <div class="cmp-mid">
+        <div class="cmp-vs">VS</div>
+        <div class="cmp-arrow">↕</div>
+        <div style="width:2px;flex:1;background:linear-gradient(180deg,var(--G),transparent)"></div>
+      </div>
+
+      <div class="cmp-col">
+        <div class="cmp-head alt">💻 Educación Virtual / a Distancia</div>
+        <div class="cmp-item"><div class="ci-dot"></div><p><strong>Mediación tecnológica:</strong> las TIC son el recurso central de interacción. El DI debe diseñar instrucciones claras que sustituyan la presencia docente directa.</p></div>
+        <div class="cmp-item"><div class="ci-dot"></div><p><strong>Comunicación asincrónica y sincrónica:</strong> el diseño debe contemplar actividades que funcionen en ambos tiempos (foros, videoconferencias, chat, etc.).</p></div>
+        <div class="cmp-item"><div class="ci-dot"></div><p><strong>Flexibilidad espacio-temporal:</strong> el estudiante aprende en cualquier momento y lugar; el DI debe diseñar materiales para el autoestudio y la autorregulación.</p></div>
+        <div class="cmp-item"><div class="ci-dot"></div><p><strong>Recursos digitales multimodales:</strong> videos, animaciones, podcasts, LMS, objetos de aprendizaje y contenidos para dispositivos móviles son el medio principal.</p></div>
+        <div class="cmp-item"><div class="ci-dot"></div><p><strong>Evaluación mediada:</strong> rúbricas, foros, portafolios, cuestionarios y ejercicios en plataforma permiten evaluar el aprendizaje a distancia de manera sistemática.</p></div>
+      </div>
+    </div>
+
+    <!-- síntesis -->
+    <div style="background:var(--Gsm);border:1.5px solid var(--Gmd);border-radius:var(--rl);padding:2rem 2.5rem;margin-top:2.5rem">
+      <p style="font-size:.9rem;color:var(--ink2);line-height:1.85"><strong>Síntesis:</strong> Según Londoño (2011), el DI para educación virtual debe atender cuatro dimensiones ausentes o distintas en el modelo presencial: el diseño de la <em>interacción</em> entre participantes y recursos, el diseño de la <em>comunicación</em> asincrónica, el diseño de actividades <em>colaborativas</em> mediadas por tecnología, y la incorporación de estrategias de <em>autorregulación</em> que compensen la ausencia de presencia docente inmediata. El DI de calidad integra las virtudes de ambas modalidades.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ SMARTPHONES: VIABLE? ██ -->
+<section id="smartphones">
+  <div class="wrap">
+    <div class="eyebrow">Caso de Estudio · Domínguez et al. (2018)</div>
+    <h2 class="sec-h">¿Es viable el uso de smartphones para aprendizaje?</h2>
+    <p class="sec-lead">El auge de los teléfonos inteligentes entre la población estudiantil en México abre un potencial pedagógico que, en muchos casos, permanece subutilizado. El estudio de Domínguez, Organista & López (2018) demuestra que sí es viable, con condiciones específicas de diseño.</p>
+
+    <div class="phone-layout">
+      <div class="phone-text">
+        <h3>Tres dimensiones del diseño para móviles</h3>
+        <p>Contreras, Herrera & Ramírez (2009); Elias (2011) y Wang & Shen (2011) identifican tres dimensiones esenciales que el DI debe atender para desarrollar contenidos educativos digitales de calidad para dispositivos portátiles:</p>
+        <div class="phone-dims">
+          <div class="pd-item">
+            <h5>🎓 Dimensión pedagógica</h5>
+            <p>Teoría del aprendizaje multimedia (Mayer, 2011): las personas aprenden mejor con palabras e imágenes combinadas. Uso adecuado de audio, texto y animaciones para evitar sobrecarga cognitiva. Comunicación personalizada entre estudiante e instructor.</p>
+          </div>
+          <div class="pd-item">
+            <h5>🎨 Dimensión de diseño</h5>
+            <p>Clasificación de materiales audiovisuales; influencia de la estética en la disposición de aprendizaje (David & Glore, 2010). Elementos clave: resolución del video, tipografía legible, colores contrastantes, imágenes de apoyo y duración adecuada.</p>
+          </div>
+          <div class="pd-item">
+            <h5>⚙️ Dimensión tecnológica</h5>
+            <p>Diseñar para los dispositivos más utilizados considerando variedad de sistemas operativos, acceso y velocidad de internet, pantallas reducidas, batería y memoria limitada. Codificación en formato H.264/MPEG-4 AVC para videos en internet.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case box -->
+      <div>
+        <div class="case-box">
+          <p class="cb-label">Caso: Domínguez, Organista & López (2018)</p>
+          <h4>ADDIE para contenidos de Estadística en smartphones</h4>
+          <p>Estudio con 17 estudiantes de posgrado en Estadística Inferencial. Se desarrollaron 3 contenidos educativos digitales sobre estadísticos de orden (prueba de Wilcoxon) para consulta en teléfonos inteligentes. Metodología: Investigación y Desarrollo en dos etapas.</p>
+          <div class="addie-steps">
+            <div class="as-row">
+              <div class="as-letter">A</div>
+              <div class="as-text"><h5>Análisis</h5><p>Selección de temas con base en necesidades del docente; análisis del contenido, elementos gráficos necesarios y forma de presentación.</p></div>
+            </div>
+            <div class="as-row">
+              <div class="as-letter">D</div>
+              <div class="as-text"><h5>Diseño</h5><p>Definición de objetivos, guiones de audio, storyboards, paleta de colores para pantalla (oscuros con texto blanco) y tipografía Microsoft Himalaya.</p></div>
+            </div>
+            <div class="as-row">
+              <div class="as-letter">D</div>
+              <div class="as-text"><h5>Desarrollo</h5><p>Producción con Adobe Creative Cloud (Illustrator, After Effects, Audition, Premiere Pro, Media Encoder). Video final: 3:23 min, 16.2 Mb.</p></div>
+            </div>
+            <div class="as-row">
+              <div class="as-letter">I</div>
+              <div class="as-text"><h5>Implementación</h5><p>Pilotaje en junio 2017. Distribución por Google Classroom y WhatsApp. 14 de 17 estudiantes accedieron desde su smartphone.</p></div>
+            </div>
+            <div class="as-row">
+              <div class="as-letter">E</div>
+              <div class="as-text"><h5>Evaluación</h5><p>8 preguntas abiertas + ejercicio de aplicación. Resultados: "diseño agradable" (13), "falta explicar" (13), "apoyo pedagógico" (7), "claro" (10).</p></div>
+            </div>
+          </div>
+          <div class="case-chips" style="margin-top:1.25rem">
+            <span class="cc">Posgrado Estadística</span>
+            <span class="cc">17 estudiantes</span>
+            <span class="cc">Google Classroom</span>
+            <span class="cc">WhatsApp</span>
+            <span class="cc">Adobe CC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ BLOG ACADÉMICO ██ -->
+<section id="blog">
+  <div class="wrap">
+    <div class="eyebrow">Blog Académico · Guía T4</div>
+    <h2 class="sec-h">Resolución del caso: Diseño instruccional para smartphones</h2>
+    <p class="sec-lead">Respuestas fundamentadas a las tres preguntas de reflexión de la Guía de análisis del caso (Tema 4, UTEL), con base en Domínguez et al. (2018) y los marcos teóricos del curso.</p>
+
+    <div class="blog-layout">
+      <div class="blog-posts">
+
+        <!-- P1 -->
+        <article class="post">
+          <div class="ph">
+            <div class="ph-icon">⚖️</div>
+            <div class="ph-meta">
+              <p class="pmq">Pregunta 1</p>
+              <h3>¿Cuál es la principal diferencia entre un DI presencial y uno en línea?</h3>
+            </div>
+          </div>
+          <p>La diferencia más sustancial no radica en los contenidos a enseñar, sino en el <strong>diseño de la interacción y la mediación</strong>. En la educación presencial, el docente puede ajustar la instrucción en tiempo real a través del contacto directo —leer el lenguaje corporal del estudiante, responder preguntas espontáneas, modular el ritmo de la clase según el nivel de comprensión perceptible—. La interacción es sincrónica, continua y naturalizada.</p>
+          <p>En la educación en línea, el DI debe anticipar, <em>diseñar y codificar</em> todos estos momentos de interacción que en el aula ocurren de manera espontánea. Las instrucciones deben ser autocontenidas y explícitas, los materiales deben funcionar sin la presencia del docente, y las actividades de evaluación deben poder realizarse de forma asincrónica. Londoño (2011) señala que el DI virtual debe diseñar la interacción, la comunicación, la colaboración y la autorregulación como componentes explícitos del curso.</p>
+          <p>Dicho de otro modo: en la educación presencial, el docente <em>es</em> el diseño instruccional en acción; en la educación virtual, el DI debe capturar y estructurar toda esa inteligencia pedagógica en materiales, actividades y entornos que el estudiante pueda navegar de forma autónoma.</p>
+          <div class="pbox">
+            <p class="pbl">Diferencias clave</p>
+            <ul>
+              <li><strong>Interacción:</strong> cara a cara y espontánea vs. diseñada y mediada tecnológicamente</li>
+              <li><strong>Tiempo:</strong> sincrónico y fijo vs. asincrónico y flexible</li>
+              <li><strong>Materiales:</strong> apoyo al docente vs. sustitución de la presencia docente</li>
+              <li><strong>Autonomía:</strong> baja exigencia de autorregulación vs. alta exigencia de autodirección</li>
+              <li><strong>Evaluación:</strong> observable en tiempo real vs. diseñada con rúbricas e instrumentos específicos</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- P2 -->
+        <article class="post">
+          <div class="ph">
+            <div class="ph-icon">📱</div>
+            <div class="ph-meta">
+              <p class="pmq">Pregunta 2</p>
+              <h3>¿Es viable el uso de teléfonos inteligentes para fines educativos hoy?</h3>
+            </div>
+          </div>
+          <p>La respuesta es <strong>sí, con condiciones de diseño específicas</strong>. Domínguez et al. (2018) demuestran que los contenidos educativos digitales para smartphones pueden funcionar como herramienta pedagógica de apoyo a cursos formales, siempre que se atiendan simultáneamente las dimensiones pedagógica, de diseño y tecnológica.</p>
+          <p>Los datos del estudio son reveladores: 14 de 17 estudiantes (82%) accedieron al material desde su teléfono inteligente, y 12 de 16 participantes evaluados consideraron que podrían resolver un ejercicio similar con apoyo del video. La descripción más frecuente fue "diseño agradable" (13 menciones), lo que confirma que la estética del material incide en la disposición para aprender (David & Glore, 2010).</p>
+          <p>No obstante, el estudio también identificó <strong>condiciones para que la viabilidad sea efectiva</strong>: (1) los estudiantes deben tener un primer acercamiento al vocabulario técnico antes del material audiovisual (Mayer & Moreno, 2002); (2) las animaciones deben ser moderadas, claras y con tempo adecuado; (3) el diseño debe ser adaptable a diferentes dispositivos y sistemas operativos; (4) la distribución requiere canales específicos para e-learning —no solo WhatsApp— para garantizar el contexto educativo adecuado.</p>
+          <div class="pbox">
+            <p class="pbl">Condiciones para la viabilidad educativa del smartphone</p>
+            <ul>
+              <li>Diseño pedagógicamente fundamentado (Mayer, 2011): palabras + imágenes</li>
+              <li>Duración breve y contenido específico por video</li>
+              <li>Tipografía legible y contraste adecuado para pantalla pequeña</li>
+              <li>Activación de conocimiento previo antes del material audiovisual</li>
+              <li>Animaciones moderadas y tempo adecuado al contenido</li>
+              <li>Distribución a través de plataformas educativas (LMS), no solo mensajería</li>
+              <li>Diseño responsive para distintos SO, pantallas y velocidades de internet</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- P3 -->
+        <article class="post">
+          <div class="ph">
+            <div class="ph-icon">🔬</div>
+            <div class="ph-meta">
+              <p class="pmq">Pregunta 3</p>
+              <h3>¿Cómo se implementó el modelo ADDIE en el caso de Domínguez et al. (2018)?</h3>
+            </div>
+          </div>
+          <p>El estudio implementó el modelo ADDIE de manera rigurosa y coherente con su definición teórica, con algunas adaptaciones metodológicas propias del contexto de investigación y desarrollo. A continuación se describe cada fase tal como se reporta en el artículo:</p>
+          <p><strong>Análisis:</strong> Los temas se seleccionaron con base en las necesidades expresadas por el docente del curso de Estadística Inferencial. El equipo delimitó la forma de presentación, los conceptos clave, la explicación y resolución de problemas, y los elementos gráficos o audiovisuales necesarios para apoyar la comprensión del tema de estadísticos de orden.</p>
+          <p><strong>Diseño:</strong> Se definieron los objetivos de aprendizaje y se organizó el contenido proporcionado por el docente. La estructura incluyó: presentación del tema, utilidad, resolución de un problema, resultados y conclusiones. Se elaboraron guiones de audio y storyboards. Se seleccionó la paleta de colores (fondos oscuros con texto blanco para contraste en pantalla) y la tipografía (Microsoft Himalaya para texto, Arial para números).</p>
+          <p><strong>Desarrollo:</strong> Se utilizó Adobe Creative Cloud completo: Illustrator y Photoshop para imágenes; After Effects para animaciones; Audition para audio; Premiere Pro para sincronización; Media Encoder para exportación. El video final tuvo 3:23 minutos y 16.2 Mb.</p>
+          <p><strong>Implementación:</strong> Pilotaje con 17 estudiantes de posgrado en junio 2017, distribuido mediante Google Classroom (aviso formal) y WhatsApp (envío del video). Los estudiantes accedieron desde laptop, tableta y teléfonos inteligentes.</p>
+          <p><strong>Evaluación:</strong> 8 preguntas abiertas (anónimas e individuales) + ejercicio de aplicación con el material disponible. Se identificaron fortalezas y debilidades desde tres perspectivas: pedagógica, de diseño y tecnológica. Las conclusiones del estudio retroalimentaron las recomendaciones para la mejora del DI para móviles.</p>
+          <div class="pbox">
+            <p class="pbl">Hallazgo metodológico clave</p>
+            <ul>
+              <li>El modelo ADDIE se aplicó de manera completa, incluyendo evaluación formativa durante el proceso y sumativa al final.</li>
+              <li>La fase de evaluación retroalimentó directamente las recomendaciones de diseño: uso moderado de animaciones, activación previa del vocabulario técnico y canales adecuados de distribución.</li>
+              <li>La dimensión tecnológica del diseño (formato H.264, tipografía, contraste) se planificó explícitamente en la fase de Diseño, lo que es coherente con la teoría ADDIE.</li>
+              <li>El enfoque de Investigación y Desarrollo añadió una segunda etapa de exploración del potencial pedagógico del recurso, enriqueciendo la evaluación sumativa del modelo.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div><!-- /blog-posts -->
+
+      <aside class="bsidebar">
+        <div class="bw">
+          <div class="bw-title">Contexto del estudio</div>
+          <div class="bitem">
+            <div class="bi-icon">🎓</div>
+            <div class="bi-t"><h5>Institución</h5><p>Instituto de Investigación y Desarrollo Educativo, UABC, México</p></div>
+          </div>
+          <div class="bitem">
+            <div class="bi-icon">📚</div>
+            <div class="bi-t"><h5>Asignatura</h5><p>Estadística Inferencial · Posgrado</p></div>
+          </div>
+          <div class="bitem">
+            <div class="bi-icon">👥</div>
+            <div class="bi-t"><h5>Participantes</h5><p>17 estudiantes de posgrado · 16 evaluados</p></div>
+          </div>
+          <div class="bitem">
+            <div class="bi-icon">📅</div>
+            <div class="bi-t"><h5>Publicación</h5><p>Revista Apertura, Vol. 10, Núm. 2, octubre 2018</p></div>
+          </div>
+        </div>
+
+        <div class="bw">
+          <div class="bw-title">Resultados del pilotaje</div>
+          <div class="bitem">
+            <div class="bi-icon">✅</div>
+            <div class="bi-t"><h5>82% accedió desde smartphone</h5><p>14 de 17 estudiantes usaron teléfono inteligente</p></div>
+          </div>
+          <div class="bitem">
+            <div class="bi-icon">📊</div>
+            <div class="bi-t"><h5>12/16 consideraron que podrían resolver ejercicio similar</h5><p>Alta percepción de apoyo pedagógico</p></div>
+          </div>
+          <div class="bitem">
+            <div class="bi-icon">⚠️</div>
+            <div class="bi-t"><h5>14/16 tuvieron dificultad en parte del procedimiento</h5><p>Señala necesidad de activación previa del vocabulario</p></div>
+          </div>
+        </div>
+
+        <div class="verdict">
+          <p class="vl">Conclusión del análisis</p>
+          <div class="vt">ADDIE + Smartphones: viable con diseño</div>
+          <p>La implementación del modelo ADDIE en el desarrollo de contenidos educativos digitales para smartphones fue adecuada y rigurosa. Los resultados demuestran viabilidad pedagógica con condiciones específicas de diseño: moderación en animaciones, activación de conocimiento previo y canales de distribución apropiados.</p>
+        </div>
+      </aside>
+    </div><!-- /blog-layout -->
+  </div>
+</section>
+
+
+<!-- ██ REFERENCIAS ██ -->
+<section id="referencias">
+  <div class="wrap">
+    <div class="eyebrow">APA 7.ª Edición</div>
+    <h2 class="sec-h">Referencias bibliográficas</h2>
+    <p class="sec-lead">Fuentes académicas que fundamentan el Tema 4: Diseño Instruccional y Educación a Distancia, así como los temas anteriores del curso.</p>
+    <div class="refs-grid">
+      <div class="ref-card">
+        <strong>Domínguez Pérez, C., Organista Sandoval, J., & López Ornelas, M.</strong> (2018). Diseño instruccional para el desarrollo de contenidos educativos digitales para teléfonos inteligentes. <em>Apertura, 10</em>(2), 80–93. <a href="https://doi.org/10.18381/Ap.v10n2.1346" target="_blank">https://doi.org/10.18381/Ap.v10n2.1346</a>
+      </div>
+      <div class="ref-card">
+        <strong>Londoño, E.</strong> (2011). El diseño instruccional en la educación virtual: más allá de la presentación de contenidos. <em>Revista Educación y Desarrollo Social, 5</em>(2), 112–127. <a href="http://www.umng.edu.co/documents/63968/70434/etb_articulo8.pdf" target="_blank">http://www.umng.edu.co/documents/63968/70434/etb_articulo8.pdf</a>
+      </div>
+      <div class="ref-card">
+        <strong>Díaz, F.</strong> (2005). Principios de diseño instruccional de entornos de aprendizaje apoyados con TIC: un marco de referencia sociocultural y situado. <em>Tecnología y Comunicación Educativas, 19</em>(41). <a href="http://investigacion.ilce.edu.mx/tyce/41/art1.pdf" target="_blank">http://investigacion.ilce.edu.mx/tyce/41/art1.pdf</a>
+      </div>
+      <div class="ref-card">
+        <strong>Badia, A., & García, C.</strong> (2006). Incorporación de las TIC en la enseñanza y el aprendizaje basados en la elaboración colaborativa de proyectos. <em>Revista de Universidad y Sociedad del Conocimiento, 3</em>(2), 42–54. <a href="http://www.uoc.edu/rusc/3/2/dt/esp/badia_garcia.pdf" target="_blank">http://www.uoc.edu/rusc/3/2/dt/esp/badia_garcia.pdf</a>
+      </div>
+      <div class="ref-card">
+        <strong>Martínez, A.</strong> (2009). El diseño instruccional en la educación a distancia. Un acercamiento a los modelos. <em>Apertura, 9</em>(10). <a href="http://www.redalyc.org/articulo.oa?id=68812679010" target="_blank">http://www.redalyc.org/articulo.oa?id=68812679010</a>
+      </div>
+      <div class="ref-card">
+        <strong>Correa, A., & Castro, S.</strong> (2001). Marco conceptual para la discusión sobre el modelo de diseño instruccional en educación a distancia. <em>Revista científica electrónica de Educación y Comunicación, 12</em>(I). <a href="http://dialnet.unirioja.es/descarga/articulo/3973036.pdf" target="_blank">http://dialnet.unirioja.es/descarga/articulo/3973036.pdf</a>
+      </div>
+      <div class="ref-card">
+        <strong>Mayer, R. E.</strong> (2011). Instruction based on visualizations. En R. E. Mayer & P. Alexander (Eds.), <em>Handbook of research on learning and instruction</em> (pp. 427–445). Routledge.
+      </div>
+      <div class="ref-card">
+        <strong>Belloch, C.</strong> (2013). Diseño instruccional. <em>Entornos Virtuales de Formación.</em> Universitat de València. <a href="http://www.uv.es/bellochc/pedagogia/EVA4.wiki" target="_blank">http://www.uv.es/bellochc/pedagogia/EVA4.wiki</a>
+      </div>
+      <div class="ref-card">
+        <strong>Sicán Chajon, S. I., Son Simón, L. E., & Fernández Morales, K.</strong> (2014). Implementación del modelo ADDIE en el diseño instruccional del Curso de Inglés Básico de la Universidad Gerardo Barrios de El Salvador. <em>V Congreso CAFVIR 2014,</em> 378–385.
+      </div>
+      <div class="ref-card">
+        <strong>Ertmer, P. A., & Newby, T. J.</strong> (1993). Conductismo, cognitivismo y constructivismo: Una comparación de los aspectos críticos desde la perspectiva del diseño de instrucción. <em>Performance Improvement Quarterly, 6</em>(4), 50–72. <a href="https://doi.org/10.1111/j.1937-8327.1993.tb00605.x" target="_blank">https://doi.org/10.1111/j.1937-8327.1993.tb00605.x</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ FOOTER ██ -->
+<footer>
+  <p><strong>UTEL Universidad</strong> · Diseño de Programas de Enseñanza · Tema 4: Diseño Instruccional y Educación a Distancia</p>
+  <p class="ft-sub"><a href="https://utel.edu.mx">utel.edu.mx</a> · Recurso educativo para nivel posgrado · Compatible con GitHub Pages</p>
+</footer>
+
+
+<!-- ██ JS ██ -->
+<script>
+// ── Scroll reveal ──
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.post').forEach(el => io.observe(el));
+
+// ── Card hover stagger ──
+document.querySelectorAll('.tema-card').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.05}s`;
+});
+
+// ── Princ card entrance ──
+const io2 = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }, i * 80);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.princ-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity .45s ease, transform .45s ease';
+  io2.observe(el);
+});
+</script>
+</body>
+</html>
