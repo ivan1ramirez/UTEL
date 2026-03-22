@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 5: DI y Educación a Distancia II | UTEL</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════
+   DESIGN TOKENS
+══════════════════════════════════════ */
+:root{
+  --G:    #00b900;
+  --Gd:   #008d00;
+  --Gdd:  #005a00;
+  --Gxs:  #f1fdf1;
+  --Gsm:  #def7de;
+  --Gmd:  #aeeaae;
+  --ink:  #0d170d;
+  --ink2: #2a3a2a;
+  --ink3: #5a6e5a;
+  --bg:   #f7faf7;
+  --wh:   #ffffff;
+  --bdr:  #d2e8d2;
+  --fs:   'Lora', serif;
+  --fb:   'Manrope', sans-serif;
+  --r:    13px;
+  --rl:   20px;
+  --s1:   0 2px 12px rgba(0,100,0,.07);
+  --s2:   0 10px 36px rgba(0,100,0,.12);
+  --s3:   0 28px 80px rgba(0,100,0,.15);
+  --ease: cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);color:var(--ink);background:var(--wh);line-height:1.75;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--G);border-radius:3px}
+a{color:var(--Gd)}
+
+/* ══════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════ */
+.nav{
+  position:sticky;top:0;z-index:500;
+  height:62px;
+  background:rgba(255,255,255,.97);
+  border-bottom:2.5px solid var(--G);
+  backdrop-filter:blur(16px);
+  display:flex;align-items:center;
+  padding:0 2.5rem;gap:1.5rem;
+  box-shadow:0 1px 22px rgba(0,185,0,.07);
+}
+.nlogo{display:flex;align-items:center;gap:.85rem;text-decoration:none;flex-shrink:0}
+.nm{width:42px;height:42px;border-radius:9px;background:var(--G);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fs);font-weight:700;font-size:1rem;color:#fff;
+  box-shadow:0 3px 12px rgba(0,185,0,.3)}
+.nt strong{display:block;font-size:.85rem;font-weight:700;color:var(--Gd);line-height:1.2}
+.nt span{font-size:.65rem;color:var(--ink3);letter-spacing:.05em;text-transform:uppercase}
+.nlinks{display:flex;gap:.1rem;margin-left:auto}
+.nlinks a{
+  font-size:.75rem;font-weight:600;color:var(--ink3);
+  padding:.37rem .74rem;border-radius:7px;text-decoration:none;
+  transition:background .2s,color .2s;white-space:nowrap
+}
+.nlinks a:hover{background:var(--Gsm);color:var(--Gd)}
+.nbadge{background:var(--G);color:#fff;padding:.25rem .8rem;
+  border-radius:999px;font-size:.7rem;font-weight:700;margin-left:.4rem}
+
+/* ══════════════════════════════════════
+   HERO — dark editorial with diagonal accent
+══════════════════════════════════════ */
+.hero{
+  min-height:580px;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;
+}
+/* diagonal green slab */
+.hero-slab{
+  position:absolute;right:0;top:0;bottom:0;
+  width:42%;
+  background:linear-gradient(160deg,rgba(0,185,0,.14) 0%,rgba(0,185,0,.08) 100%);
+  clip-path:polygon(12% 0,100% 0,100% 100%,0 100%);
+  border-left:1px solid rgba(0,185,0,.2);
+}
+/* dot matrix */
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(rgba(0,185,0,.1) 1px,transparent 1px);
+  background-size:30px 30px;
+}
+/* green orb */
+.hero::after{
+  content:'';position:absolute;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,185,0,.2) 0%,transparent 65%);
+  top:-120px;left:-80px;pointer-events:none;z-index:0;
+  animation:orb 10s ease-in-out infinite;
+}
+@keyframes orb{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.12);opacity:.6}}
+
+.hero-inner{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr 380px;
+  width:100%;max-width:1120px;margin:0 auto;
+  padding:5.5rem 2rem;gap:3rem;align-items:center;
+}
+.htag{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:rgba(0,185,0,.15);border:1px solid rgba(0,185,0,.3);
+  border-radius:999px;padding:.35rem 1rem;
+  margin-bottom:1.75rem;width:fit-content;
+}
+.hd{width:7px;height:7px;border-radius:50%;background:var(--G);animation:blink 2.2s infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(1.7)}}
+.htag span{font-size:.7rem;font-weight:700;color:var(--G);letter-spacing:.09em;text-transform:uppercase}
+.hero h1{
+  font-family:var(--fs);
+  font-size:clamp(2.1rem,3.9vw,3.3rem);
+  font-weight:700;color:#fff;line-height:1.1;margin-bottom:1.25rem;
+}
+.hero h1 em{font-style:normal;color:var(--G)}
+.hdesc{font-size:.97rem;color:rgba(255,255,255,.6);max-width:520px;margin-bottom:2.2rem;line-height:1.9}
+.hbtns{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.8rem 1.65rem;border-radius:10px;
+  font-family:var(--fb);font-size:.84rem;font-weight:700;
+  text-decoration:none;cursor:pointer;border:none;
+  transition:transform .2s var(--ease),box-shadow .2s,background .2s;
+}
+.btng{background:var(--G);color:#fff;box-shadow:0 4px 20px rgba(0,185,0,.3)}
+.btng:hover{background:var(--Gd);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,185,0,.42)}
+.btno{background:transparent;border:1.5px solid rgba(255,255,255,.22);color:rgba(255,255,255,.82)}
+.btno:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
+
+/* hero right — SEDLUZ phases preview */
+.hero-right{display:flex;flex-direction:column;gap:.6rem}
+.hr-title{font-size:.68rem;font-weight:700;color:rgba(255,255,255,.45);
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+.hphase{
+  display:flex;align-items:center;gap:.85rem;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);
+  border-radius:11px;padding:.85rem 1.1rem;
+  transition:background .25s,border-color .25s,transform .2s;
+  cursor:default;
+}
+.hphase:hover{background:rgba(0,185,0,.12);border-color:rgba(0,185,0,.3);transform:translateX(-4px)}
+.hp-num{
+  width:32px;height:32px;border-radius:7px;
+  background:var(--G);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:.78rem;flex-shrink:0;
+}
+.hp-text h4{font-size:.78rem;font-weight:700;color:rgba(255,255,255,.9)}
+.hp-text p{font-size:.67rem;color:rgba(255,255,255,.45);margin-top:.05rem}
+
+/* ══════════════════════════════════════
+   LAYOUT UTILS
+══════════════════════════════════════ */
+.wrap{max-width:1120px;margin:0 auto;padding:0 2rem}
+section{padding:5.5rem 0}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--Gsm);color:var(--Gdd);
+  border-radius:7px;padding:.28rem .85rem;
+  font-size:.68rem;font-weight:800;
+  letter-spacing:.09em;text-transform:uppercase;margin-bottom:.9rem;
+}
+.sh{
+  font-family:var(--fs);
+  font-size:clamp(1.8rem,2.8vw,2.45rem);
+  font-weight:700;color:var(--ink);
+  line-height:1.2;margin-bottom:.9rem;
+}
+.slead{font-size:.97rem;color:var(--ink3);max-width:720px;margin-bottom:3.5rem;line-height:1.85}
+
+/* ══════════════════════════════════════
+   5.1 COMPETENCIAS
+══════════════════════════════════════ */
+#competencias{background:var(--bg)}
+
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem}
+.comp-card{
+  background:var(--wh);border-radius:var(--rl);
+  padding:2rem;box-shadow:var(--s1);
+  border-top:4px solid var(--G);
+  transition:transform .25s var(--ease),box-shadow .25s;
+}
+.comp-card:hover{transform:translateY(-5px);box-shadow:var(--s2)}
+.cc-icon{
+  width:52px;height:52px;border-radius:12px;
+  background:var(--Gsm);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;margin-bottom:1.1rem;
+}
+.comp-card h3{font-family:var(--fs);font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:.65rem}
+.comp-card p{font-size:.87rem;color:var(--ink3)}
+.cc-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1rem}
+.cctag{background:var(--Gsm);color:var(--Gdd);border-radius:999px;
+  padding:.2rem .72rem;font-size:.7rem;font-weight:700}
+
+/* competencias pillars */
+.pillars-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.pillar{
+  background:var(--wh);border-radius:var(--r);
+  padding:1.5rem;text-align:center;
+  border-bottom:3px solid var(--G);
+  box-shadow:var(--s1);
+  transition:transform .25s,box-shadow .25s;
+}
+.pillar:hover{transform:translateY(-4px);box-shadow:var(--s2)}
+.pillar-icon{font-size:1.8rem;margin-bottom:.7rem}
+.pillar h4{font-family:var(--fs);font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.4rem}
+.pillar p{font-size:.8rem;color:var(--ink3)}
+
+/* ══════════════════════════════════════
+   SEDLUZ METHODOLOGY
+══════════════════════════════════════ */
+#metodologia{background:var(--wh)}
+
+/* tabs */
+.mtabs{display:flex;flex-wrap:wrap;gap:.4rem;
+  background:var(--bg);border-radius:14px;padding:.85rem;margin-bottom:2rem}
+.mtab{
+  padding:.6rem 1.2rem;border:none;background:transparent;
+  cursor:pointer;border-radius:9px;
+  font-family:var(--fb);font-size:.8rem;font-weight:700;
+  color:var(--ink3);transition:background .2s,color .2s;
+}
+.mtab:hover{background:var(--wh);color:var(--Gd)}
+.mtab.active{background:var(--wh);color:var(--Gd);box-shadow:var(--s1)}
+
+.mpanel{display:none}
+.mpanel.active{display:grid;grid-template-columns:1fr 1fr;gap:2rem;
+  animation:fadeSlide .3s ease}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+.mpanel-theory h4{
+  font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:.8rem;
+}
+.mpanel-theory p{font-size:.9rem;color:var(--ink2);line-height:1.85;margin-bottom:.9rem}
+.mpanel-theory ul{padding-left:1.1rem}
+.mpanel-theory li{font-size:.87rem;color:var(--ink3);margin-bottom:.4rem}
+
+/* SEDLUZ callout */
+.sedluz-box{
+  background:linear-gradient(135deg,var(--Gsm),var(--wh));
+  border:1.5px solid var(--Gmd);
+  border-radius:var(--rl);padding:1.75rem 2rem;
+}
+.sb-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--G);color:#fff;border-radius:6px;
+  padding:.2rem .7rem;font-size:.68rem;font-weight:800;
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:.75rem;
+}
+.sedluz-box h4{
+  font-family:var(--fs);font-size:1.05rem;font-weight:700;
+  color:var(--ink);margin-bottom:.75rem;
+}
+.sedluz-box p{font-size:.87rem;color:var(--ink2);line-height:1.82;margin-bottom:.7rem}
+.sedluz-box p:last-child{margin-bottom:0}
+.sb-chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.85rem}
+.sc{background:var(--Gmd);color:var(--Gdd);border-radius:999px;
+  padding:.2rem .75rem;font-size:.7rem;font-weight:700}
+
+/* product badge */
+.product-row{
+  display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem;
+}
+.prod{
+  background:var(--ink);color:#fff;border-radius:8px;
+  padding:.35rem .9rem;font-size:.75rem;font-weight:600;
+}
+
+/* ══════════════════════════════════════
+   SEDLUZ VS ADDIE COMPARISON
+══════════════════════════════════════ */
+#comparativa{background:var(--bg)}
+
+.comp-table-wrap{overflow-x:auto;border-radius:var(--rl);box-shadow:var(--s2)}
+table{width:100%;border-collapse:collapse;background:var(--wh);min-width:700px}
+thead{background:var(--G);color:#fff}
+th{padding:1.1rem 1.25rem;font-size:.8rem;font-weight:800;letter-spacing:.04em;text-align:left}
+td{padding:.95rem 1.25rem;font-size:.84rem;color:var(--ink2);border-bottom:1px solid var(--bdr);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:var(--bg)}
+tr:hover td{background:var(--Gsm);transition:background .18s}
+.tv{background:var(--G);color:#fff;border-radius:999px;
+  padding:.15rem .65rem;font-size:.7rem;font-weight:700}
+
+/* TIC integration */
+#tic{background:var(--wh)}
+.tic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.tic-card{
+  background:var(--bg);border-radius:var(--rl);padding:1.75rem;
+  border-left:4px solid var(--G);
+  transition:transform .25s,box-shadow .25s;
+}
+.tic-card:hover{transform:translateY(-5px);box-shadow:var(--s2)}
+.tic-icon{font-size:1.8rem;margin-bottom:.85rem}
+.tic-card h3{font-family:var(--fs);font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.55rem}
+.tic-card p{font-size:.85rem;color:var(--ink3)}
+
+/* ══════════════════════════════════════
+   BLOG
+══════════════════════════════════════ */
+#blog{background:var(--ink)}
+#blog .sh{color:#fff}
+#blog .slead{color:rgba(255,255,255,.5)}
+#blog .eyebrow{background:rgba(0,185,0,.15);color:var(--G)}
+
+.blog-layout{display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:start}
+.blog-posts{display:flex;flex-direction:column;gap:2rem}
+
+.post{
+  background:rgba(255,255,255,.05);
+  border:1.5px solid rgba(255,255,255,.1);
+  border-radius:var(--rl);padding:2.25rem;
+  backdrop-filter:blur(6px);
+  opacity:0;transform:translateY(18px);
+  transition:background .25s,border-color .25s,transform .25s;
+}
+.post.vis{opacity:1;transform:translateY(0)}
+.post:hover{background:rgba(255,255,255,.08);border-color:rgba(0,185,0,.3);transform:translateY(-3px)}
+
+.ph{display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem}
+.pi{
+  width:48px;height:48px;border-radius:12px;
+  background:var(--G);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;
+}
+.pm .pmq{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--G)}
+.pm h3{font-family:var(--fs);font-size:1.1rem;font-weight:700;color:#fff;line-height:1.3}
+.post p{font-size:.87rem;color:rgba(255,255,255,.67);line-height:1.85}
+.post p+p{margin-top:.85rem}
+.pbox{
+  background:rgba(0,185,0,.1);border:1px solid rgba(0,185,0,.25);
+  border-radius:10px;padding:1.2rem 1.5rem;margin-top:1.35rem;
+}
+.pbl{font-size:.68rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--G);margin-bottom:.5rem}
+.pbox ul{padding-left:1.1rem}
+.pbox li{font-size:.82rem;color:rgba(255,255,255,.67);margin-bottom:.38rem}
+
+/* sidebar */
+.bside{position:sticky;top:78px}
+.bw{
+  background:rgba(255,255,255,.06);
+  border:1.5px solid rgba(255,255,255,.1);
+  border-radius:var(--rl);padding:1.75rem;margin-bottom:1.5rem;
+}
+.bwt{font-family:var(--fs);font-size:.97rem;font-weight:700;color:#fff;
+  margin-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:.65rem}
+.bitem{display:flex;align-items:flex-start;gap:.8rem;margin-bottom:.9rem}
+.bii{width:34px;height:34px;border-radius:8px;
+  background:rgba(0,185,0,.2);color:var(--G);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;flex-shrink:0}
+.bit h5{font-size:.8rem;font-weight:700;color:rgba(255,255,255,.9);margin-bottom:.1rem}
+.bit p{font-size:.72rem;color:rgba(255,255,255,.48)}
+
+.verdict{
+  background:linear-gradient(135deg,var(--G),var(--Gd));
+  border-radius:var(--rl);padding:1.75rem;
+}
+.vl{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.4rem}
+.vt{font-family:var(--fs);font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.65rem}
+.verdict p{font-size:.83rem;color:rgba(255,255,255,.88);line-height:1.75}
+
+/* ══════════════════════════════════════
+   REFERENCES
+══════════════════════════════════════ */
+#referencias{background:var(--bg)}
+.refs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.ref{
+  background:var(--wh);border-radius:var(--r);
+  border-left:4px solid var(--G);
+  padding:1.4rem 1.6rem;box-shadow:var(--s1);
+  font-size:.84rem;color:var(--ink2);line-height:1.85;
+  transition:transform .2s,box-shadow .2s;
+}
+.ref:hover{transform:translateY(-2px);box-shadow:var(--s2)}
+.ref strong{color:var(--ink)}
+.ref em{color:var(--ink3)}
+.ref a{word-break:break-all;font-size:.76rem;color:var(--Gd)}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer{background:var(--G);color:#fff;text-align:center;
+  padding:2.1rem;font-size:.82rem;font-weight:600}
+footer a{color:rgba(255,255,255,.8);text-decoration:none}
+footer a:hover{color:#fff}
+.ftsub{margin-top:.4rem;font-weight:400;font-size:.72rem;opacity:.8}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .comp-grid{grid-template-columns:1fr}
+  .pillars-row{grid-template-columns:1fr 1fr}
+  .mpanel.active{grid-template-columns:1fr}
+  .tic-grid{grid-template-columns:1fr}
+  .blog-layout{grid-template-columns:1fr}
+  .bside{position:static}
+  .refs-grid{grid-template-columns:1fr}
+  .nlinks{display:none}
+  .wrap{padding:0 1.25rem}
+  section{padding:3.5rem 0}
+}
+</style>
+</head>
+<body>
+
+<!-- ██ NAVBAR ██ -->
+<nav class="nav">
+  <a href="#" class="nlogo">
+    <div class="nm">UTEL</div>
+    <div class="nt">
+      <strong>UTEL Universidad</strong>
+      <span>Diseño de Programas de Enseñanza</span>
+    </div>
+  </a>
+  <div class="nlinks">
+    <a href="#competencias">5.1 Competencias</a>
+    <a href="#metodologia">SEDLUZ</a>
+    <a href="#comparativa">Comparativa</a>
+    <a href="#tic">TIC y Colaboración</a>
+    <a href="#blog">Blog · Caso</a>
+    <a href="#referencias">Referencias</a>
+    <span class="nbadge">Tema 5</span>
+  </div>
+</nav>
+
+
+<!-- ██ HERO ██ -->
+<div class="hero">
+  <div class="hero-slab"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="htag"><div class="hd"></div><span>Tema 5 · Diseño de Programas de Enseñanza</span></div>
+      <h1>DI y Educación<br>a Distancia <em>II</em></h1>
+      <p class="hdesc">Profundiza en el diseño instruccional por competencias para entornos virtuales, analiza la metodología propuesta para el Sistema de Educación a Distancia de la Universidad del Zulia (SEDLUZ) y reflexiona sobre sus implicaciones para la práctica docente en línea.</p>
+      <div class="hbtns">
+        <a href="#competencias" class="btn btng">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Explorar contenido
+        </a>
+        <a href="#blog" class="btn btno">Caso SEDLUZ</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <p class="hr-title">Metodología SEDLUZ — 5 fases</p>
+      <div class="hphase"><div class="hp-num">1</div><div class="hp-text"><h4>Diagnóstico</h4><p>Perfil de egreso · Currículo · Competencias</p></div></div>
+      <div class="hphase"><div class="hp-num">2</div><div class="hp-text"><h4>Análisis</h4><p>Tipología del usuario · Guión instruccional</p></div></div>
+      <div class="hphase"><div class="hp-num">3</div><div class="hp-text"><h4>Diseño y Producción</h4><p>Equipo multidisciplinario · Materiales digitales</p></div></div>
+      <div class="hphase"><div class="hp-num">4</div><div class="hp-text"><h4>Implementación</h4><p>Montaje en LMS · Talleres de inducción</p></div></div>
+      <div class="hphase"><div class="hp-num">5</div><div class="hp-text"><h4>Evaluación</h4><p>Continua en cada fase · Reportes · Mejora</p></div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ██ 5.1 COMPETENCIAS ██ -->
+<section id="competencias">
+  <div class="wrap">
+    <div class="eyebrow">Sección 5.1</div>
+    <h2 class="sh">Diseño instruccional por competencias para educación virtual</h2>
+    <p class="slead">El DI por competencias en la educación virtual supera el enfoque de simple presentación de contenidos. Según Londoño (2011), implica diseñar experiencias que promuevan la construcción activa de conocimiento, la interacción significativa y el desarrollo de habilidades transferibles al contexto real del estudiante.</p>
+
+    <div class="comp-grid">
+      <div class="comp-card">
+        <div class="cc-icon">🎯</div>
+        <h3>¿Qué es el DI por competencias?</h3>
+        <p>El DI por competencias plantea que la instrucción debe diseñarse en función de lo que el estudiante será capaz de hacer al finalizar el proceso, no de los contenidos que "vio". Según Cánquiz e Inciarte (2006, citado en Ortega, 2013), el programa de la unidad curricular define los contenidos, las acciones y los recursos a través de los cuales la intención educativa se convierte en logros medibles y verificables.</p>
+        <div class="cc-tags">
+          <span class="cctag">Resultados de aprendizaje</span>
+          <span class="cctag">Transferibilidad</span>
+          <span class="cctag">Evaluación auténtica</span>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="cc-icon">🌐</div>
+        <h3>Particularidades del entorno virtual</h3>
+        <p>La educación virtual exige que el DI por competencias contemple dimensiones que van más allá del aula: la autonomía del aprendiz, la mediación tecnológica, la interacción asincrónica y la construcción social del conocimiento. Díaz (2005) señala que un marco de referencia sociocultural y situado debe guiar el diseño de entornos apoyados con TIC, conectando el aprendizaje con el contexto real del estudiante.</p>
+        <div class="cc-tags">
+          <span class="cctag">Autonomía</span>
+          <span class="cctag">Aprendizaje situado</span>
+          <span class="cctag">Constructivismo social</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 pilares -->
+    <div class="pillars-row">
+      <div class="pillar">
+        <div class="pillar-icon">🧩</div>
+        <h4>Integración de saberes</h4>
+        <p>Las competencias integran conocimientos, habilidades y actitudes en tareas complejas y reales, superando la fragmentación disciplinar.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🤝</div>
+        <h4>Aprendizaje colaborativo</h4>
+        <p>Badia & García (2006) demuestran que las TIC permiten diseñar entornos de colaboración en proyectos que generan aprendizajes más profundos y duraderos.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📐</div>
+        <h4>Evaluación por desempeño</h4>
+        <p>La evaluación debe medir el desempeño en contextos auténticos: portafolios, proyectos, rúbricas de producto y reflexiones metacognitivas.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🔄</div>
+        <h4>Retroalimentación continua</h4>
+        <p>El ciclo instruccional debe incluir retroalimentación formativa en cada etapa, que permita al estudiante ajustar su proceso de aprendizaje.</p>
+      </div>
+    </div>
+
+    <!-- quote Díaz -->
+    <div style="background:var(--ink);border-radius:var(--rl);padding:2.5rem 3rem;margin-top:3rem;position:relative;overflow:hidden">
+      <div style="position:absolute;right:2rem;top:1rem;font-size:7rem;font-family:var(--fs);color:rgba(0,185,0,.1);line-height:1;pointer-events:none">"</div>
+      <p style="font-family:var(--fs);font-size:1.12rem;color:#fff;line-height:1.82;font-style:italic;position:relative;z-index:1;max-width:820px">El diseño instruccional de entornos de aprendizaje apoyados con TIC requiere de un marco de referencia sociocultural y situado que contemple la naturaleza social del conocimiento, el rol mediador de los instrumentos culturales y la importancia del contexto auténtico en la construcción del aprendizaje.</p>
+      <cite style="display:block;margin-top:.85rem;font-size:.78rem;color:var(--G);font-style:normal;font-weight:700;position:relative;z-index:1">— Díaz, F. (2005). Principios de diseño instruccional de entornos de aprendizaje apoyados con TIC.</cite>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ METODOLOGÍA SEDLUZ ██ -->
+<section id="metodologia">
+  <div class="wrap">
+    <div class="eyebrow">Caso de Estudio · Ortega (2013)</div>
+    <h2 class="sh">Metodología propuesta para el SEDLUZ</h2>
+    <p class="slead">Ortega (2013) propone una metodología integral de cinco fases para el Sistema de Educación a Distancia de la Universidad del Zulia (SEDLUZ), adaptada a las nuevas tendencias educativas y los avances de las TIC, con evaluación continua en cada etapa.</p>
+
+    <div class="mtabs" id="mtabs">
+      <button class="mtab active" onclick="showPhase('diag',this)">1. Diagnóstico</button>
+      <button class="mtab" onclick="showPhase('anal',this)">2. Análisis</button>
+      <button class="mtab" onclick="showPhase('disp',this)">3. Diseño y Producción</button>
+      <button class="mtab" onclick="showPhase('impl',this)">4. Implementación</button>
+      <button class="mtab" onclick="showPhase('eval',this)">5. Evaluación</button>
+    </div>
+
+    <!-- DIAGNÓSTICO -->
+    <div id="phase-diag" class="mpanel active">
+      <div class="mpanel-theory">
+        <h4>Definición teórica</h4>
+        <p>La fase de diagnóstico corresponde a la determinación de necesidades y previsiones curriculares para los programas académicos de los Sistemas de Estudios a Distancia. Implica la elaboración de un marco conceptual cuya concreción permite la definición del perfil de egreso y la visualización de las unidades curriculares en la malla curricular.</p>
+        <ul>
+          <li>Concepción educativa que fundamenta el currículo</li>
+          <li>Modelo curricular: características y principios</li>
+          <li>Fundamentos axiológicos y epistemológicos</li>
+          <li>Problemas sociales que atenderá el profesional</li>
+          <li>Basamento legal, origen y tendencia de la carrera</li>
+          <li>Perfil de los cursantes y del egresado deseado</li>
+          <li>Elaboración del perfil académico-profesional por competencias</li>
+          <li>Ejes curriculares y transversales</li>
+        </ul>
+        <div class="product-row" style="margin-top:1.25rem">
+          <span class="prod">📄 Fundamentación del currículo</span>
+          <span class="prod">👤 Perfil de egreso</span>
+          <span class="prod">🗂️ Estructura curricular</span>
+        </div>
+      </div>
+      <div class="sedluz-box">
+        <div class="sb-badge">SEDLUZ · Fase 1</div>
+        <h4>Diagnóstico: el punto de partida curricular</h4>
+        <p>En la Universidad del Zulia, el diagnóstico va más allá de identificar "necesidades de aprendizaje": articula la visión educativa institucional, el mercado ocupacional, los problemas sociales que el profesional atenderá y las competencias esperadas al egreso.</p>
+        <p>Esta fase involucra a una red amplia de actores: facilitadores, tutores, especialistas, estudiantes avanzados, asesores curriculares, investigadores e instrumentos legales. El resultado es un documento de fundamentación curricular que servirá de referente para todas las fases siguientes.</p>
+        <p>La coherencia entre esta fase y la de diseño y producción es lo que garantiza que el DI resultante realmente responda a las necesidades reales del contexto educativo y laboral del egresado.</p>
+        <div class="sb-chips">
+          <span class="sc">Competencias de egreso</span>
+          <span class="sc">Perfil profesional</span>
+          <span class="sc">Marco conceptual</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANÁLISIS -->
+    <div id="phase-anal" class="mpanel">
+      <div class="mpanel-theory">
+        <h4>Definición teórica</h4>
+        <p>La fase de análisis prevé obtener los insumos necesarios para el desarrollo de los programas académicos. Se pretende perfilar el alcance de la unidad instruccional usando como referente el perfil de egreso, los objetivos terminales del curso, el nivel académico del participante y el análisis de necesidades de contenidos.</p>
+        <ul>
+          <li>Fundamentación de cada unidad curricular en su contexto</li>
+          <li>Análisis de la tipología del usuario (perfil del participante)</li>
+          <li>Realización del guión instruccional</li>
+          <li>Selección de técnicas y estrategias pedagógicas</li>
+          <li>Propuesta de actividades coherentes con la naturaleza curricular</li>
+        </ul>
+        <p style="margin-top:.9rem;font-size:.87rem;color:var(--ink2)">Esta fase se nutre de documentos curriculares, material bibliográfico actualizado, facilitadores, especialistas y diseñadores instruccionales.</p>
+        <div class="product-row" style="margin-top:1.25rem">
+          <span class="prod">📋 Contenido programático</span>
+          <span class="prod">👥 Características del participante</span>
+          <span class="prod">📝 Guión instruccional</span>
+        </div>
+      </div>
+      <div class="sedluz-box">
+        <div class="sb-badge">SEDLUZ · Fase 2</div>
+        <h4>Análisis: perfilar la audiencia y el alcance</h4>
+        <p>A diferencia del modelo ADDIE clásico, el análisis en la metodología SEDLUZ está profundamente articulado con la fase de diagnóstico: el perfil del participante ya ha sido esbozado en la primera fase, de modo que en el análisis se profundiza en las características específicas del usuario de la plataforma de educación a distancia.</p>
+        <p>El guión instruccional que se produce en esta fase se convierte en el mapa de navegación del diseño: define qué aprender, en qué orden, con qué profundidad y mediante qué tipos de actividades, todo ello articulado con la modalidad a distancia y sus requerimientos de autonomía del aprendiz.</p>
+        <div class="sb-chips">
+          <span class="sc">Guión instruccional</span>
+          <span class="sc">Tipología del usuario</span>
+          <span class="sc">Estrategias didácticas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DISEÑO Y PRODUCCIÓN -->
+    <div id="phase-disp" class="mpanel">
+      <div class="mpanel-theory">
+        <h4>Definición teórica</h4>
+        <p>Esta fase —la más compleja de la metodología— debe ser realizada por el equipo multidisciplinario. Integra tres dimensiones simultáneas que deben desarrollarse de manera coordinada:</p>
+        <ul>
+          <li><strong>Aspectos curriculares:</strong> objetivos instructivos, secuencia instruccional, evaluación, tiempos y plan provisional</li>
+          <li><strong>Aspectos comunicacionales:</strong> identidad gráfica, guiones de audio y video, storyboard, material didáctico multimedial e interfaces</li>
+          <li><strong>Aspectos técnicos:</strong> accesibilidad y usabilidad de la plataforma, compatibilidad con estándares, herramientas sincrónicas y asincrónicas</li>
+        </ul>
+        <div class="product-row" style="margin-top:1.25rem">
+          <span class="prod">📦 Plan curricular provisional</span>
+          <span class="prod">🖥️ Materiales digitales</span>
+          <span class="prod">📐 DI formato digital</span>
+        </div>
+      </div>
+      <div class="sedluz-box">
+        <div class="sb-badge">SEDLUZ · Fase 3</div>
+        <h4>Diseño y Producción: el corazón multidisciplinario</h4>
+        <p>El equipo que interviene en esta fase es el más extenso y diverso: facilitadores, diseñadores instruccionales, diseñadores gráficos, diseñador audiovisual, programadores EAD, administrador de la plataforma LMS, especialistas en contenido, corrector de estilo y locutor.</p>
+        <p>Esta riqueza de perfiles garantiza que el material resultante atienda simultáneamente la pertinencia pedagógica, la calidad comunicacional y la funcionalidad técnica —las tres dimensiones que Domínguez et al. (2018) identificaron como esenciales para el diseño de contenidos educativos digitales de calidad.</p>
+        <p>El plan curricular provisional debe ser evaluado por el comité académico antes de proceder con la producción definitiva, lo que introduce un primer ciclo de evaluación formativa dentro de la misma fase.</p>
+        <div class="sb-chips">
+          <span class="sc">Equipo multidisciplinario</span>
+          <span class="sc">Storyboard</span>
+          <span class="sc">LMS</span>
+          <span class="sc">Estándares web</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMPLEMENTACIÓN -->
+    <div id="phase-impl" class="mpanel">
+      <div class="mpanel-theory">
+        <h4>Definición teórica</h4>
+        <p>En la fase de implementación se lleva a la práctica lo previamente elaborado. Permite evidenciar si lo realizado hasta esta fase se hizo con la rigurosidad suficiente. Se recomienda hacer pruebas con los actores del proceso para ajustar tiempos de instrucción o detectar fallas que puedan corregirse oportunamente.</p>
+        <ul>
+          <li>Montaje del DI digitalizado en la plataforma</li>
+          <li>Materiales informativos sobre el uso de la plataforma</li>
+          <li>Materiales divulgativos sobre actividades y estrategias</li>
+          <li>Eventos de entrenamiento para tutores</li>
+          <li>Talleres de inducción para participantes</li>
+          <li>Pruebas de funcionamiento: usuario y descarga</li>
+          <li>Distribución de materiales e información del curso</li>
+        </ul>
+        <div class="product-row" style="margin-top:1.25rem">
+          <span class="prod">🖥️ Curso e-learning en LMS</span>
+          <span class="prod">📚 Materiales de uso de plataforma</span>
+        </div>
+      </div>
+      <div class="sedluz-box">
+        <div class="sb-badge">SEDLUZ · Fase 4</div>
+        <h4>Implementación: el momento de la verdad</h4>
+        <p>Ortega (2013) destaca que en la educación a distancia, a diferencia de la presencial, "no se aceptan las improvisaciones ni situaciones no planteadas" — cada elemento del entorno virtual debe haber sido diseñado y probado previamente, pues en un ambiente mediado tecnológicamente cada minuto cuenta y tiene un costo.</p>
+        <p>Los talleres de inducción para tutores y participantes son un elemento diferenciador de esta metodología respecto al ADDIE genérico: reconocen explícitamente que la competencia tecnológica de los actores del proceso es una variable crítica que debe atenderse antes del inicio del curso, y no corregirse sobre la marcha.</p>
+        <div class="sb-chips">
+          <span class="sc">Pruebas de usuario</span>
+          <span class="sc">Capacitación de tutores</span>
+          <span class="sc">Talleres de inducción</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EVALUACIÓN -->
+    <div id="phase-eval" class="mpanel">
+      <div class="mpanel-theory">
+        <h4>Definición teórica</h4>
+        <p>La evaluación es un proceso fundamental que orienta y permite efectuar juicios de valor para la toma de decisiones. En la metodología SEDLUZ, la evaluación no es una fase final —está presente en cada una de las fases anteriores para detectar nudos críticos e inconsistencias. Cada proceso de evaluación puede producir modificaciones en la fase inmediata superior.</p>
+        <ul>
+          <li>Evaluación de cada fase para detectar debilidades</li>
+          <li>Evaluación del producto final: coherencia con objetivos y operatividad</li>
+          <li>Evaluación permanente de cursos e-learning ya implementados</li>
+          <li>Reportes de evaluación como insumo para la actualización</li>
+        </ul>
+        <p style="margin-top:.9rem;font-size:.87rem;color:var(--ink2)">El equipo evaluador es el más extenso de toda la metodología: incluye evaluadores externos, especialistas, coordinadores académicos y todos los actores del proceso instruccional.</p>
+        <div class="product-row" style="margin-top:1.25rem">
+          <span class="prod">📊 Reportes de evaluación</span>
+          <span class="prod">🔄 Plan de mejora</span>
+        </div>
+      </div>
+      <div class="sedluz-box">
+        <div class="sb-badge">SEDLUZ · Fase 5</div>
+        <h4>Evaluación: continua, permanente y multidireccional</h4>
+        <p>La principal innovación de la metodología SEDLUZ respecto a la metodología vigente en la Universidad del Zulia (2004) es precisamente el carácter continuo y multidireccional de la evaluación. Mientras la metodología anterior solo contemplaba retroalimentación al final del proceso (y entre la fase de productos y de insumos), la propuesta de Ortega incorpora la evaluación en cada fase.</p>
+        <p>Esto coincide con el principio de evaluación formativa del modelo ADDIE y con lo que Molina (2002) señala: en la educación a distancia, la evaluación permanente no es opcional —es la única forma de garantizar que el entorno virtual funcione como se diseñó y que el aprendizaje efectivamente ocurra.</p>
+        <div class="sb-chips">
+          <span class="sc">Evaluación formativa</span>
+          <span class="sc">Evaluación sumativa</span>
+          <span class="sc">Observatorio tecnológico</span>
+          <span class="sc">Comité académico</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ COMPARATIVA SEDLUZ vs ADDIE ██ -->
+<section id="comparativa">
+  <div class="wrap">
+    <div class="eyebrow">Análisis comparativo</div>
+    <h2 class="sh">SEDLUZ vs. ADDIE: puntos de convergencia y diferencia</h2>
+    <p class="slead">La mayoría de las metodologías para el DI en educación a distancia coinciden en su estructura con el modelo ADDIE (Ortega, 2013). Sin embargo, la metodología SEDLUZ introduce elementos diferenciadores que la hacen más adecuada para sistemas universitarios a distancia de gran escala.</p>
+
+    <div class="comp-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimensión</th>
+            <th>Modelo ADDIE genérico</th>
+            <th>Metodología SEDLUZ (Ortega, 2013)</th>
+            <th>Diferencia clave</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Punto de partida</strong></td>
+            <td>Análisis de necesidades de aprendizaje</td>
+            <td>Diagnóstico curricular y epistemológico (fase propia)</td>
+            <td><span class="tv">+Profundidad</span></td>
+          </tr>
+          <tr>
+            <td><strong>Perfil del aprendiz</strong></td>
+            <td>Se analiza en la fase de Análisis</td>
+            <td>Se construye desde el Diagnóstico con el perfil de egreso por competencias</td>
+            <td><span class="tv">+Integración</span></td>
+          </tr>
+          <tr>
+            <td><strong>Producción de materiales</strong></td>
+            <td>Fase de Desarrollo</td>
+            <td>Fase de Diseño y Producción: integra curricular, comunicacional y técnico</td>
+            <td><span class="tv">+Exhaustividad</span></td>
+          </tr>
+          <tr>
+            <td><strong>Equipo de trabajo</strong></td>
+            <td>No especificado — variable según contexto</td>
+            <td>Equipo multidisciplinario explícito con roles definidos por fase</td>
+            <td><span class="tv">+Claridad</span></td>
+          </tr>
+          <tr>
+            <td><strong>Evaluación</strong></td>
+            <td>Formativa (durante) + Sumativa (al final)</td>
+            <td>Continua en cada fase + retroalimentación que modifica la fase inmediata superior</td>
+            <td><span class="tv">+Dinamismo</span></td>
+          </tr>
+          <tr>
+            <td><strong>Capacitación de usuarios</strong></td>
+            <td>No contemplada explícitamente</td>
+            <td>Talleres de inducción para tutores y participantes en la fase de Implementación</td>
+            <td><span class="tv">+Inclusión</span></td>
+          </tr>
+          <tr>
+            <td><strong>Marco epistemológico</strong></td>
+            <td>Genérico — adaptable a distintos paradigmas</td>
+            <td>Explícitamente constructivista y orientado a competencias</td>
+            <td><span class="tv">+Posicionamiento</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ TIC Y COLABORACIÓN ██ -->
+<section id="tic">
+  <div class="wrap">
+    <div class="eyebrow">Marco teórico · Aprendizaje colaborativo con TIC</div>
+    <h2 class="sh">Las TIC como mediadores del aprendizaje colaborativo</h2>
+    <p class="slead">Badia & García (2006) demostraron que las TIC potencian el aprendizaje basado en la elaboración colaborativa de proyectos. El DI virtual debe diseñar deliberadamente estas oportunidades de interacción como componentes centrales del aprendizaje, no como complementos opcionales.</p>
+
+    <div class="tic-grid">
+      <div class="tic-card">
+        <div class="tic-icon">🏗️</div>
+        <h3>Aprendizaje basado en proyectos colaborativos</h3>
+        <p>Badia & García (2006) identifican que cuando las TIC se usan para la construcción colaborativa de proyectos auténticos, el aprendizaje es significativamente más profundo que en el modelo de transmisión de contenidos. El diseñador instruccional debe crear los andamiajes tecnológicos y pedagógicos que posibiliten esta colaboración.</p>
+      </div>
+      <div class="tic-card">
+        <div class="tic-icon">🗺️</div>
+        <h3>Marco sociocultural y situado (Díaz, 2005)</h3>
+        <p>Díaz Barriga (2005) propone que el DI con TIC debe fundamentarse en principios socioculturales: el aprendizaje como práctica social, la zona de desarrollo próximo, la actividad conjunta y el discurso educativo. Las TIC no son solo canales de distribución, sino instrumentos mediadores de la cognición y la interacción social.</p>
+      </div>
+      <div class="tic-card">
+        <div class="tic-icon">📡</div>
+        <h3>Comunicación y autonomía (Londoño, 2011)</h3>
+        <p>Londoño (2011) advierte que el DI virtual debe diseñar explícitamente: (1) la interacción entre aprendices y recursos, (2) la comunicación asincrónica y sincrónica, (3) actividades colaborativas mediadas por tecnología, y (4) estrategias de autorregulación que desarrollen la autonomía del estudiante en línea.</p>
+      </div>
+      <div class="tic-card">
+        <div class="tic-icon">🔬</div>
+        <h3>Generaciones del DI para EaD (Polo, 2010)</h3>
+        <p>Polo (2010, citado en Ortega, 2013) plantea que los sistemas de educación a distancia han evolucionado hasta una quinta generación, basada en la Web 2.0, con diseños integralmente pedagógicos que permiten seleccionar el tipo de aprendizaje y ofrecen múltiples formas de presentación para la apropiación del conocimiento.</p>
+      </div>
+      <div class="tic-card">
+        <div class="tic-icon">⚡</div>
+        <h3>TIC y actualización permanente</h3>
+        <p>Ortega (2013) enfatiza que el avance tecnológico exige formación y desarrollo permanente de competencias digitales en todos los actores del proceso. No basta incorporar tecnologías: deben ser evaluadas en su pertinencia pedagógica, porque "no todas son aplicables al ámbito educativo" y su incorporación acrítica puede generar más obstáculos que beneficios.</p>
+      </div>
+      <div class="tic-card">
+        <div class="tic-icon">🌱</div>
+        <h3>Metacognición y aprendizaje significativo</h3>
+        <p>Castillo & Pérez (1998, citado en Ortega, 2013) advierten que la ejecución mecánica de estrategias no garantiza el aprendizaje significativo. El DI virtual debe planificar técnicas que promuevan la metacognición: la capacidad del estudiante para evaluar la tarea, determinar la mejor forma de realizarla y monitorear su propio proceso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ BLOG ██ -->
+<section id="blog">
+  <div class="wrap">
+    <div class="eyebrow">Blog Académico · Semana 5</div>
+    <h2 class="sh">Resolución del caso: Metodología DI en el SEDLUZ</h2>
+    <p class="slead">Respuestas fundamentadas a las preguntas de análisis de la Semana 5, con base en Ortega (2013) y el marco teórico del Tema 5.</p>
+
+    <div class="blog-layout">
+      <div class="blog-posts">
+
+        <!-- P2 -->
+        <article class="post">
+          <div class="ph">
+            <div class="pi">🎯</div>
+            <div class="pm">
+              <p class="pmq">Pregunta 2</p>
+              <h3>¿Cómo se promueve el desarrollo de competencias según las fases del modelo SEDLUZ?</h3>
+            </div>
+          </div>
+          <p>El desarrollo de competencias en la metodología SEDLUZ no es un elemento aislado de una fase específica, sino un hilo conductor que articula todo el proceso instruccional. Ortega (2013) estructura la metodología de modo que las competencias se construyen, verifican y refinan a lo largo de las cinco fases.</p>
+          <p>En la <strong>fase de diagnóstico</strong>, las competencias se definen a partir del perfil de egreso profesional: qué debe saber hacer el graduado en su contexto laboral y social. Esta definición no surge del vacío, sino del análisis del mercado ocupacional, los problemas sociales que atenderá el profesional y la concepción educativa institucional. El resultado —el perfil académico-profesional por competencias— es el referente maestro de todo el DI.</p>
+          <p>En la <strong>fase de análisis</strong>, las competencias del perfil se traducen en contenidos programáticos y guiones instruccionales: qué conocimientos, habilidades y actitudes son necesarios para desarrollar cada competencia, en qué secuencia, con qué nivel de profundidad y mediante qué tipos de actividades. La tipología del usuario (sus conocimientos previos, estilos de aprendizaje y capacidad tecnológica) también se analiza aquí, porque el desarrollo de competencias es siempre situado y contextual.</p>
+          <p>En la <strong>fase de diseño y producción</strong>, las competencias orientan la selección de estrategias pedagógicas, actividades de aprendizaje y formas de evaluación: para desarrollar competencias complejas se diseñan actividades auténticas, colaborativas y de alto orden cognitivo, no solo ejercicios de memorización. La evaluación de la asignatura se diseña como evaluación de competencias: portafolios, proyectos, rúbricas de desempeño.</p>
+          <p>Finalmente, la <strong>fase de evaluación continua</strong> verifica en cada etapa si el diseño instruccional está generando las condiciones para el desarrollo de las competencias esperadas, y retroalimenta a la fase inmediata superior cuando se detectan inconsistencias.</p>
+          <div class="pbox">
+            <p class="pbl">Competencias: flujo a través de las fases SEDLUZ</p>
+            <ul>
+              <li><strong>Diagnóstico:</strong> Definición del perfil por competencias → referente maestro del DI</li>
+              <li><strong>Análisis:</strong> Traducción a contenidos, guiones y actividades coherentes con las competencias</li>
+              <li><strong>Diseño y Producción:</strong> Estrategias, actividades auténticas y evaluación de desempeño</li>
+              <li><strong>Implementación:</strong> Verificación de que el entorno virtual facilita el desarrollo de competencias</li>
+              <li><strong>Evaluación:</strong> Retroalimentación continua sobre el logro de las competencias esperadas</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- P3 -->
+        <article class="post">
+          <div class="ph">
+            <div class="pi">🧠</div>
+            <div class="pm">
+              <p class="pmq">Pregunta 3</p>
+              <h3>¿Qué elementos de la metodología SEDLUZ reflejan el aprendizaje autónomo que promueve la educación virtual?</h3>
+            </div>
+          </div>
+          <p>La educación a distancia exige del estudiante un alto grado de autorregulación y autonomía que no puede darse por supuesto: debe diseñarse e inducirse. La metodología SEDLUZ incorpora varios elementos que explícitamente promueven el aprendizaje autónomo, aunque con distinto nivel de detalle en cada fase.</p>
+          <p><strong>El guión instruccional (fase de análisis)</strong> es quizá el elemento más directamente orientado a la autonomía: al estructurar explícitamente la secuencia de aprendizaje, los tiempos instruccionales y las instrucciones para cada actividad, el guión permite al estudiante navegar el curso sin depender de la presencia inmediata del docente. Ortega (2013) recoge la advertencia de Molina (2002): en la educación a distancia cada instrucción debe ser autosuficiente, porque no hay espacio para la improvisación docente.</p>
+          <p><strong>Los talleres de inducción (fase de implementación)</strong> son un elemento clave: al capacitar explícitamente a los participantes en el uso de la plataforma y la secuencia de instrucción, se les otorga la autonomía tecnológica necesaria para aprender de forma independiente. Sin esta competencia digital básica, la autonomía es imposible.</p>
+          <p><strong>La evaluación continua con retroalimentación (fase de evaluación)</strong> promueve la metacognición: cuando el estudiante recibe retroalimentación formativa sobre su proceso, desarrolla gradualmente la capacidad de autoevaluar su aprendizaje y ajustar sus estrategias, que es la esencia del aprendizaje autónomo según Castillo & Pérez (1998, citado en Ortega, 2013).</p>
+          <p>Sin embargo, la metodología SEDLUZ podría reforzar aún más la autonomía del aprendiz si incluyera explícitamente actividades de autorregulación —diarios de aprendizaje, e-portfolios, reflexiones metacognitivas— como componentes estándar del diseño instruccional, tal como propone Londoño (2011).</p>
+          <div class="pbox">
+            <p class="pbl">Elementos del SEDLUZ que promueven autonomía</p>
+            <ul>
+              <li><strong>Guión instruccional:</strong> estructura el aprendizaje sin necesidad de presencia docente inmediata</li>
+              <li><strong>Instrucciones autosuficientes:</strong> permiten al estudiante navegar el curso de forma independiente</li>
+              <li><strong>Talleres de inducción:</strong> desarrollan la competencia tecnológica como base de la autonomía</li>
+              <li><strong>Evaluación continua con retroalimentación:</strong> fomenta la metacognición y la autoevaluación</li>
+              <li><strong>Área de oportunidad:</strong> incluir actividades explícitas de autorregulación como estándar del DI</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- P4 -->
+        <article class="post">
+          <div class="ph">
+            <div class="pi">📊</div>
+            <div class="pm">
+              <p class="pmq">Pregunta 4</p>
+              <h3>Ventajas y áreas de oportunidad de la metodología del SEDLUZ desde la experiencia docente</h3>
+            </div>
+          </div>
+          <p>Un análisis crítico de la metodología propuesta por Ortega (2013) para el SEDLUZ permite identificar fortalezas significativas y áreas de oportunidad que pueden enriquecer su aplicación en otros contextos de educación a distancia universitaria.</p>
+          <p><strong>Ventajas principales:</strong></p>
+          <p><strong>1. Visión curricular integral:</strong> La inclusión de la fase de diagnóstico como punto de partida —antes del análisis instruccional propiamente dicho— es una fortaleza que distingue esta metodología. Garantiza que el DI no sea un proceso técnico aislado, sino coherente con el proyecto educativo institucional y el perfil profesional esperado.</p>
+          <p><strong>2. Equipo multidisciplinario explícito:</strong> La definición explícita de los roles y perfiles de cada miembro del equipo instruccional en la fase de diseño y producción es un aporte práctico valioso: facilador, diseñador instruccional, diseñador gráfico, audiovisual, programador, administrador LMS, especialista en contenido y corrector de estilo. Esto convierte a la metodología en una herramienta de gestión de proyectos, no solo de diseño pedagógico.</p>
+          <p><strong>3. Evaluación transversal:</strong> El principio de evaluación continua en cada fase —y no solo al final del proceso— es coherente con las mejores prácticas del DI moderno y con el constructivismo que la institución declara como paradigma educativo.</p>
+          <p><strong>Áreas de oportunidad:</strong></p>
+          <p><strong>1. Falta de agilidad para contextos cambiantes:</strong> La metodología es exhaustiva pero potencialmente lenta para responder a cambios tecnológicos rápidos o necesidades emergentes. Sería conveniente incorporar elementos de metodologías ágiles (como Scrum o Rapid Prototyping) en las fases de diseño-producción.</p>
+          <p><strong>2. Escasa atención explícita a la diversidad del aprendiz:</strong> La metodología no detalla cómo el DI debe responder a las diferencias en estilos de aprendizaje, niveles tecnológicos o necesidades especiales de los participantes dentro de un mismo curso a distancia.</p>
+          <p><strong>3. Lineamientos operativos de infraestructura:</strong> Si bien los lineamientos operativos son valiosos, su énfasis en infraestructura tecnológica (servidores, seguridad, software) refleja las preocupaciones del año 2013 y hoy requieren actualización para incluir computación en la nube, accesibilidad universal y aprendizaje desde dispositivos móviles.</p>
+          <div class="pbox">
+            <p class="pbl">Balance: ventajas vs. áreas de oportunidad</p>
+            <ul>
+              <li>✅ Visión curricular integral con fase de diagnóstico propia</li>
+              <li>✅ Equipo multidisciplinario con roles definidos por fase</li>
+              <li>✅ Evaluación continua y transversal en todo el proceso</li>
+              <li>✅ Articulación explícita entre competencias, DI y plataforma virtual</li>
+              <li>⚠️ Necesita incorporar enfoques ágiles para mayor flexibilidad</li>
+              <li>⚠️ Débil atención a diversidad del aprendiz en línea</li>
+              <li>⚠️ Lineamientos de infraestructura requieren actualización (cloud, mobile)</li>
+              <li>⚠️ Actividades de autorregulación no contempladas explícitamente</li>
+            </ul>
+          </div>
+        </article>
+
+      </div><!-- /blog-posts -->
+
+      <aside class="bside">
+        <div class="bw">
+          <div class="bwt">Contexto del estudio</div>
+          <div class="bitem"><div class="bii">🏛️</div><div class="bit"><h5>SEDLUZ · Universidad del Zulia</h5><p>Sistema de Educación a Distancia, Maracaibo, Venezuela</p></div></div>
+          <div class="bitem"><div class="bii">📅</div><div class="bit"><h5>Publicación</h5><p>Enl@ce: Revista Venezolana de Información, T&C · Vol. 10, Núm. 3, 2013</p></div></div>
+          <div class="bitem"><div class="bii">🔬</div><div class="bit"><h5>Metodología</h5><p>Investigación no experimental-transeccional descriptiva con modalidad de campo</p></div></div>
+          <div class="bitem"><div class="bii">🎯</div><div class="bit"><h5>Objetivo</h5><p>Diseñar una metodología adaptada a nuevas tendencias para elaborar DI en la plataforma EaD</p></div></div>
+        </div>
+
+        <div class="bw">
+          <div class="bwt">5 fases de la metodología</div>
+          <div class="bitem"><div class="bii">1</div><div class="bit"><h5>Diagnóstico</h5><p>Perfil de egreso · Marco curricular</p></div></div>
+          <div class="bitem"><div class="bii">2</div><div class="bit"><h5>Análisis</h5><p>Tipología del usuario · Guión instruccional</p></div></div>
+          <div class="bitem"><div class="bii">3</div><div class="bit"><h5>Diseño y Producción</h5><p>Curricular + comunicacional + técnico</p></div></div>
+          <div class="bitem"><div class="bii">4</div><div class="bit"><h5>Implementación</h5><p>Montaje LMS · Inducción · Pruebas</p></div></div>
+          <div class="bitem"><div class="bii">5</div><div class="bit"><h5>Evaluación continua</h5><p>Formativa en cada fase · Reportes</p></div></div>
+        </div>
+
+        <div class="verdict">
+          <p class="vl">Veredicto del análisis</p>
+          <div class="vt">Metodología integral para EaD universitaria</div>
+          <p>La metodología SEDLUZ representa una evolución significativa del ADDIE para contextos universitarios a distancia: agrega el diagnóstico curricular, define equipos multidisciplinarios y transversaliza la evaluación. Sus áreas de oportunidad apuntan a la agilidad y la diversidad del aprendiz en línea.</p>
+        </div>
+      </aside>
+    </div><!-- /blog-layout -->
+  </div>
+</section>
+
+
+<!-- ██ REFERENCIAS ██ -->
+<section id="referencias">
+  <div class="wrap">
+    <div class="eyebrow">APA 7.ª Edición</div>
+    <h2 class="sh">Referencias bibliográficas</h2>
+    <p class="slead">Fuentes académicas que fundamentan el Tema 5: Diseño Instruccional y Educación a Distancia II.</p>
+    <div class="refs-grid">
+      <div class="ref">
+        <strong>Ortega, E.</strong> (2013). Metodología para la elaboración de diseños instruccionales del Sistema de Educación a Distancia: caso Universidad del Zulia. <em>Enl@ce: Revista Venezolana de Información, Tecnología y Conocimiento, 10</em>(3), 45–60. <a href="http://www.redalyc.org/articulo.oa?id=82329477004" target="_blank">http://www.redalyc.org/articulo.oa?id=82329477004</a>
+      </div>
+      <div class="ref">
+        <strong>Díaz, F.</strong> (2005). Principios de diseño instruccional de entornos de aprendizaje apoyados con TIC: un marco de referencia sociocultural y situado. <em>Tecnología y Comunicación Educativas, 19</em>(41). <a href="http://investigacion.ilce.edu.mx/tyce/41/art1.pdf" target="_blank">http://investigacion.ilce.edu.mx/tyce/41/art1.pdf</a>
+      </div>
+      <div class="ref">
+        <strong>Londoño, E.</strong> (2011). El diseño instruccional en la educación virtual: más allá de la presentación de contenidos. <em>Revista Educación y Desarrollo Social, 5</em>(2), 112–127. <a href="http://www.umng.edu.co/documents/63968/70434/etb_articulo8.pdf" target="_blank">http://www.umng.edu.co/documents/63968/70434/etb_articulo8.pdf</a>
+      </div>
+      <div class="ref">
+        <strong>Badia, A., & García, C.</strong> (2006). Incorporación de las TIC en la enseñanza y el aprendizaje basados en la elaboración colaborativa de proyectos. <em>Revista de Universidad y Sociedad del Conocimiento, 3</em>(2), 42–54. <a href="http://www.uoc.edu/rusc/3/2/dt/esp/badia_garcia.pdf" target="_blank">http://www.uoc.edu/rusc/3/2/dt/esp/badia_garcia.pdf</a>
+      </div>
+      <div class="ref">
+        <strong>Martínez, A.</strong> (2009). El diseño instruccional en la educación a distancia. Un acercamiento a los modelos. <em>Apertura, 9</em>(10). <a href="http://www.redalyc.org/articulo.oa?id=68812679010" target="_blank">http://www.redalyc.org/articulo.oa?id=68812679010</a>
+      </div>
+      <div class="ref">
+        <strong>Correa, A., & Castro, S.</strong> (2001). Marco conceptual para la discusión sobre el modelo de diseño instruccional en educación a distancia. <em>Revista científica electrónica de Educación y Comunicación, 12</em>(I). <a href="http://dialnet.unirioja.es/descarga/articulo/3973036.pdf" target="_blank">http://dialnet.unirioja.es/descarga/articulo/3973036.pdf</a>
+      </div>
+      <div class="ref">
+        <strong>Domínguez Pérez, C., Organista Sandoval, J., & López Ornelas, M.</strong> (2018). Diseño instruccional para el desarrollo de contenidos educativos digitales para teléfonos inteligentes. <em>Apertura, 10</em>(2), 80–93. <a href="https://doi.org/10.18381/Ap.v10n2.1346" target="_blank">https://doi.org/10.18381/Ap.v10n2.1346</a>
+      </div>
+      <div class="ref">
+        <strong>Polo, M.</strong> (2010). ¿Nuevas generaciones de diseños instruccionales? ¿Cuánto es lo nuevo? <em>II Encuentro de Docentes Aprendizaje y Tecnología: Hacia un aprendizaje X.0.</em> <a href="http://es.scribd.com/doc/41335542/Nuevas-Generaciones-de-DI-MARINA-POLO" target="_blank">http://es.scribd.com/doc/41335542</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ FOOTER ██ -->
+<footer>
+  <p><strong>UTEL Universidad</strong> · Diseño de Programas de Enseñanza · Tema 5: DI y Educación a Distancia II</p>
+  <p class="ftsub"><a href="https://utel.edu.mx">utel.edu.mx</a> · Recurso educativo para nivel posgrado · Compatible con GitHub Pages</p>
+</footer>
+
+
+<!-- ██ JS ██ -->
+<script>
+/* ── Tabs SEDLUZ ── */
+function showPhase(id, btn) {
+  document.querySelectorAll('.mpanel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.mtab').forEach(b => b.classList.remove('active'));
+  document.getElementById('phase-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ── Scroll reveal posts ── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('vis'), i * 100);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.post').forEach(el => io.observe(el));
+
+/* ── Stagger comp-cards ── */
+const io2 = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }, i * 90);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.comp-card, .pillar, .tic-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity .45s ease, transform .45s ease';
+  io2.observe(el);
+});
+</script>
+</body>
+</html>
